@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-reels-app
+    container_name: ai_reels_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      # Here you will keep your raw movies and subtitle files
+      - ./movies_dataset:/var/www/storage/app/movies 
+    networks:
+      - ai-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: ai_reels_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ai_reels_db
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - ai-network
+    ports:
+      - "3306:3306"
+
+networks:
+  ai-network:
+    driver: bridge
+
+volumes:
+  dbdata:

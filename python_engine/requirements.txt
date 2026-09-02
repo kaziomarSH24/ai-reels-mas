@@ -1,0 +1,11 @@
+moviepy
+Pillow
+pysrt
+requests
+scikit-learn
+pandas
+torch
+transformers
+sentencepiece
+protobuf
+

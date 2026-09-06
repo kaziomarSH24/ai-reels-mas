@@ -18,6 +18,38 @@ services:
     depends_on:
       - db
 
+  nginx:
+    image: nginx:alpine
+    container_name: ai_reels_nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - .:/var/www
+    networks:
+      - ai-network
+    depends_on:
+      - app
+
+  ai_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-reels-app
+    container_name: ai_reels_python_api
+    restart: unless-stopped
+    working_dir: /var/www/python_engine
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/var/www
+    networks:
+      - ai-network
+    depends_on:
+      - db
+
   db:
     image: mysql:8.0
     container_name: ai_reels_db

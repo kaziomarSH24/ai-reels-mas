@@ -21,8 +21,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Python packages for Video Processing, Subtitles & AI Translation
-# We use --break-system-packages because in Docker it's safe to install globally
-RUN pip3 install --break-system-packages moviepy Pillow pysrt requests scikit-learn pandas torch transformers sentencepiece protobuf
+# We use CPU-only PyTorch to avoid massive 3GB NVIDIA CUDA downloads in Docker
+RUN pip3 install --break-system-packages torch --index-url https://download.pytorch.org/whl/cpu
+RUN pip3 install --break-system-packages moviepy Pillow pysrt requests scikit-learn pandas transformers sentencepiece protobuf fastapi uvicorn pydantic yt-dlp
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

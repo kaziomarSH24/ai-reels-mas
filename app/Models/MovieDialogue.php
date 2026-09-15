@@ -6,14 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MovieDialogue extends Model
 {
-    protected $fillable = [
-        'movie_id',
-        'start_time',
-        'end_time',
-        'dialogue_text',
-        'emotion',
-        'cefr_level',
-    ];
+    protected $guarded = [];
 
     public function movie()
     {

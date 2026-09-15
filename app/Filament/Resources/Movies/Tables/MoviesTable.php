@@ -17,15 +17,12 @@ class MoviesTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                TextColumn::make('genre')
-                    ->searchable(),
-                TextColumn::make('imdb_rating')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('source_url')
+                TextColumn::make('youtube_url')
                     ->searchable(),
                 IconColumn::make('is_processed')
                     ->boolean(),
+                TextColumn::make('thumbnail_url')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

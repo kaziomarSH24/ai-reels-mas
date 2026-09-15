@@ -62,7 +62,7 @@ services:
     networks:
       - ai-network
     ports:
-      - "3306:3306"
+      - "3307:3306"
 
 networks:
   ai-network:

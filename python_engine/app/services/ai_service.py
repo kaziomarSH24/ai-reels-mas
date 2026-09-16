@@ -112,8 +112,9 @@ class AIService:
         
         return {
             "emotion": emotion_result['label'].upper(),
-            "confidence": round(emotion_result['score'] * 100, 2),
+            "emotion_confidence": round(emotion_result['score'] * 100, 2),
             "cefr_level": cefr_result['label'].upper(),
+            "cefr_confidence": round(cefr_result['score'] * 100, 2),
             "translation": translation_result
         }
 

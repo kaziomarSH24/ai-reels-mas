@@ -62,22 +62,14 @@ def analyze_video(request: AnalyzeVideoRequest):
         accepted = []
         rejected = []
         
-        # Analyze each line, filter for B2/C1
-        # For a full movie this takes time, but for short clips (3-4 mins) it's fine.
         for item in dialogues:
             text = item['text']
             
-            # Use CEFR model
-            cefr_res = ai_agent.cefr_classifier(text)[0]
-            level = cefr_res['label'].upper()
-            confidence = round(cefr_res['score'] * 100, 2)
+            # Run full analysis for ALL sentences as requested
+            full_analysis = ai_agent.analyze_dialogue(text)
+            level = full_analysis['cefr_level']
             
             if level in ['B2', 'C1', 'C2']:
-                # Accepted - run full analysis (emotion, translation)
-                full_analysis = ai_agent.analyze_dialogue(text)
-                # Ensure confidence is included
-                full_analysis['cefr_confidence'] = confidence
-                
                 accepted.append({
                     "start_time": item['start_time'],
                     "end_time": item['end_time'],
@@ -85,13 +77,11 @@ def analyze_video(request: AnalyzeVideoRequest):
                     "analysis": full_analysis
                 })
             else:
-                # Rejected (Easy English)
                 rejected.append({
                     "start_time": item['start_time'],
                     "end_time": item['end_time'],
                     "text": text,
-                    "cefr_level": level,
-                    "reason": f"Level {level} is too easy (Confidence: {confidence}%)"
+                    "analysis": full_analysis
                 })
                     
         stats = {

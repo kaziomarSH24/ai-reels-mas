@@ -120,6 +120,7 @@ class AiStudio extends Page implements HasForms, HasTable
                         'LOVE' => 'pink',
                         default => 'gray',
                     })
+                    ->description(fn (MovieDialogue $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
                     ->placeholder('Analyzing...'),
                 TextColumn::make('translated_text')
                     ->label('Bangla Translation')
@@ -128,10 +129,22 @@ class AiStudio extends Page implements HasForms, HasTable
                 TextColumn::make('cefr_level')
                     ->label('Difficulty')
                     ->badge()
+                    ->description(fn (MovieDialogue $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
                     ->placeholder('Analyzing...'),
             ])
             ->paginated([5, 10, 25, 50, 'all'])
             ->defaultPaginationPageOption(10);
+    }
+
+    public function getTabs(): array
+    {
+        return [
+            'all' => \Filament\Tables\Components\Tab::make('All Dialogues'),
+            'accepted' => \Filament\Tables\Components\Tab::make('Accepted (B2-C2)')
+                ->modifyQueryUsing(fn ($query) => $query->whereIn('cefr_level', ['B2', 'C1', 'C2'])),
+            'rejected' => \Filament\Tables\Components\Tab::make('Rejected (A1-B1)')
+                ->modifyQueryUsing(fn ($query) => $query->whereNotIn('cefr_level', ['B2', 'C1', 'C2'])),
+        ];
     }
 
     public function analyzeVideo()
@@ -165,7 +178,7 @@ class AiStudio extends Page implements HasForms, HasTable
             }
         }
 
-        Notification::make()->title('AI Extraction Started')->body('Fetching subtitles and running CEFR Filter (This may take a minute)...')->info()->send();
+        Notification::make()->title('AI Extraction Started')->body('Fetching subtitles and running full AI Analysis (This will take a few minutes)...')->info()->send();
 
         try {
             // Increased timeout because Python is now processing everything
@@ -199,7 +212,9 @@ class AiStudio extends Page implements HasForms, HasTable
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
                         'emotion' => $dialogue['analysis']['emotion'] ?? null,
+                        'emotion_confidence' => $dialogue['analysis']['emotion_confidence'] ?? null,
                         'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
+                        'cefr_confidence' => $dialogue['analysis']['cefr_confidence'] ?? null,
                         'translated_text' => $dialogue['analysis']['translation'] ?? null,
                         'created_at' => now(),
                         'updated_at' => now(),
@@ -213,9 +228,11 @@ class AiStudio extends Page implements HasForms, HasTable
                         'start_time' => $dialogue['start_time'],
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
-                        'emotion' => 'SKIPPED (Easy)',
-                        'cefr_level' => $dialogue['cefr_level'] ?? null,
-                        'translated_text' => 'Discarded by AI Filter',
+                        'emotion' => $dialogue['analysis']['emotion'] ?? null,
+                        'emotion_confidence' => $dialogue['analysis']['emotion_confidence'] ?? null,
+                        'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
+                        'cefr_confidence' => $dialogue['analysis']['cefr_confidence'] ?? null,
+                        'translated_text' => $dialogue['analysis']['translation'] ?? null,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];

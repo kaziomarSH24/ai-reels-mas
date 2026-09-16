@@ -72,7 +72,7 @@ class AIService:
             "generationConfig": {"temperature": 0.3}
         }
         
-        response = requests.post(url, json=payload, timeout=5)
+        response = requests.post(url, json=payload, timeout=15)
         response.raise_for_status()
         data = response.json()
         return data['candidates'][0]['content']['parts'][0]['text'].strip()

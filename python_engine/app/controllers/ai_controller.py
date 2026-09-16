@@ -34,12 +34,18 @@ def analyze_batch(request: BatchDialogueRequest):
         return ApiResponse.response_error(message="Text list cannot be empty", status_code=400)
         
     try:
+        valid_texts = [t for t in request.texts if t.strip()]
+        
+        batch_results = []
+        if valid_texts:
+            batch_results = ai_agent.batch_analyze_dialogues(valid_texts)
+            
         results = []
+        valid_idx = 0
         for text in request.texts:
             if text.strip():
-                # For thesis performance, we process one by one in the batch
-                res = ai_agent.analyze_dialogue(text)
-                results.append({"text": text, "analysis": res})
+                results.append({"text": text, "analysis": batch_results[valid_idx]})
+                valid_idx += 1
             else:
                 results.append({"text": text, "analysis": None})
                 
@@ -62,25 +68,28 @@ def analyze_video(request: AnalyzeVideoRequest):
         accepted = []
         rejected = []
         
-        for item in dialogues:
-            text = item['text']
-            
-            # Run full analysis for ALL sentences as requested
-            full_analysis = ai_agent.analyze_dialogue(text)
+        # Extract all texts
+        texts = [item['text'] for item in dialogues]
+        
+        # Run BATCH analysis on all texts at once
+        batch_results = ai_agent.batch_analyze_dialogues(texts)
+        
+        for i, item in enumerate(dialogues):
+            full_analysis = batch_results[i]
             level = full_analysis['cefr_level']
             
             if level in ['B2', 'C1', 'C2']:
                 accepted.append({
                     "start_time": item['start_time'],
                     "end_time": item['end_time'],
-                    "text": text,
+                    "text": item['text'],
                     "analysis": full_analysis
                 })
             else:
                 rejected.append({
                     "start_time": item['start_time'],
                     "end_time": item['end_time'],
-                    "text": text,
+                    "text": item['text'],
                     "analysis": full_analysis
                 })
                     

@@ -78,60 +78,91 @@ class AIService:
         return data['candidates'][0]['content']['parts'][0]['text'].strip()
 
     def analyze_dialogue(self, text: str):
-        """
-        Executes Emotion, CEFR, and Translation models concurrently on the input text.
-        Returns a standardized dictionary containing the analysis payload.
-        """
-        # Analyze Emotion
-        emotion_result = self.emotion_classifier(text)[0]
-        emotion_conf = round(emotion_result['score'] * 100, 2)
+        pass # Not used in batch mode anymore
 
-        # Analyze CEFR Difficulty
-        cefr_result = self.cefr_classifier(text)[0]
-        cefr_lvl = cefr_result['label'].upper()
-        cefr_conf = round(cefr_result['score'] * 100, 2)
+    def batch_analyze_dialogues(self, texts: list[str]):
+        """
+        Takes a list of texts and processes them all at once.
+        Runs Emotion and CEFR locally.
+        Sends ALL texts to Gemini in ONE single JSON prompt to bypass rate limits and save time.
+        """
+        import json
         
-        translation_result = ""
+        results = []
+        
+        # 1. Run Local Models (Emotion & CEFR) - Fast on CPU
+        print(f"[AIService] Running Local AI for {len(texts)} dialogues...")
+        for text in texts:
+            emotion_res = self.emotion_classifier(text)[0]
+            cefr_res = self.cefr_classifier(text)[0]
+            
+            results.append({
+                "text": text,
+                "emotion": emotion_res['label'].upper(),
+                "emotion_confidence": round(emotion_res['score'] * 100, 2),
+                "cefr_level": cefr_res['label'].upper(),
+                "cefr_confidence": round(cefr_res['score'] * 100, 2),
+                "translation": "" # Will fill in next step
+            })
+            
+        # 2. Batch Translate with Gemini
+        print("[AIService] Sending BATCH translation request to Gemini...")
+        api_key = os.environ.get("GEMINI_API_KEY")
         success = False
         
-        # SMART OPTIMIZATION: Only use Gemini for Hard (B2, C1, C2) sentences.
-        # This prevents 429 Too Many Requests errors (15 RPM limit) for 10-minute videos.
-        if cefr_lvl in ['B2', 'C1', 'C2']:
+        if api_key:
+            prompt = (
+                "You are an expert English to Bengali translator. "
+                "I will give you a JSON array of English movie dialogues. "
+                "Translate each dialogue into casual, natural Bengali. "
+                "Return ONLY a valid JSON array of strings containing the Bengali translations, in the EXACT same order. "
+                f"Dialogues: {json.dumps(texts)}"
+            )
+            
+            payload = {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0.1} # Low temp for JSON stability
+            }
+            
+            import requests
             gemini_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
             for model in gemini_models:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
                 try:
-                    translation_result = self._translate_with_gemini(text, model)
-                    success = True
-                    print(f"[AIService] Successfully translated using {model}")
-                    break
-                except Exception as e:
-                    error_msg = str(e)
-                    print(f"[AIService] {model} failed: {error_msg}")
-                    # If quota exceeded, no point trying other Gemini models
-                    if "429" in error_msg or "Too Many Requests" in error_msg:
-                        print("[AIService] Gemini Quota Exceeded (429). Bypassing remaining Gemini models.")
+                    response = requests.post(url, json=payload, timeout=45) # 45s timeout for large batches
+                    response.raise_for_status()
+                    data = response.json()
+                    
+                    raw_text = data['candidates'][0]['content']['parts'][0]['text']
+                    
+                    # Clean markdown code blocks if present
+                    if raw_text.startswith("```json"):
+                        raw_text = raw_text.strip("```json").strip("```").strip()
+                    elif raw_text.startswith("```"):
+                        raw_text = raw_text.strip("```").strip()
+                        
+                    translations = json.loads(raw_text)
+                    
+                    if len(translations) == len(texts):
+                        for i in range(len(texts)):
+                            results[i]['translation'] = translations[i]
+                        success = True
+                        print(f"[AIService] Successfully batch translated {len(texts)} items using {model}")
                         break
-                    import time
-                    time.sleep(0.5)
-                
-        # Fallback to Local BanglaT5 for Easy sentences (A1, A2, B1) or if Gemini failed
+                    else:
+                        print(f"[AIService] Gemini returned wrong number of translations ({len(translations)} vs {len(texts)})")
+                except Exception as e:
+                    print(f"[AIService] Batch Gemini failed with {model}: {str(e)}")
+                    
+        # 3. Fallback to Local BanglaT5 if Gemini completely fails
         if not success:
-            if cefr_lvl not in ['B2', 'C1', 'C2']:
-                pass # Expected behavior for easy sentences
-            else:
-                print("[AIService] Gemini failed for hard sentence. Falling back to local BanglaT5 model.")
-            
-            inputs = self.translation_tokenizer(text, return_tensors="pt")
-            generated_tokens = self.translation_model.generate(**inputs, max_length=100)
-            translation_result = self.translation_tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
-        
-        return {
-            "emotion": emotion_result['label'].upper(),
-            "emotion_confidence": emotion_conf,
-            "cefr_level": cefr_lvl,
-            "cefr_confidence": cefr_conf,
-            "translation": translation_result
-        }
+            print("[AIService] Gemini Batch Failed! Falling back to slow Local BanglaT5...")
+            for i, text in enumerate(texts):
+                inputs = self.translation_tokenizer(text, return_tensors="pt")
+                generated_tokens = self.translation_model.generate(**inputs, max_length=100)
+                results[i]['translation'] = self.translation_tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
+                
+        return results
 
 # Global singleton instance for the FastAPI application
 ai_agent = AIService()

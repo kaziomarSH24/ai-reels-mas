@@ -90,8 +90,8 @@ class SubtitleService:
                 if len(clean_text) < 2 or (clean_text.startswith('[') and clean_text.endswith(']')):
                     continue
 
-                # If there's a long pause (> 1.5s), force a break
-                if current_end is not None and (start - current_end) > 1.5:
+                # If there's a pause (> 0.8s), force a break as it indicates a new thought
+                if current_end is not None and (start - current_end) > 0.8:
                     if current_text:
                         aggregated_dialogues.append({
                             "start_time": self.format_time(current_start),
@@ -111,10 +111,10 @@ class SubtitleService:
                     current_text = clean_text
                     
                 current_end = end
-                word_count = len(current_text.split())
                 
-                # Break if it ends with punctuation, OR if it's auto-generated and reaches a healthy sentence length (~8-12 words)
-                if end_punctuations.search(clean_text) or word_count >= 10:
+                # Break if it ends with punctuation, OR if the continuous speech exceeds 15 seconds
+                chunk_duration = current_end - current_start
+                if end_punctuations.search(clean_text) or chunk_duration >= 15.0:
                     aggregated_dialogues.append({
                         "start_time": self.format_time(current_start),
                         "end_time": self.format_time(current_end),
@@ -123,7 +123,6 @@ class SubtitleService:
                     current_text = ""
                     current_start = None
                     current_end = None
-                    word_count = 0
 
             if current_text:
                 aggregated_dialogues.append({

@@ -159,40 +159,44 @@ class AiStudio extends Page implements HasForms, HasTable
                 $this->analyzerForm->fill();
                 return;
             } else {
-                // If it was stuck in processing, let's delete the old data and start fresh
                 $existingMovie->delete();
             }
         }
 
-        Notification::make()->title('Extraction Started')->body('Fetching subtitles from YouTube...')->info()->send();
+        Notification::make()->title('AI Extraction Started')->body('Fetching subtitles and running CEFR Filter (This may take a minute)...')->info()->send();
 
         try {
-            $response = Http::timeout(60)->post('http://ai_api:8001/api/analyze_video', [
+            // Increased timeout because Python is now processing everything
+            $response = Http::timeout(300)->post('http://ai_api:8001/api/analyze_video', [
                 'youtube_url' => $url
             ]);
 
             if ($response->successful()) {
                 $data = $response->json();
-                $dialogues = $data['data']['dialogues'] ?? [];
+                $accepted = $data['data']['accepted'] ?? [];
+                $stats = $data['data']['stats'] ?? [];
 
-                if (count($dialogues) === 0) {
-                    Notification::make()->title('No English subtitles found for this video')->danger()->send();
+                if (count($accepted) === 0) {
+                    Notification::make()->title('No advanced B2/C1 vocabulary found')->warning()->send();
                     return;
                 }
 
                 $movie = Movie::create([
                     'title' => 'YouTube Video ' . uniqid(),
                     'youtube_url' => $url,
-                    'is_processed' => false,
+                    'is_processed' => true,
                 ]);
 
                 $insertData = [];
-                foreach ($dialogues as $dialogue) {
+                foreach ($accepted as $dialogue) {
                     $insertData[] = [
                         'movie_id' => $movie->id,
                         'start_time' => $dialogue['start_time'],
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
+                        'emotion' => $dialogue['analysis']['emotion'] ?? null,
+                        'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
+                        'translated_text' => $dialogue['analysis']['translation'] ?? null,
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];
@@ -202,23 +206,18 @@ class AiStudio extends Page implements HasForms, HasTable
                     MovieDialogue::insert($chunk);
                 }
 
-                // Initialize Progress State
                 $this->currentMovieId = $movie->id;
-                $this->totalDialogues = count($dialogues);
-                $this->processedDialogues = 0;
-                $this->progressPercentage = 0;
-                $this->isProcessing = true;
-
-                Notification::make()
-                    ->title('Extraction Complete')
-                    ->body('Extracted ' . $this->totalDialogues . ' lines. Starting AI Analysis...')
-                    ->success()
-                    ->send();
-                    
+                $this->isProcessing = false;
+                $this->progressPercentage = 100;
                 $this->analyzerForm->fill(); // Clear input
                 
-                // Trigger the background processing loop
-                $this->dispatch('processNextBatch');
+                // Show impressive stats to the Sirs
+                Notification::make()
+                    ->title('AI Analysis Complete! 🎯')
+                    ->body("Scanned: {$stats['total_scanned']} lines. Rejected (Easy): {$stats['rejected_count']}. Saved (Advanced): {$stats['accepted_count']}.")
+                    ->success()
+                    ->duration(10000)
+                    ->send();
 
             } else {
                 $errorData = $response->json();
@@ -226,82 +225,8 @@ class AiStudio extends Page implements HasForms, HasTable
                 Notification::make()->title('API Error')->body($error)->danger()->send();
             }
         } catch (\Exception $e) {
-            Log::error('Python API Error: ' . $e->getMessage());
+            \Illuminate\Support\Facades\Log::error('Python API Error: ' . $e->getMessage());
             Notification::make()->title('System Error')->body('Failed to connect to AI Engine.')->danger()->send();
         }
     }
-
-    #[On('processNextBatch')]
-    public function processNextBatch()
-    {
-        if (!$this->isProcessing || !$this->currentMovieId) {
-            return;
-        }
-
-        // Get next 5 unprocessed dialogues
-        $pendingDialogues = MovieDialogue::where('movie_id', $this->currentMovieId)
-            ->whereNull('emotion')
-            ->orderBy('id', 'asc')
-            ->limit(5)
-            ->get();
-
-        if ($pendingDialogues->isEmpty()) {
-            // Processing is complete!
-            $this->isProcessing = false;
-            $this->progressPercentage = 100;
-            Movie::where('id', $this->currentMovieId)->update(['is_processed' => true]);
-            
-            Notification::make()
-                ->title('AI Analysis Complete! 🎉')
-                ->body('All dialogues have been processed successfully.')
-                ->success()
-                ->send();
-            return;
-        }
-
-        // Prepare batch request for Python
-        $textsToAnalyze = $pendingDialogues->pluck('text')->toArray();
-
-        try {
-            $response = Http::timeout(30)->post('http://ai_api:8001/api/analyze_batch', [
-                'texts' => $textsToAnalyze
-            ]);
-
-            if ($response->successful()) {
-                $results = $response->json()['data']['results'] ?? [];
-
-                // Update DB with results
-                foreach ($pendingDialogues as $index => $dialogue) {
-                    $analysis = $results[$index]['analysis'] ?? null;
-                    if ($analysis) {
-                        $dialogue->update([
-                            'emotion' => $analysis['emotion'] ?? null,
-                            'cefr_level' => $analysis['cefr_level'] ?? null,
-                            'translated_text' => $analysis['translation'] ?? null,
-                        ]);
-                    } else {
-                        // Mark as processed even if AI failed so it doesn't loop forever
-                        $dialogue->update(['emotion' => 'UNKNOWN']); 
-                    }
-                }
-
-                // Update progress
-                $this->processedDialogues = MovieDialogue::where('movie_id', $this->currentMovieId)
-                    ->whereNotNull('emotion')
-                    ->count();
-                
-                $this->progressPercentage = min(100, round(($this->processedDialogues / $this->totalDialogues) * 100));
-
-                // Dispatch the event to process the next batch (creates a loop)
-                $this->dispatch('processNextBatch');
-            } else {
-                Log::error('Batch Analysis API Error: ' . $response->body());
-                $this->isProcessing = false; // Stop loop on error
-            }
-        } catch (\Exception $e) {
-            Log::error('Batch Analysis Exception: ' . $e->getMessage());
-            $this->isProcessing = false; // Stop loop on error
-        }
-    }
-
 }

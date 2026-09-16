@@ -13,13 +13,14 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-venv \
-    libicu-dev
+    libicu-dev \
+    libzip-dev
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl zip
 
 # Install Python packages for Video Processing, Subtitles & AI Translation
 # We use CPU-only PyTorch to avoid massive 3GB NVIDIA CUDA downloads in Docker

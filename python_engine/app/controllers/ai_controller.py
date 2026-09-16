@@ -53,20 +53,54 @@ class AnalyzeVideoRequest(BaseModel):
 @router.post("/analyze_video")
 def analyze_video(request: AnalyzeVideoRequest):
     from app.services.subtitle_service import SubtitleService
+    from app.services.ai_service import ai_agent
     
     try:
         sub_service = SubtitleService()
         dialogues = sub_service.fetch_and_parse(request.youtube_url)
         
-        # We don't want to run heavy NLP on 1000 lines instantly (takes too long).
-        # We will return the dialogues to Laravel, and Laravel can request analysis 
-        # on specific lines or store them all.
-        # Alternatively, we can just process a random sample or run CEFR to filter.
-        # For performance, let's just return the extracted data.
+        accepted = []
+        rejected = []
+        
+        # Analyze each line, filter for B2/C1
+        # For a full movie this takes time, but for short clips (3-4 mins) it's fine.
+        for item in dialogues:
+            text = item['text']
+            
+            # Use CEFR model
+            cefr_res = ai_agent.cefr_classifier(text)[0]
+            level = cefr_res['label'].upper()
+            confidence = round(cefr_res['score'] * 100, 2)
+            
+            if level in ['B2', 'C1', 'C2']:
+                # Accepted - run full analysis (emotion, translation)
+                full_analysis = ai_agent.analyze_dialogue(text)
+                # Ensure confidence is included
+                full_analysis['cefr_confidence'] = confidence
+                
+                accepted.append({
+                    "start_time": item['start_time'],
+                    "end_time": item['end_time'],
+                    "text": text,
+                    "analysis": full_analysis
+                })
+            else:
+                # Rejected
+                if len(rejected) < 20: # Keep sample of 20
+                    rejected.append({
+                        "text": text,
+                        "reason": f"Level {level} is too easy (Confidence: {confidence}%)"
+                    })
+                    
+        stats = {
+            "total_scanned": len(dialogues),
+            "accepted_count": len(accepted),
+            "rejected_count": len(dialogues) - len(accepted)
+        }
         
         return ApiResponse.response_success(
-            message=f"Extracted {len(dialogues)} dialogues", 
-            data={"dialogues": dialogues}
+            message=f"Processed video. Found {len(accepted)} advanced dialogues.", 
+            data={"stats": stats, "accepted": accepted, "rejected_sample": rejected}
         )
     except Exception as e:
         return ApiResponse.response_error(message="Failed to process video", errors=str(e), status_code=500)

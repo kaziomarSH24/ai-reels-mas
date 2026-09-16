@@ -50,15 +50,21 @@ class VideoService:
             print(dl_process.stderr)
             raise Exception("Failed to download video section. It might be private or cookies expired.")
 
+        import textwrap
+        
         print(f"[VideoService] Processing and Cropping to 9:16 vertical with Subtitles...")
+        
+        # Fix: Wrap text so it doesn't go out of the screen (max 20 characters per line)
+        wrapped_eng = textwrap.fill(english_text.strip(), width=25)
+        wrapped_ben = textwrap.fill(bengali_text.strip(), width=25)
         
         # Write text to files to avoid FFmpeg escaping hell
         eng_txt_path = os.path.join(self.tmp_dir, f"eng_{output_filename}.txt")
         ben_txt_path = os.path.join(self.tmp_dir, f"ben_{output_filename}.txt")
         with open(eng_txt_path, "w", encoding="utf-8") as f:
-            f.write(english_text.strip())
+            f.write(wrapped_eng)
         with open(ben_txt_path, "w", encoding="utf-8") as f:
-            f.write(bengali_text.strip())
+            f.write(wrapped_ben)
 
         # FFmpeg command for Professional 9:16 cropping (Alex Hormozi style)
         # scale=-1:1920 (scales height to 1920, keeps aspect ratio for width)

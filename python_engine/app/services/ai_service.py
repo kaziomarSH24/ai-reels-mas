@@ -55,6 +55,26 @@ class AIService:
         )
         print("CEFR Difficulty Model Ready!")
 
+    def _translate_with_gemini(self, text: str, model_name: str) -> str:
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY not found in environment.")
+            
+        import requests
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+        
+        prompt = f"Translate the following English movie dialogue into casual, natural, and conversational Bengali. Provide ONLY the Bengali translation, nothing else. Dialogue: '{text}'"
+        
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0.3}
+        }
+        
+        response = requests.post(url, json=payload, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        return data['candidates'][0]['content']['parts'][0]['text'].strip()
+
     def analyze_dialogue(self, text: str):
         """
         Executes Emotion, CEFR, and Translation models concurrently on the input text.
@@ -66,10 +86,27 @@ class AIService:
         # Analyze CEFR Difficulty
         cefr_result = self.cefr_classifier(text)[0]
         
-        # Translate to Bangla
-        inputs = self.translation_tokenizer(text, return_tensors="pt")
-        generated_tokens = self.translation_model.generate(**inputs, max_length=100)
-        translation_result = self.translation_tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
+        # Translate to Bangla (Multi-Model Gemini API Fallback -> BanglaT5)
+        translation_result = ""
+        gemini_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
+        success = False
+        
+        for model in gemini_models:
+            try:
+                translation_result = self._translate_with_gemini(text, model)
+                success = True
+                print(f"[AIService] Successfully translated using {model}")
+                break
+            except Exception as e:
+                print(f"[AIService] {model} failed: {e}. Trying next model...")
+                import time
+                time.sleep(1)
+                
+        if not success:
+            print("[AIService] All Gemini models failed. Falling back to local BanglaT5 model.")
+            inputs = self.translation_tokenizer(text, return_tensors="pt")
+            generated_tokens = self.translation_model.generate(**inputs, max_length=100)
+            translation_result = self.translation_tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
         
         return {
             "emotion": emotion_result['label'].upper(),

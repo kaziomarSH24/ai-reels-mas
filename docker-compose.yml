@@ -33,9 +33,6 @@ services:
       - app
 
   ai_api:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: ai-reels-app
     container_name: ai_reels_python_api
     restart: unless-stopped

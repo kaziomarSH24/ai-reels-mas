@@ -85,22 +85,24 @@ def analyze_video(request: AnalyzeVideoRequest):
                     "analysis": full_analysis
                 })
             else:
-                # Rejected
-                if len(rejected) < 20: # Keep sample of 20
-                    rejected.append({
-                        "text": text,
-                        "reason": f"Level {level} is too easy (Confidence: {confidence}%)"
-                    })
+                # Rejected (Easy English)
+                rejected.append({
+                    "start_time": item['start_time'],
+                    "end_time": item['end_time'],
+                    "text": text,
+                    "cefr_level": level,
+                    "reason": f"Level {level} is too easy (Confidence: {confidence}%)"
+                })
                     
         stats = {
             "total_scanned": len(dialogues),
             "accepted_count": len(accepted),
-            "rejected_count": len(dialogues) - len(accepted)
+            "rejected_count": len(rejected)
         }
         
         return ApiResponse.response_success(
             message=f"Processed video. Found {len(accepted)} advanced dialogues.", 
-            data={"stats": stats, "accepted": accepted, "rejected_sample": rejected}
+            data={"stats": stats, "accepted": accepted, "rejected": rejected}
         )
     except Exception as e:
         return ApiResponse.response_error(message="Failed to process video", errors=str(e), status_code=500)

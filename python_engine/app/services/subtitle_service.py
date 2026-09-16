@@ -32,15 +32,28 @@ class SubtitleService:
     def fetch_and_parse(self, youtube_url: str) -> List[Dict]:
         """
         Uses youtube-transcript-api to fetch clean subtitles instantly.
-        Uses cookies.txt to bypass YouTube IP bans.
+        Uses local caching to bypass IP blocks for previously fetched videos.
         """
         video_id = self.extract_video_id(youtube_url)
         if not video_id:
             raise Exception("Invalid YouTube URL.")
 
+        # ==========================================
+        # SMART SOLUTION: Caching Mechanism
+        # ==========================================
+        import json
+        cache_dir = '/var/www/storage/app/transcripts'
+        os.makedirs(cache_dir, exist_ok=True)
+        cache_file = os.path.join(cache_dir, f"{video_id}.json")
+        
+        if os.path.exists(cache_file):
+            print(f"[SubtitleService] Cache HIT for {video_id}. Loading from local storage!")
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+                
+        print(f"[SubtitleService] Cache MISS. Fetching transcripts for video ID: {video_id} from YouTube...")
+
         try:
-            print(f"[SubtitleService] Fetching transcripts for video ID: {video_id}")
-            
             import http.cookiejar
             from requests import Session
             
@@ -72,11 +85,22 @@ class SubtitleService:
                 duration = item.duration
                 end = start + duration
                 
-                # Clean text (remove newlines from within the same subtitle block)
                 clean_text = re.sub(r'\s+', ' ', text).strip()
                 
                 if len(clean_text) < 2 or (clean_text.startswith('[') and clean_text.endswith(']')):
-                    continue # Skip sounds like [Music] or [Applause]
+                    continue
+
+                # If there's a long pause (> 1.5s), force a break
+                if current_end is not None and (start - current_end) > 1.5:
+                    if current_text:
+                        aggregated_dialogues.append({
+                            "start_time": self.format_time(current_start),
+                            "end_time": self.format_time(current_end),
+                            "text": current_text
+                        })
+                        current_text = ""
+                        current_start = None
+                        word_count = 0
 
                 if current_start is None:
                     current_start = start
@@ -89,7 +113,8 @@ class SubtitleService:
                 current_end = end
                 word_count = len(current_text.split())
                 
-                if end_punctuations.search(clean_text) or word_count >= 5:
+                # Break if it ends with punctuation, OR if it's auto-generated and reaches a healthy sentence length (~8-12 words)
+                if end_punctuations.search(clean_text) or word_count >= 10:
                     aggregated_dialogues.append({
                         "start_time": self.format_time(current_start),
                         "end_time": self.format_time(current_end),
@@ -108,6 +133,12 @@ class SubtitleService:
                 })
 
             print(f"[SubtitleService] Extracted {len(aggregated_dialogues)} clean dialogue segments.")
+            
+            # Save to Cache
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                json.dump(aggregated_dialogues, f, ensure_ascii=False, indent=4)
+            print(f"[SubtitleService] Saved transcript to cache: {cache_file}")
+            
             return aggregated_dialogues
 
         except Exception as e:

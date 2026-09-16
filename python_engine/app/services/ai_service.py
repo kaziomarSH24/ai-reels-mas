@@ -1,7 +1,9 @@
 import os
 import warnings
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
+from dotenv import load_dotenv
 
+load_dotenv('/var/www/.env')
 warnings.filterwarnings("ignore")
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 

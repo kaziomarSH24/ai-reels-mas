@@ -174,10 +174,11 @@ class AiStudio extends Page implements HasForms, HasTable
             if ($response->successful()) {
                 $data = $response->json();
                 $accepted = $data['data']['accepted'] ?? [];
+                $rejected = $data['data']['rejected'] ?? [];
                 $stats = $data['data']['stats'] ?? [];
 
-                if (count($accepted) === 0) {
-                    Notification::make()->title('No advanced B2/C1 vocabulary found')->warning()->send();
+                if (count($accepted) === 0 && count($rejected) === 0) {
+                    Notification::make()->title('No dialogues found')->warning()->send();
                     return;
                 }
 
@@ -188,6 +189,7 @@ class AiStudio extends Page implements HasForms, HasTable
                 ]);
 
                 $insertData = [];
+                // Save Accepted (B2, C1, C2)
                 foreach ($accepted as $dialogue) {
                     $insertData[] = [
                         'movie_id' => $movie->id,
@@ -197,6 +199,21 @@ class AiStudio extends Page implements HasForms, HasTable
                         'emotion' => $dialogue['analysis']['emotion'] ?? null,
                         'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
                         'translated_text' => $dialogue['analysis']['translation'] ?? null,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
+                }
+                
+                // Save Rejected (A1, A2, B1) so the Sir can see them
+                foreach ($rejected as $dialogue) {
+                    $insertData[] = [
+                        'movie_id' => $movie->id,
+                        'start_time' => $dialogue['start_time'],
+                        'end_time' => $dialogue['end_time'],
+                        'text' => $dialogue['text'],
+                        'emotion' => 'SKIPPED (Easy)',
+                        'cefr_level' => $dialogue['cefr_level'] ?? null,
+                        'translated_text' => 'Discarded by AI Filter',
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];

@@ -84,37 +84,52 @@ class AIService:
         """
         # Analyze Emotion
         emotion_result = self.emotion_classifier(text)[0]
+        emotion_conf = round(emotion_result['score'] * 100, 2)
 
         # Analyze CEFR Difficulty
         cefr_result = self.cefr_classifier(text)[0]
+        cefr_lvl = cefr_result['label'].upper()
+        cefr_conf = round(cefr_result['score'] * 100, 2)
         
-        # Translate to Bangla (Multi-Model Gemini API Fallback -> BanglaT5)
         translation_result = ""
-        gemini_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
         success = False
         
-        for model in gemini_models:
-            try:
-                translation_result = self._translate_with_gemini(text, model)
-                success = True
-                print(f"[AIService] Successfully translated using {model}")
-                break
-            except Exception as e:
-                print(f"[AIService] {model} failed: {e}. Trying next model...")
-                import time
-                time.sleep(1)
+        # SMART OPTIMIZATION: Only use Gemini for Hard (B2, C1, C2) sentences.
+        # This prevents 429 Too Many Requests errors (15 RPM limit) for 10-minute videos.
+        if cefr_lvl in ['B2', 'C1', 'C2']:
+            gemini_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
+            for model in gemini_models:
+                try:
+                    translation_result = self._translate_with_gemini(text, model)
+                    success = True
+                    print(f"[AIService] Successfully translated using {model}")
+                    break
+                except Exception as e:
+                    error_msg = str(e)
+                    print(f"[AIService] {model} failed: {error_msg}")
+                    # If quota exceeded, no point trying other Gemini models
+                    if "429" in error_msg or "Too Many Requests" in error_msg:
+                        print("[AIService] Gemini Quota Exceeded (429). Bypassing remaining Gemini models.")
+                        break
+                    import time
+                    time.sleep(0.5)
                 
+        # Fallback to Local BanglaT5 for Easy sentences (A1, A2, B1) or if Gemini failed
         if not success:
-            print("[AIService] All Gemini models failed. Falling back to local BanglaT5 model.")
+            if cefr_lvl not in ['B2', 'C1', 'C2']:
+                pass # Expected behavior for easy sentences
+            else:
+                print("[AIService] Gemini failed for hard sentence. Falling back to local BanglaT5 model.")
+            
             inputs = self.translation_tokenizer(text, return_tensors="pt")
             generated_tokens = self.translation_model.generate(**inputs, max_length=100)
             translation_result = self.translation_tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
         
         return {
             "emotion": emotion_result['label'].upper(),
-            "emotion_confidence": round(emotion_result['score'] * 100, 2),
-            "cefr_level": cefr_result['label'].upper(),
-            "cefr_confidence": round(cefr_result['score'] * 100, 2),
+            "emotion_confidence": emotion_conf,
+            "cefr_level": cefr_lvl,
+            "cefr_confidence": cefr_conf,
             "translation": translation_result
         }
 

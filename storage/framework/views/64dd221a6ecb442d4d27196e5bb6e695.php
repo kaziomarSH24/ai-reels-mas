@@ -15,6 +15,28 @@
 
     </div>
 
+    <!-- Loading Animation (Shows immediately when the button is clicked) -->
+    <div wire:loading wire:target="analyzeVideo" class="mt-8 w-full">
+        <div class="p-8 bg-white dark:bg-gray-900 rounded-xl border border-emerald-500/30 dark:border-emerald-500/20 shadow-lg flex flex-col items-center justify-center space-y-4">
+            <div class="relative w-16 h-16">
+                <!-- Outer pulsing ring -->
+                <div class="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <!-- Inner spinning ring -->
+                <div class="absolute inset-2 rounded-full border-4 border-t-emerald-500 border-r-transparent border-b-emerald-500 border-l-transparent animate-spin"></div>
+                <!-- Center dot -->
+                <div class="absolute inset-6 rounded-full bg-emerald-500 animate-pulse"></div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4">AI Engine is Processing...</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-center max-w-md">
+                Fetching YouTube subtitles, analyzing emotions, running CEFR difficulty filters, and translating with Gemini. This may take <strong class="text-emerald-500">2-3 minutes</strong> depending on video length. Please wait...
+            </p>
+            <!-- Fake Progress Bar Animation -->
+            <div class="w-full max-w-md mt-6 h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-500 rounded-full animate-[pulse_2s_ease-in-out_infinite]" style="width: 100%; opacity: 0.5;"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Live Progress Bar Section -->
     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($currentMovieId): ?>
         <div class="mt-8 p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm w-full" wire:poll.2s>

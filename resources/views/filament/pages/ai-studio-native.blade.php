@@ -5,22 +5,37 @@
 
     <!-- Loading Animation (Shows immediately when the button is clicked) -->
     <div wire:loading wire:target="analyzeVideo" class="mt-8 w-full">
-        <div class="p-8 bg-white dark:bg-gray-900 rounded-xl border border-emerald-500/30 dark:border-emerald-500/20 shadow-lg flex flex-col items-center justify-center space-y-4">
-            <div class="relative w-16 h-16">
+        <style>
+            @keyframes custom-ping {
+                75%, 100% { transform: scale(2); opacity: 0; }
+            }
+            @keyframes custom-pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: .5; }
+            }
+            @keyframes custom-spin {
+                to { transform: rotate(360deg); }
+            }
+            .pulse-progress {
+                animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+        </style>
+        <div style="padding: 2rem; background-color: rgba(17, 24, 39, 0.8); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+            <div style="position: relative; width: 4rem; height: 4rem;">
                 <!-- Outer pulsing ring -->
-                <div class="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div style="position: absolute; inset: 0; border-radius: 9999px; border: 4px solid rgba(16, 185, 129, 0.3); animation: custom-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
                 <!-- Inner spinning ring -->
-                <div class="absolute inset-2 rounded-full border-4 border-t-emerald-500 border-r-transparent border-b-emerald-500 border-l-transparent animate-spin"></div>
+                <div style="position: absolute; inset: 0.5rem; border-radius: 9999px; border: 4px solid; border-color: #10b981 transparent #10b981 transparent; animation: custom-spin 1s linear infinite;"></div>
                 <!-- Center dot -->
-                <div class="absolute inset-6 rounded-full bg-emerald-500 animate-pulse"></div>
+                <div style="position: absolute; inset: 1.5rem; border-radius: 9999px; background-color: #10b981; animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4">AI Engine is Processing...</h3>
-            <p class="text-gray-500 dark:text-gray-400 text-center max-w-md">
-                Fetching YouTube subtitles, analyzing emotions, running CEFR difficulty filters, and translating with Gemini. This may take <strong class="text-emerald-500">2-3 minutes</strong> depending on video length. Please wait...
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-top: 1rem;">AI Engine is Processing...</h3>
+            <p style="color: #9ca3af; text-align: center; max-width: 28rem; font-size: 0.875rem;">
+                Fetching YouTube subtitles, batch-translating with Gemini, and running CEFR filters. This will take <strong style="color: #10b981;">10-20 seconds</strong> depending on video length. Please wait...
             </p>
             <!-- Fake Progress Bar Animation -->
-            <div class="w-full max-w-md mt-6 h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                <div class="h-full bg-emerald-500 rounded-full animate-[pulse_2s_ease-in-out_infinite]" style="width: 100%; opacity: 0.5;"></div>
+            <div style="width: 100%; max-width: 28rem; margin-top: 1.5rem; height: 0.5rem; background-color: rgba(31, 41, 55, 1); border-radius: 9999px; overflow: hidden;">
+                <div class="pulse-progress" style="height: 100%; background-color: #10b981; border-radius: 9999px; width: 100%; opacity: 0.8;"></div>
             </div>
         </div>
     </div>

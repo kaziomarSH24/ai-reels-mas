@@ -58,7 +58,14 @@ class SubtitleService:
             api = YouTubeTranscriptApi(http_client=session)
             transcript = api.fetch(video_id, languages=['en'])
             
-            dialogues = []
+            aggregated_dialogues = []
+            current_text = ""
+            current_start = None
+            current_end = None
+            word_count = 0
+            
+            end_punctuations = re.compile(r'[.!?]$')
+            
             for item in transcript:
                 text = item.text
                 start = item.start
@@ -68,17 +75,40 @@ class SubtitleService:
                 # Clean text (remove newlines from within the same subtitle block)
                 clean_text = re.sub(r'\s+', ' ', text).strip()
                 
-                if len(clean_text) < 2 or clean_text.startswith('[') and clean_text.endswith(']'):
+                if len(clean_text) < 2 or (clean_text.startswith('[') and clean_text.endswith(']')):
                     continue # Skip sounds like [Music] or [Applause]
 
-                dialogues.append({
-                    "start_time": self.format_time(start),
-                    "end_time": self.format_time(end),
-                    "text": clean_text
+                if current_start is None:
+                    current_start = start
+                
+                if current_text:
+                    current_text += " " + clean_text
+                else:
+                    current_text = clean_text
+                    
+                current_end = end
+                word_count = len(current_text.split())
+                
+                if end_punctuations.search(clean_text) or word_count >= 5:
+                    aggregated_dialogues.append({
+                        "start_time": self.format_time(current_start),
+                        "end_time": self.format_time(current_end),
+                        "text": current_text
+                    })
+                    current_text = ""
+                    current_start = None
+                    current_end = None
+                    word_count = 0
+
+            if current_text:
+                aggregated_dialogues.append({
+                    "start_time": self.format_time(current_start),
+                    "end_time": self.format_time(current_end),
+                    "text": current_text
                 })
 
-            print(f"[SubtitleService] Extracted {len(dialogues)} clean dialogue segments.")
-            return dialogues
+            print(f"[SubtitleService] Extracted {len(aggregated_dialogues)} clean dialogue segments.")
+            return aggregated_dialogues
 
         except Exception as e:
             print(f"Error fetching transcript: {e}")

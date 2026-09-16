@@ -72,6 +72,8 @@ class ReelGenerator extends Page implements HasForms
 
     public function generateReelAction(): void
     {
+        set_time_limit(0); // Prevent PHP from timing out during heavy FFmpeg processing
+        
         $keyword = $this->reelData['keyword'] ?? null;
         if (!$keyword) return;
 

@@ -136,6 +136,8 @@ class AiStudio extends Page implements HasForms, HasTable
 
     public function analyzeVideo()
     {
+        set_time_limit(0); // Prevent PHP from timing out for long AI extraction jobs
+        
         $url = $this->analyzerData['youtubeUrl'] ?? null;
 
         if (empty($url)) {

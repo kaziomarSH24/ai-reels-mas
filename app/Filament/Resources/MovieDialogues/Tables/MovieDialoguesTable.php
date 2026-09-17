@@ -41,7 +41,24 @@ class MovieDialoguesTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                \Filament\Tables\Filters\SelectFilter::make('emotion')
+                    ->options([
+                        'JOY' => 'Joy',
+                        'ANGER' => 'Anger',
+                        'SADNESS' => 'Sadness',
+                        'FEAR' => 'Fear',
+                        'SURPRISE' => 'Surprise',
+                        'LOVE' => 'Love',
+                    ]),
+                \Filament\Tables\Filters\SelectFilter::make('cefr_level')
+                    ->options([
+                        'A1' => 'A1 (Beginner)',
+                        'A2' => 'A2 (Elementary)',
+                        'B1' => 'B1 (Intermediate)',
+                        'B2' => 'B2 (Upper Intermediate)',
+                        'C1' => 'C1 (Advanced)',
+                        'C2' => 'C2 (Mastery)',
+                    ]),
             ])
             ->recordActions([
                 EditAction::make(),

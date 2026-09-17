@@ -1,20 +1,13 @@
-<?php
+import re
 
-namespace App\Filament\Resources\MovieDialogues\Tables;
+with open("app/Filament/Resources/MovieDialogues/Tables/MovieDialoguesTable.php", "r") as f:
+    content = f.read()
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
-use App\Models\MovieDialogue;
+# Make sure we have the MovieDialogue model imported
+if "use App\Models\MovieDialogue;" not in content:
+    content = content.replace("use Filament\Tables\Table;", "use Filament\Tables\Table;\nuse App\Models\MovieDialogue;")
 
-class MovieDialoguesTable
-{
-    public static function configure(Table $table): Table
-    {
-        return $table
-            ->columns([
+new_columns = """
                 TextColumn::make('movie_id')
                     ->numeric()
                     ->sortable()
@@ -62,44 +55,14 @@ class MovieDialoguesTable
                     })
                     ->description(fn (MovieDialogue $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
                     ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                \Filament\Tables\Filters\SelectFilter::make('emotion')
-                    ->options([
-                        'JOY' => 'Joy',
-                        'ANGER' => 'Anger',
-                        'SADNESS' => 'Sadness',
-                        'FEAR' => 'Fear',
-                        'SURPRISE' => 'Surprise',
-                        'LOVE' => 'Love',
-                    ]),
-                \Filament\Tables\Filters\SelectFilter::make('cefr_level')
-                    ->options([
-                        'A1' => 'A1 (Beginner)',
-                        'A2' => 'A2 (Elementary)',
-                        'B1' => 'B1 (Intermediate)',
-                        'B2' => 'B2 (Upper Intermediate)',
-                        'C1' => 'C1 (Advanced)',
-                        'C2' => 'C2 (Mastery)',
-                    ]),
-            ])
-            ->recordActions([
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ])
-            ->paginated([50, 100, 500, 'all'])
-            ->defaultPaginationPageOption(100);
-    }
-}
+"""
+
+# Replace the columns array
+content = re.sub(
+    r"TextColumn::make\('movie_id'\)[\s\S]*?TextColumn::make\('cefr_level'\)[\s\S]*?->searchable\(\),",
+    new_columns.strip(),
+    content
+)
+
+with open("app/Filament/Resources/MovieDialogues/Tables/MovieDialoguesTable.php", "w") as f:
+    f.write(content)

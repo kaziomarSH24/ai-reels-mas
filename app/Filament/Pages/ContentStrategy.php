@@ -9,7 +9,7 @@ use Filament\Actions\Action;
 
 class ContentStrategy extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-light-bulb';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-light-bulb';
     protected static ?string $navigationLabel = 'AI Strategy';
     protected static ?string $title = 'AI Content Strategy';
     protected static ?int $navigationSort = 3;

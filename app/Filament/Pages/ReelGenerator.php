@@ -14,6 +14,9 @@ use App\Models\MovieDialogue;
 
 class ReelGenerator extends Page implements HasForms
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'AI & Automation';
+    protected static ?int $navigationSort = 2;
+
     use InteractsWithForms;
 
     public static function getNavigationIcon(): string|\BackedEnum|null

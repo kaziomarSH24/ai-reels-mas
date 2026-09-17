@@ -23,6 +23,9 @@ use Filament\Schemas\Components\Section;
 
 class AiStudio extends Page implements HasForms, HasTable
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'AI & Automation';
+    protected static ?int $navigationSort = 4;
+
     use InteractsWithForms, InteractsWithTable;
 
     protected string $view = 'filament.pages.ai-studio-native';

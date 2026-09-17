@@ -19,11 +19,13 @@ use BackedEnum;
 
 class GeneratedReelResource extends Resource
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'AI & Automation';
+    protected static ?int $navigationSort = 3;
+
     protected static ?string $model = GeneratedReel::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-video-camera';
     protected static ?string $navigationLabel = 'Generated Reels';
-    protected static ?int $navigationSort = 4;
 
     public static function form(Schema $schema): Schema
     {

@@ -6,6 +6,9 @@ use Filament\Pages\Page;
 
 class AiAnalytics extends Page
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'AI & Automation';
+    protected static ?int $navigationSort = 5;
+
     public static function getNavigationIcon(): string|\BackedEnum|null
     {
         return 'heroicon-o-chart-pie';

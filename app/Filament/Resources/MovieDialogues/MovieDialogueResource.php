@@ -16,6 +16,9 @@ use Filament\Tables\Table;
 
 class MovieDialogueResource extends Resource
 {
+    protected static string|\UnitEnum|null $navigationGroup = 'Data Management';
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $model = MovieDialogue::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

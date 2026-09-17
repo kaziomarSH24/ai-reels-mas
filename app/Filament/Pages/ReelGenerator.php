@@ -63,9 +63,18 @@ class ReelGenerator extends Page implements HasForms
                 Section::make('Search and Preview')
                     ->description('Type a keyword to find the most powerful AI-analyzed dialogues. You can preview the clips before generating.')
                     ->schema([
-                        TextInput::make('keyword')
+                        \Filament\Forms\Components\TextInput::make('keyword')
                             ->label('Target Keyword')
                             ->placeholder('e.g., Destiny, Boss, Love')
+                            ->datalist(function () {
+                                return \App\Models\MovieDialogue::whereNotNull('target_word')
+                                    ->where('target_word', '!=', 'None')
+                                    ->select('target_word')
+                                    ->distinct()
+                                    ->limit(100)
+                                    ->pluck('target_word')
+                                    ->toArray();
+                            })
                             ->required(),
                     ])
             ])

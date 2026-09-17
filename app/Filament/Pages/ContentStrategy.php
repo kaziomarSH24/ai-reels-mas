@@ -70,7 +70,7 @@ class ContentStrategy extends Page
                       "For each word, provide: 1) The Word, 2) The Bengali Meaning, 3) Why it makes a great viral video reel. " .
                       "Format your response in beautiful Markdown, using bold text, bullet points, and emojis. Respond in Bengali.";
 
-            $response = Http::timeout(30)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={$apiKey}", [
+            $response = Http::timeout(30)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={$apiKey}", [
                 'contents' => [
                     ['parts' => [['text' => $prompt]]]
                 ],

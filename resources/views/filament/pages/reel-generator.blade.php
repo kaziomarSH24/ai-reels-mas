@@ -1,129 +1,80 @@
 <x-filament-panels::page>
-    <div class="space-y-8">
+    <div class="space-y-6">
         
-        <!-- Search Section -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">🎬 Reel Generator Studio</h2>
-            <p class="text-gray-500 dark:text-gray-400 mb-6 text-sm">Type a keyword below to scan the AI database for the most viral movie dialogues.</p>
-            
-            <form wire:submit="searchClipsAction" class="space-y-4">
-                {{ $this->generatorForm }}
+        <!-- Render the form (Now it searches first) -->
+        <form wire:submit="searchClipsAction" class="space-y-4">
+            {{ $this->generatorForm }}
 
-                <div class="flex items-center space-x-4 mt-4">
-                    <x-filament::button type="submit" size="lg" color="primary" wire:loading.attr="disabled">
-                        <span wire:loading.remove wire:target="searchClipsAction">
-                            <x-heroicon-o-magnifying-glass class="w-5 h-5 inline-block mr-1"/> Search Database
-                        </span>
-                        <span wire:loading wire:target="searchClipsAction">
-                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                            Scanning...
-                        </span>
-                    </x-filament::button>
-                </div>
-            </form>
-        </div>
+            <x-filament::button type="submit" color="primary" size="lg" icon="heroicon-m-magnifying-glass" class="mt-4" wire:loading.attr="disabled">
+                <span wire:loading.remove wire:target="searchClipsAction">Search Database</span>
+                <span wire:loading wire:target="searchClipsAction">Scanning...</span>
+            </x-filament::button>
+        </form>
 
-        <!-- Preview Results Section -->
+        <!-- Preview Results -->
         @if ($hasSearched)
-            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div class="p-6 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-gray-50 dark:bg-gray-800/50">
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-800 dark:text-white">Analysis Results</h3>
-                        <p class="text-sm text-gray-500 mt-1">Found {{ count($searchResults) }} matching clips for your keyword.</p>
-                    </div>
-                    @if(count($searchResults) > 0)
-                        <span class="px-3 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-full text-xs font-bold border border-emerald-200 dark:border-emerald-800">
-                            Ready to Generate
-                        </span>
-                    @endif
+            <div class="mt-8 p-6 bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-900/5 dark:ring-white/10">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold">Analysis Results</h3>
+                    <p style="color: gray; font-size: 0.9rem;">Found {{ count($searchResults) }} matching clips for your keyword.</p>
                 </div>
                 
-                <div class="p-0">
-                    @if(empty($searchResults))
-                        <div class="p-12 text-center">
-                            <x-heroicon-o-face-frown class="w-12 h-12 mx-auto text-gray-400 mb-4"/>
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">No dialogues found</h3>
-                            <p class="text-gray-500 mt-1">Try searching for a different keyword like "destiny" or "love".</p>
-                        </div>
-                    @else
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse">
-                                <thead class="bg-gray-50 dark:bg-gray-800/50">
-                                    <tr>
-                                        <th class="py-4 px-6 font-semibold text-xs text-gray-500 uppercase tracking-wider">Timestamp</th>
-                                        <th class="py-4 px-6 font-semibold text-xs text-gray-500 uppercase tracking-wider">AI Target Word</th>
-                                        <th class="py-4 px-6 font-semibold text-xs text-gray-500 uppercase tracking-wider">Original Dialogue</th>
-                                        <th class="py-4 px-6 font-semibold text-xs text-gray-500 uppercase tracking-wider">Bengali Translation</th>
+                @if(empty($searchResults))
+                    <p style="color: gray;">No dialogues found for this keyword in the database. Try another word.</p>
+                @else
+                    <div style="overflow-x: auto; margin-bottom: 20px;">
+                        <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid #374151;">
+                                    <th style="padding: 10px; font-weight: bold;">Timestamp</th>
+                                    <th style="padding: 10px; font-weight: bold;">Target Word</th>
+                                    <th style="padding: 10px; font-weight: bold;">Original Dialogue</th>
+                                    <th style="padding: 10px; font-weight: bold;">Bengali Translation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($searchResults as $clip)
+                                    <tr style="border-bottom: 1px solid #374151;">
+                                        <td style="padding: 12px; color: gray; font-family: monospace;">{{ $clip['start_time'] }}</td>
+                                        <td style="padding: 12px; font-weight: bold; color: #f59e0b;">{{ $clip['target_word'] }}</td>
+                                        <td style="padding: 12px;">"{{ $clip['text'] }}"</td>
+                                        <td style="padding: 12px; color: #10b981;">{{ $clip['translated_text'] }}</td>
                                     </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-                                    @foreach($searchResults as $clip)
-                                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                                            <td class="py-4 px-6 text-sm">
-                                                <span class="font-mono bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-600 dark:text-gray-400 text-xs border border-gray-200 dark:border-gray-700">
-                                                    {{ $clip['start_time'] }}
-                                                </span>
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
-                                                    {{ $clip['target_word'] }}
-                                                </span>
-                                            </td>
-                                            <td class="py-4 px-6 text-sm text-gray-700 dark:text-gray-300 font-medium">
-                                                "{{ $clip['text'] }}"
-                                            </td>
-                                            <td class="py-4 px-6 text-sm text-emerald-600 dark:text-emerald-400">
-                                                {{ $clip['translated_text'] }}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- Generate Button -->
-                        <div class="p-6 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 flex justify-end">
-                            <x-filament::button wire:click="generateReelAction" color="success" size="lg" wire:loading.attr="disabled" class="shadow-lg hover:shadow-xl transition-all">
-                                <span wire:loading.remove wire:target="generateReelAction">
-                                    <x-heroicon-o-film class="w-5 h-5 inline-block mr-2"/> Generate Compilation Reel
-                                </span>
-                                <span wire:loading wire:target="generateReelAction">
-                                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                                    Processing Engine (Wait 30s)...
-                                </span>
-                            </x-filament::button>
-                        </div>
-                    @endif
-                </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Generate Button -->
+                    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                        <x-filament::button wire:click="generateReelAction" color="success" size="lg" icon="heroicon-m-film" wire:loading.attr="disabled">
+                            <span wire:loading.remove wire:target="generateReelAction">Generate Compilation Reel</span>
+                            <span wire:loading wire:target="generateReelAction">Processing FFmpeg & Gemini (Wait 30-40s)...</span>
+                        </x-filament::button>
+                    </div>
+                @endif
             </div>
         @endif
 
         <!-- Display the generated video -->
         @if ($generatedReelUrl)
-            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl shadow-xl overflow-hidden text-white relative">
-                <!-- Decorative background elements -->
-                <div class="absolute top-0 right-0 -mt-16 -mr-16 text-white opacity-10">
-                    <x-heroicon-s-sparkles class="w-64 h-64"/>
+            <div class="mt-8 p-6 bg-white dark:bg-gray-800 rounded-xl shadow ring-1 ring-gray-900/5 dark:ring-white/10" style="border-top: 4px solid #10b981;">
+                <h3 class="text-xl font-bold mb-2" style="color: #10b981;">Your Viral Reel is Ready! 🎉</h3>
+                <p class="mb-4" style="color: gray; font-size: 0.9rem;">
+                    The AI engine has successfully extracted, blurred, cropped, and highlighted the dictionary meanings.
+                </p>
+                
+                <div style="display: flex; justify-content: center; margin-top: 20px;">
+                    <video controls autoplay style="max-height: 500px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                        <source src="{{ $generatedReelUrl }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 
-                <div class="p-8 relative z-10 flex flex-col items-center">
-                    <h3 class="text-3xl font-extrabold mb-2 text-center tracking-tight">Your Viral Reel is Ready! 🚀</h3>
-                    <p class="mb-8 text-emerald-100 text-center max-w-lg">
-                        The AI engine has successfully extracted, blurred, cropped, and highlighted the dictionary meanings for your clips.
-                    </p>
-                    
-                    <div class="bg-black/20 p-2 rounded-2xl backdrop-blur-sm border border-white/10 shadow-2xl">
-                        <video controls class="rounded-xl max-h-[500px] shadow-inner" autoplay>
-                            <source src="{{ $generatedReelUrl }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    
-                    <div class="mt-8 flex justify-center space-x-4">
-                        <a href="{{ $generatedReelUrl }}" download class="px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold shadow-lg hover:bg-emerald-50 hover:-translate-y-0.5 transition-all flex items-center">
-                            <x-heroicon-o-arrow-down-tray class="w-5 h-5 mr-2"/> Download MP4
-                        </a>
-                    </div>
+                <div style="display: flex; justify-content: center; margin-top: 20px;">
+                    <x-filament::button tag="a" href="{{ $generatedReelUrl }}" download color="success" size="lg" icon="heroicon-m-arrow-down-tray">
+                        Download MP4
+                    </x-filament::button>
                 </div>
             </div>
         @endif

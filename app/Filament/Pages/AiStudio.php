@@ -126,6 +126,11 @@ class AiStudio extends Page implements HasForms, HasTable
                     ->label('Bangla Translation')
                     ->wrap()
                     ->placeholder('Analyzing...'),
+                TextColumn::make('target_word')
+                    ->label('Target Word')
+                    ->badge()
+                    ->color('warning')
+                    ->searchable(),
                 TextColumn::make('cefr_level')
                     ->label('Difficulty')
                     ->badge()
@@ -215,6 +220,7 @@ class AiStudio extends Page implements HasForms, HasTable
                         'emotion_confidence' => $dialogue['analysis']['emotion_confidence'] ?? null,
                         'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
                         'cefr_confidence' => $dialogue['analysis']['cefr_confidence'] ?? null,
+                        'target_word' => $dialogue['analysis']['target_word'] ?? null,
                         'translated_text' => $dialogue['analysis']['translation'] ?? null,
                         'created_at' => now(),
                         'updated_at' => now(),
@@ -232,6 +238,7 @@ class AiStudio extends Page implements HasForms, HasTable
                         'emotion_confidence' => $dialogue['analysis']['emotion_confidence'] ?? null,
                         'cefr_level' => $dialogue['analysis']['cefr_level'] ?? null,
                         'cefr_confidence' => $dialogue['analysis']['cefr_confidence'] ?? null,
+                        'target_word' => $dialogue['analysis']['target_word'] ?? null,
                         'translated_text' => $dialogue['analysis']['translation'] ?? null,
                         'created_at' => now(),
                         'updated_at' => now(),

@@ -77,41 +77,59 @@ class ReelGenerator extends Page implements HasForms
         $keyword = $this->reelData['keyword'] ?? null;
         if (!$keyword) return;
 
-        // Search the DB for the best match
-        $dialogue = MovieDialogue::with('movie')
-            ->where('text', 'LIKE', '%' . $keyword . '%')
-            ->orderBy('id', 'desc')
-            ->first();
+        // Search the DB for ALL matches (limit to 3 for a nice 15-second reel)
+        // We will search by target_word exactly, or text LIKE if target_word doesn't match
+        $dialogues = MovieDialogue::with('movie')
+            ->where('target_word', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('text', 'LIKE', '%' . $keyword . '%')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
 
-        if (!$dialogue) {
+        if ($dialogues->isEmpty()) {
             Notification::make()->title('No clips found for this keyword')->danger()->send();
             return;
         }
 
         $this->isGenerating = true;
-        Notification::make()->title('Starting FFmpeg Generator')->body('Clipping video from YouTube...')->info()->send();
-
-        // Calculate duration
-        $startSec = $this->timeToSeconds($dialogue->start_time);
-        $endSec = $this->timeToSeconds($dialogue->end_time);
-        $duration = max(3, ceil($endSec - $startSec)); // at least 3 seconds
+        Notification::make()->title('Compilation Reel Started')->body('Fetching ' . $dialogues->count() . ' clips from YouTube...')->info()->send();
 
         try {
-            $outputFilename = 'reel_' . uniqid() . '.mp4';
+            $outputFilename = 'reel_compilation_' . uniqid() . '.mp4';
             
-            $response = Http::timeout(120)->post('http://ai_api:8001/api/generate_reel', [
-                'source_url' => $dialogue->movie->youtube_url,
-                'start_time' => $dialogue->start_time,
-                'duration' => $duration,
-                'output_filename' => $outputFilename,
-                'english_text' => $dialogue->text,
-                'bengali_text' => $dialogue->translated_text ?? 'An AI thesis project.'
+            $clips = [];
+            foreach ($dialogues as $dialogue) {
+                $startSec = $this->timeToSeconds($dialogue->start_time);
+                $endSec = $this->timeToSeconds($dialogue->end_time);
+                $duration = max(3, ceil($endSec - $startSec));
+                
+                $clips[] = [
+                    'source_url' => $dialogue->movie->youtube_url,
+                    'start_time' => $dialogue->start_time,
+                    'duration' => $duration,
+                    'english_text' => $dialogue->text,
+                    'bengali_text' => $dialogue->translated_text ?? 'An AI thesis project.',
+                    'target_word' => $dialogue->target_word ?? $keyword
+                ];
+            }
+            
+            $response = Http::timeout(300)->post('http://ai_api:8001/api/generate_compilation', [
+                'clips' => $clips,
+                'output_filename' => $outputFilename
             ]);
 
             if ($response->successful()) {
                 $data = $response->json();
                 $this->generatedReelUrl = $data['data']['output_path'];
-                Notification::make()->title('Reel Generated!')->success()->send();
+                
+                // Save to database
+                \App\Models\GeneratedReel::create([
+                    'target_word' => $targetWord,
+                    'file_path' => $this->generatedReelUrl,
+                    'is_posted_to_fb' => false,
+                ]);
+                
+                Notification::make()->title('Reel Generated & Saved!')->success()->send();
             } else {
                 $errorData = $response->json();
                 $error = $errorData['errors'] ?? $errorData['message'] ?? 'Unknown error';

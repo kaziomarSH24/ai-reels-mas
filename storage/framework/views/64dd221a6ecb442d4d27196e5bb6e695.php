@@ -32,7 +32,15 @@
                 animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
             }
         </style>
-        <div style="padding: 2rem; background-color: rgba(17, 24, 39, 0.8); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+        <div style="position: relative; padding: 2rem; background-color: rgba(17, 24, 39, 0.8); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+            
+            <!-- Dynamic Timer Component (Top Right Corner) -->
+            <div x-data="{ seconds: 0 }"
+                 x-init="setInterval(() => { if ($el.offsetWidth > 0) { seconds++; } else { seconds = 0; } }, 1000)"
+                 style="position: absolute; top: 1.5rem; right: 1.5rem; background-color: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; font-family: monospace; font-size: 1.25rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;">
+                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span x-text="Math.floor(seconds / 60).toString().padStart(2, '0') + ':' + (seconds % 60).toString().padStart(2, '0')">00:00</span>
+            </div>
             <div style="position: relative; width: 4rem; height: 4rem;">
                 <!-- Outer pulsing ring -->
                 <div style="position: absolute; inset: 0; border-radius: 9999px; border: 4px solid rgba(16, 185, 129, 0.3); animation: custom-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>

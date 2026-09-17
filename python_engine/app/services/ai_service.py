@@ -49,11 +49,12 @@ class AIService:
 
         # 3. Load CEFR Difficulty Model
         print("Loading CEFR Difficulty Model...")
-        cefr_model_path = os.path.join(script_dir, "models", "cefr_model")
+        cefr_model_path = os.path.join(script_dir, "models", "word_level_cefr_model")
         self.cefr_classifier = pipeline(
-            "text-classification", 
+            "token-classification", 
             model=cefr_model_path, 
-            tokenizer=cefr_model_path
+            tokenizer=cefr_model_path,
+            aggregation_strategy="simple"
         )
         print("CEFR Difficulty Model Ready!")
 
@@ -92,67 +93,118 @@ class AIService:
         
         # 1. Run Local Models (Emotion & CEFR) - Fast on CPU
         print(f"[AIService] Running Local AI for {len(texts)} dialogues...")
+        level_scores = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
+        
         for text in texts:
             emotion_res = self.emotion_classifier(text)[0]
-            cefr_res = self.cefr_classifier(text)[0]
+            
+            # Word-level CEFR classification
+            cefr_tokens = self.cefr_classifier(text)
+            
+            # Find the hardest word
+            hardest_word = None
+            highest_level = "A1"
+            highest_score = 1
+            confidence = 0.0
+            
+            for token in cefr_tokens:
+                lbl = token['entity_group']
+                score = level_scores.get(lbl, 1)
+                if score > highest_score:
+                    highest_score = score
+                    highest_level = lbl
+                    hardest_word = token['word'].strip()
+                    confidence = float(token['score'])
+                # Break ties by taking the longer word
+                elif score == highest_score and hardest_word and len(token['word'].strip()) > len(hardest_word):
+                    hardest_word = token['word'].strip()
+                    confidence = float(token['score'])
+                    
+            if not hardest_word: # Fallback if empty string
+                highest_level = "A1"
+                hardest_word = "None"
+                confidence = 1.0
             
             results.append({
                 "text": text,
                 "emotion": emotion_res['label'].upper(),
                 "emotion_confidence": round(emotion_res['score'] * 100, 2),
-                "cefr_level": cefr_res['label'].upper(),
-                "cefr_confidence": round(cefr_res['score'] * 100, 2),
+                "cefr_level": highest_level,
+                "cefr_confidence": round(confidence * 100, 2),
+                "target_word": hardest_word,
                 "translation": "" # Will fill in next step
             })
             
-        # 2. Batch Translate with Gemini
-        print("[AIService] Sending BATCH translation request to Gemini...")
+        # 2. Batch Translate with Gemini in Chunks (to support 1+ hour videos)
+        print(f"[AIService] Sending BATCH translation request to Gemini for {len(texts)} items...")
         api_key = os.environ.get("GEMINI_API_KEY")
         success = False
         
         if api_key:
-            prompt = (
-                "You are an expert English to Bengali translator. "
-                "I will give you a JSON array of English movie dialogues. "
-                "Translate each dialogue into casual, natural Bengali. "
-                "Return ONLY a valid JSON array of strings containing the Bengali translations, in the EXACT same order. "
-                f"Dialogues: {json.dumps(texts)}"
-            )
-            
-            payload = {
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0.1} # Low temp for JSON stability
-            }
-            
             import requests
-            gemini_models = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
-            for model in gemini_models:
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-                try:
-                    response = requests.post(url, json=payload, timeout=45) # 45s timeout for large batches
-                    response.raise_for_status()
-                    data = response.json()
-                    
-                    raw_text = data['candidates'][0]['content']['parts'][0]['text']
-                    
-                    # Clean markdown code blocks if present
-                    if raw_text.startswith("```json"):
-                        raw_text = raw_text.strip("```json").strip("```").strip()
-                    elif raw_text.startswith("```"):
-                        raw_text = raw_text.strip("```").strip()
+            import time
+            success = True
+            
+            # Chunk the texts into batches of 150 to avoid Gemini output token limits (8192 max)
+            chunk_size = 150
+            for chunk_start in range(0, len(texts), chunk_size):
+                chunk_end = min(chunk_start + chunk_size, len(texts))
+                texts_chunk = texts[chunk_start:chunk_end]
+                print(f"[AIService] Processing Gemini Batch: {chunk_start} to {chunk_end}...")
+                
+                prompt = (
+                    "You are an expert English editor and Bengali translator. "
+                    "I will give you a JSON array of raw, auto-generated English movie dialogues (which lack punctuation). "
+                    "For each dialogue, first FIX the English text by adding proper punctuation (commas, periods, question marks) and capitalization. "
+                    "Then, translate it into casual, natural Bengali. "
+                    "Return ONLY a valid JSON array of OBJECTS, where each object has two keys: 'english' (the fixed text) and 'bengali' (the translation). "
+                    "Must be in the EXACT same order and same length as the input. "
+                    f"Dialogues: {json.dumps(texts_chunk)}"
+                )
+                
+                payload = {
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"temperature": 0.1}
+                }
+                
+                chunk_success = False
+                gemini_models = ["gemini-3.6-flash", "gemini-3.5-flash"]
+                for model in gemini_models:
+                    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+                    try:
+                        response = requests.post(url, json=payload, timeout=60)
+                        response.raise_for_status()
+                        data = response.json()
                         
-                    translations = json.loads(raw_text)
+                        raw_text = data['candidates'][0]['content']['parts'][0]['text']
+                        
+                        if raw_text.startswith("```json"):
+                            raw_text = raw_text.strip("```json").strip("```").strip()
+                        elif raw_text.startswith("```"):
+                            raw_text = raw_text.strip("```").strip()
+                            
+                        translations = json.loads(raw_text)
+                        
+                        if len(translations) == len(texts_chunk):
+                            for i, resp in enumerate(translations):
+                                if isinstance(resp, dict):
+                                    results[chunk_start + i]['fixed_english'] = resp.get('english', texts_chunk[i])
+                                    results[chunk_start + i]['translation'] = resp.get('bengali', '')
+                                else:
+                                    results[chunk_start + i]['translation'] = resp
+                                    results[chunk_start + i]['fixed_english'] = texts_chunk[i]
+                            chunk_success = True
+                            print(f"[AIService] Successfully translated and punctuated chunk using {model}")
+                            break
+                    except Exception as e:
+                        print(f"[AIService] Chunk translation failed with {model}: {str(e)}")
+                        
+                if not chunk_success:
+                    success = False
+                    break
                     
-                    if len(translations) == len(texts):
-                        for i in range(len(texts)):
-                            results[i]['translation'] = translations[i]
-                        success = True
-                        print(f"[AIService] Successfully batch translated {len(texts)} items using {model}")
-                        break
-                    else:
-                        print(f"[AIService] Gemini returned wrong number of translations ({len(translations)} vs {len(texts)})")
-                except Exception as e:
-                    print(f"[AIService] Batch Gemini failed with {model}: {str(e)}")
+                # Small delay to avoid API rate limits
+                time.sleep(2)
                     
         # 3. Fallback to Local BanglaT5 if Gemini completely fails
         if not success:

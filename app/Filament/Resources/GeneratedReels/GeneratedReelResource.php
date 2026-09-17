@@ -74,6 +74,12 @@ class GeneratedReelResource extends Resource
             ->defaultSort('created_at', 'desc');
     }
 
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
     public static function getRelations(): array
     {
         return [

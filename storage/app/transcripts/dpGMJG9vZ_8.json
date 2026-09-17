@@ -1,0 +1,2242 @@
+[
+    {
+        "start_time": "00:00:00.155",
+        "end_time": "00:00:03.681",
+        "text": "- On this episode, I talk about design changes, what I would do"
+    },
+    {
+        "start_time": "00:00:03.681",
+        "end_time": "00:00:08.679",
+        "text": "with $3000 to build my business and do I like being challenged?"
+    },
+    {
+        "start_time": "00:00:08.679",
+        "end_time": "00:00:11.679",
+        "text": "(upbeat hip hop music)"
+    },
+    {
+        "start_time": "00:00:20.610",
+        "end_time": "00:00:26.093",
+        "text": "- [Gary] You ask questions, and I answer them."
+    },
+    {
+        "start_time": "00:00:26.093",
+        "end_time": "00:00:31.147",
+        "text": "This is The #AskGaryVee Show."
+    },
+    {
+        "start_time": "00:00:35.921",
+        "end_time": "00:00:38.662",
+        "text": "- [Gary on book cover] New York Jets asking me questions."
+    },
+    {
+        "start_time": "00:00:38.662",
+        "end_time": "00:00:41.229",
+        "text": "- Thanks Seth this is awesome. So cool."
+    },
+    {
+        "start_time": "00:00:42.559",
+        "end_time": "00:00:49.824",
+        "text": "Hey everybody, this is Gary Vay-ner-chuk and this is episode 205 of The #AskGaryVee Show."
+    },
+    {
+        "start_time": "00:00:49.824",
+        "end_time": "00:00:51.900",
+        "text": "I'm glad we snuck this one in."
+    },
+    {
+        "start_time": "00:00:53.630",
+        "end_time": "00:00:58.754",
+        "text": "With the whole Tyler and India thing I think we're out of rhythm of scheduling."
+    },
+    {
+        "start_time": "00:00:58.754",
+        "end_time": "00:01:01.802",
+        "text": "I have not been on a pace at all with the show."
+    },
+    {
+        "start_time": "00:01:01.802",
+        "end_time": "00:01:06.513",
+        "text": "This is been the dark ages these last 45 days so I need to get back on track."
+    },
+    {
+        "start_time": "00:01:06.513",
+        "end_time": "00:01:08.236",
+        "text": "Garrett, thanks for holding up Facebook Live."
+    },
+    {
+        "start_time": "00:01:08.236",
+        "end_time": "00:01:09.586",
+        "text": "Good to see you guys. How's that going?"
+    },
+    {
+        "start_time": "00:01:09.586",
+        "end_time": "00:01:11.353",
+        "text": "How many views did we got so far?"
+    },
+    {
+        "start_time": "00:01:11.353",
+        "end_time": "00:01:12.475",
+        "text": "- 818 so far."
+    },
+    {
+        "start_time": "00:01:12.475",
+        "end_time": "00:01:14.053",
+        "text": "- Nice. Quick to 1000."
+    },
+    {
+        "start_time": "00:01:14.053",
+        "end_time": "00:01:15.967",
+        "text": "India, it's great to see you. - Great to see you too."
+    },
+    {
+        "start_time": "00:01:15.967",
+        "end_time": "00:01:16.958",
+        "text": "- How've you been? - Good."
+    },
+    {
+        "start_time": "00:01:16.958",
+        "end_time": "00:01:18.342",
+        "text": "- All well? - All well."
+    },
+    {
+        "start_time": "00:01:18.342",
+        "end_time": "00:01:19.607",
+        "text": "- Great. You ready for the show?"
+    },
+    {
+        "start_time": "00:01:19.607",
+        "end_time": "00:01:21.325",
+        "text": "- I am. Did you see our montage?"
+    },
+    {
+        "start_time": "00:01:21.325",
+        "end_time": "00:01:25.742",
+        "text": "- Let's get into the show."
+    },
+    {
+        "start_time": "00:01:31.263",
+        "end_time": "00:01:32.911",
+        "text": "- I did not watch it yet."
+    },
+    {
+        "start_time": "00:01:32.911",
+        "end_time": "00:01:34.431",
+        "text": "It's great? - So good."
+    },
+    {
+        "start_time": "00:01:34.431",
+        "end_time": "00:01:37.743",
+        "text": "- Should we? How long is it?"
+    },
+    {
+        "start_time": "00:01:37.743",
+        "end_time": "00:01:38.605",
+        "text": "Good."
+    },
+    {
+        "start_time": "00:01:38.605",
+        "end_time": "00:01:40.510",
+        "text": "- We've done a lot of shows."
+    },
+    {
+        "start_time": "00:01:40.510",
+        "end_time": "00:01:44.226",
+        "text": "Can we put it right here? It has to be in my channel click out."
+    },
+    {
+        "start_time": "00:01:44.226",
+        "end_time": "00:01:46.199",
+        "text": "Staphon, you know you've messed this up."
+    },
+    {
+        "start_time": "00:01:46.199",
+        "end_time": "00:01:46.965",
+        "text": "Link it up."
+    },
+    {
+        "start_time": "00:01:46.965",
+        "end_time": "00:01:48.650",
+        "text": "Link this one up. Got it?"
+    },
+    {
+        "start_time": "00:01:48.650",
+        "end_time": "00:01:49.697",
+        "text": "We'll link up our montage."
+    },
+    {
+        "start_time": "00:01:49.697",
+        "end_time": "00:01:50.496",
+        "text": "Oh I'm sorry."
+    },
+    {
+        "start_time": "00:01:50.496",
+        "end_time": "00:01:51.503",
+        "text": "Let's add to our montage."
+    },
+    {
+        "start_time": "00:01:51.503",
+        "end_time": "00:01:52.101",
+        "text": "- Okay."
+    },
+    {
+        "start_time": "00:01:52.101",
+        "end_time": "00:01:54.957",
+        "text": "- Let's get into - [Both] The show."
+    },
+    {
+        "start_time": "00:01:54.957",
+        "end_time": "00:01:56.350",
+        "text": "- Nice one. - That was good."
+    },
+    {
+        "start_time": "00:01:56.350",
+        "end_time": "00:01:58.827",
+        "text": "- Nice and solid. Not too crazy."
+    },
+    {
+        "start_time": "00:01:58.827",
+        "end_time": "00:02:02.945",
+        "text": "Trouty... What is that like salmon?"
+    },
+    {
+        "start_time": "00:02:02.945",
+        "end_time": "00:02:05.130",
+        "text": "Is that like salmon?"
+    },
+    {
+        "start_time": "00:02:05.130",
+        "end_time": "00:02:06.661",
+        "text": "Is that a salmon sweater?"
+    },
+    {
+        "start_time": "00:02:06.661",
+        "end_time": "00:02:08.126",
+        "text": "- Looks brighter. - Yeah, okay."
+    },
+    {
+        "start_time": "00:02:08.126",
+        "end_time": "00:02:11.114",
+        "text": "Trouty. Make sure you put up his handle."
+    },
+    {
+        "start_time": "00:02:11.114",
+        "end_time": "00:02:15.325",
+        "text": "Everybody who is watching this show go tweet Trouty nice salmon sweater."
+    },
+    {
+        "start_time": "00:02:15.325",
+        "end_time": "00:02:20.300",
+        "text": "Yeah let's do that, #nice, put that up Staphon, #nicesalmonsweater."
+    },
+    {
+        "start_time": "00:02:20.300",
+        "end_time": "00:02:22.393",
+        "text": "Put his handle."
+    },
+    {
+        "start_time": "00:02:22.393",
+        "end_time": "00:02:28.995",
+        "text": "Really funny story about Trouty, Jon Troutman, I think his handle is Trouty which is is Mike Trout the best baseball player in the"
+    },
+    {
+        "start_time": "00:02:28.995",
+        "end_time": "00:02:30.771",
+        "text": "world or the second best baseball player in the world."
+    },
+    {
+        "start_time": "00:02:30.771",
+        "end_time": "00:02:36.919",
+        "text": "Big ups Bryce Harper to most people that's his nickname and most people think Trout is him."
+    },
+    {
+        "start_time": "00:02:36.919",
+        "end_time": "00:02:43.025",
+        "text": "Every time Mike Trout hits two home runs in a game his Twitter explodes. (laughter)"
+    },
+    {
+        "start_time": "00:02:43.025",
+        "end_time": "00:02:45.425",
+        "text": "Anyway. Let's get into the show, India."
+    },
+    {
+        "start_time": "00:02:45.425",
+        "end_time": "00:02:52.006",
+        "text": "- [Voiceover] James asks, \"Gary, I want to snap and vlog \"my work but I'm posting sitting at a desk on my phone and email."
+    },
+    {
+        "start_time": "00:02:52.006",
+        "end_time": "00:02:57.331",
+        "text": "\"How can I add variety in content?\" - Well you got to be creative."
+    },
+    {
+        "start_time": "00:02:58.351",
+        "end_time": "00:03:01.014",
+        "text": "Funny thing about this is there's a crazy thing guys."
+    },
+    {
+        "start_time": "00:03:01.014",
+        "end_time": "00:03:05.450",
+        "text": "Crazy thing about creating content both for social media, both for television, both for books,"
+    },
+    {
+        "start_time": "00:03:05.450",
+        "end_time": "00:03:09.744",
+        "text": "both for magazine articles it's called talent."
+    },
+    {
+        "start_time": "00:03:09.744",
+        "end_time": "00:03:12.568",
+        "text": "There are plenty of people that can sit at a desk all day and"
+    },
+    {
+        "start_time": "00:03:12.568",
+        "end_time": "00:03:16.782",
+        "text": "produce amazing content because they're funny, they're clever."
+    },
+    {
+        "start_time": "00:03:16.782",
+        "end_time": "00:03:18.856",
+        "text": "They're imaginative."
+    },
+    {
+        "start_time": "00:03:18.856",
+        "end_time": "00:03:21.134",
+        "text": "They are creative by nature."
+    },
+    {
+        "start_time": "00:03:21.134",
+        "end_time": "00:03:24.295",
+        "text": "So my answer is talent."
+    },
+    {
+        "start_time": "00:03:24.295",
+        "end_time": "00:03:25.672",
+        "text": "James."
+    },
+    {
+        "start_time": "00:03:25.672",
+        "end_time": "00:03:27.554",
+        "text": "You've got to come up with an idea."
+    },
+    {
+        "start_time": "00:03:27.554",
+        "end_time": "00:03:30.437",
+        "text": "Asking me to give you the creative pillar is not a good"
+    },
+    {
+        "start_time": "00:03:30.437",
+        "end_time": "00:03:33.929",
+        "text": "strategy because I can tell you that you could do it all day long."
+    },
+    {
+        "start_time": "00:03:33.929",
+        "end_time": "00:03:37.789",
+        "text": "You can do a whole series on Snapchat of random websites."
+    },
+    {
+        "start_time": "00:03:37.789",
+        "end_time": "00:03:40.430",
+        "text": "Why don't you just take your phone while you sit at your desk"
+    },
+    {
+        "start_time": "00:03:40.430",
+        "end_time": "00:03:46.187",
+        "text": "and in-between important things go to StumbleUpon click a button, random website show it on the screen and"
+    },
+    {
+        "start_time": "00:03:46.187",
+        "end_time": "00:03:48.335",
+        "text": "you audit those websites."
+    },
+    {
+        "start_time": "00:03:48.335",
+        "end_time": "00:03:49.613",
+        "text": "You add your two cents."
+    },
+    {
+        "start_time": "00:03:49.613",
+        "end_time": "00:03:51.846",
+        "text": "Social commentary to every website on the internet."
+    },
+    {
+        "start_time": "00:03:51.846",
+        "end_time": "00:03:54.314",
+        "text": "You would never have to leave your desk, ever again."
+    },
+    {
+        "start_time": "00:03:54.314",
+        "end_time": "00:03:55.334",
+        "text": "But are you good enough?"
+    },
+    {
+        "start_time": "00:03:55.334",
+        "end_time": "00:03:56.375",
+        "text": "Are you funny enough?"
+    },
+    {
+        "start_time": "00:03:56.375",
+        "end_time": "00:03:57.612",
+        "text": "Are you quick-witted enough?"
+    },
+    {
+        "start_time": "00:03:57.612",
+        "end_time": "00:04:00.751",
+        "text": "One of the most famous videos is when I cold called somebody and"
+    },
+    {
+        "start_time": "00:04:00.751",
+        "end_time": "00:04:02.690",
+        "text": "tried to sell them an ad 'cause I was good at it."
+    },
+    {
+        "start_time": "00:04:02.690",
+        "end_time": "00:04:04.915",
+        "text": "That's why it was good content. I just sat at my desk."
+    },
+    {
+        "start_time": "00:04:04.915",
+        "end_time": "00:04:09.282",
+        "text": "I think the answer is too many people think that you have to"
+    },
+    {
+        "start_time": "00:04:09.282",
+        "end_time": "00:04:13.622",
+        "text": "rely on amazing scenery or having a mix, a different day."
+    },
+    {
+        "start_time": "00:04:13.622",
+        "end_time": "00:04:15.429",
+        "text": "I think my Snapchat is all the same shit."
+    },
+    {
+        "start_time": "00:04:15.429",
+        "end_time": "00:04:17.353",
+        "text": "It just me in my face wherever I am."
+    },
+    {
+        "start_time": "00:04:17.353",
+        "end_time": "00:04:18.525",
+        "text": "I'm trying to mix it up."
+    },
+    {
+        "start_time": "00:04:18.525",
+        "end_time": "00:04:20.874",
+        "text": "I eat a banana here and there and now I go to weird bathrooms."
+    },
+    {
+        "start_time": "00:04:20.874",
+        "end_time": "00:04:22.136",
+        "text": "I'm trying."
+    },
+    {
+        "start_time": "00:04:22.136",
+        "end_time": "00:04:23.897",
+        "text": "Have you seen that yet? - [India] Yeah."
+    },
+    {
+        "start_time": "00:04:23.897",
+        "end_time": "00:04:26.949",
+        "text": "- Thank you. I travel a lot."
+    },
+    {
+        "start_time": "00:04:26.949",
+        "end_time": "00:04:29.002",
+        "text": "I think bathroom culture is fascinating."
+    },
+    {
+        "start_time": "00:04:29.002",
+        "end_time": "00:04:31.874",
+        "text": "- [India] (inaudible) restaurant bathrooms."
+    },
+    {
+        "start_time": "00:04:31.874",
+        "end_time": "00:04:33.922",
+        "text": "- [Gary] Well there you go. So there you go."
+    },
+    {
+        "start_time": "00:04:33.922",
+        "end_time": "00:04:36.229",
+        "text": "Why would you even ask me that?"
+    },
+    {
+        "start_time": "00:04:37.489",
+        "end_time": "00:04:41.479",
+        "text": "Hold on let's start over but you just said-- - [India] There's a difference between really random creepy"
+    },
+    {
+        "start_time": "00:04:41.479",
+        "end_time": "00:04:47.122",
+        "text": "bathroom and you Snapchatting from it and then curating a blog of interesting bathrooms."
+    },
+    {
+        "start_time": "00:04:47.122",
+        "end_time": "00:04:48.759",
+        "text": "- Yeah, super different, India."
+    },
+    {
+        "start_time": "00:04:48.759",
+        "end_time": "00:04:53.476",
+        "text": "Anyway my man, James, anything can be funny anything to be interesting it comes down to the talent."
+    },
+    {
+        "start_time": "00:04:53.476",
+        "end_time": "00:04:55.824",
+        "text": "If you're one that needs this visual support."
+    },
+    {
+        "start_time": "00:04:56.994",
+        "end_time": "00:05:02.384",
+        "text": "This is a binary question meaning if you're not good enough in a mundane similar situation to create something"
+    },
+    {
+        "start_time": "00:05:02.384",
+        "end_time": "00:05:06.711",
+        "text": "that's interesting and intriguing well then I don't know you got to get a new job."
+    },
+    {
+        "start_time": "00:05:06.711",
+        "end_time": "00:05:07.998",
+        "text": "Something crazy. I don't know."
+    },
+    {
+        "start_time": "00:05:07.998",
+        "end_time": "00:05:08.945",
+        "text": "You're stuck."
+    },
+    {
+        "start_time": "00:05:08.945",
+        "end_time": "00:05:11.747",
+        "text": "There certain truths you're gonna sit at your job and do calls at"
+    },
+    {
+        "start_time": "00:05:11.747",
+        "end_time": "00:05:13.843",
+        "text": "your desk it sounds like regardless."
+    },
+    {
+        "start_time": "00:05:13.843",
+        "end_time": "00:05:17.034",
+        "text": "So instead of saying that the defense, make it an offense."
+    },
+    {
+        "start_time": "00:05:17.034",
+        "end_time": "00:05:18.188",
+        "text": "It is a mindset."
+    },
+    {
+        "start_time": "00:05:18.188",
+        "end_time": "00:05:22.262",
+        "text": "Unless you're willing to change your job and travel the world and have all this great scenery in the background like"
+    },
+    {
+        "start_time": "00:05:22.262",
+        "end_time": "00:05:26.054",
+        "text": "buck up Charlie, James. And figure it out."
+    },
+    {
+        "start_time": "00:05:27.184",
+        "end_time": "00:05:31.320",
+        "text": "I mean you can take a whole meme just about, I could do a whole thing just on Courtney."
+    },
+    {
+        "start_time": "00:05:31.320",
+        "end_time": "00:05:32.397",
+        "text": "At the front of our."
+    },
+    {
+        "start_time": "00:05:32.397",
+        "end_time": "00:05:34.670",
+        "text": "I could basically make Courtney."
+    },
+    {
+        "start_time": "00:05:34.670",
+        "end_time": "00:05:37.866",
+        "text": "I can basically make anybody famous if I want to."
+    },
+    {
+        "start_time": "00:05:37.866",
+        "end_time": "00:05:41.953",
+        "text": "(India laughing) - I mean it is true."
+    },
+    {
+        "start_time": "00:05:41.953",
+        "end_time": "00:05:44.117",
+        "text": "I like to think I'm a little entertaining."
+    },
+    {
+        "start_time": "00:05:44.117",
+        "end_time": "00:05:46.089",
+        "text": "Sean."
+    },
+    {
+        "start_time": "00:05:51.673",
+        "end_time": "00:05:53.054",
+        "text": "- What is up, Gary?"
+    },
+    {
+        "start_time": "00:05:53.054",
+        "end_time": "00:05:54.860",
+        "text": "Sean from Denver, Colorado here."
+    },
+    {
+        "start_time": "00:05:54.860",
+        "end_time": "00:05:58.470",
+        "text": "You can see the beautiful Rocky Mountains in the background."
+    },
+    {
+        "start_time": "00:05:58.470",
+        "end_time": "00:06:00.589",
+        "text": "My question for you about negotiation."
+    },
+    {
+        "start_time": "00:06:00.589",
+        "end_time": "00:06:07.924",
+        "text": "What are your best tips for getting the deal done and making sure that it's mutually beneficial for both parties?"
+    },
+    {
+        "start_time": "00:06:07.924",
+        "end_time": "00:06:09.410",
+        "text": "- Sean, it's interesting. Great question."
+    },
+    {
+        "start_time": "00:06:09.410",
+        "end_time": "00:06:13.368",
+        "text": "Thank you for heeding the call for better video, better scenery in the background."
+    },
+    {
+        "start_time": "00:06:13.368",
+        "end_time": "00:06:15.899",
+        "text": "I'm sure there's a bunch there pent up from a month or two ago."
+    },
+    {
+        "start_time": "00:06:15.899",
+        "end_time": "00:06:17.319",
+        "text": "It's funny."
+    },
+    {
+        "start_time": "00:06:17.319",
+        "end_time": "00:06:18.432",
+        "text": "They're one of the same."
+    },
+    {
+        "start_time": "00:06:18.432",
+        "end_time": "00:06:20.585",
+        "text": "I'm very aggressive."
+    },
+    {
+        "start_time": "00:06:20.585",
+        "end_time": "00:06:24.288",
+        "text": "And I very aggressively go after a person and say look as"
+    },
+    {
+        "start_time": "00:06:24.288",
+        "end_time": "00:06:26.797",
+        "text": "quickly as possible I want you to trust me."
+    },
+    {
+        "start_time": "00:06:26.797",
+        "end_time": "00:06:27.977",
+        "text": "Tell me what you want."
+    },
+    {
+        "start_time": "00:06:27.977",
+        "end_time": "00:06:29.492",
+        "text": "What is in your vested interest?"
+    },
+    {
+        "start_time": "00:06:29.492",
+        "end_time": "00:06:32.464",
+        "text": "If I can figure out what that person wants and first I go with"
+    },
+    {
+        "start_time": "00:06:32.464",
+        "end_time": "00:06:36.739",
+        "text": "honesty and you know it's funny and when somebody is negotiating with you they don't want to give you honesty."
+    },
+    {
+        "start_time": "00:06:36.739",
+        "end_time": "00:06:39.457",
+        "text": "And actually I use it as a tactic to build a relationship."
+    },
+    {
+        "start_time": "00:06:39.457",
+        "end_time": "00:06:44.248",
+        "text": "If I go at somebody and say look you guys know this with,"
+    },
+    {
+        "start_time": "00:06:44.248",
+        "end_time": "00:06:46.036",
+        "text": "some of you know this with salaries."
+    },
+    {
+        "start_time": "00:06:46.036",
+        "end_time": "00:06:48.114",
+        "text": "It's how I negotiate almost everything."
+    },
+    {
+        "start_time": "00:06:48.114",
+        "end_time": "00:06:49.605",
+        "text": "I just want to know."
+    },
+    {
+        "start_time": "00:06:49.605",
+        "end_time": "00:06:52.833",
+        "text": "Because by the way, if you say \"Hey, I want to pay VaynerMedia"
+    },
+    {
+        "start_time": "00:06:52.833",
+        "end_time": "00:06:55.430",
+        "text": "\"four dollars a month,\" and I want four dollars a month well then"
+    },
+    {
+        "start_time": "00:06:55.430",
+        "end_time": "00:06:57.327",
+        "text": "we just saved a lot of time."
+    },
+    {
+        "start_time": "00:06:57.327",
+        "end_time": "00:06:59.375",
+        "text": "I'm like cool. Let's do it."
+    },
+    {
+        "start_time": "00:06:59.375",
+        "end_time": "00:07:06.432",
+        "text": "I think my best tactic has been the same which is honesty, truth and aggressiveness"
+    },
+    {
+        "start_time": "00:07:06.432",
+        "end_time": "00:07:09.172",
+        "text": "to extract the truth from the other person."
+    },
+    {
+        "start_time": "00:07:09.172",
+        "end_time": "00:07:11.372",
+        "text": "I'm naturally a counter puncher."
+    },
+    {
+        "start_time": "00:07:11.372",
+        "end_time": "00:07:13.758",
+        "text": "In my marketing and definitely in my negotiating."
+    },
+    {
+        "start_time": "00:07:13.758",
+        "end_time": "00:07:16.453",
+        "text": "What do you want to happen for how much?"
+    },
+    {
+        "start_time": "00:07:16.453",
+        "end_time": "00:07:19.350",
+        "text": "And if I can get them into a truthful place."
+    },
+    {
+        "start_time": "00:07:19.350",
+        "end_time": "00:07:23.267",
+        "text": "Now one of the keys to my strategy is drawing a line in the sand."
+    },
+    {
+        "start_time": "00:07:23.267",
+        "end_time": "00:07:27.903",
+        "text": "When I say to somebody give me your best offer and if I can hit, I'll do it."
+    },
+    {
+        "start_time": "00:07:27.903",
+        "end_time": "00:07:33.993",
+        "text": "If they then give me an offer that I can't do I have to say no and I can't move."
+    },
+    {
+        "start_time": "00:07:33.993",
+        "end_time": "00:07:36.689",
+        "text": "It's all grounded in truths."
+    },
+    {
+        "start_time": "00:07:36.689",
+        "end_time": "00:07:39.399",
+        "text": "I think you have to know what you want and I think you have to"
+    },
+    {
+        "start_time": "00:07:39.399",
+        "end_time": "00:07:42.393",
+        "text": "try to extract from the other person what they want."
+    },
+    {
+        "start_time": "00:07:42.393",
+        "end_time": "00:07:45.901",
+        "text": "And you need to try to make them feel comfortable that you're in their best interest."
+    },
+    {
+        "start_time": "00:07:45.901",
+        "end_time": "00:07:47.919",
+        "text": "One thing I do is I point to my career at this point and let"
+    },
+    {
+        "start_time": "00:07:47.919",
+        "end_time": "00:07:53.365",
+        "text": "them know I've done everything on lifetime value that I don't need to make much money up front it's all of the long-term."
+    },
+    {
+        "start_time": "00:07:53.365",
+        "end_time": "00:07:54.877",
+        "text": "I require that for my people."
+    },
+    {
+        "start_time": "00:07:54.877",
+        "end_time": "00:07:56.429",
+        "text": "I require that for my partners."
+    },
+    {
+        "start_time": "00:07:56.429",
+        "end_time": "00:07:59.830",
+        "text": "I just think the right way to go there is go right at it."
+    },
+    {
+        "start_time": "00:07:59.830",
+        "end_time": "00:08:02.164",
+        "text": "What's going to get this deal done?"
+    },
+    {
+        "start_time": "00:08:02.164",
+        "end_time": "00:08:05.248",
+        "text": "For me, I'd rather leave profit on the table to get the"
+    },
+    {
+        "start_time": "00:08:05.248",
+        "end_time": "00:08:06.692",
+        "text": "deal done quicker."
+    },
+    {
+        "start_time": "00:08:06.692",
+        "end_time": "00:08:09.117",
+        "text": "I think too many want to guess the higher number."
+    },
+    {
+        "start_time": "00:08:09.117",
+        "end_time": "00:08:12.083",
+        "text": "Let that one $8000 for this."
+    },
+    {
+        "start_time": "00:08:12.083",
+        "end_time": "00:08:15.165",
+        "text": "I think too many people are like 12,000 instead of saying how"
+    },
+    {
+        "start_time": "00:08:15.165",
+        "end_time": "00:08:19.286",
+        "text": "much is it going to get done and Staphon says 7500 if I'm okay"
+    },
+    {
+        "start_time": "00:08:19.286",
+        "end_time": "00:08:22.204",
+        "text": "with that because I want 8000 I'm like good, done, let's go."
+    },
+    {
+        "start_time": "00:08:22.204",
+        "end_time": "00:08:28.980",
+        "text": "Speed, movement, trust, relationships finding a place where you can trust that person you're on the same page."
+    },
+    {
+        "start_time": "00:08:28.980",
+        "end_time": "00:08:30.845",
+        "text": "That's how I see it."
+    },
+    {
+        "start_time": "00:08:31.655",
+        "end_time": "00:08:40.813",
+        "text": "- [Voiceover] Nishita asks, \"Gary, how do design changes to \"apps that cause a negative stir affect brand image or usage?\""
+    },
+    {
+        "start_time": "00:08:40.813",
+        "end_time": "00:08:43.290",
+        "text": "- Is this back Instagram? - [India] Yeah."
+    },
+    {
+        "start_time": "00:08:43.290",
+        "end_time": "00:08:44.712",
+        "text": "- This stuff happens all the time."
+    },
+    {
+        "start_time": "00:08:44.712",
+        "end_time": "00:08:46.557",
+        "text": "Remember when Uber changed it's logo?"
+    },
+    {
+        "start_time": "00:08:46.557",
+        "end_time": "00:08:49.153",
+        "text": "I think Uber's new logo is way worse than it's old one."
+    },
+    {
+        "start_time": "00:08:49.153",
+        "end_time": "00:08:51.091",
+        "text": "But that's one man's subjective opinion."
+    },
+    {
+        "start_time": "00:08:51.091",
+        "end_time": "00:08:52.690",
+        "text": "Even though all four of you shook your head."
+    },
+    {
+        "start_time": "00:08:52.690",
+        "end_time": "00:08:54.476",
+        "text": "Do you like the Instagram one better now?"
+    },
+    {
+        "start_time": "00:08:54.476",
+        "end_time": "00:08:57.427",
+        "text": "No, no. - [Garrett] Yeah."
+    },
+    {
+        "start_time": "00:08:57.427",
+        "end_time": "00:08:59.645",
+        "text": "- Yeah, got it. Me neither but whatever."
+    },
+    {
+        "start_time": "00:08:59.645",
+        "end_time": "00:09:00.725",
+        "text": "Nobody gives a crap."
+    },
+    {
+        "start_time": "00:09:00.725",
+        "end_time": "00:09:08.957",
+        "text": "If anybody still today still cares about the Instagram design change then they don't realize that Instagram is a business and"
+    },
+    {
+        "start_time": "00:09:08.957",
+        "end_time": "00:09:11.149",
+        "text": "not a museum."
+    },
+    {
+        "start_time": "00:09:12.389",
+        "end_time": "00:09:15.135",
+        "text": "In the context that I come from if you're making art that you"
+    },
+    {
+        "start_time": "00:09:15.135",
+        "end_time": "00:09:17.676",
+        "text": "want debated for the rest of time it really matters."
+    },
+    {
+        "start_time": "00:09:17.676",
+        "end_time": "00:09:23.644",
+        "text": "If you are talking about business everybody complains about logo changes on sports teams pro, con,"
+    },
+    {
+        "start_time": "00:09:23.644",
+        "end_time": "00:09:26.305",
+        "text": "logo changes of apps pro, con."
+    },
+    {
+        "start_time": "00:09:26.305",
+        "end_time": "00:09:28.528",
+        "text": "It's a fun thing to talk about but if you noticed I got"
+    },
+    {
+        "start_time": "00:09:28.528",
+        "end_time": "00:09:34.440",
+        "text": "bombarded about it on social and I didn't even answer anybody's question about it because I didn't even want to respect the"
+    },
+    {
+        "start_time": "00:09:34.440",
+        "end_time": "00:09:41.167",
+        "text": "question because for me from a business standpoint it has 0.00000 impact on Instagram's business."
+    },
+    {
+        "start_time": "00:09:41.167",
+        "end_time": "00:09:44.978",
+        "text": "Now the UI and UX if it makes people stay on it longer, engage"
+    },
+    {
+        "start_time": "00:09:44.978",
+        "end_time": "00:09:48.203",
+        "text": "with that it longer, that has huge impact but the logo itself"
+    },
+    {
+        "start_time": "00:09:48.203",
+        "end_time": "00:09:52.756",
+        "text": "as a matter of fact it does have impact I'm not pooh-poohing design. I believe in the design."
+    },
+    {
+        "start_time": "00:09:52.756",
+        "end_time": "00:09:56.187",
+        "text": "For example, I think I'm using Instagram less."
+    },
+    {
+        "start_time": "00:09:56.187",
+        "end_time": "00:09:59.392",
+        "text": "The first week just because my eye didn't recognize the logo as"
+    },
+    {
+        "start_time": "00:09:59.392",
+        "end_time": "00:10:02.088",
+        "text": "much I hit it less times."
+    },
+    {
+        "start_time": "00:10:02.088",
+        "end_time": "00:10:03.131",
+        "text": "Not even kidding."
+    },
+    {
+        "start_time": "00:10:03.131",
+        "end_time": "00:10:04.497",
+        "text": "But I'm a focus group of one."
+    },
+    {
+        "start_time": "00:10:04.497",
+        "end_time": "00:10:07.370",
+        "text": "I think net-net on a 60, 90, 100 day term, it doesn't matter."
+    },
+    {
+        "start_time": "00:10:07.370",
+        "end_time": "00:10:09.632",
+        "text": "I'm already back to my normal usage on Instagram."
+    },
+    {
+        "start_time": "00:10:11.902",
+        "end_time": "00:10:14.463",
+        "text": "It can be an issue but I think a lot of time"
+    },
+    {
+        "start_time": "00:10:14.463",
+        "end_time": "00:10:16.894",
+        "text": "press over engages it."
+    },
+    {
+        "start_time": "00:10:16.894",
+        "end_time": "00:10:20.339",
+        "text": "For example, when the Gap changed it's logo and that was a"
+    },
+    {
+        "start_time": "00:10:20.339",
+        "end_time": "00:10:23.312",
+        "text": "whole to do and they changed back or when people have to do"
+    },
+    {
+        "start_time": "00:10:23.312",
+        "end_time": "00:10:27.021",
+        "text": "that a lot of times is more about the press and the"
+    },
+    {
+        "start_time": "00:10:27.021",
+        "end_time": "00:10:31.610",
+        "text": "perception and then the stock price more so than what's actually happening in user behavior."
+    },
+    {
+        "start_time": "00:10:31.610",
+        "end_time": "00:10:33.007",
+        "text": "But sometimes it could be a change."
+    },
+    {
+        "start_time": "00:10:33.007",
+        "end_time": "00:10:39.116",
+        "text": "I don't over, I think a name and a logo can always be trumped by"
+    },
+    {
+        "start_time": "00:10:39.116",
+        "end_time": "00:10:41.595",
+        "text": "the quality of the product."
+    },
+    {
+        "start_time": "00:10:41.595",
+        "end_time": "00:10:43.303",
+        "text": "Even bad press."
+    },
+    {
+        "start_time": "00:10:43.303",
+        "end_time": "00:10:44.712",
+        "text": "When Uber's getting all that bad press."
+    },
+    {
+        "start_time": "00:10:44.712",
+        "end_time": "00:10:51.256",
+        "text": "My friends, \"I feel bad what Uber is doing,\" and they're take an Uber while they're saying it."
+    },
+    {
+        "start_time": "00:10:51.256",
+        "end_time": "00:10:54.141",
+        "text": "I'm a big fan of actions over words."
+    },
+    {
+        "start_time": "00:10:54.141",
+        "end_time": "00:10:57.858",
+        "text": "All the people that I hate the Instagram logo but are using it"
+    },
+    {
+        "start_time": "00:10:57.858",
+        "end_time": "00:11:03.364",
+        "text": ".3 times more today than they did a week ago, what does that then mean?"
+    },
+    {
+        "start_time": "00:11:03.364",
+        "end_time": "00:11:05.673",
+        "text": "It's like saying you're moving to Canada if you don't like the"
+    },
+    {
+        "start_time": "00:11:05.673",
+        "end_time": "00:11:11.216",
+        "text": "president and then not moving which is what basically all of my extremist friends on the Republican and Democratic side"
+    },
+    {
+        "start_time": "00:11:11.216",
+        "end_time": "00:11:13.072",
+        "text": "have done of the last 16 years."
+    },
+    {
+        "start_time": "00:11:13.072",
+        "end_time": "00:11:18.766",
+        "text": "Everybody moved to Canada during Bush every move to Canada during Obama and so far nobody moved to Canada."
+    },
+    {
+        "start_time": "00:11:18.766",
+        "end_time": "00:11:20.844",
+        "text": "Because you're full of shit."
+    },
+    {
+        "start_time": "00:11:23.514",
+        "end_time": "00:11:26.225",
+        "text": "And that's just a higher level conversation of the logo."
+    },
+    {
+        "start_time": "00:11:26.225",
+        "end_time": "00:11:27.920",
+        "text": "What does it mean? I don't know."
+    },
+    {
+        "start_time": "00:11:27.920",
+        "end_time": "00:11:29.786",
+        "text": "A lot of people like to say things on social media."
+    },
+    {
+        "start_time": "00:11:29.786",
+        "end_time": "00:11:32.970",
+        "text": "I like to know what you actually do versus what you actually say."
+    },
+    {
+        "start_time": "00:11:32.970",
+        "end_time": "00:11:35.012",
+        "text": "- [India] That's good."
+    },
+    {
+        "start_time": "00:11:35.012",
+        "end_time": "00:11:38.735",
+        "text": "Yeah that put the (smack)."
+    },
+    {
+        "start_time": "00:11:38.735",
+        "end_time": "00:11:41.503",
+        "text": "- [India] I think it's Avica or it's Avici?"
+    },
+    {
+        "start_time": "00:11:41.503",
+        "end_time": "00:11:42.663",
+        "text": "- It's Avicii?"
+    },
+    {
+        "start_time": "00:11:42.663",
+        "end_time": "00:11:43.973",
+        "text": "- [India] Yes, Avicii's asking a question."
+    },
+    {
+        "start_time": "00:11:43.973",
+        "end_time": "00:11:47.111",
+        "text": "- Finally. Yes you can sample my shit."
+    },
+    {
+        "start_time": "00:11:47.111",
+        "end_time": "00:11:52.135",
+        "text": "(laughter) - [Voiceover] Ivica asks, \"Gary, you challenge the old"
+    },
+    {
+        "start_time": "00:11:52.135",
+        "end_time": "00:11:57.435",
+        "text": "\"every day. How do you feel when challenged \"from the young professionally?\""
+    },
+    {
+        "start_time": "00:11:57.435",
+        "end_time": "00:11:58.391",
+        "text": "- Tremendous."
+    },
+    {
+        "start_time": "00:11:58.391",
+        "end_time": "00:12:00.635",
+        "text": "I love to be challenged more than anything."
+    },
+    {
+        "start_time": "00:12:00.635",
+        "end_time": "00:12:02.768",
+        "text": "I think one of the misnomers of a cult of personality like"
+    },
+    {
+        "start_time": "00:12:02.768",
+        "end_time": "00:12:07.315",
+        "text": "myself is that we all love yes men and women around us."
+    },
+    {
+        "start_time": "00:12:07.315",
+        "end_time": "00:12:10.991",
+        "text": "I can tell you that look you get the benefit of being right."
+    },
+    {
+        "start_time": "00:12:10.991",
+        "end_time": "00:12:13.614",
+        "text": "One of things I hate about my success and I knock on wood"
+    },
+    {
+        "start_time": "00:12:13.614",
+        "end_time": "00:12:16.544",
+        "text": "because I don't want to jinx my success is the longer I have it"
+    },
+    {
+        "start_time": "00:12:16.544",
+        "end_time": "00:12:19.400",
+        "text": "and the more that I have the less I'm being challenged by"
+    },
+    {
+        "start_time": "00:12:19.400",
+        "end_time": "00:12:23.148",
+        "text": "the young or the less experienced or the less winning."
+    },
+    {
+        "start_time": "00:12:24.818",
+        "end_time": "00:12:29.882",
+        "text": "It's very dangerous when you've accumulated success that you're not being challenged."
+    },
+    {
+        "start_time": "00:12:29.882",
+        "end_time": "00:12:33.355",
+        "text": "I love challenging people and I love to be challenged."
+    },
+    {
+        "start_time": "00:12:33.355",
+        "end_time": "00:12:35.769",
+        "text": "What I love most about being challenged is like 8 out of 10"
+    },
+    {
+        "start_time": "00:12:35.769",
+        "end_time": "00:12:40.761",
+        "text": "times that I'm challenged in something that I really now I feel like the person is challenging me for the sake of"
+    },
+    {
+        "start_time": "00:12:40.761",
+        "end_time": "00:12:45.690",
+        "text": "challenging me 'cause they're playing that role 'cause they think it's going to catch my attention but then I'm actually"
+    },
+    {
+        "start_time": "00:12:45.690",
+        "end_time": "00:12:49.137",
+        "text": "in the game of the argument and when they look like an idiot and"
+    },
+    {
+        "start_time": "00:12:49.137",
+        "end_time": "00:12:54.034",
+        "text": "they're wrong by all standards it actually makes them lose."
+    },
+    {
+        "start_time": "00:12:54.034",
+        "end_time": "00:13:00.845",
+        "text": "Why I'm painting you that little picture is when I challenge, I challenge with substance."
+    },
+    {
+        "start_time": "00:13:00.845",
+        "end_time": "00:13:03.523",
+        "text": "It's funny that I just talked about presidents."
+    },
+    {
+        "start_time": "00:13:03.523",
+        "end_time": "00:13:11.246",
+        "text": "Politics, healthcare, macroeconomic issues, geopolitical issues, terrorism,"
+    },
+    {
+        "start_time": "00:13:11.246",
+        "end_time": "00:13:15.941",
+        "text": "health and wellness, boy, do I not challenge anybody."
+    },
+    {
+        "start_time": "00:13:15.941",
+        "end_time": "00:13:21.149",
+        "text": "Boy, do I do a lot of listening and when I am at my worst occasional pontificating about"
+    },
+    {
+        "start_time": "00:13:21.149",
+        "end_time": "00:13:24.446",
+        "text": "my opinion on it but boy you will not see venom."
+    },
+    {
+        "start_time": "00:13:24.446",
+        "end_time": "00:13:29.713",
+        "text": "If we all have brunch and we start talking about something I don't know about it's stunning how quiet I get."
+    },
+    {
+        "start_time": "00:13:29.713",
+        "end_time": "00:13:32.421",
+        "text": "It's just you only see me in things that I know."
+    },
+    {
+        "start_time": "00:13:32.421",
+        "end_time": "00:13:34.748",
+        "text": "You only see me challenging things that I know."
+    },
+    {
+        "start_time": "00:13:34.748",
+        "end_time": "00:13:39.198",
+        "text": "Of course, I'm going to challenge Seth Godin if I don't agree with him. Because I know."
+    },
+    {
+        "start_time": "00:13:41.788",
+        "end_time": "00:13:47.257",
+        "text": "I love when somebody challenges me at this company and outside this company when I can taste that they know that they're"
+    },
+    {
+        "start_time": "00:13:47.257",
+        "end_time": "00:13:50.872",
+        "text": "talking about because then you have some real frictions make diamonds."
+    },
+    {
+        "start_time": "00:13:50.872",
+        "end_time": "00:13:52.300",
+        "text": "I want to get better."
+    },
+    {
+        "start_time": "00:13:52.300",
+        "end_time": "00:13:56.852",
+        "text": "I want somebody to challenge me but when you're going to challenge me that TV or direct mail is better and all you have"
+    },
+    {
+        "start_time": "00:13:56.852",
+        "end_time": "00:14:02.759",
+        "text": "is some bullshit from 1984 and you're not a practitioner anymore and you have nothing to back it up"
+    },
+    {
+        "start_time": "00:14:02.759",
+        "end_time": "00:14:05.062",
+        "text": "you're gonna get eaten up."
+    },
+    {
+        "start_time": "00:14:07.412",
+        "end_time": "00:14:08.978",
+        "text": "I love being challenged."
+    },
+    {
+        "start_time": "00:14:08.978",
+        "end_time": "00:14:10.800",
+        "text": "I want the young to challenge me all day."
+    },
+    {
+        "start_time": "00:14:10.800",
+        "end_time": "00:14:15.523",
+        "text": "You saw me in the episode with the 15-year-old girls for musically, I was listening."
+    },
+    {
+        "start_time": "00:14:16.663",
+        "end_time": "00:14:18.229",
+        "text": "I'm not telling them they're wrong."
+    },
+    {
+        "start_time": "00:14:18.229",
+        "end_time": "00:14:19.503",
+        "text": "They're in high school, they're there."
+    },
+    {
+        "start_time": "00:14:19.503",
+        "end_time": "00:14:24.706",
+        "text": "They're like, \"All my kids in my class are on Twitter.\" Cool. Respect, wow."
+    },
+    {
+        "start_time": "00:14:24.706",
+        "end_time": "00:14:27.162",
+        "text": "So that's that."
+    },
+    {
+        "start_time": "00:14:27.162",
+        "end_time": "00:14:29.226",
+        "text": "And by the way that is a focus group of one high school."
+    },
+    {
+        "start_time": "00:14:29.226",
+        "end_time": "00:14:34.663",
+        "text": "It doesn't mean Twitter is now everybody GaryVee thinks Twitter is huge in high school."
+    },
+    {
+        "start_time": "00:14:34.663",
+        "end_time": "00:14:36.879",
+        "text": "No, I think it is an interesting thing to pay attention to"
+    },
+    {
+        "start_time": "00:14:36.879",
+        "end_time": "00:14:42.115",
+        "text": "because after that comment hundred of more emails and comments of people like yeah it's true in my high school too."
+    },
+    {
+        "start_time": "00:14:42.115",
+        "end_time": "00:14:45.180",
+        "text": "And by the way, tens, by the way just to ground you, of like"
+    },
+    {
+        "start_time": "00:14:45.180",
+        "end_time": "00:14:46.556",
+        "text": "I don't know what that girl's talking about."
+    },
+    {
+        "start_time": "00:14:46.556",
+        "end_time": "00:14:48.706",
+        "text": "At my high school nobody's doing but tens to hundreds, you know?"
+    },
+    {
+        "start_time": "00:14:50.776",
+        "end_time": "00:14:52.184",
+        "text": "- [India] Last one. - Last one."
+    },
+    {
+        "start_time": "00:14:52.184",
+        "end_time": "00:14:54.953",
+        "text": "Joey nice Jets sign."
+    },
+    {
+        "start_time": "00:14:54.953",
+        "end_time": "00:14:58.373",
+        "text": "- Hey Gary Vay-ner-chuk I saw on one of your videos that you got"
+    },
+    {
+        "start_time": "00:14:58.373",
+        "end_time": "00:15:02.502",
+        "text": "asked if you were to build a company in 2016 today from"
+    },
+    {
+        "start_time": "00:15:02.502",
+        "end_time": "00:15:05.160",
+        "text": "scratch what would you pick."
+    },
+    {
+        "start_time": "00:15:05.160",
+        "end_time": "00:15:09.022",
+        "text": "Erase all your followers all the companies that you have built up to this date."
+    },
+    {
+        "start_time": "00:15:09.022",
+        "end_time": "00:15:11.369",
+        "text": "You said you would choose something like Nike."
+    },
+    {
+        "start_time": "00:15:11.369",
+        "end_time": "00:15:18.196",
+        "text": "So my question is at the beginning stages of your company what would you do for your three next moves."
+    },
+    {
+        "start_time": "00:15:18.196",
+        "end_time": "00:15:21.417",
+        "text": "What were your top three first moves be to help grow your"
+    },
+    {
+        "start_time": "00:15:21.417",
+        "end_time": "00:15:25.663",
+        "text": "company and keep in mind you only have $3000."
+    },
+    {
+        "start_time": "00:15:25.663",
+        "end_time": "00:15:27.283",
+        "text": "What would those three steps be?"
+    },
+    {
+        "start_time": "00:15:27.283",
+        "end_time": "00:15:28.984",
+        "text": "- Guys can't get more specific?"
+    },
+    {
+        "start_time": "00:15:28.984",
+        "end_time": "00:15:34.332",
+        "text": "- Ads, an expo at a convention center, inventory, what would it be?"
+    },
+    {
+        "start_time": "00:15:34.332",
+        "end_time": "00:15:36.724",
+        "text": "Let me know, can't wait to hear your answer and thank you for"
+    },
+    {
+        "start_time": "00:15:36.724",
+        "end_time": "00:15:40.042",
+        "text": "including my question and today's show."
+    },
+    {
+        "start_time": "00:15:40.042",
+        "end_time": "00:15:41.509",
+        "text": "- What is the name? - [India] Joey."
+    },
+    {
+        "start_time": "00:15:41.509",
+        "end_time": "00:15:42.940",
+        "text": "- Joey, great question."
+    },
+    {
+        "start_time": "00:15:42.940",
+        "end_time": "00:15:46.417",
+        "text": "The truth Joey and everybody who is watching and so many of you"
+    },
+    {
+        "start_time": "00:15:46.417",
+        "end_time": "00:15:48.363",
+        "text": "are emailing me and please by the way this is a good"
+    },
+    {
+        "start_time": "00:15:48.363",
+        "end_time": "00:15:53.843",
+        "text": "opportunity, Staphon, can you put a little video pop-up you'll do a little editing for this one."
+    },
+    {
+        "start_time": "00:15:53.843",
+        "end_time": "00:15:55.882",
+        "text": "Actually put a picture I don't make you."
+    },
+    {
+        "start_time": "00:15:55.882",
+        "end_time": "00:15:57.562",
+        "text": "#AskGaryVee the search engine."
+    },
+    {
+        "start_time": "00:15:57.562",
+        "end_time": "00:16:00.648",
+        "text": "If you have business questions, my new search engine is unbelievable."
+    },
+    {
+        "start_time": "00:16:00.648",
+        "end_time": "00:16:05.363",
+        "text": "All my questions all of my answers transcribed all there in the search engine."
+    },
+    {
+        "start_time": "00:16:05.363",
+        "end_time": "00:16:08.470",
+        "text": "So many questions about this and the truth is Joey you clearly"
+    },
+    {
+        "start_time": "00:16:08.470",
+        "end_time": "00:16:10.638",
+        "text": "ask for yourself there so many things you could be doing for"
+    },
+    {
+        "start_time": "00:16:10.638",
+        "end_time": "00:16:13.863",
+        "text": "your apparel business I guess is why you referenced Nike."
+    },
+    {
+        "start_time": "00:16:13.863",
+        "end_time": "00:16:17.200",
+        "text": "First of all, I said if you're in apparel the number one thing"
+    },
+    {
+        "start_time": "00:16:17.200",
+        "end_time": "00:16:20.013",
+        "text": "I would do it would try to get Instagram influencers to wear"
+    },
+    {
+        "start_time": "00:16:20.013",
+        "end_time": "00:16:25.951",
+        "text": "your product at zero cost all the way up to $1, $3, $50, $100."
+    },
+    {
+        "start_time": "00:16:25.951",
+        "end_time": "00:16:28.482",
+        "text": "I think influencers are grossly underpriced."
+    },
+    {
+        "start_time": "00:16:29.602",
+        "end_time": "00:16:36.497",
+        "text": "I think the game is about exposure and conversion and I think that too many people don't really understand how"
+    },
+    {
+        "start_time": "00:16:36.497",
+        "end_time": "00:16:39.009",
+        "text": "to run a business. Make a lot of bad mistakes."
+    },
+    {
+        "start_time": "00:16:39.009",
+        "end_time": "00:16:40.858",
+        "text": "As a matter of fact, I'm super pumped that \"Shark Tank\" is now"
+    },
+    {
+        "start_time": "00:16:40.858",
+        "end_time": "00:16:43.011",
+        "text": "doing this \"After The Tank\" TV show."
+    },
+    {
+        "start_time": "00:16:43.011",
+        "end_time": "00:16:44.683",
+        "text": "I don't know if any of you have watched it."
+    },
+    {
+        "start_time": "00:16:44.683",
+        "end_time": "00:16:46.719",
+        "text": "But Lizzie loves it."
+    },
+    {
+        "start_time": "00:16:46.719",
+        "end_time": "00:16:50.421",
+        "text": "They're showing people going out of business because they grow too fast. They don't understand."
+    },
+    {
+        "start_time": "00:16:50.421",
+        "end_time": "00:16:51.761",
+        "text": "There's a real cadence of growing."
+    },
+    {
+        "start_time": "00:16:51.761",
+        "end_time": "00:16:53.527",
+        "text": "It's like anything in life."
+    },
+    {
+        "start_time": "00:16:53.527",
+        "end_time": "00:16:55.268",
+        "text": "You can't get too ahead of yourself."
+    },
+    {
+        "start_time": "00:16:55.268",
+        "end_time": "00:16:56.792",
+        "text": "You can't go too slow."
+    },
+    {
+        "start_time": "00:16:56.792",
+        "end_time": "00:17:00.883",
+        "text": "You know it's funny, a lot of people when they start digging into my content realize that I'm a real contradiction."
+    },
+    {
+        "start_time": "00:17:00.883",
+        "end_time": "00:17:03.718",
+        "text": "That I believe in very opposite points of view."
+    },
+    {
+        "start_time": "00:17:03.718",
+        "end_time": "00:17:08.059",
+        "text": "And I think my answer to your question is it's a mix of 100 different things."
+    },
+    {
+        "start_time": "00:17:08.059",
+        "end_time": "00:17:10.312",
+        "text": "I couldn't give you, I'm not going to give you what you want"
+    },
+    {
+        "start_time": "00:17:10.312",
+        "end_time": "00:17:13.051",
+        "text": "from this question which is these three tactical things."
+    },
+    {
+        "start_time": "00:17:13.051",
+        "end_time": "00:17:19.386",
+        "text": "I only give very black-and-white tactical advice when I actually have hours to sit down and look at your business and actually"
+    },
+    {
+        "start_time": "00:17:19.386",
+        "end_time": "00:17:20.431",
+        "text": "understand what I'm talking about."
+    },
+    {
+        "start_time": "00:17:20.431",
+        "end_time": "00:17:22.552",
+        "text": "I don't want to look like an idiot or have egg on my face so"
+    },
+    {
+        "start_time": "00:17:22.552",
+        "end_time": "00:17:25.019",
+        "text": "then I thought about religious points of view."
+    },
+    {
+        "start_time": "00:17:25.019",
+        "end_time": "00:17:28.112",
+        "text": "For you, you need to get that shirt and you need to get as much exposure."
+    },
+    {
+        "start_time": "00:17:28.112",
+        "end_time": "00:17:30.802",
+        "text": "The same way you hacked your way on to this show asking a"
+    },
+    {
+        "start_time": "00:17:30.802",
+        "end_time": "00:17:32.750",
+        "text": "question now you got exposure."
+    },
+    {
+        "start_time": "00:17:32.750",
+        "end_time": "00:17:36.385",
+        "text": "I saw you put your little Snapchat logo down there in the corner."
+    },
+    {
+        "start_time": "00:17:36.385",
+        "end_time": "00:17:37.996",
+        "text": "Some people snapped it, following you now."
+    },
+    {
+        "start_time": "00:17:37.996",
+        "end_time": "00:17:39.019",
+        "text": "You're looking for exposure."
+    },
+    {
+        "start_time": "00:17:39.019",
+        "end_time": "00:17:40.492",
+        "text": "I think it's a grind."
+    },
+    {
+        "start_time": "00:17:40.492",
+        "end_time": "00:17:42.154",
+        "text": "For apparel businesses are very hard."
+    },
+    {
+        "start_time": "00:17:42.154",
+        "end_time": "00:17:46.311",
+        "text": "You need distribution, you need awareness to me what I would do is a lot of listening."
+    },
+    {
+        "start_time": "00:17:46.311",
+        "end_time": "00:17:49.065",
+        "text": "I would tell you very honest answer, Joey, if I were you as"
+    },
+    {
+        "start_time": "00:17:49.065",
+        "end_time": "00:17:53.792",
+        "text": "young as you look and you look great, nice and young, super fit dude."
+    },
+    {
+        "start_time": "00:17:53.792",
+        "end_time": "00:17:56.616",
+        "text": "Oh India likes it. (laughter)"
+    },
+    {
+        "start_time": "00:17:58.066",
+        "end_time": "00:17:59.940",
+        "text": "What India said yeah. What?"
+    },
+    {
+        "start_time": "00:17:59.940",
+        "end_time": "00:18:02.068",
+        "text": "- What do you want me to say? No, you look horrible?"
+    },
+    {
+        "start_time": "00:18:02.068",
+        "end_time": "00:18:03.157",
+        "text": "- [Gary] No, no."
+    },
+    {
+        "start_time": "00:18:04.887",
+        "end_time": "00:18:07.455",
+        "text": "- [India] Yes he's fit. - Yes, that's exactly right."
+    },
+    {
+        "start_time": "00:18:07.455",
+        "end_time": "00:18:09.313",
+        "text": "That's right. He is a fit man."
+    },
+    {
+        "start_time": "00:18:09.313",
+        "end_time": "00:18:10.622",
+        "text": "Right, Garrett? - Yeah."
+    },
+    {
+        "start_time": "00:18:10.622",
+        "end_time": "00:18:12.180",
+        "text": "- [Gary] Yeah super fit. - [India] Garrett agrees too."
+    },
+    {
+        "start_time": "00:18:12.180",
+        "end_time": "00:18:14.839",
+        "text": "- Yeah, exactly. Wasn't a boy-girl thing."
+    },
+    {
+        "start_time": "00:18:14.839",
+        "end_time": "00:18:17.656",
+        "text": "Just is he fit?"
+    },
+    {
+        "start_time": "00:18:17.656",
+        "end_time": "00:18:22.362",
+        "text": "I think that one of the things that scares the living piss out"
+    },
+    {
+        "start_time": "00:18:22.362",
+        "end_time": "00:18:25.988",
+        "text": "of me is that a young dude like you and so many young dudes and"
+    },
+    {
+        "start_time": "00:18:25.988",
+        "end_time": "00:18:30.896",
+        "text": "dudettes like you everybody's just jumping in and running a business."
+    },
+    {
+        "start_time": "00:18:30.896",
+        "end_time": "00:18:33.887",
+        "text": "You know what I would tell you to do, actually know what?"
+    },
+    {
+        "start_time": "00:18:33.887",
+        "end_time": "00:18:35.066",
+        "text": "I'm going there. Screw it."
+    },
+    {
+        "start_time": "00:18:35.066",
+        "end_time": "00:18:36.079",
+        "text": "You know what I'm going to tell you to do?"
+    },
+    {
+        "start_time": "00:18:36.079",
+        "end_time": "00:18:40.930",
+        "text": "Shut your business down and go work for an apparel company for three years."
+    },
+    {
+        "start_time": "00:18:40.930",
+        "end_time": "00:18:48.489",
+        "text": "Go email every CEO of an apparel company that's doing over $5 million dollars a year in revenue that you respect."
+    },
+    {
+        "start_time": "00:18:48.489",
+        "end_time": "00:18:49.362",
+        "text": "All of them."
+    },
+    {
+        "start_time": "00:18:49.362",
+        "end_time": "00:18:57.630",
+        "text": "Sit down grab a nice shake right, kale, nice kale shake and"
+    },
+    {
+        "start_time": "00:18:57.630",
+        "end_time": "00:19:02.915",
+        "text": "map every single CEO in the world that has a"
+    },
+    {
+        "start_time": "00:19:02.915",
+        "end_time": "00:19:06.673",
+        "text": "$5 million a year or higher revenue apparel business."
+    },
+    {
+        "start_time": "00:19:06.673",
+        "end_time": "00:19:10.906",
+        "text": "Then to go to LinkedIn and Twitter and email and tweet all of them."
+    },
+    {
+        "start_time": "00:19:10.906",
+        "end_time": "00:19:14.599",
+        "text": "And ask all of them for you to be there chief of staff,"
+    },
+    {
+        "start_time": "00:19:14.599",
+        "end_time": "00:19:20.846",
+        "text": "right-hand man and to work side-by-side with that person for the next 18 months."
+    },
+    {
+        "start_time": "00:19:20.846",
+        "end_time": "00:19:22.742",
+        "text": "That's what I would do."
+    },
+    {
+        "start_time": "00:19:23.752",
+        "end_time": "00:19:25.338",
+        "text": "Stake versus sizzle."
+    },
+    {
+        "start_time": "00:19:25.338",
+        "end_time": "00:19:29.730",
+        "text": "There's no tactic that I'm going to tell you on The #AskGaryVee Show that's gonna set you up for success and to be"
+    },
+    {
+        "start_time": "00:19:29.730",
+        "end_time": "00:19:31.678",
+        "text": "very frank with you and I don't want to hurt your feelings Joey"
+    },
+    {
+        "start_time": "00:19:31.678",
+        "end_time": "00:19:33.744",
+        "text": "and I have a lot of respect for you and is hurting everyone's"
+    },
+    {
+        "start_time": "00:19:33.744",
+        "end_time": "00:19:40.567",
+        "text": "collective feelings my intuition is somebody building a really big business in the apparel space is not going to rely on"
+    },
+    {
+        "start_time": "00:19:40.567",
+        "end_time": "00:19:47.211",
+        "text": "one their tactics being asking a business guru for advice tactically."
+    },
+    {
+        "start_time": "00:19:48.711",
+        "end_time": "00:19:53.704",
+        "text": "So, I would take that 3000 bucks and save it so that you can live"
+    },
+    {
+        "start_time": "00:19:53.704",
+        "end_time": "00:20:00.815",
+        "text": "with 17 roommates while you work for Carol Thompson and her $9 million a year apparel business and watch it up"
+    },
+    {
+        "start_time": "00:20:00.815",
+        "end_time": "00:20:02.237",
+        "text": "close and personal."
+    },
+    {
+        "start_time": "00:20:02.237",
+        "end_time": "00:20:04.527",
+        "text": "India do it one more time and I don't do this for"
+    },
+    {
+        "start_time": "00:20:04.527",
+        "end_time": "00:20:05.841",
+        "text": "humble bragging."
+    },
+    {
+        "start_time": "00:20:05.841",
+        "end_time": "00:20:07.903",
+        "text": "I think it's important because a lot of you know India and she's"
+    },
+    {
+        "start_time": "00:20:07.903",
+        "end_time": "00:20:10.358",
+        "text": "been our eco-system, one more time, four years in Vayner?"
+    },
+    {
+        "start_time": "00:20:10.358",
+        "end_time": "00:20:11.316",
+        "text": "- Almost four years."
+    },
+    {
+        "start_time": "00:20:11.316",
+        "end_time": "00:20:15.143",
+        "text": "- India, three weeks in my inbox, say it one more time"
+    },
+    {
+        "start_time": "00:20:15.923",
+        "end_time": "00:20:17.846",
+        "text": "different than you thought. - Totally."
+    },
+    {
+        "start_time": "00:20:19.006",
+        "end_time": "00:20:24.507",
+        "text": "- India learned more, it's only three weeks but just different."
+    },
+    {
+        "start_time": "00:20:25.527",
+        "end_time": "00:20:26.630",
+        "text": "Just different."
+    },
+    {
+        "start_time": "00:20:27.450",
+        "end_time": "00:20:28.939",
+        "text": "And you can't buy that."
+    },
+    {
+        "start_time": "00:20:28.939",
+        "end_time": "00:20:31.759",
+        "text": "India sat here and all god damn shows with you guys."
+    },
+    {
+        "start_time": "00:20:31.759",
+        "end_time": "00:20:33.845",
+        "text": "India's written a ton of stuff."
+    },
+    {
+        "start_time": "00:20:33.845",
+        "end_time": "00:20:38.641",
+        "text": "Has probably consumed way more of my voice than she would ever want to."
+    },
+    {
+        "start_time": "00:20:38.641",
+        "end_time": "00:20:43.740",
+        "text": "Yet in a 10 day period being in my inbox, being close to the sun,"
+    },
+    {
+        "start_time": "00:20:43.740",
+        "end_time": "00:20:45.910",
+        "text": "she gained more context."
+    },
+    {
+        "start_time": "00:20:45.910",
+        "end_time": "00:20:49.419",
+        "text": "I wouldn't say learned but holy crap, what?"
+    },
+    {
+        "start_time": "00:20:49.419",
+        "end_time": "00:20:50.428",
+        "text": "Yes."
+    },
+    {
+        "start_time": "00:20:50.428",
+        "end_time": "00:20:53.384",
+        "text": "And that's why so many of you are jumping to run a business"
+    },
+    {
+        "start_time": "00:20:53.384",
+        "end_time": "00:20:55.591",
+        "text": "and I'm a natural good businessman."
+    },
+    {
+        "start_time": "00:20:55.591",
+        "end_time": "00:20:59.727",
+        "text": "A lot of you don't have as much natural entrepreneurial DNA as I do."
+    },
+    {
+        "start_time": "00:20:59.727",
+        "end_time": "00:21:01.978",
+        "text": "I think you need to learn from the hip and I think the biggest"
+    },
+    {
+        "start_time": "00:21:01.978",
+        "end_time": "00:21:04.439",
+        "text": "mistake is you'd rather go get and this is a different piece of"
+    },
+    {
+        "start_time": "00:21:04.439",
+        "end_time": "00:21:08.850",
+        "text": "advice for a lot of the college kids that I've reached through that one video."
+    },
+    {
+        "start_time": "00:21:08.850",
+        "end_time": "00:21:13.923",
+        "text": "You'd rather go get that job at $63,000 at the Gap and be number 17,000"
+    },
+    {
+        "start_time": "00:21:13.923",
+        "end_time": "00:21:21.643",
+        "text": "even though your ambition is to run your own fashion brand versus making no money teaming up with 19 roommates living that"
+    },
+    {
+        "start_time": "00:21:21.643",
+        "end_time": "00:21:30.126",
+        "text": "ghetto lifestyle but being the right-hand person but remember if want to start your own fashion brand isn't it much"
+    },
+    {
+        "start_time": "00:21:30.126",
+        "end_time": "00:21:35.752",
+        "text": "better to be very close to a person that's got a $3 to $5 million a year business because that's going to"
+    },
+    {
+        "start_time": "00:21:35.752",
+        "end_time": "00:21:37.124",
+        "text": "be your first step."
+    },
+    {
+        "start_time": "00:21:37.124",
+        "end_time": "00:21:42.699",
+        "text": "Even if you're at the right hand of the CEO of Nike or Adidas or"
+    },
+    {
+        "start_time": "00:21:42.699",
+        "end_time": "00:21:47.354",
+        "text": "Under Armour or Coach that's not the company that you're going to build."
+    },
+    {
+        "start_time": "00:21:47.354",
+        "end_time": "00:21:50.307",
+        "text": "You're going to learn Corporate America skills."
+    },
+    {
+        "start_time": "00:21:50.307",
+        "end_time": "00:21:55.903",
+        "text": "I'm just completely pissed with the lack of, (sigh) it's a lack of patience."
+    },
+    {
+        "start_time": "00:21:55.903",
+        "end_time": "00:21:58.563",
+        "text": "It's much cooler to say your founder of the company,"
+    },
+    {
+        "start_time": "00:21:59.763",
+        "end_time": "00:22:02.702",
+        "text": "\"Hey bro, what you do?\" \"Oh, I have my own brand."
+    },
+    {
+        "start_time": "00:22:02.702",
+        "end_time": "00:22:05.333",
+        "text": "\"I'm an entrepreneur. I'm crushing it.\" And Joey I'm not picking on you."
+    },
+    {
+        "start_time": "00:22:05.333",
+        "end_time": "00:22:06.423",
+        "text": "This is a general statement."
+    },
+    {
+        "start_time": "00:22:06.423",
+        "end_time": "00:22:08.189",
+        "text": "\"I got my own business.\" That's sexy."
+    },
+    {
+        "start_time": "00:22:08.189",
+        "end_time": "00:22:10.015",
+        "text": "\"I'm an entrepreneur.\" That's a rockstar."
+    },
+    {
+        "start_time": "00:22:10.015",
+        "end_time": "00:22:11.967",
+        "text": "That's cool right now."
+    },
+    {
+        "start_time": "00:22:11.967",
+        "end_time": "00:22:19.119",
+        "text": "Not as cool as \"Hey bro, what are you up to?\" \"Oh, I'm the Junior assistant for Rikki Thompson"
+    },
+    {
+        "start_time": "00:22:19.119",
+        "end_time": "00:22:25.181",
+        "text": "for her underwear brand.\" What? You went to college for that?"
+    },
+    {
+        "start_time": "00:22:25.181",
+        "end_time": "00:22:29.396",
+        "text": "But I'm telling you right now the person with the humility and"
+    },
+    {
+        "start_time": "00:22:29.396",
+        "end_time": "00:22:35.831",
+        "text": "the patience to the second scenario is going to win every time. 99 out of 100 times."
+    },
+    {
+        "start_time": "00:22:35.831",
+        "end_time": "00:22:38.854",
+        "text": "It's just what's going to happen."
+    },
+    {
+        "start_time": "00:22:38.854",
+        "end_time": "00:22:41.769",
+        "text": "I'm glad I got to say that. I'm glad I came out."
+    },
+    {
+        "start_time": "00:22:41.769",
+        "end_time": "00:22:43.228",
+        "text": "It is true. It is super true."
+    },
+    {
+        "start_time": "00:22:43.228",
+        "end_time": "00:22:45.697",
+        "text": "And when shit hits the fan and it will and people can't raise"
+    },
+    {
+        "start_time": "00:22:45.697",
+        "end_time": "00:22:47.925",
+        "text": "money and it's not that easy."
+    },
+    {
+        "start_time": "00:22:49.935",
+        "end_time": "00:22:52.927",
+        "text": "3000 bucks is not a lot of money to start a business."
+    },
+    {
+        "start_time": "00:22:54.157",
+        "end_time": "00:22:56.192",
+        "text": "Too much dreaming right now."
+    },
+    {
+        "start_time": "00:22:56.192",
+        "end_time": "00:22:59.189",
+        "text": "Question of the day: What have you been up to?"
+    },
+    {
+        "start_time": "00:22:59.189",
+        "end_time": "00:23:02.334",
+        "text": "I feel like I really it's been a couple of months here"
+    },
+    {
+        "start_time": "00:23:02.334",
+        "end_time": "00:23:03.678",
+        "text": "It's feels like I'm out of rhythm."
+    },
+    {
+        "start_time": "00:23:03.678",
+        "end_time": "00:23:06.830",
+        "text": "I'm going to read every single response to the comments here."
+    },
+    {
+        "start_time": "00:23:06.830",
+        "end_time": "00:23:08.707",
+        "text": "Thank you so much for all the love on DailyVee."
+    },
+    {
+        "start_time": "00:23:08.707",
+        "end_time": "00:23:11.666",
+        "text": "It feels like everybody is really feeling what is going on over there."
+    },
+    {
+        "start_time": "00:23:11.666",
+        "end_time": "00:23:13.251",
+        "text": "I appreciate that and I hope you are well."
+    },
+    {
+        "start_time": "00:23:13.251",
+        "end_time": "00:23:14.101",
+        "text": "I miss you."
+    },
+    {
+        "start_time": "00:23:14.101",
+        "end_time": "00:23:15.471",
+        "text": "We're getting close to the summertime."
+    },
+    {
+        "start_time": "00:23:15.471",
+        "end_time": "00:23:16.212",
+        "text": "It's gonna be great."
+    },
+    {
+        "start_time": "00:23:16.212",
+        "end_time": "00:23:16.954",
+        "text": "India, good job."
+    },
+    {
+        "start_time": "00:23:16.954",
+        "end_time": "00:23:18.136",
+        "text": "Staphon, Garrett thank you so much."
+    },
+    {
+        "start_time": "00:23:18.136",
+        "end_time": "00:23:18.942",
+        "text": "Facebook Live."
+    },
+    {
+        "start_time": "00:23:18.942",
+        "end_time": "00:23:21.759",
+        "text": "You keep asking questions, I'll keep answering them."
+    },
+    {
+        "start_time": "00:23:21.759",
+        "end_time": "00:23:22.598",
+        "text": "What's up guys?"
+    },
+    {
+        "start_time": "00:23:22.598",
+        "end_time": "00:23:24.437",
+        "text": "Hope you enjoyed the show."
+    },
+    {
+        "start_time": "00:23:24.437",
+        "end_time": "00:23:27.144",
+        "text": "Please do I get to link it up anywhere?"
+    },
+    {
+        "start_time": "00:23:27.144",
+        "end_time": "00:23:29.040",
+        "text": "Is it in here or is it down below?"
+    },
+    {
+        "start_time": "00:23:29.040",
+        "end_time": "00:23:31.040",
+        "text": "Is it in print or in my video?"
+    },
+    {
+        "start_time": "00:23:31.040",
+        "end_time": "00:23:33.950",
+        "text": "- [Staphon] It'll be down there."
+    },
+    {
+        "start_time": "00:23:33.950",
+        "end_time": "00:23:35.497",
+        "text": "- It's here down to my left."
+    },
+    {
+        "start_time": "00:23:35.497",
+        "end_time": "00:23:39.015",
+        "text": "Right here, there's a button for them to subscribe to my YouTube video?"
+    },
+    {
+        "start_time": "00:23:39.015",
+        "end_time": "00:23:41.214",
+        "text": "Yeah it's that little buggy thing."
+    },
+    {
+        "start_time": "00:23:41.214",
+        "end_time": "00:23:43.744",
+        "text": "That's right guys, click this."
+    },
+    {
+        "start_time": "00:23:43.744",
+        "end_time": "00:23:45.321",
+        "text": "That's right, use that."
+    }
+]

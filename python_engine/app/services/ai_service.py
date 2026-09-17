@@ -168,7 +168,7 @@ class AIService:
                 }
                 
                 chunk_success = False
-                gemini_models = ["gemini-3.5-flash", "gemini-3.6-flash"]
+                gemini_models = ["gemini-1.5-flash", "gemini-1.5-flash-8b"]
                 for model in gemini_models:
                     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
                     try:

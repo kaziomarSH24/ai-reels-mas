@@ -53,7 +53,7 @@ class SubtitleService:
                 
         print(f"[SubtitleService] Cache MISS. Fetching transcripts for video ID: {video_id} from YouTube...")
 
-try:
+        try:
             import subprocess
             import webvtt
             

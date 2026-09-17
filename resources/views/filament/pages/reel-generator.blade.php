@@ -36,7 +36,7 @@
                                 @foreach($searchResults as $clip)
                                     <tr style="border-bottom: 1px solid #374151;">
                                         <td style="padding: 12px; color: gray; font-family: monospace;">{{ $clip['start_time'] }}</td>
-                                        <td style="padding: 12px; font-weight: bold; color: #f59e0b;">{{ $clip['target_word'] }}</td>
+                                        <td style="padding: 12px; font-weight: bold; color: #f59e0b;">{!! $clip['target_word'] !!}</td>
                                         <td style="padding: 12px;">"{{ $clip['text'] }}"</td>
                                         <td style="padding: 12px; color: #10b981;">{{ $clip['translated_text'] }}</td>
                                     </tr>
@@ -72,7 +72,7 @@
                 </div>
                 
                 <div style="display: flex; justify-content: center; margin-top: 20px;">
-                    <x-filament::button tag="a" href="{{ $generatedReelUrl }}" download color="success" size="lg" icon="heroicon-m-arrow-down-tray">
+                    <x-filament::button tag="a" href="{{ $generatedReelUrl }}" download="AI_Reel_{{ str_replace([' ', '.'], '_', $reelData['keyword'] ?? 'Compilation') }}.mp4" color="success" size="lg" icon="heroicon-m-arrow-down-tray">
                         Download MP4
                     </x-filament::button>
                 </div>

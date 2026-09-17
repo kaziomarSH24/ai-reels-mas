@@ -16,6 +16,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Table;
 use BackedEnum;
+use Filament\Actions\Action;
 
 class GeneratedReelResource extends Resource
 {
@@ -50,8 +51,17 @@ class GeneratedReelResource extends Resource
                     ->sortable()
                     ->label('Target Word'),
                 TextColumn::make('file_path')
-                    ->formatStateUsing(fn ($state) => "<a href='{$state}' target='_blank' class='text-primary-600 underline'>Watch Video</a>")
-                    ->html()
+                    ->formatStateUsing(fn ($state) => '▶ Play Short/Reel')
+                    ->badge()
+                    ->color('info')
+                    ->action(
+                        Action::make('play_video')
+                            ->modalHeading(fn ($record) => 'Preview: ' . $record->target_word)
+                            ->modalSubmitAction(false)
+                            ->modalCancelActionLabel('Close Player')
+                            ->modalWidth('sm')
+                            ->modalContent(fn ($record) => view('filament.components.video-modal', ['url' => $record->file_path]))
+                    )
                     ->label('Reel Link'),
                 IconColumn::make('is_posted_to_fb')
                     ->boolean()

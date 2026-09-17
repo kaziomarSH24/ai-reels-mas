@@ -78,7 +78,7 @@ def analyze_video(request: AnalyzeVideoRequest):
             full_analysis = batch_results[i]
             level = full_analysis['cefr_level']
             
-            if level in ['B2', 'C1', 'C2']:
+            if level in ['IDIOM', 'HARD_WORD']:
                 accepted.append({
                     "start_time": item['start_time'],
                     "end_time": item['end_time'],
@@ -152,6 +152,7 @@ class ClipItem(BaseModel):
     english_text: str
     bengali_text: str
     target_word: str
+    dictionary_meaning: str | None = None
 
 class GenerateCompilationRequest(BaseModel):
     clips: List[ClipItem]

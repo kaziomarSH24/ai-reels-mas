@@ -1,6 +1,7 @@
 import os
 import subprocess
 from PIL import Image, ImageDraw, ImageFont
+import string
 
 class VideoService:
     def __init__(self):
@@ -8,202 +9,107 @@ class VideoService:
         self.output_dir = "/var/www/public/generated_reels"
         os.makedirs(self.tmp_dir, exist_ok=True)
         os.makedirs(self.output_dir, exist_ok=True)
+        
+        self._whisper_model = None
+
+    def _get_whisper(self):
+        if self._whisper_model is None:
+            from transformers import pipeline
+            print("[VideoService] Loading Whisper AI Model (Transformers Tiny)...")
+            # Using HuggingFace transformers pipeline which supports word-level timestamps
+            self._whisper_model = pipeline(
+                "automatic-speech-recognition", 
+                model="openai/whisper-tiny", 
+                return_timestamps="word"
+            )
+        return self._whisper_model
 
     def _time_to_seconds(self, time_str):
         h, m, s = time_str.split(':')
         return int(h) * 3600 + int(m) * 60 + float(s)
 
     def extract_and_crop_clip(self, source_url: str, start_time: str, duration: float, english_text: str, bengali_text: str, output_filename: str) -> str:
-        import textwrap
-        print(f"[VideoService] Processing and Cropping to 9:16 vertical with Subtitles...")
-        
-        start_sec = self._time_to_seconds(start_time)
-        dl_start = max(0, start_sec - 1)
-        dl_end = start_sec + duration + 1
-        
-        raw_video_path = os.path.join(self.tmp_dir, f"raw_{output_filename}")
-        final_video_path = os.path.join(self.output_dir, output_filename)
-        overlay_img_path = os.path.join(self.tmp_dir, f"overlay_{output_filename}.png")
-        
-        dl_cmd = [
-            "yt-dlp",
-            "--cookies", "/var/www/cookies.txt",
-            "-f", "bestvideo[ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/mp4",
-            "--download-sections", f"*{dl_start}-{dl_end}",
-            "--force-keyframes-at-cuts",
-            "-o", raw_video_path,
-            source_url
-        ]
-        
-        dl_process = subprocess.run(dl_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if not os.path.exists(raw_video_path):
-            raise Exception("Failed to download video section.")
+        pass
 
-        # PIL Text Generation (Letterbox Layout)
-        font_path = "/tmp/HindSiliguri-Bold.ttf"
-        img = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(img)
-
-        eng_text = str(english_text).strip()
-        ben_text = str(bengali_text).strip()
-
-        try:
-            font_eng = ImageFont.truetype(font_path, 60)
-            font_ben = ImageFont.truetype(font_path, 60)
-            font_promo_red = ImageFont.truetype(font_path, 55)
-            font_promo_blue = ImageFont.truetype(font_path, 55)
-        except:
-            font_eng = ImageFont.load_default()
-            font_ben = ImageFont.load_default()
-            font_promo_red = ImageFont.load_default()
-            font_promo_blue = ImageFont.load_default()
-
-        def wrap_text(text, font, max_width):
-            words = text.split()
-            lines = []
-            current_line = ""
-            for word in words:
-                test_line = current_line + word + " "
-                bbox = draw.textbbox((0, 0), test_line, font=font)
-                w = bbox[2] - bbox[0]
-                if w <= max_width:
-                    current_line = test_line
-                else:
-                    if current_line:
-                        lines.append(current_line.strip())
-                    current_line = word + " "
-            if current_line:
-                lines.append(current_line.strip())
-            return lines
-
-        # 1. Top Text
-        top_y_start = 120
-        eng_lines = wrap_text(eng_text, font_eng, 960)
-        for line in eng_lines:
-            bbox = draw.textbbox((0, 0), line, font=font_eng)
-            w = bbox[2] - bbox[0]
-            h = bbox[3] - bbox[1]
-            x = (1080 - w) / 2
-            draw.text((x, top_y_start), line, font=font_eng, fill=(230, 0, 0, 255))
-            top_y_start += h + 20
-
-        top_y_start += 30
-        ben_lines = wrap_text(ben_text, font_ben, 960)
-        for line in ben_lines:
-            bbox = draw.textbbox((0, 0), line, font=font_ben)
-            w = bbox[2] - bbox[0]
-            h = bbox[3] - bbox[1]
-            x = (1080 - w) / 2
-            draw.text((x, top_y_start), line, font=font_ben, fill=(0, 0, 200, 255))
-            top_y_start += h + 20
-
-        # 2. Bottom Text
-        bottom_y_start = 1350
-        promo_lines = [
-            ("Advanced English", font_eng, (0, 0, 200, 255)),
-            ("sentences এর ২ টি PDF", font_ben, (0, 0, 200, 255)),
-            ("কিনতে যোগাযোগ করুন।", font_ben, (0, 0, 200, 255)),
-        ]
-        
-        for text, font, color in promo_lines:
-            bbox = draw.textbbox((0, 0), text, font=font)
-            w = bbox[2] - bbox[0]
-            h = bbox[3] - bbox[1]
-            x = (1080 - w) / 2
-            draw.text((x, bottom_y_start), text, font=font, fill=color)
-            bottom_y_start += h + 15
-            
-        bottom_y_start += 30
-        left_text = "মাত্র ৯৯ টাকায়"
-        right_text_1 = "Whats app"
-        right_text_2 = "01795114695"
-        
-        bbox_left = draw.textbbox((0, 0), left_text, font=font_promo_red)
-        draw.text((80, bottom_y_start + 40), left_text, font=font_promo_red, fill=(230, 0, 0, 255))
-        
-        bbox_right1 = draw.textbbox((0, 0), right_text_1, font=font_promo_blue)
-        draw.text((1000 - (bbox_right1[2]-bbox_right1[0]), bottom_y_start), right_text_1, font=font_promo_blue, fill=(0, 0, 100, 255))
-        
-        bbox_right2 = draw.textbbox((0, 0), right_text_2, font=font_promo_blue)
-        draw.text((1000 - (bbox_right2[2]-bbox_right2[0]), bottom_y_start + 60), right_text_2, font=font_promo_blue, fill=(0, 0, 100, 255))
-
-        img.save(overlay_img_path)
-
-        ffmpeg_cmd = [
-            "ffmpeg", "-y",
-            "-i", raw_video_path,
-            "-i", overlay_img_path,
-            "-filter_complex", "[0:v]scale=1080:-1,setsar=1[scaled_vid];color=c=white:s=1080x1920:r=30[bg];[bg][scaled_vid]overlay=0:(H-h)/2[vid_on_bg];[vid_on_bg][1:v]overlay=0:0[v]",
-            "-map", "[v]",
-            "-map", "0:a?",
-            "-c:v", "libx264",
-            "-preset", "fast",
-            "-c:a", "aac",
-            final_video_path
-        ]
-
-        ffmpeg_process = subprocess.run(ffmpeg_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-        if not os.path.exists(final_video_path):
-            raise Exception("FFmpeg failed to process the video.")
-
-        try:
-            os.remove(raw_video_path)
-            os.remove(overlay_img_path)
-        except:
-            pass
-
-        return f"/generated_reels/{output_filename}"
-
-
-    
-    def _get_gemini_shortened_text(self, target_word: str, english_text: str, bengali_text: str):
-        import os, requests, json
+    def _get_gemini_shortened_text(self, target: str, eng: str, ben: str):
+        import os, requests
         api_key = os.environ.get("GEMINI_API_KEY")
-        if not api_key:
-            return english_text, bengali_text, ""
-            
-        prompt = (
-            f"You are an expert English-to-Bengali translator. The target vocabulary word is '{target_word}'. "
-            f"The full subtitle context is: '{english_text}'. "
-            "Follow these strict rules:\n"
-            "1. 'short_english': Extract ONLY the exact short sentence containing the target word.\n"
-            "2. 'target_word_bengali_meaning': Provide the exact Bengali dictionary meaning of the target word in this context (e.g. for 'asthmatic' use 'হাঁপানি রোগী'). MUST NOT BE EMPTY.\n"
-            "3. 'short_bengali': Translate the 'short_english' into natural, grammatically correct Bengali.\n"
-            "4. CRITICAL: The exact word(s) you use for 'target_word_bengali_meaning' MUST be present inside the 'short_bengali' sentence so I can highlight it!\n"
-            "Return ONLY a valid JSON object with EXACTLY these 3 keys: 'short_english', 'short_bengali', 'target_word_bengali_meaning'."
-        )
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={api_key}"
-        payload = {
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.1, "responseMimeType": "application/json"}
-        }
-        try:
-            res = requests.post(url, json=payload, timeout=10)
-            data = res.json()
-            text = data['candidates'][0]['content']['parts'][0]['text']
-            parsed = json.loads(text)
-            return parsed.get('short_english', english_text), parsed.get('short_bengali', bengali_text), parsed.get('target_word_bengali_meaning', '')
-        except Exception as e:
-            print(f"Gemini error: {e}")
-            return english_text, bengali_text, ""
+        if not api_key: return "", "", ""
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={api_key}"
+        prompt = f"""You are an English-to-Bengali vocabulary dictionary.
+I have the phrase: "{target}"
+Context dialogue: "{eng}"
+Bengali dialogue: "{ben}"
 
-    def generate_compilation_reel(self, clips: list, output_filename: str) -> str:
-        import textwrap
-        import urllib.parse
+Return ONLY the true, contextual dictionary meaning of "{target}" in Bengali.
+WARNING: If it is an idiom (like 'piece of cake'), return the FIGURATIVE meaning (e.g. 'খুব সহজ'). DO NOT translate it literally (e.g. do not say 'এক টুকরো কেক').
+Keep it extremely short (max 2-3 words). 
+Return nothing else."""
+        try:
+            r = requests.post(url, json={"contents": [{"parts":[{"text": prompt}]}]})
+            if r.status_code == 200:
+                t = r.json()['candidates'][0]['content']['parts'][0]['text'].strip()
+                return "", "", t
+        except: pass
+        return "", "", ""
+
+    def _find_exact_times_with_whisper(self, audio_path, target_phrase):
+        print(f"[WhisperAI] Scanning audio to find exact timestamps for: '{target_phrase}'")
+        try:
+            model = self._get_whisper()
+            # return_timestamps="word" will return chunks with 'text' and 'timestamp'=(start, end)
+            result = model(audio_path)
+            
+            target_clean = target_phrase.translate(str.maketrans('', '', string.punctuation)).lower().split()
+            if not target_clean or "chunks" not in result:
+                return None, None
+                
+            chunks = result["chunks"]
+            words = []
+            for chunk in chunks:
+                if 'timestamp' in chunk and chunk['timestamp'][0] is not None and chunk['timestamp'][1] is not None:
+                    word_text = chunk['text'].translate(str.maketrans('', '', string.punctuation)).lower().strip()
+                    if word_text:
+                        words.append((word_text, chunk['timestamp'][0], chunk['timestamp'][1]))
+                        
+            # Find sequence
+            for i in range(len(words) - len(target_clean) + 1):
+                match = True
+                for j, t_word in enumerate(target_clean):
+                    if t_word not in words[i+j][0] and words[i+j][0] not in t_word:
+                        match = False
+                        break
+                if match:
+                    exact_start = words[i][1]
+                    exact_end = words[i + len(target_clean) - 1][2]
+                    print(f"[WhisperAI] SUCCESS! Found phrase at {exact_start}s to {exact_end}s")
+                    return exact_start, exact_end
+        except Exception as e:
+            print(f"[WhisperAI] Error: {e}")
+            
+        print(f"[WhisperAI] Failed to find exact phrase in audio.")
+        return None, None
+
+    def generate_compilation_reel(self, clips: list[dict], output_filename: str) -> str:
+        print(f"[VideoService] Generating Compilation Reel with {len(clips)} clips using Whisper AI...")
         processed_files = []
+        gemini_cache = {}
         
         for i, clip in enumerate(clips):
-            print(f"[VideoService] Processing clip {i+1}/{len(clips)}: {clip.get('target_word', '')}")
+            print(f"Processing Clip {i+1}...")
+            
             start_sec = self._time_to_seconds(clip['start_time'])
-            end_sec = start_sec + clip['duration']
-            dl_start = max(0, start_sec - 1)
-            dl_end = end_sec + 1
             
-            raw_path = os.path.join(self.tmp_dir, f"raw_comp_{i}_{output_filename}")
-            proc_path = os.path.join(self.tmp_dir, f"proc_comp_{i}_{output_filename}")
-            overlay_img_path = os.path.join(self.tmp_dir, f"overlay_{i}_{output_filename}.png")
+            dl_start = max(0, start_sec - 2)
+            dl_end = dl_start + 10 
             
+            raw_path = os.path.join(self.tmp_dir, f"raw_padded_{i}.mp4")
+            audio_path = os.path.join(self.tmp_dir, f"audio_{i}.wav")
+            exact_vid_path = os.path.join(self.tmp_dir, f"exact_{i}.mp4")
+            overlay_img_path = os.path.join(self.tmp_dir, f"overlay_{i}.png")
+            proc_path = os.path.join(self.tmp_dir, f"proc_{i}.mp4")
+            
+            # Download Padded Video
             dl_cmd = [
                 "yt-dlp",
                 "--cookies", "/var/www/cookies.txt",
@@ -213,17 +119,47 @@ class VideoService:
                 "-o", raw_path,
                 clip['source_url']
             ]
-            dl_proc = subprocess.run(dl_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            subprocess.run(dl_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
             if not os.path.exists(raw_path):
+                print("Failed to download clip")
                 continue
                 
+            # Extract Audio for Whisper
+            subprocess.run(["ffmpeg", "-y", "-i", raw_path, "-vn", "-c:a", "pcm_s16le", audio_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            
+            # 2. Run Whisper AI to get EXACT timestamps
+            target = str(clip.get('target_word', '')).strip()
+            exact_start, exact_end = self._find_exact_times_with_whisper(audio_path, target)
+            
+            # 3. Crop perfectly around the spoken word
+            if exact_start is not None and exact_end is not None:
+                crop_start = max(0, exact_start - 0.5) 
+                crop_dur = (exact_end - exact_start) + 1.0 
+            else:
+                crop_start = 2.0 
+                crop_dur = 4.0
+                
+            subprocess.run([
+                "ffmpeg", "-y", "-ss", str(crop_start), "-t", str(crop_dur),
+                "-i", raw_path, "-c", "copy", exact_vid_path
+            ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                
             # --- GEMINI EXTRACTION ---
-            target = str(clip.get('target_word', '')).strip().upper()
             eng_text = str(clip.get('english_text', '')).strip()
             ben_text = str(clip.get('bengali_text', '')).strip()
             
-            short_eng, short_ben, word_meaning = self._get_gemini_shortened_text(target, eng_text, ben_text)
+            dict_meaning = str(clip.get('dictionary_meaning', '')).strip()
+            if dict_meaning:
+                short_eng = ""
+                short_ben = ""
+                word_meaning = dict_meaning
+            else:
+                if target in gemini_cache:
+                    short_eng, short_ben, word_meaning = gemini_cache[target]
+                else:
+                    short_eng, short_ben, word_meaning = self._get_gemini_shortened_text(target, eng_text, ben_text)
+                    gemini_cache[target] = (short_eng, short_ben, word_meaning)
             
             # --- PIL TEXT GENERATION ---
             font_path = "/tmp/HindSiliguri-Bold.ttf"
@@ -289,37 +225,21 @@ class VideoService:
                     current_y += h + padding * 2 + 10
                 return current_y
 
-            # 1. Top Text: Target Word + Meaning
-            target_display = target
-            if word_meaning:
-                target_display = f"{target} - {word_meaning}"
-                
-            y = 200
+            # 1. Target Idiom (Huge Yellow Highlight)
+            y = 300
+            target_display = target.upper()
             y = draw_rounded_text([target_display], font_word, y, text_color=(0,0,0,255), bg_color=(255,215,0,255))
             
-            # Target words for highlighting
-            t_words = [target]
+            # 2. Bengali Meaning (Huge Green Highlight)
             if word_meaning:
-                t_words.extend(word_meaning.split(' '))
+                y = 1300
+                lines_ben = wrap_text(word_meaning, font_ben, 900)
+                draw_rounded_text(lines_ben, font_ben, y, text_color=(255,255,255,255), bg_color=(0,150,0,200))
 
-            # 2. Middle Text: Short English
-            y += 20
-            eng_lines = wrap_text(short_eng, font_eng, 900)
-            y = draw_rounded_text(eng_lines, font_eng, y, text_color=(255,255,255,255), bg_color=(0,0,0,200), target_words=t_words)
-            
-            # 3. Bottom Text: Short Bengali
-            y = 1350
-            ben_lines = wrap_text(short_ben, font_ben, 900)
-            y = draw_rounded_text(ben_lines, font_ben, y, text_color=(144,238,144,255), bg_color=(0,0,0,200), target_words=t_words)
 
             img.save(overlay_img_path)
             
-            # --- FFMPEG: Blurred Background + Centered Video + Overlay ---
-            # [0:v] split into two streams: bg_raw and fg_raw
-            # bg_raw -> scale to cover 1080x1920, crop center, blur -> bg
-            # fg_raw -> scale to width 1080, keep aspect -> fg
-            # overlay fg on bg -> vid_on_bg
-            # overlay image on vid_on_bg -> final
+            # FFMPEG Video processing
             filter_complex = (
                 "[0:v]split=2[bg_raw][fg_raw];"
                 "[bg_raw]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:5[bg];"
@@ -330,7 +250,7 @@ class VideoService:
             
             ffmpeg_cmd = [
                 "ffmpeg", "-y",
-                "-i", raw_path,
+                "-i", exact_vid_path,
                 "-i", overlay_img_path,
                 "-filter_complex", filter_complex,
                 "-map", "[v]",
@@ -343,16 +263,15 @@ class VideoService:
                 "-ac", "2",
                 proc_path
             ]
-            ff_proc = subprocess.run(ffmpeg_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            subprocess.run(ffmpeg_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
             if os.path.exists(proc_path):
                 processed_files.append(proc_path)
                 
-            try:
-                os.remove(raw_path)
-                os.remove(overlay_img_path)
-            except:
-                pass
+            # Cleanup temp files
+            for f in [raw_path, audio_path, exact_vid_path, overlay_img_path]:
+                try: os.remove(f)
+                except: pass
                 
         if not processed_files:
             raise Exception("Failed to process any clips for compilation.")
@@ -373,18 +292,12 @@ class VideoService:
             "-c", "copy",
             final_video_path
         ]
-        subprocess.run(concat_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        subprocess.run(concat_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
         for pf in processed_files:
-            try:
-                os.remove(pf)
-            except:
-                pass
-        try:
-            os.remove(concat_list_path)
-        except:
-            pass
+            try: os.remove(pf)
+            except: pass
+        try: os.remove(concat_list_path)
+        except: pass
             
         return f"/generated_reels/{output_filename}"
-
-

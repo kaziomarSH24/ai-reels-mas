@@ -112,3 +112,39 @@
         </div>
     </div>
 </x-filament-panels::page>
+
+@script
+<script>
+    let isProcessing = false;
+
+    Livewire.hook('commit', ({ component, commit, respond, succeed, fail }) => {
+        if (commit.calls.some(call => call.method === 'analyzeVideo')) {
+            isProcessing = true;
+        }
+        succeed(({ snapshot, effect }) => {
+            if (commit.calls.some(call => call.method === 'analyzeVideo')) {
+                isProcessing = false;
+            }
+        });
+        fail(() => {
+            isProcessing = false;
+        });
+    });
+
+    window.addEventListener('beforeunload', function (e) {
+        if (isProcessing) {
+            e.preventDefault();
+            e.returnValue = 'AI is processing the video. Are you sure you want to leave?';
+            return e.returnValue;
+        }
+    });
+
+    document.addEventListener('livewire:navigating', (e) => {
+        if (isProcessing) {
+            if (!confirm('AI is processing the video. Are you sure you want to leave?')) {
+                e.preventDefault();
+            }
+        }
+    });
+</script>
+@endscript

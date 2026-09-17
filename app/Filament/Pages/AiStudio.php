@@ -135,8 +135,8 @@ class AiStudio extends Page implements HasForms, HasTable
         return $table
             ->query(
                 MovieDialogue::query()
-                    ->where('movie_id', $this->currentMovieId)
-                    ->orderBy('id', 'asc')
+                     
+                    ->latest('id')
             )
             ->poll($this->isProcessing ? '2s' : null) // Auto-refresh table every 2s during processing!
             ->columns([
@@ -172,7 +172,8 @@ class AiStudio extends Page implements HasForms, HasTable
                     ->color('warning')
                     ->searchable(),
                 TextColumn::make('cefr_level')
-                    ->label('Difficulty')
+                    ->label('Type')
+                    ->color(fn (string $state): string => match ($state) { 'IDIOM' => 'danger', 'HARD_WORD' => 'warning', default => 'gray' })
                     ->badge()
                     ->description(fn (MovieDialogue $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
                     ->placeholder('Analyzing...'),
@@ -185,10 +186,10 @@ class AiStudio extends Page implements HasForms, HasTable
     {
         return [
             'all' => \Filament\Tables\Components\Tab::make('All Dialogues'),
-            'accepted' => \Filament\Tables\Components\Tab::make('Accepted (B2-C2)')
-                ->modifyQueryUsing(fn ($query) => $query->whereIn('cefr_level', ['B2', 'C1', 'C2'])),
-            'rejected' => \Filament\Tables\Components\Tab::make('Rejected (A1-B1)')
-                ->modifyQueryUsing(fn ($query) => $query->whereNotIn('cefr_level', ['B2', 'C1', 'C2'])),
+            'accepted' => \Filament\Tables\Components\Tab::make('Accepted (Idioms/Hard Words)')
+                ->modifyQueryUsing(fn ($query) => $query->whereIn('cefr_level', ['IDIOM', 'HARD_WORD'])),
+            'rejected' => \Filament\Tables\Components\Tab::make('Rejected (Normal)')
+                ->modifyQueryUsing(fn ($query) => $query->whereNotIn('cefr_level', ['IDIOM', 'HARD_WORD'])),
         ];
     }
 

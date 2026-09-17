@@ -74,19 +74,11 @@ class AiStudio extends Page implements HasForms, HasTable
                         ->label('cookies.txt File')
                         ->acceptedFileTypes(['text/plain'])
                         ->required()
+                        ->disk('public')
                         ->helperText('Upload your new YouTube cookies.txt. This will replace the old one.'),
                 ])
                 ->action(function (array $data) {
-                    // In Filament 3, default disk might be 'private' or 'public'
-                    $disk = \Illuminate\Support\Facades\Storage::disk();
-                    if (\Illuminate\Support\Facades\Storage::disk('private')->exists($data['cookie_file'])) {
-                         $disk = \Illuminate\Support\Facades\Storage::disk('private');
-                    } elseif (\Illuminate\Support\Facades\Storage::disk('public')->exists($data['cookie_file'])) {
-                         $disk = \Illuminate\Support\Facades\Storage::disk('public');
-                    } elseif (\Illuminate\Support\Facades\Storage::disk('local')->exists($data['cookie_file'])) {
-                         $disk = \Illuminate\Support\Facades\Storage::disk('local');
-                    }
-                    
+                    $disk = \Illuminate\Support\Facades\Storage::disk('public');
                     $path = $disk->path($data['cookie_file']);
                     
                     if (file_exists($path)) {

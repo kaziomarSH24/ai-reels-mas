@@ -61,33 +61,6 @@ class AiStudio extends Page implements HasForms, HasTable
     }
 
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            \Filament\Actions\Action::make('uploadCookies')
-                ->label('Upload YouTube Cookies')
-                ->icon('heroicon-o-key')
-                ->color('warning')
-                ->form([
-                    \Filament\Forms\Components\FileUpload::make('cookie_file')
-                        ->label('cookies.txt File')
-                        ->acceptedFileTypes(['text/plain'])
-                        ->required()
-                        ->helperText('Upload your YouTube cookies.txt to bypass IP Blocks.'),
-                ])
-                ->action(function (array $data) {
-                    $path = storage_path('app/public/' . $data['cookie_file']);
-                    if (file_exists($path)) {
-                        copy($path, base_path('python_engine/cookies.txt'));
-                        copy($path, base_path('cookies.txt'));
-                        \Filament\Notifications\Notification::make()->title('Cookies updated successfully! YouTube Block is now bypassed!')->success()->send();
-                    } else {
-                        \Filament\Notifications\Notification::make()->title('File not found!')->danger()->send();
-                    }
-                }),
-        ];
-    }
-
     protected function getForms(): array
     {
         return [
@@ -107,8 +80,13 @@ class AiStudio extends Page implements HasForms, HasTable
                             ->label('YouTube URL')
                             ->placeholder('https://youtube.com/watch?v=...')
                             ->url()
-                            ->required()
                             ->prefixIcon('heroicon-m-link'),
+                            
+                        \Filament\Forms\Components\FileUpload::make('cookie_file')
+                            ->label('Upload cookies.txt (Optional)')
+                            ->helperText('Upload this file and click "Extract & Analyze" to save it permanently.')
+                            ->acceptedFileTypes(['text/plain'])
+                            ->disk('public'),
                     ])
                     ->headerActions([
                         Action::make('analyze')
@@ -185,12 +163,24 @@ class AiStudio extends Page implements HasForms, HasTable
 
     public function analyzeVideo()
     {
-        set_time_limit(0); // Prevent PHP from timing out for long AI extraction jobs
+        set_time_limit(0); 
         
         $url = $this->analyzerData['youtubeUrl'] ?? null;
+        $cookieFile = $this->analyzerData['cookie_file'] ?? null;
+
+        if ($cookieFile) {
+            $path = storage_path('app/public/' . $cookieFile);
+            if (file_exists($path)) {
+                copy($path, base_path('python_engine/cookies.txt'));
+                copy($path, base_path('cookies.txt'));
+                \Filament\Notifications\Notification::make()->title('Cookies Saved Successfully!')->success()->send();
+                $this->analyzerData['cookie_file'] = null;
+            }
+        }
 
         if (empty($url)) {
-            Notification::make()->title('Please enter a YouTube URL')->danger()->send();
+            if ($cookieFile) return; 
+            \Filament\Notifications\Notification::make()->title('Please enter a YouTube URL')->danger()->send();
             return;
         }
 

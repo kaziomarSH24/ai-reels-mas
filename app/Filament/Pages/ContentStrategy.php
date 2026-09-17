@@ -14,7 +14,7 @@ class ContentStrategy extends Page
     protected static ?string $title = 'AI Content Strategy';
     protected static ?int $navigationSort = 3;
 
-    protected static string $view = 'filament.pages.content-strategy';
+    protected string $view = 'filament.pages.content-strategy';
 
     public ?string $aiRecommendation = null;
     public bool $isLoading = false;

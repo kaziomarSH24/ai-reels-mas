@@ -78,12 +78,16 @@ class ReelGenerator extends Page implements HasForms
         if (!$keyword) return;
 
         // Search the DB for ALL matches (limit to 3 for a nice 15-second compilation reel)
-        $dialogues = MovieDialogue::with('movie')
+        // Fetch more results to allow for deduplication
+        $rawDialogues = MovieDialogue::with('movie')
             ->where('target_word', 'LIKE', '%' . $keyword . '%')
             ->orWhere('text', 'LIKE', '%' . $keyword . '%')
             ->inRandomOrder()
-            ->limit(3)
+            ->limit(20)
             ->get();
+
+        // Filter out duplicate text to prevent the same sentence from appearing 3 times
+        $dialogues = $rawDialogues->unique('text')->take(3);
 
         if ($dialogues->isEmpty()) {
             Notification::make()->title('No clips found for this keyword')->danger()->send();

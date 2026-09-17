@@ -53,23 +53,78 @@ class SubtitleService:
                 
         print(f"[SubtitleService] Cache MISS. Fetching transcripts for video ID: {video_id} from YouTube...")
 
-        try:
-            import http.cookiejar
-            from requests import Session
+try:
+            import subprocess
+            import webvtt
             
-            # Load cookies to bypass Bot 429 Error
             cookie_path = '/var/www/cookies.txt'
-            session = Session()
+            
+            # Temporary file to save subtitle
+            sub_file = f"/tmp/{video_id}"
+            
+            cmd = [
+                "yt-dlp",
+                "--write-auto-subs",
+                "--write-subs",
+                "--sub-lang", "en",
+                "--skip-download",
+                "-o", sub_file,
+                youtube_url
+            ]
+            
             if os.path.exists(cookie_path):
-                cookie_jar = http.cookiejar.MozillaCookieJar(cookie_path)
-                cookie_jar.load(ignore_discard=True, ignore_expires=True)
-                session.cookies = cookie_jar
-                print("[SubtitleService] Successfully loaded YouTube cookies.")
+                cmd.extend(["--cookies", cookie_path])
+                print("[SubtitleService] Using cookies.txt for yt-dlp to bypass IP block.")
             else:
                 print("[SubtitleService] WARNING: cookies.txt not found. IP might get blocked.")
-
-            api = YouTubeTranscriptApi(http_client=session)
-            transcript = api.fetch(video_id, languages=['en'])
+                
+            print(f"[SubtitleService] Running yt-dlp: {' '.join(cmd)}")
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            
+            if result.returncode != 0:
+                print(f"[SubtitleService] yt-dlp Error: {result.stderr}")
+                raise Exception(f"yt-dlp failed to download subtitles: {result.stderr}")
+                
+            # yt-dlp saves it as /tmp/{video_id}.en.vtt
+            vtt_path = f"{sub_file}.en.vtt"
+            if not os.path.exists(vtt_path):
+                raise Exception(f"Subtitle file not found at {vtt_path}. Does the video have English subtitles?")
+                
+            captions = webvtt.read(vtt_path)
+            
+            def timestamp_to_seconds(ts):
+                h, m, s = ts.split(':')
+                return int(h) * 3600 + int(m) * 60 + float(s)
+                
+            transcript = []
+            for caption in captions:
+                text = caption.text.strip()
+                # Clean yt-dlp auto-sub duplicate formatting
+                text = re.sub(r'<[^>]+>', '', text)
+                lines = text.split('\n')
+                # Remove empty lines and duplicates preserving order
+                unique_lines = []
+                for line in lines:
+                    line = line.strip()
+                    if line and line not in unique_lines:
+                        unique_lines.append(line)
+                
+                text = ' '.join(unique_lines).strip()
+                if not text:
+                    continue
+                    
+                start = timestamp_to_seconds(caption.start)
+                end = timestamp_to_seconds(caption.end)
+                
+                class Item:
+                    def __init__(self, t, s, d):
+                        self.text = t
+                        self.start = s
+                        self.duration = d
+                        
+                transcript.append(Item(text, start, end - start))
+                
+            os.remove(vtt_path) # Cleanup
             
             aggregated_dialogues = []
             current_text = ""
@@ -90,7 +145,6 @@ class SubtitleService:
                 if len(clean_text) < 2 or (clean_text.startswith('[') and clean_text.endswith(']')):
                     continue
 
-                # If there's a pause (> 0.8s), force a break as it indicates a new thought
                 if current_end is not None and (start - current_end) > 0.8:
                     if current_text:
                         aggregated_dialogues.append({
@@ -112,14 +166,10 @@ class SubtitleService:
                     
                 current_end = end
                 
-                # REEL GENERATION LOGIC: Break into short, punchy 3-5 second TikTok style clips.
                 chunk_duration = current_end - current_start
                 word_count = len(current_text.split())
                 
-                # Force break if punctuation, OR duration hits 5 seconds, OR word count > 12
-                # Auto-generated subtitles have no punctuation, so we rely heavily on time/word limit.
                 if end_punctuations.search(clean_text) or chunk_duration >= 5.0 or word_count >= 12:
-                    # Ignore extremely short chunks (like a 0.5s "Yeah") unless it's the end of a thought
                     if chunk_duration >= 1.5 or end_punctuations.search(clean_text):
                         aggregated_dialogues.append({
                             "start_time": self.format_time(current_start),
@@ -139,7 +189,6 @@ class SubtitleService:
 
             print(f"[SubtitleService] Extracted {len(aggregated_dialogues)} clean dialogue segments.")
             
-            # Save to Cache
             with open(cache_file, 'w', encoding='utf-8') as f:
                 json.dump(aggregated_dialogues, f, ensure_ascii=False, indent=4)
             print(f"[SubtitleService] Saved transcript to cache: {cache_file}")
@@ -148,4 +197,4 @@ class SubtitleService:
 
         except Exception as e:
             print(f"Error fetching transcript: {e}")
-            raise Exception(f"Failed to fetch subtitles. Make sure the video has CC enabled. Error: {str(e)}")
+            raise Exception(f"Failed to fetch subtitles: {str(e)}")

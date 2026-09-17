@@ -34,16 +34,15 @@ class ReelGenerator extends Page implements HasForms
         return 'Reel Generator (Phase 2)';
     }
 
-    public static function getNavigationSort(): ?int
-    {
-        return 2;
-    }
-
     protected string $view = 'filament.pages.reel-generator';
 
     public ?array $reelData = [];
     public ?string $generatedReelUrl = null;
     public bool $isGenerating = false;
+    
+    // New properties for search results
+    public array $searchResults = [];
+    public bool $hasSearched = false;
 
     public function mount(): void
     {
@@ -61,8 +60,8 @@ class ReelGenerator extends Page implements HasForms
     {
         return $schema
             ->schema([
-                Section::make('Search and Generate')
-                    ->description('Type a keyword to find the most powerful AI-analyzed dialogue and convert it into a 9:16 Reel.')
+                Section::make('Search and Preview')
+                    ->description('Type a keyword to find the most powerful AI-analyzed dialogues. You can preview the clips before generating.')
                     ->schema([
                         TextInput::make('keyword')
                             ->label('Target Keyword')
@@ -73,15 +72,12 @@ class ReelGenerator extends Page implements HasForms
             ->statePath('reelData');
     }
 
-    public function generateReelAction(): void
+    public function searchClipsAction(): void
     {
-        set_time_limit(0); // Prevent PHP from timing out during heavy FFmpeg processing
-        
         $keyword = $this->reelData['keyword'] ?? null;
         if (!$keyword) return;
 
-        // Search the DB for ALL matches (limit to 3 for a nice 15-second reel)
-        // We will search by target_word exactly, or text LIKE if target_word doesn't match
+        // Search the DB for ALL matches (limit to 3 for a nice 15-second compilation reel)
         $dialogues = MovieDialogue::with('movie')
             ->where('target_word', 'LIKE', '%' . $keyword . '%')
             ->orWhere('text', 'LIKE', '%' . $keyword . '%')
@@ -91,28 +87,61 @@ class ReelGenerator extends Page implements HasForms
 
         if ($dialogues->isEmpty()) {
             Notification::make()->title('No clips found for this keyword')->danger()->send();
+            $this->searchResults = [];
+            $this->hasSearched = true;
+            return;
+        }
+        
+        $results = [];
+        foreach ($dialogues as $d) {
+            $results[] = [
+                'id' => $d->id,
+                'movie_id' => $d->movie_id,
+                'start_time' => $d->start_time,
+                'end_time' => $d->end_time,
+                'text' => $d->text,
+                'translated_text' => $d->translated_text,
+                'target_word' => $d->target_word,
+                'youtube_url' => $d->movie->youtube_url,
+            ];
+        }
+
+        $this->searchResults = $results;
+        $this->hasSearched = true;
+        $this->generatedReelUrl = null; // reset if searching again
+        
+        Notification::make()->title('Clips Found!')->body('Found ' . count($results) . ' matching clips. Preview them below before generating.')->success()->send();
+    }
+
+    public function generateReelAction(): void
+    {
+        set_time_limit(0); 
+        
+        $keyword = $this->reelData['keyword'] ?? null;
+        if (empty($this->searchResults)) {
+            Notification::make()->title('Please search for clips first.')->danger()->send();
             return;
         }
 
         $this->isGenerating = true;
-        Notification::make()->title('Compilation Reel Started')->body('Fetching ' . $dialogues->count() . ' clips from YouTube...')->info()->send();
+        Notification::make()->title('Compilation Reel Started')->body('Fetching clips from YouTube and generating reel...')->info()->send();
 
         try {
             $outputFilename = 'reel_compilation_' . uniqid() . '.mp4';
             
             $clips = [];
-            foreach ($dialogues as $dialogue) {
-                $startSec = $this->timeToSeconds($dialogue->start_time);
-                $endSec = $this->timeToSeconds($dialogue->end_time);
+            foreach ($this->searchResults as $dialogue) {
+                $startSec = $this->timeToSeconds($dialogue['start_time']);
+                $endSec = $this->timeToSeconds($dialogue['end_time']);
                 $duration = max(3, ceil($endSec - $startSec));
                 
                 $clips[] = [
-                    'source_url' => $dialogue->movie->youtube_url,
-                    'start_time' => $dialogue->start_time,
+                    'source_url' => $dialogue['youtube_url'],
+                    'start_time' => $dialogue['start_time'],
                     'duration' => $duration,
-                    'english_text' => $dialogue->text,
-                    'bengali_text' => $dialogue->translated_text ?? 'An AI thesis project.',
-                    'target_word' => $dialogue->target_word ?? $keyword
+                    'english_text' => $dialogue['text'],
+                    'bengali_text' => $dialogue['translated_text'] ?? 'An AI thesis project.',
+                    'target_word' => $dialogue['target_word'] ?? $keyword
                 ];
             }
             
@@ -127,7 +156,7 @@ class ReelGenerator extends Page implements HasForms
                 
                 // Save to database
                 \App\Models\GeneratedReel::create([
-                    'target_word' => $targetWord,
+                    'target_word' => $keyword ?? 'Compilation',
                     'file_path' => $this->generatedReelUrl,
                     'is_posted_to_fb' => false,
                 ]);

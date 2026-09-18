@@ -15,84 +15,122 @@
 
     </div>
 
-    <!-- Loading Animation (Shows immediately when the button is clicked) -->
-    <div wire:loading wire:target="analyzeVideo" class="mt-8 w-full">
-        <style>
-            @keyframes custom-ping {
-                75%, 100% { transform: scale(2); opacity: 0; }
+    <!-- Dynamic YouTube Preview -->
+    <div x-data="{ 
+            url: <?php if ((object) ('analyzerData.youtubeUrl') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('analyzerData.youtubeUrl'->value()); ?>')<?php echo e('analyzerData.youtubeUrl'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('analyzerData.youtubeUrl'); ?>')<?php endif; ?>.live,
+            videoId() {
+                if (!this.url) return null;
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                const match = this.url.match(regExp);
+                return (match && match[2].length === 11) ? match[2] : null;
             }
-            @keyframes custom-pulse {
-                0%, 100% { opacity: 1; }
-                50% { opacity: .5; }
-            }
-            @keyframes custom-spin {
-                to { transform: rotate(360deg); }
-            }
-            .pulse-progress {
-                animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-        </style>
-        <div style="position: relative; padding: 2rem; background-color: rgba(17, 24, 39, 0.8); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
-            
-            <!-- Dynamic Timer Component (Top Right Corner) -->
-            <div x-data="{ seconds: 0 }"
-                 x-init="setInterval(() => { if ($el.offsetWidth > 0) { seconds++; } else { seconds = 0; } }, 1000)"
-                 style="position: absolute; top: 1.5rem; right: 1.5rem; background-color: rgba(0,0,0,0.5); padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; font-family: monospace; font-size: 1.25rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem;">
-                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span x-text="Math.floor(seconds / 60).toString().padStart(2, '0') + ':' + (seconds % 60).toString().padStart(2, '0')">00:00</span>
+        }"
+        x-show="videoId()"
+        style="display: none; margin-top: 1rem; padding: 1.5rem; background-color: rgba(17, 24, 39, 0.9); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.4); align-items: flex-start; gap: 1.5rem;"
+        :style="videoId() ? 'display: flex;' : 'display: none;'">
+        
+        <div style="position: relative; width: 240px; border-radius: 0.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;">
+            <img :src="'https://img.youtube.com/vi/' + videoId() + '/hqdefault.jpg'" style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 16/9;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(0,0,0,0.2);">
+                <svg style="width: 3rem; height: 3rem; color: white; opacity: 0.8;" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
             </div>
-            <div style="position: relative; width: 4rem; height: 4rem;">
-                <!-- Outer pulsing ring -->
-                <div style="position: absolute; inset: 0; border-radius: 9999px; border: 4px solid rgba(16, 185, 129, 0.3); animation: custom-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
-                <!-- Inner spinning ring -->
-                <div style="position: absolute; inset: 0.5rem; border-radius: 9999px; border: 4px solid; border-color: #10b981 transparent #10b981 transparent; animation: custom-spin 1s linear infinite;"></div>
-                <!-- Center dot -->
-                <div style="position: absolute; inset: 1.5rem; border-radius: 9999px; background-color: #10b981; animation: custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
-            </div>
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-top: 1rem;">AI Engine is Processing...</h3>
-            <p style="color: #9ca3af; text-align: center; max-width: 28rem; font-size: 0.875rem;">
-                Fetching YouTube subtitles, batch-translating with Gemini, and running CEFR filters. This will take <strong style="color: #10b981;">10-20 seconds</strong> depending on video length. Please wait...
+        </div>
+        
+        <div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Video Ready for Analysis
+            </h3>
+            <p style="color: #9ca3af; font-size: 0.875rem; line-height: 1.5; max-width: 32rem;">
+                Our AI Engine will download the subtitles, clean the text, and run the NLP Classification pipelines to extract targeted vocabulary.
             </p>
-            <!-- Fake Progress Bar Animation -->
-            <div style="width: 100%; max-width: 28rem; margin-top: 1.5rem; height: 0.5rem; background-color: rgba(31, 41, 55, 1); border-radius: 9999px; overflow: hidden;">
-                <div class="pulse-progress" style="height: 100%; background-color: #10b981; border-radius: 9999px; width: 100%; opacity: 0.8;"></div>
-            </div>
         </div>
     </div>
 
-    <!-- Live Progress Bar Section -->
-    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($currentMovieId): ?>
-        <div class="mt-8 p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm w-full" wire:poll.2s>
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2" style="display: flex; align-items: center; gap: 8px;">
-                    <svg style="width: 24px; height: 24px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    AI Processing Status
+    <!-- AI Engine Processing (AlpineJS Simulated Realtime Progress) -->
+    <div wire:loading wire:target="analyzeVideo" style="margin-top: 2rem; width: 100%;">
+        <div x-data="{ 
+             progress: 0, 
+             status: 'Initializing AI Engine...',
+             intervalId: null,
+             startProgress() {
+                 if (this.intervalId) return;
+                 this.progress = 1;
+                 this.status = 'Establishing Secure Connection...';
+                 this.intervalId = setInterval(() => {
+                     if (this.progress < 25) {
+                         this.progress += 0.5;
+                         this.status = 'Analyzing Audio Spectrogram & Extracting Subtitles...';
+                     } else if (this.progress < 50) {
+                         this.progress += 0.2;
+                         this.status = 'Running NLP Token Classification...';
+                     } else if (this.progress < 75) {
+                         this.progress += 0.3;
+                         this.status = 'Detecting Idioms & Complex Vocabulary...';
+                     } else if (this.progress < 95) {
+                         this.progress += 0.1;
+                         this.status = 'Performing Neural Machine Translation (NMT)...';
+                     } else {
+                         this.status = 'Finalizing Data Models...';
+                     }
+                 }, 100);
+             },
+             stopProgress() {
+                 if (this.intervalId) { 
+                     clearInterval(this.intervalId); 
+                     this.intervalId = null; 
+                 }
+             },
+             init() {
+                 let observer = new MutationObserver((mutations) => {
+                     if (this.$el.style.display !== 'none') {
+                         this.startProgress();
+                     } else {
+                         this.stopProgress();
+                     }
+                 });
+                 observer.observe(this.$el, { attributes: true, attributeFilter: ['style'] });
+                 if (this.$el.style.display !== 'none') this.startProgress();
+             }
+         }">
+        
+        <div style="padding: 2rem; background-color: rgba(17, 24, 39, 0.9); border-radius: 0.75rem; border: 1px solid rgba(16, 185, 129, 0.4); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);">
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                    <style>
+                        @keyframes spin { 100% { transform: rotate(360deg); } }
+                        .animate-spin-custom { animation: spin 1s linear infinite; }
+                    </style>
+                    <svg class="animate-spin-custom" style="width: 1.5rem; height: 1.5rem; color: #10b981;" fill="none" viewBox="0 0 24 24"><circle style="opacity: 0.25;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path style="opacity: 0.75;" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    AI Pipeline Active
                 </h3>
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isProcessing): ?>
-                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background-color: rgba(16, 185, 129, 0.1); color: #10b981; font-size: 14px; font-weight: 500; border: 1px solid rgba(16, 185, 129, 0.2);">
-                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #10b981;" class="animate-pulse"></span>
-                        Analyzing Live
-                    </span>
-                <?php else: ?>
-                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; font-size: 14px; font-weight: 500; border: 1px solid rgba(59, 130, 246, 0.2);">
-                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Complete
-                    </span>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                <span style="color: #34d399; font-family: monospace; font-size: 1.25rem; font-weight: 700;" x-text="Math.floor(progress) + '%'">0%</span>
             </div>
 
             <!-- Progress Bar -->
-            <div style="width: 100%; background-color: rgba(255,255,255,0.1); border-radius: 999px; height: 12px; margin-bottom: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                <div style="background: linear-gradient(to right, #34d399, #14b8a6); height: 12px; border-radius: 999px; transition: all 0.5s ease-out; width: <?php echo e($progressPercentage); ?>%;">
-                </div>
+            <div style="width: 100%; background-color: #1f2937; border-radius: 9999px; height: 0.75rem; margin-bottom: 0.5rem; overflow: hidden; border: 1px solid #374151;">
+                <div style="background: linear-gradient(to right, #10b981, #2dd4bf); height: 0.75rem; border-radius: 9999px; transition: width 0.3s ease-out;" 
+                     :style="'width: ' + progress + '%'"></div>
             </div>
-            
-            <div style="display: flex; justify-content: space-between; font-size: 14px; color: #9ca3af; font-weight: 500;">
-                <span><?php echo e($processedDialogues); ?> / <?php echo e($totalDialogues); ?> Dialogues Processed</span>
-                <span><?php echo e($progressPercentage); ?>%</span>
+
+            <!-- Dynamic Status Text -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: #9ca3af;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <style>
+                        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+                        .animate-pulse-custom { animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+                    </style>
+                    <span class="animate-pulse-custom" style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; background-color: #10b981;"></span>
+                    <span x-text="status"></span>
+                </span>
+                <span>Please wait... (Usually takes 1-2 mins)</span>
             </div>
         </div>
+        </div>
+    </div>
 
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($currentMovieId): ?>
         <!-- Live Filament Table -->
         <div class="mt-8">
             <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Extracted Dialogues</h3>

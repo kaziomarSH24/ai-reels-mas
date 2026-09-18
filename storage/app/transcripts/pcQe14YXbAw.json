@@ -1,0 +1,1832 @@
+[
+    {
+        "start_time": "00:01:10.436",
+        "end_time": "00:01:13.439",
+        "text": "HEFFNER: I'm Alexander Heffner, your host on The Open Mind."
+    },
+    {
+        "start_time": "00:01:13.472",
+        "end_time": "00:01:18.478",
+        "text": "My guest today is Vassar College president and political science professor Elizabeth Bradley,"
+    },
+    {
+        "start_time": "00:01:18.511",
+        "end_time": "00:01:24.750",
+        "text": "who leads the coeducational independent residential liberal arts college, founded in 1861."
+    },
+    {
+        "start_time": "00:01:24.783",
+        "end_time": "00:01:29.755",
+        "text": "She was previously the director of the Brady-Johnson Program in Grand Strategy at Yale,"
+    },
+    {
+        "start_time": "00:01:29.788",
+        "end_time": "00:01:34.994",
+        "text": "a university wide interdisciplinary program to train emerging leaders."
+    },
+    {
+        "start_time": "00:01:35.027",
+        "end_time": "00:01:40.666",
+        "text": "The program employed a comprehensive approach to achieving large ends with limited means,"
+    },
+    {
+        "start_time": "00:01:40.699",
+        "end_time": "00:01:49.075",
+        "text": "examining disciplines across history, political science, classical literature as context to address a wide range of contemporary"
+    },
+    {
+        "start_time": "00:01:49.108",
+        "end_time": "00:01:55.648",
+        "text": "public policy challenges on security, economic inequality, global health and climate change."
+    },
+    {
+        "start_time": "00:01:55.681",
+        "end_time": "00:01:57.617",
+        "text": "President, I'm delighted to welcome you here today."
+    },
+    {
+        "start_time": "00:01:57.650",
+        "end_time": "00:01:58.484",
+        "text": "Thanks for being here."
+    },
+    {
+        "start_time": "00:01:58.518",
+        "end_time": "00:02:00.019",
+        "text": "BRADLEY: Thank you so much, Alexander."
+    },
+    {
+        "start_time": "00:02:00.052",
+        "end_time": "00:02:04.123",
+        "text": "HEFFNER: I was just saying to you off camera, we've hosted both liberal arts college presidents"
+    },
+    {
+        "start_time": "00:02:04.156",
+        "end_time": "00:02:05.591",
+        "text": "and major university presidents."
+    },
+    {
+        "start_time": "00:02:05.624",
+        "end_time": "00:02:08.628",
+        "text": "I'm thinking of Wesleyan, Notre Dame, University of Richmond."
+    },
+    {
+        "start_time": "00:02:08.661",
+        "end_time": "00:02:09.996",
+        "text": "We're delighted to have you here."
+    },
+    {
+        "start_time": "00:02:10.029",
+        "end_time": "00:02:14.834",
+        "text": "We'd like to get a sense of the campus commons, specifically this question of free speech and fair"
+    },
+    {
+        "start_time": "00:02:14.867",
+        "end_time": "00:02:17.203",
+        "text": "speech on campus."
+    },
+    {
+        "start_time": "00:02:17.236",
+        "end_time": "00:02:23.376",
+        "text": "How do you think in the midst of a contentious and sometimes even vitriolic political climate,"
+    },
+    {
+        "start_time": "00:02:23.409",
+        "end_time": "00:02:31.984",
+        "text": "how your campus and campuses more broadly are confronting the resurgence of bigotry and the danger"
+    },
+    {
+        "start_time": "00:02:32.017",
+        "end_time": "00:02:36.122",
+        "text": "of accepting a discourse that might be a bigoted discourse?"
+    },
+    {
+        "start_time": "00:02:36.155",
+        "end_time": "00:02:38.257",
+        "text": "BRADLEY: Well, thank you so much Alexander."
+    },
+    {
+        "start_time": "00:02:38.290",
+        "end_time": "00:02:40.760",
+        "text": "It's a great question something I think about a lot."
+    },
+    {
+        "start_time": "00:02:40.793",
+        "end_time": "00:02:45.498",
+        "text": "I think for most people run in colleges and universities today, this is absolutely front"
+    },
+    {
+        "start_time": "00:02:45.531",
+        "end_time": "00:02:48.000",
+        "text": "and center, a primary question for us."
+    },
+    {
+        "start_time": "00:02:48.033",
+        "end_time": "00:02:51.704",
+        "text": "And I'd step us back a little bit on your question."
+    },
+    {
+        "start_time": "00:02:51.737",
+        "end_time": "00:02:59.145",
+        "text": "I think we have to frame free speech as not an isolated value. It's absolutely fundamental."
+    },
+    {
+        "start_time": "00:02:59.178",
+        "end_time": "00:03:01.314",
+        "text": "You have to have it on college campuses."
+    },
+    {
+        "start_time": "00:03:01.347",
+        "end_time": "00:03:02.815",
+        "text": "There's no way around it."
+    },
+    {
+        "start_time": "00:03:02.848",
+        "end_time": "00:03:10.656",
+        "text": "But if you think free speech alone is going to confer the kind of social equity we look at, we're mistaken."
+    },
+    {
+        "start_time": "00:03:10.689",
+        "end_time": "00:03:16.295",
+        "text": "And instead we really need to look at both pursuing the ends of free speech and the ends of social"
+    },
+    {
+        "start_time": "00:03:16.328",
+        "end_time": "00:03:18.264",
+        "text": "inclusion at the same time."
+    },
+    {
+        "start_time": "00:03:18.297",
+        "end_time": "00:03:24.870",
+        "text": "When you do that, it's a really interesting campus because suddenly you are saying everybody has a voice."
+    },
+    {
+        "start_time": "00:03:24.903",
+        "end_time": "00:03:30.276",
+        "text": "The whole goal of the campus is to bring different voices together that are really different"
+    },
+    {
+        "start_time": "00:03:30.309",
+        "end_time": "00:03:34.313",
+        "text": "and that's edge that brings edges to the place."
+    },
+    {
+        "start_time": "00:03:34.346",
+        "end_time": "00:03:38.784",
+        "text": "And what happens at an edge, an edge can be all kinds of things."
+    },
+    {
+        "start_time": "00:03:38.817",
+        "end_time": "00:03:43.055",
+        "text": "It can be sharp and very difficult and full of tension."
+    },
+    {
+        "start_time": "00:03:43.088",
+        "end_time": "00:03:47.593",
+        "text": "It can be thrilling and sort of you see both sides at once cause you right on the edge."
+    },
+    {
+        "start_time": "00:03:47.626",
+        "end_time": "00:03:52.798",
+        "text": "And at Vassar what we're really working on is creating an environment where you allow edges to"
+    },
+    {
+        "start_time": "00:03:52.831",
+        "end_time": "00:03:59.505",
+        "text": "meet like that, the sparks will fly, but hopefully they get channeled into all kinds"
+    },
+    {
+        "start_time": "00:03:59.538",
+        "end_time": "00:04:05.444",
+        "text": "of new, I don't know, you spark the creativity, new friendships, new ways to look at the world,"
+    },
+    {
+        "start_time": "00:04:05.477",
+        "end_time": "00:04:08.080",
+        "text": "creativity, innovations."
+    },
+    {
+        "start_time": "00:04:08.113",
+        "end_time": "00:04:15.021",
+        "text": "So if you allow both the freedom to speak, but you bring everybody to the table for that"
+    },
+    {
+        "start_time": "00:04:15.054",
+        "end_time": "00:04:19.625",
+        "text": "freedom, which is sometimes what hasn't happened before, I think you can really make a change."
+    },
+    {
+        "start_time": "00:04:19.658",
+        "end_time": "00:04:23.696",
+        "text": "And that skills, those kinds of skills are good for the world, not just for campuses."
+    },
+    {
+        "start_time": "00:04:23.729",
+        "end_time": "00:04:27.867",
+        "text": "HEFFNER: You're practicing something you call engaged pluralism..."
+    },
+    {
+        "start_time": "00:04:27.900",
+        "end_time": "00:04:29.368",
+        "text": "BRADLEY: Yes."
+    },
+    {
+        "start_time": "00:04:29.401",
+        "end_time": "00:04:32.672",
+        "text": "HEFFNER: ...In the way that you participate in the democratic governance of your own institution."
+    },
+    {
+        "start_time": "00:04:32.705",
+        "end_time": "00:04:33.906",
+        "text": "Can you tell our viewers about that?"
+    },
+    {
+        "start_time": "00:04:33.939",
+        "end_time": "00:04:39.111",
+        "text": "BRADLEY: Yes. Well one of the strong values at Vassar has always been empowerment. The students are empowered,"
+    },
+    {
+        "start_time": "00:04:39.144",
+        "end_time": "00:04:42.615",
+        "text": "the faculty are empowered. We have shared governance."
+    },
+    {
+        "start_time": "00:04:42.648",
+        "end_time": "00:04:49.555",
+        "text": "So a democracy is really what we are about and engaged pluralism is fundamental to that."
+    },
+    {
+        "start_time": "00:04:49.588",
+        "end_time": "00:04:55.961",
+        "text": "When we say engaged pluralism, it's really a value system or a framework for dealing"
+    },
+    {
+        "start_time": "00:04:55.994",
+        "end_time": "00:04:58.631",
+        "text": "with a wildly diverse set of people."
+    },
+    {
+        "start_time": "00:04:58.664",
+        "end_time": "00:05:03.669",
+        "text": "And you know America hasn't always dealt well with diversity when you think about it,"
+    },
+    {
+        "start_time": "00:05:03.702",
+        "end_time": "00:05:08.240",
+        "text": "I mean, there's segregation, that's one way in which people deal with diversity."
+    },
+    {
+        "start_time": "00:05:08.273",
+        "end_time": "00:05:13.045",
+        "text": "They separate people into their groups, and big boundaries between them and they don't learn"
+    },
+    {
+        "start_time": "00:05:13.078",
+        "end_time": "00:05:15.748",
+        "text": "from each other. We've had a huge history on that."
+    },
+    {
+        "start_time": "00:05:15.781",
+        "end_time": "00:05:20.319",
+        "text": "There's assimilation, which we've also had a huge history on where people just,"
+    },
+    {
+        "start_time": "00:05:20.352",
+        "end_time": "00:05:24.323",
+        "text": "who are diverse come in and you just need to act like the majority and you'll get along."
+    },
+    {
+        "start_time": "00:05:24.356",
+        "end_time": "00:05:30.996",
+        "text": "We reject both of these and say they are polar ways to look at it and instead an engaged"
+    },
+    {
+        "start_time": "00:05:31.029",
+        "end_time": "00:05:36.869",
+        "text": "pluralistic approach is, well let's hear what you have to say and engage long enough that you"
+    },
+    {
+        "start_time": "00:05:36.902",
+        "end_time": "00:05:38.437",
+        "text": "really hear what the other side is."
+    },
+    {
+        "start_time": "00:05:38.470",
+        "end_time": "00:05:42.174",
+        "text": "It doesn't mean you're going to change someone's mind, doesn't mean you're going to go away with a"
+    },
+    {
+        "start_time": "00:05:42.207",
+        "end_time": "00:05:47.613",
+        "text": "changed mind, but you will go away having learned something, you'll understand more."
+    },
+    {
+        "start_time": "00:05:47.646",
+        "end_time": "00:05:49.982",
+        "text": "And that's what we're trying to do throughout the campus."
+    },
+    {
+        "start_time": "00:05:50.015",
+        "end_time": "00:05:54.153",
+        "text": "HEFFNER: And to be specific, you're giving students, faculty and staff alike an"
+    },
+    {
+        "start_time": "00:05:54.186",
+        "end_time": "00:05:58.691",
+        "text": "opportunity, a vehicle through which they can express their democratic will beyond speech in"
+    },
+    {
+        "start_time": "00:05:58.724",
+        "end_time": "00:06:04.797",
+        "text": "actually what is participatory governance within your community, which is I think a unique aspiration."
+    },
+    {
+        "start_time": "00:06:04.830",
+        "end_time": "00:06:05.765",
+        "text": "BRADLEY: Absolutely."
+    },
+    {
+        "start_time": "00:06:05.798",
+        "end_time": "00:06:09.835",
+        "text": "We've a great example of this is we have a committee called the Priority and Planning"
+    },
+    {
+        "start_time": "00:06:09.868",
+        "end_time": "00:06:16.575",
+        "text": "Committee and that committee is fundamental to setting the strategic direction of the college"
+    },
+    {
+        "start_time": "00:06:16.608",
+        "end_time": "00:06:24.083",
+        "text": "and that committee, people on that are elected and it is students, staff, administrators, faculty."
+    },
+    {
+        "start_time": "00:06:24.116",
+        "end_time": "00:06:31.457",
+        "text": "And that, that committee really is the heart of where we, how we set our next five to seven year plans."
+    },
+    {
+        "start_time": "00:06:31.490",
+        "end_time": "00:06:37.263",
+        "text": "And it's a democracy, they're elected and then we duke it out around the table and students and"
+    },
+    {
+        "start_time": "00:06:37.296",
+        "end_time": "00:06:42.268",
+        "text": "faculty together and staff as well and sort of there's an equality of voices around the table"
+    },
+    {
+        "start_time": "00:06:42.301",
+        "end_time": "00:06:47.840",
+        "text": "HEFFNER: In the same way President that you reject a dichotomy or some sort of binary choice in the"
+    },
+    {
+        "start_time": "00:06:47.873",
+        "end_time": "00:06:52.745",
+        "text": "way we conceive of diversity or what is egalitarian on a campus."
+    },
+    {
+        "start_time": "00:06:52.778",
+        "end_time": "00:06:58.717",
+        "text": "I think of that when it comes to speech because we have social media executives now pretending"
+    },
+    {
+        "start_time": "00:06:58.750",
+        "end_time": "00:07:03.989",
+        "text": "to be First Amendment lawyers in the way that they want to purely govern their mediums,"
+    },
+    {
+        "start_time": "00:07:04.022",
+        "end_time": "00:07:09.361",
+        "text": "which like at Vassar they can decide that there is free speech and there is also compassionate speech"
+    },
+    {
+        "start_time": "00:07:09.394",
+        "end_time": "00:07:14.800",
+        "text": "and that in the words of John Palfrey - we want brave and safe spaces."
+    },
+    {
+        "start_time": "00:07:14.833",
+        "end_time": "00:07:16.836",
+        "text": "But they don't, they're not thinking that way."
+    },
+    {
+        "start_time": "00:07:16.869",
+        "end_time": "00:07:23.375",
+        "text": "They are absolutists when it comes to free expression right now for the most part with minimal"
+    },
+    {
+        "start_time": "00:07:23.408",
+        "end_time": "00:07:28.481",
+        "text": "banning of hate and bigotry on their platforms and also disinformation."
+    },
+    {
+        "start_time": "00:07:28.514",
+        "end_time": "00:07:33.752",
+        "text": "But I reject the idea that you're in adherent, a zealot adherent to the First Amendment or you're"
+    },
+    {
+        "start_time": "00:07:33.785",
+        "end_time": "00:07:36.088",
+        "text": "a zealot adherent to censorship."
+    },
+    {
+        "start_time": "00:07:36.121",
+        "end_time": "00:07:37.957",
+        "text": "Those are not the single courses."
+    },
+    {
+        "start_time": "00:07:37.990",
+        "end_time": "00:07:44.196",
+        "text": "There's also something called classification, meaning you identify what is bigoted or what"
+    },
+    {
+        "start_time": "00:07:44.229",
+        "end_time": "00:07:49.602",
+        "text": "is disinformation, and I'm wondering how that plays out at the campus level and whether that could at"
+    },
+    {
+        "start_time": "00:07:49.635",
+        "end_time": "00:07:56.742",
+        "text": "all be emulated for these mega, mega information hubs that are so much the origin of"
+    },
+    {
+        "start_time": "00:07:56.775",
+        "end_time": "00:07:57.910",
+        "text": "the bloodstream today."
+    },
+    {
+        "start_time": "00:07:57.943",
+        "end_time": "00:08:04.250",
+        "text": "BRADLEY: Yeah, I think the issue of what you're really going to do once you allow free speech and"
+    },
+    {
+        "start_time": "00:08:04.283",
+        "end_time": "00:08:11.857",
+        "text": "you've got, something crawls into that free speech that's very bigoted or hateful, et cetera."
+    },
+    {
+        "start_time": "00:08:11.890",
+        "end_time": "00:08:15.127",
+        "text": "What does an institution do then if they have freedom to do what they want,"
+    },
+    {
+        "start_time": "00:08:15.160",
+        "end_time": "00:08:18.531",
+        "text": "they're a private institution, they are a media company, et cetera."
+    },
+    {
+        "start_time": "00:08:18.564",
+        "end_time": "00:08:23.769",
+        "text": "And there are a couple of principles I think that really help us on the campus and I think could"
+    },
+    {
+        "start_time": "00:08:23.802",
+        "end_time": "00:08:26.205",
+        "text": "be thought of more broadly."
+    },
+    {
+        "start_time": "00:08:26.238",
+        "end_time": "00:08:30.142",
+        "text": "The first is you've got to make that a topic of conversation."
+    },
+    {
+        "start_time": "00:08:30.175",
+        "end_time": "00:08:37.316",
+        "text": "You know what happens so often is when there's been something hatefully said, immediately people jump to"
+    },
+    {
+        "start_time": "00:08:37.349",
+        "end_time": "00:08:39.184",
+        "text": "their corners and stop talking."
+    },
+    {
+        "start_time": "00:08:39.217",
+        "end_time": "00:08:41.120",
+        "text": "They don't stay around the table."
+    },
+    {
+        "start_time": "00:08:41.153",
+        "end_time": "00:08:44.123",
+        "text": "Another approach could be, so that was hateful."
+    },
+    {
+        "start_time": "00:08:44.156",
+        "end_time": "00:08:45.057",
+        "text": "What's going on here?"
+    },
+    {
+        "start_time": "00:08:45.090",
+        "end_time": "00:08:46.292",
+        "text": "Why are we talking about this?"
+    },
+    {
+        "start_time": "00:08:46.325",
+        "end_time": "00:08:47.626",
+        "text": "What's underneath that?"
+    },
+    {
+        "start_time": "00:08:47.659",
+        "end_time": "00:08:55.134",
+        "text": "So that again, it's sort of privileging the social inclusion and community side of being free."
+    },
+    {
+        "start_time": "00:08:55.167",
+        "end_time": "00:08:57.970",
+        "text": "And as you said, I don't believe in these as dichotomist."
+    },
+    {
+        "start_time": "00:08:58.003",
+        "end_time": "00:09:03.108",
+        "text": "I believe in fact you've, you've got freedom, but it only really is successful if you have"
+    },
+    {
+        "start_time": "00:09:03.141",
+        "end_time": "00:09:07.212",
+        "text": "social inclusion and people can stay at the table when something hateful has happened and"
+    },
+    {
+        "start_time": "00:09:07.245",
+        "end_time": "00:09:13.953",
+        "text": "keep talking about it, rather than ahead of time being definitive about what will be in and what"
+    },
+    {
+        "start_time": "00:09:13.986",
+        "end_time": "00:09:18.357",
+        "text": "will be out, often that emerges through how you talk about it."
+    },
+    {
+        "start_time": "00:09:18.390",
+        "end_time": "00:09:20.559",
+        "text": "That said, so there's flexibility first."
+    },
+    {
+        "start_time": "00:09:20.592",
+        "end_time": "00:09:23.395",
+        "text": "That said there have to be boundaries too."
+    },
+    {
+        "start_time": "00:09:23.428",
+        "end_time": "00:09:29.768",
+        "text": "And we know this from millennia of theorists about, you're not free unless you have some boundaries, and--"
+    },
+    {
+        "start_time": "00:09:29.801",
+        "end_time": "00:09:33.772",
+        "text": "HEFFNER: Well, you don't have a civil free society, BRADLEY: Ultimately you've got --"
+    },
+    {
+        "start_time": "00:09:33.805",
+        "end_time": "00:09:36.375",
+        "text": "HEFFNER: Those have to animate democratic rule."
+    },
+    {
+        "start_time": "00:09:36.408",
+        "end_time": "00:09:37.343",
+        "text": "BRADLEY: Yeah."
+    },
+    {
+        "start_time": "00:09:37.376",
+        "end_time": "00:09:39.278",
+        "text": "HEFFNER: Otherwise it slips into anarchy."
+    },
+    {
+        "start_time": "00:09:39.311",
+        "end_time": "00:09:40.145",
+        "text": "BRADLEY: Anarchy."
+    },
+    {
+        "start_time": "00:09:40.178",
+        "end_time": "00:09:40.980",
+        "text": "HEFFNER: Right."
+    },
+    {
+        "start_time": "00:09:41.013",
+        "end_time": "00:09:42.214",
+        "text": "BRADLEY: Right. Exactly."
+    },
+    {
+        "start_time": "00:09:42.247",
+        "end_time": "00:09:48.887",
+        "text": "HEFFNER: So, you know, when I say classification, I am intent on not labeling so much as"
+    },
+    {
+        "start_time": "00:09:48.920",
+        "end_time": "00:09:54.293",
+        "text": "drawing those boundaries in a way that is recognizable and is not censoring people."
+    },
+    {
+        "start_time": "00:09:54.326",
+        "end_time": "00:09:55.761",
+        "text": "BRADLEY: Yep. No question about it. And..."
+    },
+    {
+        "start_time": "00:09:55.794",
+        "end_time": "00:10:00.065",
+        "text": "HEFFNER: Because we need a grand strategy right now for these social media companies that have"
+    },
+    {
+        "start_time": "00:10:00.098",
+        "end_time": "00:10:01.700",
+        "text": "abdicated responsibility."
+    },
+    {
+        "start_time": "00:10:01.733",
+        "end_time": "00:10:02.734",
+        "text": "BRADLEY: Yeah."
+    },
+    {
+        "start_time": "00:10:02.768",
+        "end_time": "00:10:08.607",
+        "text": "And knowing what the boundaries are upfront and people, the best way to sort of govern a commons,"
+    },
+    {
+        "start_time": "00:10:08.640",
+        "end_time": "00:10:13.212",
+        "text": "you know, if we think about Elinor Ostrom, get the boundaries determined upfront."
+    },
+    {
+        "start_time": "00:10:13.245",
+        "end_time": "00:10:17.282",
+        "text": "When people aren't so heated, when you're kind of calm, nothing has happened."
+    },
+    {
+        "start_time": "00:10:17.315",
+        "end_time": "00:10:19.985",
+        "text": "Figure out what you will do if this happens."
+    },
+    {
+        "start_time": "00:10:20.018",
+        "end_time": "00:10:25.724",
+        "text": "So negotiating those boundaries and those rules up front is something we work really hard on at Vassar."
+    },
+    {
+        "start_time": "00:10:25.757",
+        "end_time": "00:10:33.365",
+        "text": "And a good example of this is when we have speakers, you know, we are very alert about what speakers"
+    },
+    {
+        "start_time": "00:10:33.398",
+        "end_time": "00:10:35.734",
+        "text": "who are very controversial can do to a campus."
+    },
+    {
+        "start_time": "00:10:35.767",
+        "end_time": "00:10:39.538",
+        "text": "And so often, you know, the hate comes from the outside."
+    },
+    {
+        "start_time": "00:10:39.571",
+        "end_time": "00:10:42.775",
+        "text": "It doesn't emerge on the inside. It really comes to you."
+    },
+    {
+        "start_time": "00:10:42.808",
+        "end_time": "00:10:45.678",
+        "text": "Nonetheless, how do you manage that?"
+    },
+    {
+        "start_time": "00:10:45.711",
+        "end_time": "00:10:52.551",
+        "text": "So we have developed a really great process for this that involves, we have a set of peacekeepers"
+    },
+    {
+        "start_time": "00:10:52.584",
+        "end_time": "00:10:58.490",
+        "text": "that are students who have been trained themselves about how to contain if things get completely out of control."
+    },
+    {
+        "start_time": "00:10:58.523",
+        "end_time": "00:11:03.128",
+        "text": "We definitely allow peaceful protests, but it must be peaceful, it can't shut down a speaker."
+    },
+    {
+        "start_time": "00:11:03.161",
+        "end_time": "00:11:06.365",
+        "text": "And there are so many proactive boundaries you can set."
+    },
+    {
+        "start_time": "00:11:06.398",
+        "end_time": "00:11:10.636",
+        "text": "For instance, at the beginning of the talk, these are the rules of the talk."
+    },
+    {
+        "start_time": "00:11:10.669",
+        "end_time": "00:11:11.937",
+        "text": "Everybody gets one question."
+    },
+    {
+        "start_time": "00:11:11.970",
+        "end_time": "00:11:13.839",
+        "text": "You don't get more than one question."
+    },
+    {
+        "start_time": "00:11:13.872",
+        "end_time": "00:11:19.244",
+        "text": "The moderator will hold the microphone, you know, they're tiny things to very large"
+    },
+    {
+        "start_time": "00:11:19.277",
+        "end_time": "00:11:22.581",
+        "text": "things; that it will end at seven o'clock."
+    },
+    {
+        "start_time": "00:11:22.614",
+        "end_time": "00:11:27.352",
+        "text": "It won't just keep bleeding on if like things are getting out of control. It ends at this time."
+    },
+    {
+        "start_time": "00:11:27.385",
+        "end_time": "00:11:32.224",
+        "text": "And I believe that if we took this, and it's so often true about grand strategy,"
+    },
+    {
+        "start_time": "00:11:32.257",
+        "end_time": "00:11:36.862",
+        "text": "the devil is in the details, and some of these they're like leverage points,"
+    },
+    {
+        "start_time": "00:11:36.895",
+        "end_time": "00:11:43.635",
+        "text": "small bounded rules that you put in place when people are calm and they agree to the rules and"
+    },
+    {
+        "start_time": "00:11:43.668",
+        "end_time": "00:11:45.504",
+        "text": "then you enforce the rules when it happens."
+    },
+    {
+        "start_time": "00:11:45.537",
+        "end_time": "00:11:51.210",
+        "text": "HEFFNER: As you said from the outset, you do have to determine whether someone's intent"
+    },
+    {
+        "start_time": "00:11:51.243",
+        "end_time": "00:11:54.980",
+        "text": "or an institution's intent is constructive or destructive."
+    },
+    {
+        "start_time": "00:11:55.013",
+        "end_time": "00:12:00.986",
+        "text": "And, you know, that's a nuanced conversation that we can only have once we have a First Amendment,"
+    },
+    {
+        "start_time": "00:12:01.019",
+        "end_time": "00:12:01.954",
+        "text": "but we have to have it."
+    },
+    {
+        "start_time": "00:12:01.987",
+        "end_time": "00:12:02.821",
+        "text": "BRADLEY: Yeah."
+    },
+    {
+        "start_time": "00:12:02.855",
+        "end_time": "00:12:08.961",
+        "text": "And if someone's intent is destructive, you hope your rules are robust enough that you can"
+    },
+    {
+        "start_time": "00:12:08.994",
+        "end_time": "00:12:14.500",
+        "text": "protect people from that destruction. And that's what you're going for because it's hard to tell at the time."
+    },
+    {
+        "start_time": "00:12:14.533",
+        "end_time": "00:12:19.371",
+        "text": "HEFFNER: And what is defined as counterproductive or destructive as opposed to constructive or productive"
+    },
+    {
+        "start_time": "00:12:19.404",
+        "end_time": "00:12:24.476",
+        "text": "in terms of speech and governance, that is viewed as a subjective matter now more"
+    },
+    {
+        "start_time": "00:12:24.509",
+        "end_time": "00:12:26.145",
+        "text": "than an objective matter."
+    },
+    {
+        "start_time": "00:12:26.178",
+        "end_time": "00:12:31.183",
+        "text": "So subjectively speaking, as you speak to your fellow presidents at universities,"
+    },
+    {
+        "start_time": "00:12:31.216",
+        "end_time": "00:12:35.220",
+        "text": "private and public around the country, what are they saying about these kinds of subjective"
+    },
+    {
+        "start_time": "00:12:35.253",
+        "end_time": "00:12:37.089",
+        "text": "tests that we employ?"
+    },
+    {
+        "start_time": "00:12:37.122",
+        "end_time": "00:12:42.127",
+        "text": "BRADLEY: You know, I think that most college presidents and universities are thinking"
+    },
+    {
+        "start_time": "00:12:42.160",
+        "end_time": "00:12:48.433",
+        "text": "all the time about how to allow both freedom and safety to be on the campus."
+    },
+    {
+        "start_time": "00:12:48.466",
+        "end_time": "00:12:51.703",
+        "text": "And longevity, you know, you really don't want to lose."
+    },
+    {
+        "start_time": "00:12:51.736",
+        "end_time": "00:12:56.642",
+        "text": "And I, I think this is a really important thing as we talk about campuses, we have to remember that"
+    },
+    {
+        "start_time": "00:12:56.675",
+        "end_time": "00:13:02.447",
+        "text": "these students, they start as first years, they're 18 years old, then they're sophomores and"
+    },
+    {
+        "start_time": "00:13:02.480",
+        "end_time": "00:13:04.483",
+        "text": "sophomoric is a word for a reason."
+    },
+    {
+        "start_time": "00:13:04.516",
+        "end_time": "00:13:08.854",
+        "text": "Because often in sophomore year, you know, people grab on an ideology and they're"
+    },
+    {
+        "start_time": "00:13:08.887",
+        "end_time": "00:13:12.291",
+        "text": "putting on that ideology for three weeks and then they're going to put on another."
+    },
+    {
+        "start_time": "00:13:12.324",
+        "end_time": "00:13:13.359",
+        "text": "That's how we grow up."
+    },
+    {
+        "start_time": "00:13:13.392",
+        "end_time": "00:13:20.065",
+        "text": "And so, so often colleges are sort of made fun of for the silly things that happen because people take"
+    },
+    {
+        "start_time": "00:13:20.098",
+        "end_time": "00:13:24.169",
+        "text": "a cross section of, well, what happened to that, well, you know, yeah, that was silly."
+    },
+    {
+        "start_time": "00:13:24.202",
+        "end_time": "00:13:29.875",
+        "text": "But by the time that student's a senior, if they've gone through several of these events"
+    },
+    {
+        "start_time": "00:13:29.908",
+        "end_time": "00:13:34.079",
+        "text": "and there've been boundaries and there's been good leadership, you know, they're going to laugh at themselves back when"
+    },
+    {
+        "start_time": "00:13:34.112",
+        "end_time": "00:13:36.615",
+        "text": "they're sophomores too. We all did that stuff like that."
+    },
+    {
+        "start_time": "00:13:36.648",
+        "end_time": "00:13:44.323",
+        "text": "What's dangerous in our own world and in terms of how we get media around is just today's world those"
+    },
+    {
+        "start_time": "00:13:44.356",
+        "end_time": "00:13:48.727",
+        "text": "silly mistakes that get made, you know, in one lecture hall at the end of a"
+    },
+    {
+        "start_time": "00:13:48.760",
+        "end_time": "00:13:51.230",
+        "text": "building suddenly can be live streamed."
+    },
+    {
+        "start_time": "00:13:51.263",
+        "end_time": "00:13:55.300",
+        "text": "And what used to be words can't hurt you: it's just words."
+    },
+    {
+        "start_time": "00:13:55.333",
+        "end_time": "00:14:00.339",
+        "text": "Words carry a lot more power than they used to because a trillion people can see them quickly."
+    },
+    {
+        "start_time": "00:14:00.372",
+        "end_time": "00:14:01.473",
+        "text": "HEFFNER: Right."
+    },
+    {
+        "start_time": "00:14:01.507",
+        "end_time": "00:14:03.175",
+        "text": "BRADLEY: And your future employers can see them quickly."
+    },
+    {
+        "start_time": "00:14:03.208",
+        "end_time": "00:14:10.749",
+        "text": "And as a result, I think that the stakes are just so high now and that we really do try to educate"
+    },
+    {
+        "start_time": "00:14:10.782",
+        "end_time": "00:14:15.387",
+        "text": "all of us about, you know, from administrators to staff, to faculty, students,"
+    },
+    {
+        "start_time": "00:14:15.420",
+        "end_time": "00:14:21.960",
+        "text": "you know, watch your words because they aren't per se weapons, but boy, they can be weaponized."
+    },
+    {
+        "start_time": "00:14:21.993",
+        "end_time": "00:14:24.763",
+        "text": "And so we work pretty hard on that as part of the education."
+    },
+    {
+        "start_time": "00:14:24.796",
+        "end_time": "00:14:30.035",
+        "text": "HEFFNER: Today and today's unequal society is so"
+    },
+    {
+        "start_time": "00:14:30.068",
+        "end_time": "00:14:37.976",
+        "text": "measurable in the vastness of the inequity that we have a presidential candidate and many"
+    },
+    {
+        "start_time": "00:14:38.009",
+        "end_time": "00:14:46.818",
+        "text": "presidential candidates anticipating 2020 who are recognizing the height of this disconnect and"
+    },
+    {
+        "start_time": "00:14:46.851",
+        "end_time": "00:14:52.024",
+        "text": "proposing major overhauls that are sometimes detailed and sometimes systemic,"
+    },
+    {
+        "start_time": "00:14:52.057",
+        "end_time": "00:14:57.829",
+        "text": "and how they're going to try to better our economy for more people. Being at the helm of a university,"
+    },
+    {
+        "start_time": "00:14:57.862",
+        "end_time": "00:15:02.100",
+        "text": "but also being a political scientist, to put your political scientist hat on right now,"
+    },
+    {
+        "start_time": "00:15:02.133",
+        "end_time": "00:15:14.479",
+        "text": "how effective are these candidates going to be in not just wanting to bring back normalcy in our"
+    },
+    {
+        "start_time": "00:15:14.512",
+        "end_time": "00:15:19.051",
+        "text": "rhetoric to reverse course from what the Trump administration, but specifically Trump has"
+    },
+    {
+        "start_time": "00:15:19.084",
+        "end_time": "00:15:20.385",
+        "text": "meant to our discourse."
+    },
+    {
+        "start_time": "00:15:20.418",
+        "end_time": "00:15:29.962",
+        "text": "But how successful do you anticipate they're going to be at negotiating with the American people on"
+    },
+    {
+        "start_time": "00:15:29.995",
+        "end_time": "00:15:36.835",
+        "text": "this issue, and I specifically reference Senator Warren who has many plans that would try"
+    },
+    {
+        "start_time": "00:15:36.868",
+        "end_time": "00:15:43.008",
+        "text": "to foster equity in a climate that's denied opportunity for so many people."
+    },
+    {
+        "start_time": "00:15:43.041",
+        "end_time": "00:15:47.346",
+        "text": "BRADLEY: Well, key question, I mean, let's start with income inequality."
+    },
+    {
+        "start_time": "00:15:47.379",
+        "end_time": "00:15:52.651",
+        "text": "We go back to ancient Rome to now when countries or"
+    },
+    {
+        "start_time": "00:15:52.684",
+        "end_time": "00:15:58.724",
+        "text": "nation states get too inequitable problems happen, that's not a stable situation."
+    },
+    {
+        "start_time": "00:15:58.757",
+        "end_time": "00:16:03.762",
+        "text": "And we can study one revolution after the other; large differences in income"
+    },
+    {
+        "start_time": "00:16:03.795",
+        "end_time": "00:16:09.568",
+        "text": "that persist don't persist. Ultimately, there's a coup, there's a change, there's a new way in which"
+    },
+    {
+        "start_time": "00:16:09.601",
+        "end_time": "00:16:13.005",
+        "text": "that society will be will be managed."
+    },
+    {
+        "start_time": "00:16:13.038",
+        "end_time": "00:16:17.976",
+        "text": "The question is, where is the United States in this long trajectory of building towards"
+    },
+    {
+        "start_time": "00:16:18.009",
+        "end_time": "00:16:21.380",
+        "text": "inequality, and where is the tipping point where finally the people of the country,"
+    },
+    {
+        "start_time": "00:16:21.413",
+        "end_time": "00:16:25.450",
+        "text": "whether they're wealthy or not, say we can no longer sustain this kind of"
+    },
+    {
+        "start_time": "00:16:25.483",
+        "end_time": "00:16:28.920",
+        "text": "income inequality."
+    },
+    {
+        "start_time": "00:16:28.953",
+        "end_time": "00:16:34.593",
+        "text": "And I think pending how you answer that is whether Senator Warren or any of the other presidential"
+    },
+    {
+        "start_time": "00:16:34.626",
+        "end_time": "00:16:39.998",
+        "text": "candidates on either side could really address the income inequality issue that's underlying so much"
+    },
+    {
+        "start_time": "00:16:40.031",
+        "end_time": "00:16:41.233",
+        "text": "of our polarization."
+    },
+    {
+        "start_time": "00:16:41.266",
+        "end_time": "00:16:44.970",
+        "text": "I mean, we look at it geographically, we look at it a rural city,"
+    },
+    {
+        "start_time": "00:16:45.003",
+        "end_time": "00:16:47.105",
+        "text": "people are living in different United States."
+    },
+    {
+        "start_time": "00:16:47.138",
+        "end_time": "00:16:55.480",
+        "text": "HEFFNER: I just came back from Iowa and speaking with an Uber driver who considered himself very conservative."
+    },
+    {
+        "start_time": "00:16:55.513",
+        "end_time": "00:16:59.851",
+        "text": "And we came to a conclusion that whether you consider yourself pretty conservative or"
+    },
+    {
+        "start_time": "00:16:59.884",
+        "end_time": "00:17:06.491",
+        "text": "pretty liberal, you are discontent with the status quo, the economic status quo in this country that"
+    },
+    {
+        "start_time": "00:17:06.524",
+        "end_time": "00:17:10.896",
+        "text": "President Trump intended to and promised to correct."
+    },
+    {
+        "start_time": "00:17:10.929",
+        "end_time": "00:17:17.436",
+        "text": "He said he alone could fix it when it came to economic distress."
+    },
+    {
+        "start_time": "00:17:17.469",
+        "end_time": "00:17:25.644",
+        "text": "And so you don't really have these two populations living in silos other than maybe their registration,"
+    },
+    {
+        "start_time": "00:17:25.677",
+        "end_time": "00:17:30.082",
+        "text": "with the exception of the oligarchic community, which wants the status quo."
+    },
+    {
+        "start_time": "00:17:30.115",
+        "end_time": "00:17:36.288",
+        "text": "So you have pretty conservative and pretty liberal people who would probably agree about human"
+    },
+    {
+        "start_time": "00:17:36.321",
+        "end_time": "00:17:42.394",
+        "text": "dignity and probably agree about an economy that respects human dignity."
+    },
+    {
+        "start_time": "00:17:42.427",
+        "end_time": "00:17:47.966",
+        "text": "And so how do you translate that politically for someone like Senator Warren into language that"
+    },
+    {
+        "start_time": "00:17:47.999",
+        "end_time": "00:17:51.336",
+        "text": "is going to be robust enough to compete in a general election? How..."
+    },
+    {
+        "start_time": "00:17:51.369",
+        "end_time": "00:17:55.207",
+        "text": "BRADLEY: That certainly what she is trying to do is figuring out exactly what that language is."
+    },
+    {
+        "start_time": "00:17:55.240",
+        "end_time": "00:17:56.308",
+        "text": "HEFFNER: What is it?"
+    },
+    {
+        "start_time": "00:17:56.341",
+        "end_time": "00:18:02.147",
+        "text": "BRADLEY: Well listen, I think your point that people agree a lot more than you think they agree is true."
+    },
+    {
+        "start_time": "00:18:02.180",
+        "end_time": "00:18:07.052",
+        "text": "We've seen it in healthcare completely, I mean everybody wants everybody to have access"
+    },
+    {
+        "start_time": "00:18:07.085",
+        "end_time": "00:18:11.623",
+        "text": "to healthcare who doesn't want, someone who needs to get healthy to have access to healthcare."
+    },
+    {
+        "start_time": "00:18:11.656",
+        "end_time": "00:18:13.091",
+        "text": "Everybody wants it."
+    },
+    {
+        "start_time": "00:18:13.124",
+        "end_time": "00:18:18.964",
+        "text": "What I think we don't face well en ough is what sacrifices have to be made to make that happen."
+    },
+    {
+        "start_time": "00:18:18.997",
+        "end_time": "00:18:24.035",
+        "text": "What income redistribution, what sense of control, which institutions that"
+    },
+    {
+        "start_time": "00:18:24.068",
+        "end_time": "00:18:28.440",
+        "text": "are structural in the United States actually need to change to say, oh yeah,"
+    },
+    {
+        "start_time": "00:18:28.473",
+        "end_time": "00:18:32.944",
+        "text": "everyone can get healthcare and yes we can have more income equality."
+    },
+    {
+        "start_time": "00:18:32.977",
+        "end_time": "00:18:36.781",
+        "text": "So whereas you said, you know, my Uber driver and you know, conservative, liberal."
+    },
+    {
+        "start_time": "00:18:36.814",
+        "end_time": "00:18:39.718",
+        "text": "We agree, but the devil is in the details."
+    },
+    {
+        "start_time": "00:18:39.751",
+        "end_time": "00:18:41.019",
+        "text": "Again, when you get to, okay..."
+    },
+    {
+        "start_time": "00:18:41.052",
+        "end_time": "00:18:43.989",
+        "text": "HEFFNER: No I agree, it's part of the grand reconciliation."
+    },
+    {
+        "start_time": "00:18:44.022",
+        "end_time": "00:18:48.326",
+        "text": "The grand strategy we need right now is grand reconciliation."
+    },
+    {
+        "start_time": "00:18:48.359",
+        "end_time": "00:18:49.661",
+        "text": "BRADLEY: It really is. It really is. Yes."
+    },
+    {
+        "start_time": "00:18:49.694",
+        "end_time": "00:18:55.534",
+        "text": "And in history, those don't happen without a lot of pain to where people are ready for that"
+    },
+    {
+        "start_time": "00:18:55.567",
+        "end_time": "00:19:03.175",
+        "text": "reconciliation because the alternative is so difficult and is our alternative right now so difficult yet."
+    },
+    {
+        "start_time": "00:19:03.208",
+        "end_time": "00:19:04.576",
+        "text": "And where is that moment?"
+    },
+    {
+        "start_time": "00:19:04.609",
+        "end_time": "00:19:11.349",
+        "text": "HEFFNER: What Elizabeth Warren is seeking is a return to the Eisenhower Administration for all"
+    },
+    {
+        "start_time": "00:19:11.382",
+        "end_time": "00:19:15.987",
+        "text": "people, so you know, if we want to say that that didn't include people of color,"
+    },
+    {
+        "start_time": "00:19:16.020",
+        "end_time": "00:19:23.094",
+        "text": "we want economic fairness that was the status quo when it comes to the taxation system."
+    },
+    {
+        "start_time": "00:19:23.127",
+        "end_time": "00:19:29.935",
+        "text": "I mean, ever since the progressive taxation and the progressive era, regressive reforms or"
+    },
+    {
+        "start_time": "00:19:29.968",
+        "end_time": "00:19:35.874",
+        "text": "overhaul have dominated, BRADLEY: I think the first thing of how do you sort of put that into words,"
+    },
+    {
+        "start_time": "00:19:35.907",
+        "end_time": "00:19:41.213",
+        "text": "I mean, I think the most successful presidents to this have appealed to our common values."
+    },
+    {
+        "start_time": "00:19:41.246",
+        "end_time": "00:19:46.551",
+        "text": "You know, that's, that's where they come back to, which tend to be, you can get ahead here,"
+    },
+    {
+        "start_time": "00:19:46.584",
+        "end_time": "00:19:55.060",
+        "text": "education, health, leadership, democracy, these values that I think most voters"
+    },
+    {
+        "start_time": "00:19:55.093",
+        "end_time": "00:19:58.630",
+        "text": "feel very okay, yes, I can agree with that."
+    },
+    {
+        "start_time": "00:19:58.663",
+        "end_time": "00:20:03.602",
+        "text": "The problem is that those values only go so far because you know, you get elected and moments later"
+    },
+    {
+        "start_time": "00:20:03.635",
+        "end_time": "00:20:05.637",
+        "text": "and you have to say, yeah, what's the policy?"
+    },
+    {
+        "start_time": "00:20:05.670",
+        "end_time": "00:20:08.039",
+        "text": "What is the manifestation of what we're going to do?"
+    },
+    {
+        "start_time": "00:20:08.072",
+        "end_time": "00:20:14.613",
+        "text": "And I think the particularly in my own field of public health, one of the most successful"
+    },
+    {
+        "start_time": "00:20:14.646",
+        "end_time": "00:20:20.518",
+        "text": "global health ever innovations happened during George Bush's time with PEPFAR, AIDS relief,"
+    },
+    {
+        "start_time": "00:20:20.551",
+        "end_time": "00:20:27.659",
+        "text": "and one of the grand strategies he really had was to bring the left and the right together around"
+    },
+    {
+        "start_time": "00:20:27.692",
+        "end_time": "00:20:35.667",
+        "text": "something that was root about humanity, and ultimately found ways, devil's in the details"
+    },
+    {
+        "start_time": "00:20:35.700",
+        "end_time": "00:20:41.072",
+        "text": "about how he would write the legislation so that the left and the right could stand behind it."
+    },
+    {
+        "start_time": "00:20:41.105",
+        "end_time": "00:20:45.944",
+        "text": "HEFFNER: And yet retrospectively that feels like a betrayal in the sense that it was so"
+    },
+    {
+        "start_time": "00:20:45.977",
+        "end_time": "00:20:48.980",
+        "text": "targeted at non-domestic crises."
+    },
+    {
+        "start_time": "00:20:49.013",
+        "end_time": "00:20:56.521",
+        "text": "BRADLEY: Ultimately though that, you know, working through PEPFAR ultimately did drive a complete change in how we do HIV care in the"
+    },
+    {
+        "start_time": "00:20:56.554",
+        "end_time": "00:20:58.189",
+        "text": "United States in a much better way."
+    },
+    {
+        "start_time": "00:20:58.222",
+        "end_time": "00:21:01.192",
+        "text": "So it's a matter of ordering -- HEFFNER: Right, priorities."
+    },
+    {
+        "start_time": "00:21:01.225",
+        "end_time": "00:21:07.232",
+        "text": "BRADLEY: And where he could find the opportunity to really demonstrate some collegiality across"
+    },
+    {
+        "start_time": "00:21:07.265",
+        "end_time": "00:21:09.968",
+        "text": "the lines and then using that as leverage to say, okay, this is what we're doing all over Africa."
+    },
+    {
+        "start_time": "00:21:10.001",
+        "end_time": "00:21:11.836",
+        "text": "What are we doing right here?"
+    },
+    {
+        "start_time": "00:21:11.869",
+        "end_time": "00:21:15.440",
+        "text": "And I think that those, you know, we're in a different world now,"
+    },
+    {
+        "start_time": "00:21:15.473",
+        "end_time": "00:21:21.346",
+        "text": "but opportunities where you can see the left and the right could agree on something that is at root"
+    },
+    {
+        "start_time": "00:21:21.379",
+        "end_time": "00:21:24.482",
+        "text": "about supporting humanity and sticking with it for awhile."
+    },
+    {
+        "start_time": "00:21:24.515",
+        "end_time": "00:21:31.523",
+        "text": "HEFFNER: Part of that realization that we're such an unequal society is at least honor people's"
+    },
+    {
+        "start_time": "00:21:31.556",
+        "end_time": "00:21:39.764",
+        "text": "right to have healthcare if we have such devious inequality and extremes..."
+    },
+    {
+        "start_time": "00:21:39.797",
+        "end_time": "00:21:40.765",
+        "text": "BRADLEY: Or divisive."
+    },
+    {
+        "start_time": "00:21:40.798",
+        "end_time": "00:21:44.936",
+        "text": "HEFFNER: I say devious, because it has at least some malignant elements to it."
+    },
+    {
+        "start_time": "00:21:44.969",
+        "end_time": "00:21:46.271",
+        "text": "BRADLEY: I guess so. Yeah. Yeah."
+    },
+    {
+        "start_time": "00:21:46.304",
+        "end_time": "00:21:50.342",
+        "text": "HEFFNER: But at least give everybody, you know, adequate quality care."
+    },
+    {
+        "start_time": "00:21:50.375",
+        "end_time": "00:21:51.343",
+        "text": "BRADLEY: Yeah."
+    },
+    {
+        "start_time": "00:21:51.376",
+        "end_time": "00:21:55.313",
+        "text": "HEFFNER: Something that the Affordable Care Act aspired to do but didn't accomplish totally."
+    },
+    {
+        "start_time": "00:21:55.346",
+        "end_time": "00:21:56.381",
+        "text": "BRADLEY: Yeah."
+    },
+    {
+        "start_time": "00:21:56.414",
+        "end_time": "00:22:02.554",
+        "text": "HEFFNER: So how do you look at realizing what is American's left and right desire for their friends,"
+    },
+    {
+        "start_time": "00:22:02.587",
+        "end_time": "00:22:05.023",
+        "text": "family, and communities to have the right to health care?"
+    },
+    {
+        "start_time": "00:22:05.056",
+        "end_time": "00:22:10.128",
+        "text": "BRADLEY: This is a critical piece of, I think untangling and understanding where we are"
+    },
+    {
+        "start_time": "00:22:10.161",
+        "end_time": "00:22:11.730",
+        "text": "with healthcare and Medicare for All."
+    },
+    {
+        "start_time": "00:22:11.763",
+        "end_time": "00:22:16.735",
+        "text": "What you just said, we want our friends and family to have everything. That's so true."
+    },
+    {
+        "start_time": "00:22:16.768",
+        "end_time": "00:22:21.339",
+        "text": "What we have a really hard time and it's very historical in the United States is really including"
+    },
+    {
+        "start_time": "00:22:21.372",
+        "end_time": "00:22:22.273",
+        "text": "everybody in that."
+    },
+    {
+        "start_time": "00:22:22.307",
+        "end_time": "00:22:26.311",
+        "text": "We're fine with our friends and family; we're not so good with whomever across the country."
+    },
+    {
+        "start_time": "00:22:26.344",
+        "end_time": "00:22:31.783",
+        "text": "And that othering, that -- our individualism is sort of a beautiful thing."
+    },
+    {
+        "start_time": "00:22:31.816",
+        "end_time": "00:22:36.821",
+        "text": "But it also allows us to sort of say us and them."
+    },
+    {
+        "start_time": "00:22:36.854",
+        "end_time": "00:22:41.025",
+        "text": "And when we've traveled to other countries that have been quite successful in covering their entire"
+    },
+    {
+        "start_time": "00:22:41.058",
+        "end_time": "00:22:49.667",
+        "text": "population, even for less than we do by a good bit, you know, they're a lot better at the value of"
+    },
+    {
+        "start_time": "00:22:49.700",
+        "end_time": "00:22:51.169",
+        "text": "interconnectedness and community."
+    },
+    {
+        "start_time": "00:22:51.202",
+        "end_time": "00:22:56.741",
+        "text": "And because you are a citizen, you get this and that is you get a job,"
+    },
+    {
+        "start_time": "00:22:56.774",
+        "end_time": "00:22:59.244",
+        "text": "you get healthcare, you get pre early childhood education."
+    },
+    {
+        "start_time": "00:22:59.277",
+        "end_time": "00:23:01.546",
+        "text": "We're not that good at this here."
+    },
+    {
+        "start_time": "00:23:01.579",
+        "end_time": "00:23:06.785",
+        "text": "We're much more, well we got it because we earned it, and you, I don't know."
+    },
+    {
+        "start_time": "00:23:06.818",
+        "end_time": "00:23:09.521",
+        "text": "And I think it's because we're so big."
+    },
+    {
+        "start_time": "00:23:09.554",
+        "end_time": "00:23:12.223",
+        "text": "Race and ethnicity absolutely play into this."
+    },
+    {
+        "start_time": "00:23:12.256",
+        "end_time": "00:23:18.396",
+        "text": "I mean, we just look at our country; we have so much trouble feeling “as one.” So back"
+    },
+    {
+        "start_time": "00:23:18.429",
+        "end_time": "00:23:24.636",
+        "text": "to what you had asked about what could Senator Warren or any of the others do to sort of bridge this?"
+    },
+    {
+        "start_time": "00:23:24.669",
+        "end_time": "00:23:31.743",
+        "text": "We've got to tap into something that we feel is our route at as Americans and what our values are"
+    },
+    {
+        "start_time": "00:23:31.776",
+        "end_time": "00:23:36.080",
+        "text": "that does not separate us, you know, because individualism though we feel this,"
+    },
+    {
+        "start_time": "00:23:36.113",
+        "end_time": "00:23:40.752",
+        "text": "that's not that good a value to get us through the problems that we're having now in an"
+    },
+    {
+        "start_time": "00:23:40.785",
+        "end_time": "00:23:48.493",
+        "text": "interconnected, very globalized world, that individualism is probably hurting us."
+    },
+    {
+        "start_time": "00:23:48.526",
+        "end_time": "00:23:49.894",
+        "text": "And yet that's what we rally around."
+    },
+    {
+        "start_time": "00:23:49.927",
+        "end_time": "00:23:58.803",
+        "text": "HEFFNER: And systemically, is there an approach that you think would be the most responsible to"
+    },
+    {
+        "start_time": "00:23:58.836",
+        "end_time": "00:24:03.374",
+        "text": "achieve that ethical healthcare opportunity?"
+    },
+    {
+        "start_time": "00:24:03.407",
+        "end_time": "00:24:04.809",
+        "text": "I mean, is there a way to do it?"
+    },
+    {
+        "start_time": "00:24:04.842",
+        "end_time": "00:24:08.379",
+        "text": "BRADLEY: Well, I think when you're, again, you raised it, when you're thinking about"
+    },
+    {
+        "start_time": "00:24:08.412",
+        "end_time": "00:24:11.082",
+        "text": "grand strategy, you have to marry two things."
+    },
+    {
+        "start_time": "00:24:11.115",
+        "end_time": "00:24:13.751",
+        "text": "You have to have the big idea, but then you have to understand what is"
+    },
+    {
+        "start_time": "00:24:13.784",
+        "end_time": "00:24:16.521",
+        "text": "practical, what really could be accomplished."
+    },
+    {
+        "start_time": "00:24:16.554",
+        "end_time": "00:24:21.125",
+        "text": "So that means contextualize and we're in the United States."
+    },
+    {
+        "start_time": "00:24:21.158",
+        "end_time": "00:24:24.128",
+        "text": "You want to move me to Norway? I've got other ideas."
+    },
+    {
+        "start_time": "00:24:24.161",
+        "end_time": "00:24:26.164",
+        "text": "But if we're going to be in the United States you know,"
+    },
+    {
+        "start_time": "00:24:26.197",
+        "end_time": "00:24:32.370",
+        "text": "I really think that the ACA and what Obama was working on was absolutely on the right path."
+    },
+    {
+        "start_time": "00:24:32.403",
+        "end_time": "00:24:38.243",
+        "text": "And I think the continuing building on that and some of that's been taken apart in this administration,"
+    },
+    {
+        "start_time": "00:24:38.276",
+        "end_time": "00:24:43.681",
+        "text": "putting it back together with even more focus on early childhood education and some of the social"
+    },
+    {
+        "start_time": "00:24:43.714",
+        "end_time": "00:24:48.052",
+        "text": "sides of our healthcare system, housing, early childhood education, nutrition."
+    },
+    {
+        "start_time": "00:24:48.085",
+        "end_time": "00:24:54.125",
+        "text": "HEFFNER: If you are going to employ a wealth tax to ensure a public option that is fair and equitable"
+    },
+    {
+        "start_time": "00:24:54.158",
+        "end_time": "00:24:59.797",
+        "text": "and high quality, and maybe Mayor Pete who's talked about a more moderate approach to"
+    },
+    {
+        "start_time": "00:24:59.830",
+        "end_time": "00:25:10.475",
+        "text": "achieving universal healthcare, maybe he is the spokesperson for this idea, but the data came out explaining what"
+    },
+    {
+        "start_time": "00:25:10.508",
+        "end_time": "00:25:13.545",
+        "text": "Senator Warren's wealth tax would mean for these billionaires."
+    },
+    {
+        "start_time": "00:25:13.578",
+        "end_time": "00:25:20.218",
+        "text": "And it would mean a drop in the bucket of from X billions to Y billions."
+    },
+    {
+        "start_time": "00:25:20.251",
+        "end_time": "00:25:27.859",
+        "text": "And, you know, I think the advocates of Patriotic Millionaires and billionaires and who see"
+    },
+    {
+        "start_time": "00:25:27.892",
+        "end_time": "00:25:33.131",
+        "text": "the current tax situation as so disruptive to civil society recognize that people don't fully"
+    },
+    {
+        "start_time": "00:25:33.164",
+        "end_time": "00:25:36.501",
+        "text": "understand what $1 billion dollars is."
+    },
+    {
+        "start_time": "00:25:36.534",
+        "end_time": "00:25:37.435",
+        "text": "BRADLEY: Mmhmmm. Right."
+    },
+    {
+        "start_time": "00:25:37.469",
+        "end_time": "00:25:43.241",
+        "text": "HEFFNER: The wealth tax is an honorable and legitimate and strategic proposal,"
+    },
+    {
+        "start_time": "00:25:43.274",
+        "end_time": "00:25:44.776",
+        "text": "a grand proposal."
+    },
+    {
+        "start_time": "00:25:44.809",
+        "end_time": "00:25:51.382",
+        "text": "Now, whether or not it can achieve Healthcare For All, early childhood education for all,"
+    },
+    {
+        "start_time": "00:25:51.415",
+        "end_time": "00:25:53.885",
+        "text": "everything that everyone wants, well, that's in dispute."
+    },
+    {
+        "start_time": "00:25:53.918",
+        "end_time": "00:25:59.624",
+        "text": "What's not in dispute is that you would have important public funds to dedicate to important"
+    },
+    {
+        "start_time": "00:25:59.657",
+        "end_time": "00:26:02.226",
+        "text": "public causes if you had a wealth tax."
+    },
+    {
+        "start_time": "00:26:02.259",
+        "end_time": "00:26:03.795",
+        "text": "BRADLEY: I think the jury is out."
+    },
+    {
+        "start_time": "00:26:03.828",
+        "end_time": "00:26:07.999",
+        "text": "I'm sorry, I really can't say that, oh yeah, that's viable and we know that will work. And..."
+    },
+    {
+        "start_time": "00:26:08.032",
+        "end_time": "00:26:10.468",
+        "text": "HEFFNER: We don't know either way at this point."
+    },
+    {
+        "start_time": "00:26:10.501",
+        "end_time": "00:26:11.636",
+        "text": "BRADLEY: I just don't think we can possibly know."
+    },
+    {
+        "start_time": "00:26:11.669",
+        "end_time": "00:26:14.372",
+        "text": "And you know how markets respond to things."
+    },
+    {
+        "start_time": "00:26:14.405",
+        "end_time": "00:26:18.476",
+        "text": "So once you change the rules, they're going to be a lot of other interactions that"
+    },
+    {
+        "start_time": "00:26:18.509",
+        "end_time": "00:26:21.479",
+        "text": "occur that could really change the way things work too."
+    },
+    {
+        "start_time": "00:26:21.512",
+        "end_time": "00:26:24.549",
+        "text": "So I think it is, there's no way to tell it would work."
+    },
+    {
+        "start_time": "00:26:24.582",
+        "end_time": "00:26:27.652",
+        "text": "If it would work, we know it would work: piece of cake,"
+    },
+    {
+        "start_time": "00:26:27.685",
+        "end_time": "00:26:29.120",
+        "text": "I think most people would get behind it."
+    },
+    {
+        "start_time": "00:26:29.153",
+        "end_time": "00:26:31.389",
+        "text": "But is it enough?"
+    },
+    {
+        "start_time": "00:26:31.422",
+        "end_time": "00:26:34.158",
+        "text": "What will the unintended effects be? Unclear."
+    },
+    {
+        "start_time": "00:26:34.191",
+        "end_time": "00:26:39.564",
+        "text": "And a lot of people have tried this kind of work before in our, you know, history,"
+    },
+    {
+        "start_time": "00:26:39.597",
+        "end_time": "00:26:43.167",
+        "text": "the idea that we have to tax the wealthy is not a new idea."
+    },
+    {
+        "start_time": "00:26:43.200",
+        "end_time": "00:26:49.774",
+        "text": "And it's been very tough to make that actually pay as much as it would need to be to cover all of the"
+    },
+    {
+        "start_time": "00:26:49.807",
+        "end_time": "00:26:54.712",
+        "text": "things that we want in our society. So -- HEFFNER: But no one has credibly talked about"
+    },
+    {
+        "start_time": "00:26:54.745",
+        "end_time": "00:27:03.688",
+        "text": "a radical step, a grand step that would equalize public utility basically, it would give people a chance."
+    },
+    {
+        "start_time": "00:27:03.721",
+        "end_time": "00:27:09.394",
+        "text": "And because we've veered so far from the Eisenhower and Kennedy years to where we are today,"
+    },
+    {
+        "start_time": "00:27:09.427",
+        "end_time": "00:27:15.066",
+        "text": "maybe it's something we ought to consider and we'll talk more about this in 2020 as these grand"
+    },
+    {
+        "start_time": "00:27:15.099",
+        "end_time": "00:27:16.267",
+        "text": "strategies are underway."
+    },
+    {
+        "start_time": "00:27:16.300",
+        "end_time": "00:27:17.602",
+        "text": "Thank you President for coming out."
+    },
+    {
+        "start_time": "00:27:17.635",
+        "end_time": "00:27:18.903",
+        "text": "BRADLEY: Thank you so much. Great to talk to you."
+    },
+    {
+        "start_time": "00:27:18.936",
+        "end_time": "00:27:20.705",
+        "text": "HEFFNER: And thanks to you in the audience."
+    },
+    {
+        "start_time": "00:27:20.738",
+        "end_time": "00:27:25.309",
+        "text": "I hope you join us again next time for a thoughtful excursion into the world of ideas."
+    },
+    {
+        "start_time": "00:27:25.342",
+        "end_time": "00:27:27.645",
+        "text": "Until then, keep an open mind."
+    },
+    {
+        "start_time": "00:27:27.678",
+        "end_time": "00:27:32.717",
+        "text": "Please visit The Open Mind website at Thirteen.org/open mind to view this program online"
+    },
+    {
+        "start_time": "00:27:32.750",
+        "end_time": "00:27:38.990",
+        "text": "or to access over 1500 other interviews and do check us out on Twitter and Facebook @OpenMindTV"
+    },
+    {
+        "start_time": "00:27:39.023",
+        "end_time": "00:27:42.027",
+        "text": "for updates on future programming."
+    }
+]

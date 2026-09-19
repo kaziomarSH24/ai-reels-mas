@@ -290,7 +290,7 @@ class VideoService:
             filter_complex = (
                 "[0:v]split=2[bg_raw][fg_raw];"
                 "[bg_raw]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:5[bg];"
-                "[fg_raw]scale=1080:-1,setsar=1[fg];"
+                f"[fg_raw]scale=1080:-1,setsar=1,ass=\'{escaped_ass_path}\'[fg];"
                 "[bg][fg]overlay=0:(H-h)/2[vid_on_bg];"
                 "[vid_on_bg][1:v]overlay=0:0[v]"
             )

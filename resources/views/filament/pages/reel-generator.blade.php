@@ -28,7 +28,7 @@
                                 <tr style="border-bottom: 1px solid #374151;">
                                     <th style="padding: 10px; font-weight: bold;">Timestamp</th>
                                     <th style="padding: 10px; font-weight: bold;">Target Word</th>
-                                    <th style="padding: 10px; font-weight: bold;">Original Dialogue</th>
+                                    <th style="padding: 10px; font-weight: bold;">Easy Example</th>
                                     <th style="padding: 10px; font-weight: bold;">Bengali Translation</th>
                                 </tr>
                             </thead>
@@ -36,9 +36,9 @@
                                 @foreach($searchResults as $clip)
                                     <tr style="border-bottom: 1px solid #374151;">
                                         <td style="padding: 12px; color: gray; font-family: monospace;">{{ $clip['start_time'] }}</td>
-                                        <td style="padding: 12px; font-weight: bold; color: #f59e0b;">{!! $clip['target_word'] !!}</td>
-                                        <td style="padding: 12px;">"{{ $clip['text'] }}"</td>
-                                        <td style="padding: 12px; color: #10b981;">{{ $clip['translated_text'] }}</td>
+                                        <td style="padding: 12px; font-weight: bold; color: #f59e0b;">{!! $clip['expression'] . ' <br><span style="color: #9ca3af; font-size: 0.85em;">(অর্থ: ' . $clip['casual_meaning'] . ')</span>' !!}</td>
+                                        <td style="padding: 12px;">"{{ $clip['easy_example'] }}"</td>
+                                        <td style="padding: 12px; color: #10b981;">{{ $clip['example_translation'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -49,7 +49,7 @@
                     <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
                         <x-filament::button wire:click="generateReelAction" color="success" size="lg" icon="heroicon-m-film" wire:loading.attr="disabled">
                             <span wire:loading.remove wire:target="generateReelAction">Generate Compilation Reel</span>
-                            <span wire:loading wire:target="generateReelAction">Processing FFmpeg & Gemini (Wait 30-40s)...</span>
+                            <span wire:loading wire:target="generateReelAction">Processing FFmpeg Engine (Wait 10-20s)...</span>
                         </x-filament::button>
                     </div>
                 @endif

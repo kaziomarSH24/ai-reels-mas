@@ -31,8 +31,8 @@ class GeminiService:
         6. "original_translation": Casual Bengali translation of the full original sentence.
         7. "easy_example": Create a short, simple 3-5 word example sentence using the expression.
         8. "example_translation": Bengali translation of the easy example.
-        9. "rough_start": The start timestamp (in seconds, float) of the sentence.
-        10. "rough_end": The end timestamp (in seconds, float) of the sentence.
+        9. "rough_start": The start timestamp (in seconds, float) of the sentence. IMPORTANT: If the sentence is merged from multiple chunks, take the start timestamp from the FIRST chunk.
+        10. "rough_end": The end timestamp (in seconds, float) of the sentence. IMPORTANT: If the sentence is merged from multiple chunks, take the end timestamp from the LAST chunk.
 
         If a single sentence contains multiple hard words or idioms, output them as SEPARATE objects in the array.
 

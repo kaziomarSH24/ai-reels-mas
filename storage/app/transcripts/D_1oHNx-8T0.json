@@ -1,2587 +1,3621 @@
 [
     {
         "start_time": "00:00:01.268",
+        "start_sec": 1.268,
         "end_time": "00:00:02.836",
+        "end_sec": 2.836,
         "text": "DRAMATIC MUSIC PLAYS"
     },
     {
         "start_time": "00:00:14.965",
+        "start_sec": 14.965,
         "end_time": "00:00:18.769",
+        "end_sec": 18.769,
         "text": "Welcome, everyone, to our Deep Dive panel for WoW Classic."
     },
     {
         "start_time": "00:00:19.052",
+        "start_sec": 19.052,
         "end_time": "00:00:23.240",
+        "end_sec": 23.24,
         "text": "I'd like to start with some introductions, with these fine gentlemen with me, and myself."
     },
     {
         "start_time": "00:00:23.273",
+        "start_sec": 23.273,
         "end_time": "00:00:24.591",
+        "end_sec": 24.591,
         "text": "I'm Holly Longdale."
     },
     {
         "start_time": "00:00:24.625",
+        "start_sec": 24.625,
         "end_time": "00:00:27.411",
+        "end_sec": 27.411,
         "text": "I'm the principal producer for WoW Classic."
     },
     {
         "start_time": "00:00:27.744",
+        "start_sec": 27.744,
         "end_time": "00:00:32.132",
+        "end_sec": 32.132,
         "text": "A little bit about my background, I spent 13 years working on EverQuest,"
     },
     {
         "start_time": "00:00:32.165",
+        "start_sec": 32.165,
         "end_time": "00:00:36.386",
+        "end_sec": 36.386,
         "text": "I started as a game designer, and eventually became the head of the studio"
     },
     {
         "start_time": "00:00:36.420",
+        "start_sec": 36.42,
         "end_time": "00:00:37.871",
+        "end_sec": 37.871,
         "text": "for the EverQuest franchise."
     },
     {
         "start_time": "00:00:38.155",
+        "start_sec": 38.155,
         "end_time": "00:00:42.226",
+        "end_sec": 42.226,
         "text": "That said, I've always been a WoW player, since beta,"
     },
     {
         "start_time": "00:00:43.160",
+        "start_sec": 43.16,
         "end_time": "00:00:47.281",
+        "end_sec": 47.281,
         "text": "so this is obviously a dream come true for me, and I'm thrilled to be here with you."
     },
     {
         "start_time": "00:00:47.598",
+        "start_sec": 47.598,
         "end_time": "00:00:48.765",
+        "end_sec": 48.765,
         "text": "I'm Patrick Dawson."
     },
     {
         "start_time": "00:00:49.116",
+        "start_sec": 49.116,
         "end_time": "00:00:51.485",
+        "end_sec": 51.485,
         "text": "I'm the production director for World of Warcraft."
     },
     {
         "start_time": "00:00:51.835",
+        "start_sec": 51.835,
         "end_time": "00:00:53.587",
+        "end_sec": 53.587,
         "text": "I've been at Blizzard for 15 years now,"
     },
     {
         "start_time": "00:00:54.438",
+        "start_sec": 54.438,
         "end_time": "00:00:56.523",
+        "end_sec": 56.523,
         "text": "and have been on WoW for most of that time."
     },
     {
         "start_time": "00:00:57.624",
+        "start_sec": 57.624,
         "end_time": "00:01:01.845",
+        "end_sec": 61.845,
         "text": "I'm an avid WoW player myself, and really excited to open up that Dark Portal again"
     },
     {
         "start_time": "00:01:01.879",
+        "start_sec": 61.879,
         "end_time": "00:01:02.880",
+        "end_sec": 62.88,
         "text": "as we all step through it."
     },
     {
         "start_time": "00:01:03.113",
+        "start_sec": 63.113,
         "end_time": "00:01:06.617",
+        "end_sec": 66.617,
         "text": "And my name's Brian Birmingham, and I'm the lead software engineer on WoW Classic."
     },
     {
         "start_time": "00:01:07.000",
+        "start_sec": 67.0,
         "end_time": "00:01:08.702",
+        "end_sec": 68.702,
         "text": "I've also been at Blizzard for 15 years."
     },
     {
         "start_time": "00:01:08.735",
+        "start_sec": 68.735,
         "end_time": "00:01:10.003",
+        "end_sec": 70.003,
         "text": "I started on World of Warcraft."
     },
     {
         "start_time": "00:01:10.037",
+        "start_sec": 70.037,
         "end_time": "00:01:13.574",
+        "end_sec": 73.574,
         "text": "I spent about three years on Hearthstone as well, then came back to the World of Warcraft team"
     },
     {
         "start_time": "00:01:13.607",
+        "start_sec": 73.607,
         "end_time": "00:01:17.177",
+        "end_sec": 77.17699999999999,
         "text": "to work on WoW Classic, and it has been a great joy to me to work on this team."
     },
     {
         "start_time": "00:01:17.377",
+        "start_sec": 77.377,
         "end_time": "00:01:18.896",
+        "end_sec": 78.896,
         "text": "-There's a lot to talk about. -Yeah."
     },
     {
         "start_time": "00:01:18.929",
+        "start_sec": 78.929,
         "end_time": "00:01:22.966",
+        "end_sec": 82.96600000000001,
         "text": "So, earlier we announced Burning Crusade Classic is coming."
     },
     {
         "start_time": "00:01:23.000",
+        "start_sec": 83.0,
         "end_time": "00:01:24.501",
+        "end_sec": 84.501,
         "text": "But there's a lot more to it."
     },
     {
         "start_time": "00:01:24.535",
+        "start_sec": 84.535,
         "end_time": "00:01:26.770",
+        "end_sec": 86.77,
         "text": "Let's take a look at the features, 'cause..."
     },
     {
         "start_time": "00:01:26.803",
+        "start_sec": 86.803,
         "end_time": "00:01:29.156",
+        "end_sec": 89.156,
         "text": "Wow. I mean, wow, right?"
     },
     {
         "start_time": "00:01:29.873",
+        "start_sec": 89.873,
         "end_time": "00:01:34.945",
+        "end_sec": 94.945,
         "text": "-Wow. -(BRIAN LAUGHS) I was so excited by playing draenei and blood elves."
     },
     {
         "start_time": "00:01:34.978",
+        "start_sec": 94.97800000000001,
         "end_time": "00:01:38.615",
+        "end_sec": 98.61500000000001,
         "text": "HOLLY: I played both, and I will say my heart's with Alliance."
     },
     {
         "start_time": "00:01:38.982",
+        "start_sec": 98.982,
         "end_time": "00:01:39.983",
+        "end_sec": 99.983,
         "text": "PATRICK: Hm..."
     },
     {
         "start_time": "00:01:40.017",
+        "start_sec": 100.017,
         "end_time": "00:01:43.170",
+        "end_sec": 103.17,
         "text": "LAUGHTER Quiet!"
     },
     {
         "start_time": "00:01:43.203",
+        "start_sec": 103.203,
         "end_time": "00:01:47.991",
+        "end_sec": 107.991,
         "text": "LAUGHTER And I also took up jewelcrafting on my draenei shaman."
     },
     {
         "start_time": "00:01:48.025",
+        "start_sec": 108.025,
         "end_time": "00:01:50.611",
+        "end_sec": 110.61099999999999,
         "text": "I wanted to corner the market. Just the whole notion of having"
     },
     {
         "start_time": "00:01:50.644",
+        "start_sec": 110.644,
         "end_time": "00:01:53.931",
+        "end_sec": 113.931,
         "text": "items with sockets, and just exploring that whole system."
     },
     {
         "start_time": "00:01:53.964",
+        "start_sec": 113.964,
         "end_time": "00:01:55.699",
+        "end_sec": 115.699,
         "text": "I'm also a bit of a systems nerd."
     },
     {
         "start_time": "00:01:55.949",
+        "start_sec": 115.949,
         "end_time": "00:02:00.954",
+        "end_sec": 120.954,
         "text": "So, I completely lost my time for weeks in there."
     },
     {
         "start_time": "00:02:00.988",
+        "start_sec": 120.988,
         "end_time": "00:02:04.908",
+        "end_sec": 124.908,
         "text": "LAUGHTER Burning Crusade, I remember being there back then."
     },
     {
         "start_time": "00:02:04.942",
+        "start_sec": 124.94200000000001,
         "end_time": "00:02:10.781",
+        "end_sec": 130.781,
         "text": "It was our first expansion ever, so all the new features was this really cool moment of,"
     },
     {
         "start_time": "00:02:11.064",
+        "start_sec": 131.064,
         "end_time": "00:02:12.766",
+        "end_sec": 132.766,
         "text": "what's coming next? What's gonna happen?"
     },
     {
         "start_time": "00:02:13.016",
+        "start_sec": 133.016,
         "end_time": "00:02:16.737",
+        "end_sec": 136.737,
         "text": "And one of the things that was pretty impactful to the game was"
     },
     {
         "start_time": "00:02:16.770",
+        "start_sec": 136.77,
         "end_time": "00:02:19.156",
+        "end_sec": 139.156,
         "text": "Horde having paladins and Alliance having shaman."
     },
     {
         "start_time": "00:02:19.523",
+        "start_sec": 139.523,
         "end_time": "00:02:25.162",
+        "end_sec": 145.162,
         "text": "As an avid PvP-er myself, I remember going back and trying to fight shaman,"
     },
     {
         "start_time": "00:02:25.195",
+        "start_sec": 145.195,
         "end_time": "00:02:28.515",
+        "end_sec": 148.515,
         "text": "I was Alliance back then, and just not understanding that class at all"
     },
     {
         "start_time": "00:02:28.549",
+        "start_sec": 148.549,
         "end_time": "00:02:32.953",
+        "end_sec": 152.953,
         "text": "'cause my team didn't have it, so I tried to poly them, and they'd be Grounding Totem..."
     },
     {
         "start_time": "00:02:32.986",
+        "start_sec": 152.986,
         "end_time": "00:02:34.037",
+        "end_sec": 154.037,
         "text": "I didn’t know what that was."
     },
     {
         "start_time": "00:02:34.071",
+        "start_sec": 154.071,
         "end_time": "00:02:37.441",
+        "end_sec": 157.441,
         "text": "\"Why are shaman immune to everything? I don't unde--\" That's not what you said."
     },
     {
         "start_time": "00:02:37.474",
+        "start_sec": 157.474,
         "end_time": "00:02:38.926",
+        "end_sec": 158.926,
         "text": "Yeah, but no, I did."
     },
     {
         "start_time": "00:02:38.959",
+        "start_sec": 158.959,
         "end_time": "00:02:44.131",
+        "end_sec": 164.131,
         "text": "No, you said, \"They're cheating.\" LAUGHTER"
     },
     {
         "start_time": "00:02:44.164",
+        "start_sec": 164.164,
         "end_time": "00:02:46.416",
+        "end_sec": 166.416,
         "text": "I understood the polymorphed druids."
     },
     {
         "start_time": "00:02:46.450",
+        "start_sec": 166.45,
         "end_time": "00:02:48.886",
+        "end_sec": 168.886,
         "text": "LAUGHTER But shaman? Why?"
     },
     {
         "start_time": "00:02:48.919",
+        "start_sec": 168.91899999999998,
         "end_time": "00:02:54.341",
+        "end_sec": 174.341,
         "text": "LAUGHTER Now I started to understand shaman a little bit better, we got some of their benefits,"
     },
     {
         "start_time": "00:02:54.725",
+        "start_sec": 174.725,
         "end_time": "00:02:58.345",
+        "end_sec": 178.345,
         "text": "I actually got to see totems being placed onto my side for once,"
     },
     {
         "start_time": "00:02:58.712",
+        "start_sec": 178.712,
         "end_time": "00:03:01.999",
+        "end_sec": 181.999,
         "text": "and got to see the frustration of dealing with Bubble Hearth on the other."
     },
     {
         "start_time": "00:03:02.032",
+        "start_sec": 182.032,
         "end_time": "00:03:06.920",
+        "end_sec": 186.92,
         "text": "BRIAN LAUGHS Yeah, I remember when I was doing raids, we were always jealous of the Alliance"
     },
     {
         "start_time": "00:03:06.954",
+        "start_sec": 186.954,
         "end_time": "00:03:08.906",
+        "end_sec": 188.906,
         "text": "having paladins for Blessing of Salvation."
     },
     {
         "start_time": "00:03:09.156",
+        "start_sec": 189.156,
         "end_time": "00:03:12.359",
+        "end_sec": 192.359,
         "text": "People would be pulling aggro off me, and I'd be yelling, \"Wait for three Sunders!\""
     },
     {
         "start_time": "00:03:12.392",
+        "start_sec": 192.392,
         "end_time": "00:03:16.513",
+        "end_sec": 196.513,
         "text": "LAUGHTER And the Alliance just like, \"No, it's no problem, just go. Just go.\""
     },
     {
         "start_time": "00:03:16.547",
+        "start_sec": 196.547,
         "end_time": "00:03:17.714",
+        "end_sec": 197.714,
         "text": "-(LAUGHS) -Yup."
     },
     {
         "start_time": "00:03:17.748",
+        "start_sec": 197.748,
         "end_time": "00:03:22.369",
+        "end_sec": 202.369,
         "text": "So, you know, we were upset, raiding Razergore without Earthbind."
     },
     {
         "start_time": "00:03:22.402",
+        "start_sec": 202.402,
         "end_time": "00:03:26.089",
+        "end_sec": 206.089,
         "text": "LAUGHTER I mean, really, even the playing field for both PvE and PvP"
     },
     {
         "start_time": "00:03:26.123",
+        "start_sec": 206.123,
         "end_time": "00:03:27.307",
+        "end_sec": 207.307,
         "text": "was kind of cool."
     },
     {
         "start_time": "00:03:27.541",
+        "start_sec": 207.541,
         "end_time": "00:03:31.011",
+        "end_sec": 211.011,
         "text": "But there are a ton of new features, and instabilities with this too, you know,"
     },
     {
         "start_time": "00:03:31.044",
+        "start_sec": 211.044,
         "end_time": "00:03:34.314",
+        "end_sec": 214.314,
         "text": "as we got to Level 70, we got to experience new concepts and new things."
     },
     {
         "start_time": "00:03:34.531",
+        "start_sec": 214.531,
         "end_time": "00:03:38.018",
+        "end_sec": 218.018,
         "text": "I remember one of my first experiences with understanding what it meant for..."
     },
     {
         "start_time": "00:03:38.435",
+        "start_sec": 218.435,
         "end_time": "00:03:40.070",
+        "end_sec": 220.07,
         "text": "Designed by Blizzard."
     },
     {
         "start_time": "00:03:40.103",
+        "start_sec": 220.103,
         "end_time": "00:03:41.905",
+        "end_sec": 221.905,
         "text": "-BRIAN: Oh, yeah. -I was an engineer, right?"
     },
     {
         "start_time": "00:03:41.939",
+        "start_sec": 221.939,
         "end_time": "00:03:46.043",
+        "end_sec": 226.043,
         "text": "I wasn't a designer, I was working on the live ops team at the time,"
     },
     {
         "start_time": "00:03:46.443",
+        "start_sec": 226.44299999999998,
         "end_time": "00:03:50.113",
+        "end_sec": 230.113,
         "text": "and, you know, I was playing my class, avid player of mage,"
     },
     {
         "start_time": "00:03:50.147",
+        "start_sec": 230.147,
         "end_time": "00:03:55.869",
+        "end_sec": 235.869,
         "text": "and I kept, I sent this long email to Tom Chilton, saying, like, \"Hey. Here's what mage needs.\""
     },
     {
         "start_time": "00:03:55.903",
+        "start_sec": 235.903,
         "end_time": "00:03:57.638",
+        "end_sec": 237.638,
         "text": "-LAUGHTER -Dawson Manifesto."
     },
     {
         "start_time": "00:03:57.671",
+        "start_sec": 237.671,
         "end_time": "00:03:59.373",
+        "end_sec": 239.373,
         "text": "-LAUGHTER -PATRICK: Yeah."
     },
     {
         "start_time": "00:03:59.406",
+        "start_sec": 239.406,
         "end_time": "00:04:01.175",
+        "end_sec": 241.175,
         "text": "It was a well-thought-out forum post."
     },
     {
         "start_time": "00:04:01.208",
+        "start_sec": 241.208,
         "end_time": "00:04:06.430",
+        "end_sec": 246.43,
         "text": "LAUGHTER And what was in it, was things like, \"Bring back invisibility,"
     },
     {
         "start_time": "00:04:06.463",
+        "start_sec": 246.463,
         "end_time": "00:04:09.800",
+        "end_sec": 249.8,
         "text": "let's get a threat to offer the class.\" PATRICK: And I didn't tie those two together."
     },
     {
         "start_time": "00:04:09.833",
+        "start_sec": 249.833,
         "end_time": "00:04:14.454",
+        "end_sec": 254.454,
         "text": "Like, \"That's pretty good. Give me invisibility.\" And just knowing that that skill was coming,"
     },
     {
         "start_time": "00:04:14.488",
+        "start_sec": 254.488,
         "end_time": "00:04:17.741",
+        "end_sec": 257.741,
         "text": "along with some other new stuff for mages, like the Molten Armor and the Ice Lances,"
     },
     {
         "start_time": "00:04:17.991",
+        "start_sec": 257.991,
         "end_time": "00:04:21.512",
+        "end_sec": 261.512,
         "text": "it was just really cool to see all this new stuff in Burning Crusade."
     },
     {
         "start_time": "00:04:21.545",
+        "start_sec": 261.545,
         "end_time": "00:04:24.181",
+        "end_sec": 264.181,
         "text": "On the other side of that, I was really excited about Spell Reflect,"
     },
     {
         "start_time": "00:04:24.214",
+        "start_sec": 264.214,
         "end_time": "00:04:28.151",
+        "end_sec": 268.151,
         "text": "because I was frustrated getting polymorphed, and being able to reflect that back on the mage..."
     },
     {
         "start_time": "00:04:28.185",
+        "start_sec": 268.185,
         "end_time": "00:04:29.920",
+        "end_sec": 269.92,
         "text": "As a mage, I was not excited for you to get that."
     },
     {
         "start_time": "00:04:29.953",
+        "start_sec": 269.953,
         "end_time": "00:04:33.240",
+        "end_sec": 273.24,
         "text": "LAUGHTER -Alas. -I guess you weren't."
     },
     {
         "start_time": "00:04:33.273",
+        "start_sec": 273.273,
         "end_time": "00:04:38.061",
+        "end_sec": 278.061,
         "text": "LAUGHTER And there were even some PvE encounters that had abilities that you could reflect back."
     },
     {
         "start_time": "00:04:38.095",
+        "start_sec": 278.095,
         "end_time": "00:04:40.714",
+        "end_sec": 280.714,
         "text": "I remember that was really fun, to find ways to time that,"
     },
     {
         "start_time": "00:04:40.747",
+        "start_sec": 280.747,
         "end_time": "00:04:42.733",
+        "end_sec": 282.733,
         "text": "and use it as a defensive ability as well."
     },
     {
         "start_time": "00:04:42.766",
+        "start_sec": 282.766,
         "end_time": "00:04:44.301",
+        "end_sec": 284.301,
         "text": "-I was a hunter. -BRIAN: Mm-hm."
     },
     {
         "start_time": "00:04:44.718",
+        "start_sec": 284.718,
         "end_time": "00:04:45.719",
+        "end_sec": 285.719,
         "text": "Also a hunter."
     },
     {
         "start_time": "00:04:45.752",
+        "start_sec": 285.752,
         "end_time": "00:04:49.523",
+        "end_sec": 289.523,
         "text": "BRIAN: So am I now. I switched. (LAUGHS) But I remember just chasing beast master,"
     },
     {
         "start_time": "00:04:49.556",
+        "start_sec": 289.556,
         "end_time": "00:04:50.924",
+        "end_sec": 290.924,
         "text": "and just DPS, DPS, DPS..."
     },
     {
         "start_time": "00:04:50.958",
+        "start_sec": 290.95799999999997,
         "end_time": "00:04:52.209",
+        "end_sec": 292.209,
         "text": "-BRIAN: Yeah. -PATRICK: Yep."
     },
     {
         "start_time": "00:04:52.242",
+        "start_sec": 292.242,
         "end_time": "00:04:54.111",
+        "end_sec": 294.111,
         "text": "That was it. That was the chase, yeah."
     },
     {
         "start_time": "00:04:54.378",
+        "start_sec": 294.378,
         "end_time": "00:04:57.264",
+        "end_sec": 297.264,
         "text": "Talking about that too makes me think of the arenas, and the arena system."
     },
     {
         "start_time": "00:04:57.297",
+        "start_sec": 297.297,
         "end_time": "00:04:59.216",
+        "end_sec": 299.216,
         "text": "PATRICK: That was a whole new world for us."
     },
     {
         "start_time": "00:04:59.249",
+        "start_sec": 299.249,
         "end_time": "00:05:03.187",
+        "end_sec": 303.187,
         "text": "With battlegrounds and the way they worked before, the way the matchmaking happened,"
     },
     {
         "start_time": "00:05:03.220",
+        "start_sec": 303.22,
         "end_time": "00:05:06.540",
+        "end_sec": 306.54,
         "text": "usually I was pretty competitive in PvP, so I would either get in there and"
     },
     {
         "start_time": "00:05:06.573",
+        "start_sec": 306.573,
         "end_time": "00:05:09.409",
+        "end_sec": 309.409,
         "text": "-stomp the enemy team... -(HOLLY LAUGHS) ...who was there to be casual,"
     },
     {
         "start_time": "00:05:09.443",
+        "start_sec": 309.443,
         "end_time": "00:05:12.863",
+        "end_sec": 312.863,
         "text": "or, even though we were a good team, we weren't the best of the best,"
     },
     {
         "start_time": "00:05:12.896",
+        "start_sec": 312.896,
         "end_time": "00:05:16.300",
+        "end_sec": 316.3,
         "text": "so when we ended up going against one of those teams, it was just, like,"
     },
     {
         "start_time": "00:05:16.333",
+        "start_sec": 316.33299999999997,
         "end_time": "00:05:21.822",
+        "end_sec": 321.822,
         "text": "\"Well, jeez, we're just getting stomped now. This is tough.\" Arenas gave everyone an opportunity"
     },
     {
         "start_time": "00:05:21.855",
+        "start_sec": 321.855,
         "end_time": "00:05:24.458",
+        "end_sec": 324.45799999999997,
         "text": "to play against equal-minded opponents, right?"
     },
     {
         "start_time": "00:05:24.491",
+        "start_sec": 324.491,
         "end_time": "00:05:28.095",
+        "end_sec": 328.095,
         "text": "PATRICK: So if you were a little bit more casual, you get the opportunity to play against people"
     },
     {
         "start_time": "00:05:28.128",
+        "start_sec": 328.128,
         "end_time": "00:05:29.646",
+        "end_sec": 329.646,
         "text": "who weren't maybe so competitive."
     },
     {
         "start_time": "00:05:29.680",
+        "start_sec": 329.68,
         "end_time": "00:05:32.115",
+        "end_sec": 332.115,
         "text": "Or, if you were cutting-edge, go for it."
     },
     {
         "start_time": "00:05:32.149",
+        "start_sec": 332.149,
         "end_time": "00:05:33.884",
+        "end_sec": 333.884,
         "text": "Try to be the best of the best."
     },
     {
         "start_time": "00:05:33.917",
+        "start_sec": 333.91700000000003,
         "end_time": "00:05:37.137",
+        "end_sec": 337.137,
         "text": "And what was great about that, is that it really, it spawned an esport."
     },
     {
         "start_time": "00:05:37.171",
+        "start_sec": 337.171,
         "end_time": "00:05:38.172",
+        "end_sec": 338.172,
         "text": "-Yeah. -That wasn't..."
     },
     {
         "start_time": "00:05:38.205",
+        "start_sec": 338.205,
         "end_time": "00:05:40.541",
+        "end_sec": 340.541,
         "text": "We didn't design it for that, we just wanted people to have fun,"
     },
     {
         "start_time": "00:05:40.574",
+        "start_sec": 340.574,
         "end_time": "00:05:45.729",
+        "end_sec": 345.729,
         "text": "but when we noticed, like, \"Hey, everybody's playing this, everybody's competing in this, people are watching it,\""
     },
     {
         "start_time": "00:05:45.762",
+        "start_sec": 345.762,
         "end_time": "00:05:46.763",
+        "end_sec": 346.763,
         "text": "we had to embrace that."
     },
     {
         "start_time": "00:05:46.797",
+        "start_sec": 346.797,
         "end_time": "00:05:49.850",
+        "end_sec": 349.85,
         "text": "PATRICK: We started featuring it in BlizzCons, and we have been ever since."
     },
     {
         "start_time": "00:05:49.883",
+        "start_sec": 349.883,
         "end_time": "00:05:51.001",
+        "end_sec": 351.001,
         "text": "BRIAN: Yeah, it's awesome."
     },
     {
         "start_time": "00:05:51.401",
+        "start_sec": 351.401,
         "end_time": "00:05:55.906",
+        "end_sec": 355.906,
         "text": "I think one of my favorite things to recollect was the exciting zones that you would travel through."
     },
     {
         "start_time": "00:05:55.939",
+        "start_sec": 355.939,
         "end_time": "00:05:59.610",
+        "end_sec": 359.61,
         "text": "One of my favorite memories was actually in the first zone, Hellfire Peninsula."
     },
     {
         "start_time": "00:05:59.943",
+        "start_sec": 359.943,
         "end_time": "00:06:05.532",
+        "end_sec": 365.532,
         "text": "And it was adventuring around in Hellfire Peninsula, going around and doing all those quests,"
     },
     {
         "start_time": "00:06:05.566",
+        "start_sec": 365.566,
         "end_time": "00:06:07.551",
+        "end_sec": 367.551,
         "text": "and always living in fear of the fel reaver."
     },
     {
         "start_time": "00:06:07.885",
+        "start_sec": 367.885,
         "end_time": "00:06:13.757",
+        "end_sec": 373.757,
         "text": "Because you'd be out there collecting parts from a broken zeppelin, and you'd be fighting off your helboars,"
     },
     {
         "start_time": "00:06:13.790",
+        "start_sec": 373.79,
         "end_time": "00:06:15.859",
+        "end_sec": 375.859,
         "text": "and all of a sudden you'd see the screen start to shake,"
     },
     {
         "start_time": "00:06:15.893",
+        "start_sec": 375.89300000000003,
         "end_time": "00:06:17.761",
+        "end_sec": 377.761,
         "text": "and this thomp, thomp, thomp, and then..."
     },
     {
         "start_time": "00:06:17.794",
+        "start_sec": 377.794,
         "end_time": "00:06:21.215",
+        "end_sec": 381.215,
         "text": "FEL REAVER ROARS BRIAN: Bwaaah!"
     },
     {
         "start_time": "00:06:21.248",
+        "start_sec": 381.248,
         "end_time": "00:06:23.634",
+        "end_sec": 383.634,
         "text": "You're like, \"Oh my God, I gotta run, he's right on top of me.\""
     },
     {
         "start_time": "00:06:23.667",
+        "start_sec": 383.66700000000003,
         "end_time": "00:06:24.852",
+        "end_sec": 384.852,
         "text": "That sound haunts my dreams."
     },
     {
         "start_time": "00:06:24.885",
+        "start_sec": 384.885,
         "end_time": "00:06:26.820",
+        "end_sec": 386.82,
         "text": "Oh I know, yeah, it's terrifying."
     },
     {
         "start_time": "00:06:26.854",
+        "start_sec": 386.854,
         "end_time": "00:06:28.655",
+        "end_sec": 388.655,
         "text": "Even alive, it's just, Feign Death."
     },
     {
         "start_time": "00:06:28.689",
+        "start_sec": 388.689,
         "end_time": "00:06:29.857",
+        "end_sec": 389.85699999999997,
         "text": "-BRIAN: Yes! -Feign Death."
     },
     {
         "start_time": "00:06:29.890",
+        "start_sec": 389.89,
         "end_time": "00:06:35.045",
+        "end_sec": 395.045,
         "text": "-Yeah, just like that. -LAUGHTER And then the payoff when you later go to Netherstorm,"
     },
     {
         "start_time": "00:06:35.329",
+        "start_sec": 395.329,
         "end_time": "00:06:38.732",
+        "end_sec": 398.73199999999997,
         "text": "and they give you the quest, like, \"Could you get me a part from inside the fel reaver?"
     },
     {
         "start_time": "00:06:38.765",
+        "start_sec": 398.765,
         "end_time": "00:06:42.236",
+        "end_sec": 402.236,
         "text": "You're gonna have to kill him.\" And you're like, \"That guy that used to terrorize me?\""
     },
     {
         "start_time": "00:06:42.269",
+        "start_sec": 402.269,
         "end_time": "00:06:45.906",
+        "end_sec": 405.906,
         "text": "BRIAN: They're like, \"You could take him.\" And that was such an exciting payoff,"
     },
     {
         "start_time": "00:06:45.939",
+        "start_sec": 405.939,
         "end_time": "00:06:49.560",
+        "end_sec": 409.56,
         "text": "to be able to bring that full circle and go back and see him again."
     },
     {
         "start_time": "00:06:49.593",
+        "start_sec": 409.593,
         "end_time": "00:06:51.929",
+        "end_sec": 411.929,
         "text": "For me, I snuck into beta."
     },
     {
         "start_time": "00:06:52.246",
+        "start_sec": 412.246,
         "end_time": "00:06:56.683",
+        "end_sec": 416.683,
         "text": "I got really lucky, because I could see the construction sign for some of the zones,"
     },
     {
         "start_time": "00:06:56.717",
+        "start_sec": 416.717,
         "end_time": "00:07:00.571",
+        "end_sec": 420.571,
         "text": "and of course I ignored it, -and went and explored. -(BRIAN LAUGHS)"
     },
     {
         "start_time": "00:07:00.938",
+        "start_sec": 420.938,
         "end_time": "00:07:06.743",
+        "end_sec": 426.743,
         "text": "So, I remember running through Blade's Edge, and just seeing dragon carcasses and skeletons"
     },
     {
         "start_time": "00:07:06.777",
+        "start_sec": 426.777,
         "end_time": "00:07:12.983",
+        "end_sec": 432.983,
         "text": "impaled in the environment, and then moving on to Netherstorm, I just was blown away,"
     },
     {
         "start_time": "00:07:13.016",
+        "start_sec": 433.016,
         "end_time": "00:07:15.419",
+        "end_sec": 435.419,
         "text": "even from Zangarmarsh, all the way through."
     },
     {
         "start_time": "00:07:15.986",
+        "start_sec": 435.986,
         "end_time": "00:07:18.005",
+        "end_sec": 438.005,
         "text": "HOLLY: Everything felt like its own world."
     },
     {
         "start_time": "00:07:18.038",
+        "start_sec": 438.038,
         "end_time": "00:07:22.309",
+        "end_sec": 442.309,
         "text": "And just to be able to go through that, and the delight of it, and the epicness of it,"
     },
     {
         "start_time": "00:07:22.342",
+        "start_sec": 442.342,
         "end_time": "00:07:25.612",
+        "end_sec": 445.612,
         "text": "and then you come up to Area 52."
     },
     {
         "start_time": "00:07:25.646",
+        "start_sec": 445.646,
         "end_time": "00:07:29.183",
+        "end_sec": 449.183,
         "text": "That's what I love about Wow, is you can have epic, epic storylines,"
     },
     {
         "start_time": "00:07:29.216",
+        "start_sec": 449.216,
         "end_time": "00:07:31.885",
+        "end_sec": 451.885,
         "text": "and still find lightness in it, so I just loved it."
     },
     {
         "start_time": "00:07:31.919",
+        "start_sec": 451.919,
         "end_time": "00:07:34.037",
+        "end_sec": 454.037,
         "text": "I love... I'm an explorer, so..."
     },
     {
         "start_time": "00:07:34.071",
+        "start_sec": 454.071,
         "end_time": "00:07:39.393",
+        "end_sec": 459.39300000000003,
         "text": "For me, I remember Burning Crusade really opened up a new gameplay type for me."
     },
     {
         "start_time": "00:07:39.426",
+        "start_sec": 459.426,
         "end_time": "00:07:42.296",
+        "end_sec": 462.296,
         "text": "I became a collector in Burning Crusade, right?"
     },
     {
         "start_time": "00:07:42.329",
+        "start_sec": 462.329,
         "end_time": "00:07:44.982",
+        "end_sec": 464.98199999999997,
         "text": "And that started with the Aldor and Scryer route."
     },
     {
         "start_time": "00:07:45.432",
+        "start_sec": 465.432,
         "end_time": "00:07:49.736",
+        "end_sec": 469.736,
         "text": "'Cause I got my Aldor rep all the way up, and then I was thinking about switching to Scryer,"
     },
     {
         "start_time": "00:07:49.770",
+        "start_sec": 469.77,
         "end_time": "00:07:54.958",
+        "end_sec": 474.95799999999997,
         "text": "and people were like, \"You're insane, don't do that.\" LAUGHTER And I was like, \"I bet I can.\""
     },
     {
         "start_time": "00:07:54.992",
+        "start_sec": 474.992,
         "end_time": "00:07:57.160",
+        "end_sec": 477.15999999999997,
         "text": "You know, just a few people thought..."
     },
     {
         "start_time": "00:07:57.194",
+        "start_sec": 477.194,
         "end_time": "00:07:58.195",
+        "end_sec": 478.195,
         "text": "And I did."
     },
     {
         "start_time": "00:07:58.228",
+        "start_sec": 478.228,
         "end_time": "00:08:01.665",
+        "end_sec": 481.665,
         "text": "And it was cool, it was really fun, but then I started doing other things."
     },
     {
         "start_time": "00:08:01.698",
+        "start_sec": 481.698,
         "end_time": "00:08:05.769",
+        "end_sec": 485.769,
         "text": "PATRICK: There are these new mounts, and pets, and I went back and even got some of the older raps,"
     },
     {
         "start_time": "00:08:05.802",
+        "start_sec": 485.802,
         "end_time": "00:08:07.538",
+        "end_sec": 487.538,
         "text": "like Thorium Brotherhood and Winterspring."
     },
     {
         "start_time": "00:08:07.571",
+        "start_sec": 487.571,
         "end_time": "00:08:10.107",
+        "end_sec": 490.10699999999997,
         "text": "But then things like Netherwing Ledge came out..."
     },
     {
         "start_time": "00:08:10.140",
+        "start_sec": 490.14,
         "end_time": "00:08:13.644",
+        "end_sec": 493.644,
         "text": "The world just opened up for me in Burning Crusade, to really start my collection."
     },
     {
         "start_time": "00:08:13.677",
+        "start_sec": 493.677,
         "end_time": "00:08:20.100",
+        "end_sec": 500.1,
         "text": "Of course, we also had flying mounts, which I loved, and then decided to play with some friends on our PvP server,"
     },
     {
         "start_time": "00:08:20.484",
+        "start_sec": 500.484,
         "end_time": "00:08:24.421",
+        "end_sec": 504.421,
         "text": "and was running around Hellfire, and, I..."
     },
     {
         "start_time": "00:08:24.838",
+        "start_sec": 504.838,
         "end_time": "00:08:27.925",
+        "end_sec": 507.925,
         "text": "Death from above, which was likely just Pat."
     },
     {
         "start_time": "00:08:27.958",
+        "start_sec": 507.95799999999997,
         "end_time": "00:08:29.009",
+        "end_sec": 509.009,
         "text": "-Probably. -HOLLY: Yeah."
     },
     {
         "start_time": "00:08:29.042",
+        "start_sec": 509.04200000000003,
         "end_time": "00:08:31.595",
+        "end_sec": 511.595,
         "text": "(LAUGHS) Were you flying around harassing people, Pat?"
     },
     {
         "start_time": "00:08:31.628",
+        "start_sec": 511.628,
         "end_time": "00:08:33.564",
+        "end_sec": 513.564,
         "text": "I was getting a lot of honorable kills."
     },
     {
         "start_time": "00:08:33.597",
+        "start_sec": 513.597,
         "end_time": "00:08:35.465",
+        "end_sec": 515.465,
         "text": "-LAUGHTER -Back in the day."
     },
     {
         "start_time": "00:08:35.499",
+        "start_sec": 515.499,
         "end_time": "00:08:40.137",
+        "end_sec": 520.137,
         "text": "So, that's just a quick look at some of our memories for Burning Crusade."
     },
     {
         "start_time": "00:08:40.170",
+        "start_sec": 520.17,
         "end_time": "00:08:42.139",
+        "end_sec": 522.139,
         "text": "-And that was 13 years ago. -Mm-hm."
     },
     {
         "start_time": "00:08:42.172",
+        "start_sec": 522.172,
         "end_time": "00:08:46.210",
+        "end_sec": 526.21,
         "text": "So that code has been hanging around for 13 years."
     },
     {
         "start_time": "00:08:46.243",
+        "start_sec": 526.243,
         "end_time": "00:08:50.347",
+        "end_sec": 530.347,
         "text": "And we're not just doing a \"save-as\" Burning Crusade Classic."
     },
     {
         "start_time": "00:08:50.380",
+        "start_sec": 530.38,
         "end_time": "00:08:52.749",
+        "end_sec": 532.749,
         "text": "-No, it's harder than that. -(HOLLY LAUGHS) Yeah."
     },
     {
         "start_time": "00:08:52.783",
+        "start_sec": 532.783,
         "end_time": "00:08:54.635",
+        "end_sec": 534.635,
         "text": "So let's get into some of those details."
     },
     {
         "start_time": "00:08:54.668",
+        "start_sec": 534.668,
         "end_time": "00:08:59.039",
+        "end_sec": 539.039,
         "text": "So, one of the challenges has been that we don’t actually want to ship on the old code."
     },
     {
         "start_time": "00:08:59.072",
+        "start_sec": 539.072,
         "end_time": "00:09:02.276",
+        "end_sec": 542.276,
         "text": "And the reason for that is because it's got a lot of bugs,"
     },
     {
         "start_time": "00:09:02.309",
+        "start_sec": 542.309,
         "end_time": "00:09:06.513",
+        "end_sec": 546.513,
         "text": "and difficulties with the architecture that we don't wanna have to deal with."
     },
     {
         "start_time": "00:09:06.547",
+        "start_sec": 546.547,
         "end_time": "00:09:07.748",
+        "end_sec": 547.748,
         "text": "But we do want that old data."
     },
     {
         "start_time": "00:09:07.781",
+        "start_sec": 547.781,
         "end_time": "00:09:10.400",
+        "end_sec": 550.4,
         "text": "And we talked about this when we did the original launch of Classic,"
     },
     {
         "start_time": "00:09:10.434",
+        "start_sec": 550.434,
         "end_time": "00:09:14.505",
+        "end_sec": 554.505,
         "text": "was how the data is really the thing that describes how the game is supposed to be played"
     },
     {
         "start_time": "00:09:14.538",
+        "start_sec": 554.538,
         "end_time": "00:09:15.906",
+        "end_sec": 555.906,
         "text": "and what's supposed to happen in it."
     },
     {
         "start_time": "00:09:16.306",
+        "start_sec": 556.306,
         "end_time": "00:09:19.610",
+        "end_sec": 559.61,
         "text": "And so, we want to bring that old data and we want to run it on the modern code."
     },
     {
         "start_time": "00:09:19.643",
+        "start_sec": 559.643,
         "end_time": "00:09:21.161",
+        "end_sec": 561.1610000000001,
         "text": "The same as we did for Classic."
     },
     {
         "start_time": "00:09:21.195",
+        "start_sec": 561.195,
         "end_time": "00:09:25.866",
+        "end_sec": 565.866,
         "text": "And there's 750,000 rows of data, that we have to go through"
     },
     {
         "start_time": "00:09:25.899",
+        "start_sec": 565.899,
         "end_time": "00:09:31.371",
+        "end_sec": 571.371,
         "text": "and convert from their old formats to their new formats, and fortunately we have really talented engineers,"
     },
     {
         "start_time": "00:09:31.405",
+        "start_sec": 571.405,
         "end_time": "00:09:35.442",
+        "end_sec": 575.442,
         "text": "and we run automated scripts that go through this, but even after we've run these scripts,"
     },
     {
         "start_time": "00:09:35.475",
+        "start_sec": 575.475,
         "end_time": "00:09:40.447",
+        "end_sec": 580.447,
         "text": "we have to compare them with how it used to behave, and make sure that we've converted correctly."
     },
     {
         "start_time": "00:09:40.480",
+        "start_sec": 580.48,
         "end_time": "00:09:43.700",
+        "end_sec": 583.7,
         "text": "And then there's even some things that are making it more difficult this time,"
     },
     {
         "start_time": "00:09:43.734",
+        "start_sec": 583.734,
         "end_time": "00:09:46.570",
+        "end_sec": 586.57,
         "text": "like the fact that we've made a couple of minor changes or bug fixes"
     },
     {
         "start_time": "00:09:46.603",
+        "start_sec": 586.603,
         "end_time": "00:09:50.174",
+        "end_sec": 590.174,
         "text": "in the Classic data, and we want to make sure that we keep those"
     },
     {
         "start_time": "00:09:50.207",
+        "start_sec": 590.207,
         "end_time": "00:09:53.177",
+        "end_sec": 593.177,
         "text": "as we're going into Burning Crusade, so we have to merge those changes"
     },
     {
         "start_time": "00:09:53.210",
+        "start_sec": 593.21,
         "end_time": "00:09:58.282",
+        "end_sec": 598.282,
         "text": "with the changes that happened with the Burning Crusade originally, and make sure that we have a coherent set of changes"
     },
     {
         "start_time": "00:09:58.315",
+        "start_sec": 598.315,
         "end_time": "00:10:01.718",
+        "end_sec": 601.718,
         "text": "that make sense to bring us from Classic into the Burning Crusade."
     },
     {
         "start_time": "00:10:01.752",
+        "start_sec": 601.752,
         "end_time": "00:10:06.490",
+        "end_sec": 606.49,
         "text": "There's an enormous amount of time spent looking at \"Okay, this is how it came out now.\""
     },
     {
         "start_time": "00:10:06.523",
+        "start_sec": 606.523,
         "end_time": "00:10:09.443",
+        "end_sec": 609.443,
         "text": "We have a reference client, that is..."
     },
     {
         "start_time": "00:10:10.194",
+        "start_sec": 610.194,
         "end_time": "00:10:11.278",
+        "end_sec": 611.278,
         "text": "the original."
     },
     {
         "start_time": "00:10:11.311",
+        "start_sec": 611.311,
         "end_time": "00:10:13.514",
+        "end_sec": 613.514,
         "text": "That's right, we do use the old code for that."
     },
     {
         "start_time": "00:10:13.547",
+        "start_sec": 613.547,
         "end_time": "00:10:15.883",
+        "end_sec": 615.883,
         "text": "So we still have it, we just don't want to ship on that anymore."
     },
     {
         "start_time": "00:10:15.916",
+        "start_sec": 615.916,
         "end_time": "00:10:19.386",
+        "end_sec": 619.386,
         "text": "We have the old code, with the old data, knows exactly how it's supposed to behave,"
     },
     {
         "start_time": "00:10:19.419",
+        "start_sec": 619.419,
         "end_time": "00:10:21.972",
+        "end_sec": 621.972,
         "text": "so those things work together, and we can bring that up internally,"
     },
     {
         "start_time": "00:10:22.005",
+        "start_sec": 622.005,
         "end_time": "00:10:24.875",
+        "end_sec": 624.875,
         "text": "and take a look at it, and say, \"Okay, this is how it was back then,"
     },
     {
         "start_time": "00:10:24.908",
+        "start_sec": 624.908,
         "end_time": "00:10:27.945",
+        "end_sec": 627.945,
         "text": "this is exactly what it used to look like.\" And we do sometimes find things"
     },
     {
         "start_time": "00:10:27.978",
+        "start_sec": 627.978,
         "end_time": "00:10:31.732",
+        "end_sec": 631.732,
         "text": "that are bugs we still want to fix, but a lot of times it will tell us, like,"
     },
     {
         "start_time": "00:10:31.765",
+        "start_sec": 631.765,
         "end_time": "00:10:34.718",
+        "end_sec": 634.718,
         "text": "\"Oh, this thing is not a bug, this is actually the intended behavior.\""
     },
     {
         "start_time": "00:10:34.751",
+        "start_sec": 634.751,
         "end_time": "00:10:36.820",
+        "end_sec": 636.82,
         "text": "Or this is something we don't really remember right."
     },
     {
         "start_time": "00:10:36.854",
+        "start_sec": 636.854,
         "end_time": "00:10:42.025",
+        "end_sec": 642.025,
         "text": "There's a tendency to want to chase your own memory, like, \"I remember it being like this!\", and it's like, \"No.\""
     },
     {
         "start_time": "00:10:42.426",
+        "start_sec": 642.426,
         "end_time": "00:10:44.528",
+        "end_sec": 644.528,
         "text": "It's not always exactly the way you remember it."
     },
     {
         "start_time": "00:10:44.561",
+        "start_sec": 644.561,
         "end_time": "00:10:49.099",
+        "end_sec": 649.099,
         "text": "Everybody has that human failing, even us, and so a lot of times we'll have an argument."
     },
     {
         "start_time": "00:10:49.132",
+        "start_sec": 649.132,
         "end_time": "00:10:52.753",
+        "end_sec": 652.753,
         "text": "\"I remember it this way.\" \"Well, I remember it this way.\" \"Let's go and check. We can look.\""
     },
     {
         "start_time": "00:10:53.136",
+        "start_sec": 653.136,
         "end_time": "00:10:58.976",
+        "end_sec": 658.976,
         "text": "Well, another reason to ship on the new code is really just the years of stability improvements,"
     },
     {
         "start_time": "00:10:59.009",
+        "start_sec": 659.009,
         "end_time": "00:11:02.930",
+        "end_sec": 662.93,
         "text": "and the fact that the world didn't look the same back in 2007 as it does today."
     },
     {
         "start_time": "00:11:02.963",
+        "start_sec": 662.963,
         "end_time": "00:11:03.964",
+        "end_sec": 663.964,
         "text": "BRIAN: That's true."
     },
     {
         "start_time": "00:11:03.997",
+        "start_sec": 663.997,
         "end_time": "00:11:05.916",
+        "end_sec": 665.916,
         "text": "There wasn't cloud architecture then."
     },
     {
         "start_time": "00:11:05.949",
+        "start_sec": 665.949,
         "end_time": "00:11:09.169",
+        "end_sec": 669.169,
         "text": "I remember, I had the privilege of being on the live ops team,"
     },
     {
         "start_time": "00:11:09.203",
+        "start_sec": 669.203,
         "end_time": "00:11:13.273",
+        "end_sec": 673.273,
         "text": "where I got to see what all the servers look like, and how it was all architected."
     },
     {
         "start_time": "00:11:13.557",
+        "start_sec": 673.557,
         "end_time": "00:11:15.943",
+        "end_sec": 675.943,
         "text": "And to pull back the curtain a bit on this, the way it was,"
     },
     {
         "start_time": "00:11:15.976",
+        "start_sec": 675.976,
         "end_time": "00:11:21.031",
+        "end_sec": 681.031,
         "text": "is everything was its own server, right, they didn't really talk to each other very well,"
     },
     {
         "start_time": "00:11:21.064",
+        "start_sec": 681.064,
         "end_time": "00:11:26.620",
+        "end_sec": 686.62,
         "text": "so each realm had 11 blades on it, and these blades were just bare metal blades,"
     },
     {
         "start_time": "00:11:26.653",
+        "start_sec": 686.653,
         "end_time": "00:11:30.707",
+        "end_sec": 690.707,
         "text": "and one blade was for Azeroth, one blade was for Kalimdor, one was for Outland..."
     },
     {
         "start_time": "00:11:30.741",
+        "start_sec": 690.741,
         "end_time": "00:11:33.460",
+        "end_sec": 693.46,
         "text": "And then we had some for instances, and you know, back then,"
     },
     {
         "start_time": "00:11:33.493",
+        "start_sec": 693.493,
         "end_time": "00:11:37.297",
+        "end_sec": 697.297,
         "text": "what would happen without cloud is you would try to request resources,"
     },
     {
         "start_time": "00:11:37.331",
+        "start_sec": 697.331,
         "end_time": "00:11:41.485",
+        "end_sec": 701.485,
         "text": "and maybe a lot of people were running dungeons, and so it would give you back things like"
     },
     {
         "start_time": "00:11:41.518",
+        "start_sec": 701.518,
         "end_time": "00:11:45.522",
+        "end_sec": 705.522,
         "text": "\"Transfer Aborted: instance not found.\" Oh, boy. We don't want to go back to those days."
     },
     {
         "start_time": "00:11:45.556",
+        "start_sec": 705.556,
         "end_time": "00:11:50.110",
+        "end_sec": 710.11,
         "text": "So now, we can take advantage of things like the cloud, and not have those resource issues,"
     },
     {
         "start_time": "00:11:50.143",
+        "start_sec": 710.143,
         "end_time": "00:11:53.213",
+        "end_sec": 713.213,
         "text": "so shipping on this new code is a big improvement in stability."
     },
     {
         "start_time": "00:11:53.247",
+        "start_sec": 713.247,
         "end_time": "00:11:57.451",
+        "end_sec": 717.451,
         "text": "Yeah, and so we're basically weaving all these threads together."
     },
     {
         "start_time": "00:11:57.484",
+        "start_sec": 717.484,
         "end_time": "00:12:00.687",
+        "end_sec": 720.687,
         "text": "We did finally get it built for Burning Crusade Classic."
     },
     {
         "start_time": "00:12:01.054",
+        "start_sec": 721.054,
         "end_time": "00:12:02.306",
+        "end_sec": 722.306,
         "text": "Super excited."
     },
     {
         "start_time": "00:12:03.407",
+        "start_sec": 723.407,
         "end_time": "00:12:08.028",
+        "end_sec": 728.028,
         "text": "The team gets together, we're preparing for a play test, and we go to create our characters,"
     },
     {
         "start_time": "00:12:08.529",
+        "start_sec": 728.529,
         "end_time": "00:12:09.963",
+        "end_sec": 729.963,
         "text": "and we see..."
     },
     {
         "start_time": "00:12:11.248",
+        "start_sec": 731.248,
         "end_time": "00:12:14.885",
+        "end_sec": 734.885,
         "text": "this blood elf, who, you know, he remembers the Sunwell."
     },
     {
         "start_time": "00:12:15.369",
+        "start_sec": 735.369,
         "end_time": "00:12:17.204",
+        "end_sec": 737.204,
         "text": "-HOLLY: He forgot his pants. -BRIAN: Yeah?"
     },
     {
         "start_time": "00:12:17.237",
+        "start_sec": 737.237,
         "end_time": "00:12:18.539",
+        "end_sec": 738.539,
         "text": "So everything didn't work the first time?"
     },
     {
         "start_time": "00:12:18.572",
+        "start_sec": 738.572,
         "end_time": "00:12:21.024",
+        "end_sec": 741.024,
         "text": "LAUGHTER What? I know."
     },
     {
         "start_time": "00:12:21.058",
+        "start_sec": 741.058,
         "end_time": "00:12:23.493",
+        "end_sec": 743.493,
         "text": "-Yeah, I did mention, we had... -Sabotage!"
     },
     {
         "start_time": "00:12:23.527",
+        "start_sec": 743.527,
         "end_time": "00:12:26.079",
+        "end_sec": 746.079,
         "text": "…to go check for problems in those conversion scripts."
     },
     {
         "start_time": "00:12:26.113",
+        "start_sec": 746.113,
         "end_time": "00:12:31.585",
+        "end_sec": 751.585,
         "text": "And so yeah, sure enough, what's going on here is that this guy thinks he's dressed but he isn't,"
     },
     {
         "start_time": "00:12:31.618",
+        "start_sec": 751.618,
         "end_time": "00:12:34.805",
+        "end_sec": 754.805,
         "text": "and you can see why he thinks he's dressed-- Does that happen to you a lot?"
     },
     {
         "start_time": "00:12:34.838",
+        "start_sec": 754.838,
         "end_time": "00:12:36.857",
+        "end_sec": 756.857,
         "text": "-(BRIAN LAUGHS) -Only in my high school dreams."
     },
     {
         "start_time": "00:12:36.890",
+        "start_sec": 756.89,
         "end_time": "00:12:41.879",
+        "end_sec": 761.879,
         "text": "LAUGHTER You can see, if you look at his calves, you can see that they're flared out"
     },
     {
         "start_time": "00:12:41.912",
+        "start_sec": 761.912,
         "end_time": "00:12:43.397",
+        "end_sec": 763.397,
         "text": "because he thinks he's wearing boots."
     },
     {
         "start_time": "00:12:43.430",
+        "start_sec": 763.43,
         "end_time": "00:12:47.267",
+        "end_sec": 767.267,
         "text": "BRIAN: And the way the system works is, we first set the geometry up for all the items"
     },
     {
         "start_time": "00:12:47.301",
+        "start_sec": 767.301,
         "end_time": "00:12:51.805",
+        "end_sec": 771.805,
         "text": "that you're supposed to be wearing, and then we layer on various images that we call textures,"
     },
     {
         "start_time": "00:12:51.839",
+        "start_sec": 771.8389999999999,
         "end_time": "00:12:56.159",
+        "end_sec": 776.159,
         "text": "and we'd use those to build up a single composite texture that's then wrapped around the geometry,"
     },
     {
         "start_time": "00:12:56.193",
+        "start_sec": 776.193,
         "end_time": "00:12:58.395",
+        "end_sec": 778.395,
         "text": "but of course, in this case, when we were layering them on,"
     },
     {
         "start_time": "00:12:58.428",
+        "start_sec": 778.428,
         "end_time": "00:13:03.483",
+        "end_sec": 783.483,
         "text": "none of the textures were assigned, so we just started with his naked body,"
     },
     {
         "start_time": "00:13:03.517",
+        "start_sec": 783.517,
         "end_time": "00:13:06.203",
+        "end_sec": 786.203,
         "text": "and then was going to go layer on textures and didn't find any."
     },
     {
         "start_time": "00:13:06.236",
+        "start_sec": 786.236,
         "end_time": "00:13:10.107",
+        "end_sec": 790.107,
         "text": "So it thinks he's dressed. It's removed the underwear 'cause it thinks it's put clothes on,"
     },
     {
         "start_time": "00:13:10.140",
+        "start_sec": 790.14,
         "end_time": "00:13:12.726",
+        "end_sec": 792.726,
         "text": "but there's nothing there, they're all completely transparent."
     },
     {
         "start_time": "00:13:12.759",
+        "start_sec": 792.759,
         "end_time": "00:13:14.394",
+        "end_sec": 794.394,
         "text": "It's like The Emperor's New Clothes."
     },
     {
         "start_time": "00:13:14.428",
+        "start_sec": 794.428,
         "end_time": "00:13:17.347",
+        "end_sec": 797.347,
         "text": "He's wearing invisible clothes, only that's really what's happening."
     },
     {
         "start_time": "00:13:17.381",
+        "start_sec": 797.381,
         "end_time": "00:13:18.849",
+        "end_sec": 798.849,
         "text": "-(LAUGHS) -HOLLY: That's crazy."
     },
     {
         "start_time": "00:13:18.882",
+        "start_sec": 798.882,
         "end_time": "00:13:24.805",
+        "end_sec": 804.805,
         "text": "And then of course I wanted to try draenei, because that's where my heart lies, I'm an Alliance girl."
     },
     {
         "start_time": "00:13:24.838",
+        "start_sec": 804.838,
         "end_time": "00:13:28.992",
+        "end_sec": 808.992,
         "text": "(BRIAN LAUGHS) And this draenei looks to be heads above the rest."
     },
     {
         "start_time": "00:13:29.026",
+        "start_sec": 809.026,
         "end_time": "00:13:30.894",
+        "end_sec": 810.894,
         "text": "-PATRICK: That's not the Exodar. -BRIAN: Yeah."
     },
     {
         "start_time": "00:13:30.928",
+        "start_sec": 810.928,
         "end_time": "00:13:32.446",
+        "end_sec": 812.446,
         "text": "HOLLY: No, it... Definitely not."
     },
     {
         "start_time": "00:13:32.479",
+        "start_sec": 812.479,
         "end_time": "00:13:33.630",
+        "end_sec": 813.63,
         "text": "PATRICK: That's Dun Morogh."
     },
     {
         "start_time": "00:13:33.664",
+        "start_sec": 813.664,
         "end_time": "00:13:35.232",
+        "end_sec": 815.232,
         "text": "It is, and that's exactly the problem."
     },
     {
         "start_time": "00:13:35.265",
+        "start_sec": 815.265,
         "end_time": "00:13:38.819",
+        "end_sec": 818.819,
         "text": "It looks like the draenei's too tall, but the real problem is we're in the wrong place."
     },
     {
         "start_time": "00:13:38.852",
+        "start_sec": 818.852,
         "end_time": "00:13:39.853",
+        "end_sec": 819.853,
         "text": "And so, yeah."
     },
     {
         "start_time": "00:13:39.887",
+        "start_sec": 819.887,
         "end_time": "00:13:44.141",
+        "end_sec": 824.141,
         "text": "When you go to the Dun Morogh character select screen, of course the camera's positioned"
     },
     {
         "start_time": "00:13:44.174",
+        "start_sec": 824.174,
         "end_time": "00:13:47.227",
+        "end_sec": 827.227,
         "text": "for much shorter races, like gnomes and dwarves."
     },
     {
         "start_time": "00:13:47.261",
+        "start_sec": 827.261,
         "end_time": "00:13:50.797",
+        "end_sec": 830.797,
         "text": "BRIAN: So it's knee-high on a draenei."
     },
     {
         "start_time": "00:13:50.831",
+        "start_sec": 830.831,
         "end_time": "00:13:51.999",
+        "end_sec": 831.999,
         "text": "And then, water."
     },
     {
         "start_time": "00:13:52.482",
+        "start_sec": 832.482,
         "end_time": "00:13:54.017",
+        "end_sec": 834.017,
         "text": "Really, Brian, we have water in Hellfire?"
     },
     {
         "start_time": "00:13:54.051",
+        "start_sec": 834.051,
         "end_time": "00:13:55.802",
+        "end_sec": 835.802,
         "text": "-BRIAN: Yeah, so... -HOLLY: Go for a swim?"
     },
     {
         "start_time": "00:13:55.836",
+        "start_sec": 835.836,
         "end_time": "00:14:00.607",
+        "end_sec": 840.607,
         "text": "BRIAN: It turns out that Outland has a funny, unique feature that it doesn't have any oceans,"
     },
     {
         "start_time": "00:14:00.641",
+        "start_sec": 840.641,
         "end_time": "00:14:04.228",
+        "end_sec": 844.228,
         "text": "because the water just all falls off the edges and goes out into space, or something."
     },
     {
         "start_time": "00:14:04.261",
+        "start_sec": 844.261,
         "end_time": "00:14:06.813",
+        "end_sec": 846.813,
         "text": "I'm not sure how that works in the game universe."
     },
     {
         "start_time": "00:14:06.847",
+        "start_sec": 846.847,
         "end_time": "00:14:11.351",
+        "end_sec": 851.351,
         "text": "-Magic! -BRIAN: But yeah. (LAUGHS) There's no ocean there, but we'd accidentally flagged it to generate one"
     },
     {
         "start_time": "00:14:11.385",
+        "start_sec": 851.385,
         "end_time": "00:14:15.906",
+        "end_sec": 855.906,
         "text": "so we ended up flooding the entire world with an ocean until we found that and turned it back off (LAUGHS)."
     },
     {
         "start_time": "00:14:16.440",
+        "start_sec": 856.44,
         "end_time": "00:14:22.095",
+        "end_sec": 862.095,
         "text": "So through all of these processes, yes, we're obviously fixing what is broken,"
     },
     {
         "start_time": "00:14:22.746",
+        "start_sec": 862.746,
         "end_time": "00:14:29.586",
+        "end_sec": 869.586,
         "text": "but also, we thought it was a good time to start enacting what we call #somechanges..."
     },
     {
         "start_time": "00:14:29.620",
+        "start_sec": 869.62,
         "end_time": "00:14:33.857",
+        "end_sec": 873.857,
         "text": "(KEVIN LAUGHS) ...to gameplay and how things should work."
     },
     {
         "start_time": "00:14:33.891",
+        "start_sec": 873.891,
         "end_time": "00:14:38.812",
+        "end_sec": 878.812,
         "text": "Yeah, when you think about it, with Classic, our guiding principle was no changes."
     },
     {
         "start_time": "00:14:38.846",
+        "start_sec": 878.846,
         "end_time": "00:14:43.984",
+        "end_sec": 883.984,
         "text": "Our goal was to provide as true-to-life, authentic experience of Classic that we possibly could with the community."
     },
     {
         "start_time": "00:14:44.318",
+        "start_sec": 884.318,
         "end_time": "00:14:45.669",
+        "end_sec": 885.669,
         "text": "And we accomplished that."
     },
     {
         "start_time": "00:14:46.003",
+        "start_sec": 886.003,
         "end_time": "00:14:51.642",
+        "end_sec": 891.642,
         "text": "What was interesting to me is to see this vibrant community that embraced it, and then said,"
     },
     {
         "start_time": "00:14:52.009",
+        "start_sec": 892.009,
         "end_time": "00:14:55.896",
+        "end_sec": 895.896,
         "text": "\"Hey, but we're not exactly the same as we were 15 years ago, right?\""
     },
     {
         "start_time": "00:14:55.929",
+        "start_sec": 895.929,
         "end_time": "00:14:56.930",
+        "end_sec": 896.93,
         "text": "And they're right."
     },
     {
         "start_time": "00:14:56.964",
+        "start_sec": 896.9639999999999,
         "end_time": "00:14:59.366",
+        "end_sec": 899.366,
         "text": "PATRICK: The times have changed. The world has changed."
     },
     {
         "start_time": "00:14:59.766",
+        "start_sec": 899.766,
         "end_time": "00:15:07.724",
+        "end_sec": 907.724,
         "text": "And so, some of those things that maybe were out there, that were not great, and were warts back in the day,"
     },
     {
         "start_time": "00:15:07.758",
+        "start_sec": 907.758,
         "end_time": "00:15:10.077",
+        "end_sec": 910.077,
         "text": "is not something that we would want to ship again."
     },
     {
         "start_time": "00:15:10.110",
+        "start_sec": 910.11,
         "end_time": "00:15:14.982",
+        "end_sec": 914.982,
         "text": "Like something that feels a little buggy, or wrong, or incorrect, so the idea behind this is,"
     },
     {
         "start_time": "00:15:15.015",
+        "start_sec": 915.015,
         "end_time": "00:15:19.219",
+        "end_sec": 919.219,
         "text": "let's provide what the Burning Crusade experience was, without those warts."
     },
     {
         "start_time": "00:15:19.253",
+        "start_sec": 919.253,
         "end_time": "00:15:21.522",
+        "end_sec": 921.522,
         "text": "This really, I think, illustrates the..."
     },
     {
         "start_time": "00:15:22.439",
+        "start_sec": 922.439,
         "end_time": "00:15:25.042",
+        "end_sec": 925.042,
         "text": "The difference is spell-batching."
     },
     {
         "start_time": "00:15:25.392",
+        "start_sec": 925.392,
         "end_time": "00:15:30.597",
+        "end_sec": 930.597,
         "text": "We actually had a lot of requests originally for spell-batching in that no-changes charge,"
     },
     {
         "start_time": "00:15:31.248",
+        "start_sec": 931.248,
         "end_time": "00:15:33.634",
+        "end_sec": 933.634,
         "text": "where they said, \"Hey, I remember when I used to be able to have"
     },
     {
         "start_time": "00:15:33.667",
+        "start_sec": 933.667,
         "end_time": "00:15:38.572",
+        "end_sec": 938.572,
         "text": "two mages polymorph one another, and they'd both end up polymorphed,\" and that's cute and fun, I kind of like that,"
     },
     {
         "start_time": "00:15:38.605",
+        "start_sec": 938.605,
         "end_time": "00:15:42.793",
+        "end_sec": 942.793,
         "text": "and so we said, \"Okay, we can put that back in.\" But the system that causes that is of course"
     },
     {
         "start_time": "00:15:42.826",
+        "start_sec": 942.826,
         "end_time": "00:15:46.563",
+        "end_sec": 946.563,
         "text": "that the spells are batched up and processed in these giant batches,"
     },
     {
         "start_time": "00:15:46.597",
+        "start_sec": 946.597,
         "end_time": "00:15:49.283",
+        "end_sec": 949.283,
         "text": "but over the last two years, people realized that what that comes with"
     },
     {
         "start_time": "00:15:49.316",
+        "start_sec": 949.316,
         "end_time": "00:15:53.987",
+        "end_sec": 953.987,
         "text": "is about half a second of built-in latency, where you push a button"
     },
     {
         "start_time": "00:15:54.021",
+        "start_sec": 954.021,
         "end_time": "00:15:59.042",
+        "end_sec": 959.042,
         "text": "and it doesn't actually take effect for that half a second, while it's queueing up the other ones to go with it."
     },
     {
         "start_time": "00:15:59.076",
+        "start_sec": 959.076,
         "end_time": "00:16:01.094",
+        "end_sec": 961.094,
         "text": "And people were starting to find that frustrating."
     },
     {
         "start_time": "00:16:01.128",
+        "start_sec": 961.128,
         "end_time": "00:16:05.132",
+        "end_sec": 965.132,
         "text": "I talked to a lot of people who said they were excited about it when it first came out with Classic,"
     },
     {
         "start_time": "00:16:05.165",
+        "start_sec": 965.165,
         "end_time": "00:16:09.069",
+        "end_sec": 969.069,
         "text": "but after they'd been playing with it for two years, they're really ready to see it go,"
     },
     {
         "start_time": "00:16:09.102",
+        "start_sec": 969.102,
         "end_time": "00:16:12.556",
+        "end_sec": 972.556,
         "text": "and we're ready to take it out too, so we’re removing spell-batching."
     },
     {
         "start_time": "00:16:12.589",
+        "start_sec": 972.589,
         "end_time": "00:16:13.590",
+        "end_sec": 973.59,
         "text": "That's definitely great."
     },
     {
         "start_time": "00:16:13.624",
+        "start_sec": 973.624,
         "end_time": "00:16:16.810",
+        "end_sec": 976.81,
         "text": "I remember, every two weeks I'd get a bug report, Vanish is broken again."
     },
     {
         "start_time": "00:16:16.844",
+        "start_sec": 976.844,
         "end_time": "00:16:19.112",
+        "end_sec": 979.112,
         "text": "It was because of stuff like this."
     },
     {
         "start_time": "00:16:19.146",
+        "start_sec": 979.146,
         "end_time": "00:16:21.231",
+        "end_sec": 981.231,
         "text": "If you Vanish when a Fireball hits you..."
     },
     {
         "start_time": "00:16:21.265",
+        "start_sec": 981.265,
         "end_time": "00:16:22.733",
+        "end_sec": 982.733,
         "text": "-...it's gonna pop you out. -Exactly."
     },
     {
         "start_time": "00:16:22.766",
+        "start_sec": 982.766,
         "end_time": "00:16:25.085",
+        "end_sec": 985.085,
         "text": "And so we were trying to do all these techy solutions to it,"
     },
     {
         "start_time": "00:16:25.118",
+        "start_sec": 985.118,
         "end_time": "00:16:27.504",
+        "end_sec": 987.504,
         "text": "but the real answer is just don't spell-batch."
     },
     {
         "start_time": "00:16:27.538",
+        "start_sec": 987.538,
         "end_time": "00:16:28.539",
+        "end_sec": 988.539,
         "text": "Yeah."
     },
     {
         "start_time": "00:16:28.572",
+        "start_sec": 988.572,
         "end_time": "00:16:32.042",
+        "end_sec": 992.042,
         "text": "But we didn't have the ability to do that then, -so glad we're doing it now. -Yeah."
     },
     {
         "start_time": "00:16:32.326",
+        "start_sec": 992.326,
         "end_time": "00:16:36.713",
+        "end_sec": 996.713,
         "text": "Another one that I can think of is how the rating community has matured, right?"
     },
     {
         "start_time": "00:16:36.747",
+        "start_sec": 996.747,
         "end_time": "00:16:42.085",
+        "end_sec": 1002.085,
         "text": "Things were very different back in 2004, 2005 timelines, compared to today."
     },
     {
         "start_time": "00:16:42.119",
+        "start_sec": 1002.119,
         "end_time": "00:16:47.758",
+        "end_sec": 1007.758,
         "text": "So, the rating community knows exactly what's going on, and they want more of a challenge,"
     },
     {
         "start_time": "00:16:47.791",
+        "start_sec": 1007.7909999999999,
         "end_time": "00:16:51.545",
+        "end_sec": 1011.545,
         "text": "so rather than always giving them the last version of the boss,"
     },
     {
         "start_time": "00:16:51.578",
+        "start_sec": 1011.578,
         "end_time": "00:16:55.182",
+        "end_sec": 1015.182,
         "text": "the final form of the boss, which maybe is being hit with a few nerfs,"
     },
     {
         "start_time": "00:16:55.215",
+        "start_sec": 1015.215,
         "end_time": "00:16:56.233",
+        "end_sec": 1016.233,
         "text": "let's not do that anymore."
     },
     {
         "start_time": "00:16:56.266",
+        "start_sec": 1016.266,
         "end_time": "00:16:58.702",
+        "end_sec": 1018.702,
         "text": "Let's give 'em a more challenging version of the boss."
     },
     {
         "start_time": "00:16:58.735",
+        "start_sec": 1018.735,
         "end_time": "00:17:03.257",
+        "end_sec": 1023.257,
         "text": "I'll give you an example of M'uru, right, where the initial version of that boss"
     },
     {
         "start_time": "00:17:03.290",
+        "start_sec": 1023.29,
         "end_time": "00:17:07.261",
+        "end_sec": 1027.261,
         "text": "had a lot of spell pushback, and so that made it really tough"
     },
     {
         "start_time": "00:17:07.294",
+        "start_sec": 1027.294,
         "end_time": "00:17:09.162",
+        "end_sec": 1029.162,
         "text": "to bring casting classes to that fight."
     },
     {
         "start_time": "00:17:09.196",
+        "start_sec": 1029.196,
         "end_time": "00:17:13.851",
+        "end_sec": 1033.851,
         "text": "We did fix that pretty quickly, and changed the fight to allow for that."
     },
     {
         "start_time": "00:17:13.884",
+        "start_sec": 1033.884,
         "end_time": "00:17:16.803",
+        "end_sec": 1036.803,
         "text": "Now that's a change we probably would incorporate in this."
     },
     {
         "start_time": "00:17:16.837",
+        "start_sec": 1036.837,
         "end_time": "00:17:21.124",
+        "end_sec": 1041.124,
         "text": "We don't want people to feel excluded, or not part of being able to do a fight like that."
     },
     {
         "start_time": "00:17:21.425",
+        "start_sec": 1041.425,
         "end_time": "00:17:24.578",
+        "end_sec": 1044.578,
         "text": "But then, probably a month or so after that, we nerfed M'uru's health."
     },
     {
         "start_time": "00:17:24.895",
+        "start_sec": 1044.895,
         "end_time": "00:17:26.663",
+        "end_sec": 1046.663,
         "text": "That doesn't need to happen."
     },
     {
         "start_time": "00:17:26.697",
+        "start_sec": 1046.697,
         "end_time": "00:17:28.348",
+        "end_sec": 1048.348,
         "text": "PATRICK: Let's keep it in the hard form."
     },
     {
         "start_time": "00:17:28.382",
+        "start_sec": 1048.382,
         "end_time": "00:17:31.034",
+        "end_sec": 1051.034,
         "text": "We can evaluate any changes we need to make after that, but..."
     },
     {
         "start_time": "00:17:31.368",
+        "start_sec": 1051.368,
         "end_time": "00:17:35.088",
+        "end_sec": 1055.088,
         "text": "Yeah, we'll be like, \"Hey, final form, we're not even gonna look at it. Let's call it a day.\""
     },
     {
         "start_time": "00:17:35.122",
+        "start_sec": 1055.122,
         "end_time": "00:17:37.975",
+        "end_sec": 1057.975,
         "text": "Yeah. So how did your mage handle the pushback?"
     },
     {
         "start_time": "00:17:38.008",
+        "start_sec": 1058.008,
         "end_time": "00:17:40.577",
+        "end_sec": 1060.577,
         "text": "-Uh, I just... was sad. -BRIAN: Sat on the bench?"
     },
     {
         "start_time": "00:17:40.611",
+        "start_sec": 1060.611,
         "end_time": "00:17:46.166",
+        "end_sec": 1066.166,
         "text": "-HOLLY: This feels personal! -LAUGHTER No, I was the raid leader, so I got to choose who went, but..."
     },
     {
         "start_time": "00:17:46.200",
+        "start_sec": 1066.2,
         "end_time": "00:17:47.467",
+        "end_sec": 1067.467,
         "text": "The one mage allowed to go."
     },
     {
         "start_time": "00:17:47.501",
+        "start_sec": 1067.501,
         "end_time": "00:17:51.772",
+        "end_sec": 1071.772,
         "text": "LAUGHTER That was, honestly, one of my favorite fights ever on World of Warcraft."
     },
     {
         "start_time": "00:17:51.805",
+        "start_sec": 1071.805,
         "end_time": "00:17:53.106",
+        "end_sec": 1073.106,
         "text": "That was a really fun fight."
     },
     {
         "start_time": "00:17:53.140",
+        "start_sec": 1073.14,
         "end_time": "00:17:54.191",
+        "end_sec": 1074.191,
         "text": "That's awesome."
     },
     {
         "start_time": "00:17:54.224",
+        "start_sec": 1074.224,
         "end_time": "00:17:59.229",
+        "end_sec": 1079.229,
         "text": "Another change that we were talking about making is along the lines of the PvP balance, and faction balance,"
     },
     {
         "start_time": "00:17:59.263",
+        "start_sec": 1079.263,
         "end_time": "00:18:06.253",
+        "end_sec": 1086.253,
         "text": "is, obviously, with Burning Crusade, paladins are introduced to the Horde, and shamans are introduced to the Alliance,"
     },
     {
         "start_time": "00:18:06.286",
+        "start_sec": 1086.286,
         "end_time": "00:18:10.791",
+        "end_sec": 1090.791,
         "text": "and that was intended to be a balancing of the factions, and let's make them even."
     },
     {
         "start_time": "00:18:10.824",
+        "start_sec": 1090.824,
         "end_time": "00:18:14.795",
+        "end_sec": 1094.795,
         "text": "And then they wanted to keep a little bit of flavor of that faction identity,"
     },
     {
         "start_time": "00:18:14.828",
+        "start_sec": 1094.828,
         "end_time": "00:18:18.465",
+        "end_sec": 1098.465,
         "text": "so they kept Seal of Blood on the Horde, and Seal of Vengeance on the Alliance."
     },
     {
         "start_time": "00:18:18.498",
+        "start_sec": 1098.498,
         "end_time": "00:18:22.436",
+        "end_sec": 1102.436,
         "text": "It was intended to be equivalent power abilities that were just slightly different in flavor,"
     },
     {
         "start_time": "00:18:22.469",
+        "start_sec": 1102.469,
         "end_time": "00:18:26.807",
+        "end_sec": 1106.807,
         "text": "but in retrospect, Seal of Blood was just so much better, and so one of the changes we are gonna make"
     },
     {
         "start_time": "00:18:26.840",
+        "start_sec": 1106.84,
         "end_time": "00:18:30.711",
+        "end_sec": 1110.711,
         "text": "is we are gonna give the opposite faction's seal to the other faction,"
     },
     {
         "start_time": "00:18:30.744",
+        "start_sec": 1110.744,
         "end_time": "00:18:32.429",
+        "end_sec": 1112.429,
         "text": "but we're gonna do that at max level."
     },
     {
         "start_time": "00:18:32.462",
+        "start_sec": 1112.462,
         "end_time": "00:18:37.935",
+        "end_sec": 1117.935,
         "text": "So we keep just a little bit of that faction identity, where Horde will get Seal of Blood at Level 64, on schedule,"
     },
     {
         "start_time": "00:18:37.968",
+        "start_sec": 1117.968,
         "end_time": "00:18:43.223",
+        "end_sec": 1123.223,
         "text": "and then get Seal of Vengeance at Level 70, and similarly Alliance will get Seal of Vengeance at Level 64,"
     },
     {
         "start_time": "00:18:43.257",
+        "start_sec": 1123.257,
         "end_time": "00:18:45.959",
+        "end_sec": 1125.959,
         "text": "and then their equivalent, Seal of the Martyr, at Level 70."
     },
     {
         "start_time": "00:18:45.993",
+        "start_sec": 1125.993,
         "end_time": "00:18:48.278",
+        "end_sec": 1128.278,
         "text": "Another thing we want to talk about is arena teams."
     },
     {
         "start_time": "00:18:48.312",
+        "start_sec": 1128.312,
         "end_time": "00:18:53.584",
+        "end_sec": 1133.584,
         "text": "BRIAN: When it first came out in Burning Crusade, the arena team system only let you have"
     },
     {
         "start_time": "00:18:53.617",
+        "start_sec": 1133.617,
         "end_time": "00:18:57.538",
+        "end_sec": 1137.538,
         "text": "the same number of players on your team, that was the size of the bracket it was for."
     },
     {
         "start_time": "00:18:57.571",
+        "start_sec": 1137.571,
         "end_time": "00:19:01.575",
+        "end_sec": 1141.575,
         "text": "So, for example, a 3v3 team could only have three players on the team,"
     },
     {
         "start_time": "00:19:01.608",
+        "start_sec": 1141.608,
         "end_time": "00:19:05.128",
+        "end_sec": 1145.128,
         "text": "so if someone was sick, or unavailable one night, you couldn't play."
     },
     {
         "start_time": "00:19:05.162",
+        "start_sec": 1145.162,
         "end_time": "00:19:08.632",
+        "end_sec": 1148.632,
         "text": "That felt really frustrating, so we're definitely gonna go with the last version of that,"
     },
     {
         "start_time": "00:19:08.665",
+        "start_sec": 1148.665,
         "end_time": "00:19:12.452",
+        "end_sec": 1152.452,
         "text": "where you could have twice the size of the bracket on your team roster,"
     },
     {
         "start_time": "00:19:12.486",
+        "start_sec": 1152.486,
         "end_time": "00:19:16.156",
+        "end_sec": 1156.156,
         "text": "so that you had alternates you could swap in and out, and then that way,"
     },
     {
         "start_time": "00:19:16.190",
+        "start_sec": 1156.19,
         "end_time": "00:19:19.610",
+        "end_sec": 1159.61,
         "text": "as long as anybody had participated in I think 30% of the matches,"
     },
     {
         "start_time": "00:19:19.643",
+        "start_sec": 1159.643,
         "end_time": "00:19:22.162",
+        "end_sec": 1162.162,
         "text": "then they got the full credit for the week of participation."
     },
     {
         "start_time": "00:19:22.196",
+        "start_sec": 1162.196,
         "end_time": "00:19:24.498",
+        "end_sec": 1164.498,
         "text": "Is that why we did personal ratings versus team ratings?"
     },
     {
         "start_time": "00:19:24.531",
+        "start_sec": 1164.531,
         "end_time": "00:19:25.532",
+        "end_sec": 1165.532,
         "text": "That came later."
     },
     {
         "start_time": "00:19:25.566",
+        "start_sec": 1165.566,
         "end_time": "00:19:28.285",
+        "end_sec": 1168.285,
         "text": "We're also considering whether or not we wanna do something with that,"
     },
     {
         "start_time": "00:19:28.318",
+        "start_sec": 1168.318,
         "end_time": "00:19:35.209",
+        "end_sec": 1175.209,
         "text": "because another thing that was problematic about arenas was the way that the Elo system was so inflationary,"
     },
     {
         "start_time": "00:19:35.242",
+        "start_sec": 1175.242,
         "end_time": "00:19:37.845",
+        "end_sec": 1177.845,
         "text": "and so we're talking about whether or not we want to move forward with"
     },
     {
         "start_time": "00:19:37.878",
+        "start_sec": 1177.878,
         "end_time": "00:19:42.883",
+        "end_sec": 1182.883,
         "text": "converting that to something like the modern MMR system, so that it isn't as punishing to people"
     },
     {
         "start_time": "00:19:42.916",
+        "start_sec": 1182.916,
         "end_time": "00:19:46.203",
+        "end_sec": 1186.203,
         "text": "in terms of waiting hours for a match at the highest levels,"
     },
     {
         "start_time": "00:19:46.236",
+        "start_sec": 1186.236,
         "end_time": "00:19:47.237",
+        "end_sec": 1187.237,
         "text": "and things like that."
     },
     {
         "start_time": "00:19:47.271",
+        "start_sec": 1187.271,
         "end_time": "00:19:48.472",
+        "end_sec": 1188.472,
         "text": "And another change."
     },
     {
         "start_time": "00:19:48.505",
+        "start_sec": 1188.505,
         "end_time": "00:19:54.678",
+        "end_sec": 1194.6779999999999,
         "text": "We're going to give players access to blood elf and draenei early,"
     },
     {
         "start_time": "00:19:54.711",
+        "start_sec": 1194.711,
         "end_time": "00:19:59.166",
+        "end_sec": 1199.166,
         "text": "so that before we actually open the Dark Portal, you'll have a chance to level those up."
     },
     {
         "start_time": "00:19:59.199",
+        "start_sec": 1199.199,
         "end_time": "00:20:01.401",
+        "end_sec": 1201.401,
         "text": "That's definitely not something we did originally."
     },
     {
         "start_time": "00:20:01.435",
+        "start_sec": 1201.435,
         "end_time": "00:20:02.436",
+        "end_sec": 1202.436,
         "text": "-(LAUGHS) -Yeah!"
     },
     {
         "start_time": "00:20:02.469",
+        "start_sec": 1202.469,
         "end_time": "00:20:06.823",
+        "end_sec": 1206.823,
         "text": "I remember, I had a friend who was really frustrated that the rest of us were running around in Outland,"
     },
     {
         "start_time": "00:20:06.857",
+        "start_sec": 1206.857,
         "end_time": "00:20:09.076",
+        "end_sec": 1209.076,
         "text": "and he was like, \"I'm still back in Wetlands.\" Yeah."
     },
     {
         "start_time": "00:20:09.109",
+        "start_sec": 1209.109,
         "end_time": "00:20:11.995",
+        "end_sec": 1211.995,
         "text": "LAUGHTER -\"What is going on?\" -HOLLY: Yeah."
     },
     {
         "start_time": "00:20:12.029",
+        "start_sec": 1212.029,
         "end_time": "00:20:14.815",
+        "end_sec": 1214.815,
         "text": "\"When can I play with you guys?\" So yeah, I'm really glad we're doing that."
     },
     {
         "start_time": "00:20:14.848",
+        "start_sec": 1214.848,
         "end_time": "00:20:16.266",
+        "end_sec": 1216.266,
         "text": "-HOLLY: Yeah. -Is that pre-patch?"
     },
     {
         "start_time": "00:20:16.300",
+        "start_sec": 1216.3,
         "end_time": "00:20:17.668",
+        "end_sec": 1217.668,
         "text": "-Yeah, that's the plan. -Very cool."
     },
     {
         "start_time": "00:20:17.701",
+        "start_sec": 1217.701,
         "end_time": "00:20:21.021",
+        "end_sec": 1221.021,
         "text": "Pre-patch will come out and you'll be able to start your blood elves and draenei."
     },
     {
         "start_time": "00:20:21.054",
+        "start_sec": 1221.054,
         "end_time": "00:20:22.956",
+        "end_sec": 1222.956,
         "text": "And then... content."
     },
     {
         "start_time": "00:20:22.990",
+        "start_sec": 1222.99,
         "end_time": "00:20:24.908",
+        "end_sec": 1224.908,
         "text": "So, we've got some phases happening."
     },
     {
         "start_time": "00:20:24.942",
+        "start_sec": 1224.942,
         "end_time": "00:20:25.943",
+        "end_sec": 1225.943,
         "text": "-Yeah. -HOLLY: Yeah."
     },
     {
         "start_time": "00:20:25.976",
+        "start_sec": 1225.976,
         "end_time": "00:20:28.478",
+        "end_sec": 1228.478,
         "text": "So the content phases that we got coming are exciting."
     },
     {
         "start_time": "00:20:28.512",
+        "start_sec": 1228.512,
         "end_time": "00:20:34.568",
+        "end_sec": 1234.568,
         "text": "We're gonna start with Karazhan, and Gruul's Lair and Magtheridon's Lair."
     },
     {
         "start_time": "00:20:34.885",
+        "start_sec": 1234.885,
         "end_time": "00:20:38.522",
+        "end_sec": 1238.522,
         "text": "BRIAN: And we want to start with just that at release, because we found with Classic"
     },
     {
         "start_time": "00:20:38.555",
+        "start_sec": 1238.555,
         "end_time": "00:20:43.060",
+        "end_sec": 1243.06,
         "text": "that people really enjoy that gear progression, and that's where all the Tier Four gear is,"
     },
     {
         "start_time": "00:20:43.093",
+        "start_sec": 1243.093,
         "end_time": "00:20:44.745",
+        "end_sec": 1244.745,
         "text": "is with those raids."
     },
     {
         "start_time": "00:20:44.778",
+        "start_sec": 1244.778,
         "end_time": "00:20:48.298",
+        "end_sec": 1248.298,
         "text": "And we want people to have an opportunity to level up, catch up to their friends,"
     },
     {
         "start_time": "00:20:48.332",
+        "start_sec": 1248.332,
         "end_time": "00:20:50.200",
+        "end_sec": 1250.2,
         "text": "and all go through these things together."
     },
     {
         "start_time": "00:20:50.234",
+        "start_sec": 1250.234,
         "end_time": "00:20:53.704",
+        "end_sec": 1253.704,
         "text": "So as we unlock each chapter, we want to make sure everybody's had enough time to be"
     },
     {
         "start_time": "00:20:53.737",
+        "start_sec": 1253.737,
         "end_time": "00:20:54.738",
+        "end_sec": 1254.738,
         "text": "a part of that chapter."
     },
     {
         "start_time": "00:20:54.771",
+        "start_sec": 1254.771,
         "end_time": "00:20:59.726",
+        "end_sec": 1259.726,
         "text": "And the next chapter after that, will be Phase Two, which will be Serpentshrine Cavern,"
     },
     {
         "start_time": "00:20:59.760",
+        "start_sec": 1259.76,
         "end_time": "00:21:01.411",
+        "end_sec": 1261.411,
         "text": "-and Tempest Keep. -HOLLY: Yep."
     },
     {
         "start_time": "00:21:01.445",
+        "start_sec": 1261.445,
         "end_time": "00:21:05.432",
+        "end_sec": 1265.432,
         "text": "Then next we move on to Phase Three, which is Hyjal and the Black Temple."
     },
     {
         "start_time": "00:21:05.899",
+        "start_sec": 1265.899,
         "end_time": "00:21:12.623",
+        "end_sec": 1272.623,
         "text": "BRIAN: And the reason that's a change is of course, originally, Hyjal was available from the launch of Burning Crusade,"
     },
     {
         "start_time": "00:21:12.656",
+        "start_sec": 1272.656,
         "end_time": "00:21:15.125",
+        "end_sec": 1275.125,
         "text": "but nobody could get in because of the way the achievements work,"
     },
     {
         "start_time": "00:21:15.158",
+        "start_sec": 1275.158,
         "end_time": "00:21:17.861",
+        "end_sec": 1277.861,
         "text": "so we’ll unlock that as a later chapter alongside Black Temple."
     },
     {
         "start_time": "00:21:18.362",
+        "start_sec": 1278.362,
         "end_time": "00:21:21.582",
+        "end_sec": 1281.582,
         "text": "And then, that'll go with Arena Season Two at that point."
     },
     {
         "start_time": "00:21:21.615",
+        "start_sec": 1281.615,
         "end_time": "00:21:26.186",
+        "end_sec": 1286.186,
         "text": "And Arena Season Three will come out alongside Zul'Aman, with a little bit of catch-up gear for anyone"
     },
     {
         "start_time": "00:21:26.220",
+        "start_sec": 1286.22,
         "end_time": "00:21:27.855",
+        "end_sec": 1287.855,
         "text": "who's taken that long to catch up."
     },
     {
         "start_time": "00:21:27.888",
+        "start_sec": 1287.888,
         "end_time": "00:21:30.591",
+        "end_sec": 1290.591,
         "text": "It's another smaller instance, a ten-man."
     },
     {
         "start_time": "00:21:30.891",
+        "start_sec": 1290.891,
         "end_time": "00:21:34.628",
+        "end_sec": 1294.628,
         "text": "And then finally, Phase Five will be Sunwell and Arena Season Four."
     },
     {
         "start_time": "00:21:34.661",
+        "start_sec": 1294.661,
         "end_time": "00:21:36.697",
+        "end_sec": 1296.6970000000001,
         "text": "-PATRICK: Tons of content. -HOLLY: Been very busy."
     },
     {
         "start_time": "00:21:36.730",
+        "start_sec": 1296.73,
         "end_time": "00:21:39.833",
+        "end_sec": 1299.833,
         "text": "LAUGHTER It is, it's an expansion with a lot in it."
     },
     {
         "start_time": "00:21:39.867",
+        "start_sec": 1299.867,
         "end_time": "00:21:43.020",
+        "end_sec": 1303.02,
         "text": "And so we spent a lot of time talking about Burning Crusade Classic,"
     },
     {
         "start_time": "00:21:43.053",
+        "start_sec": 1303.0529999999999,
         "end_time": "00:21:50.544",
+        "end_sec": 1310.544,
         "text": "and Burning Crusade, which is exciting, we're very excited about it, but there's a lot to talk about, there's a lot coming,"
     },
     {
         "start_time": "00:21:50.577",
+        "start_sec": 1310.577,
         "end_time": "00:21:53.730",
+        "end_sec": 1313.73,
         "text": "and we want to walk through how this is going to materialize."
     },
     {
         "start_time": "00:21:53.764",
+        "start_sec": 1313.764,
         "end_time": "00:21:56.450",
+        "end_sec": 1316.45,
         "text": "Well yeah, really the question is, we have a diverse player base"
     },
     {
         "start_time": "00:21:56.483",
+        "start_sec": 1316.483,
         "end_time": "00:21:58.719",
+        "end_sec": 1318.719,
         "text": "where people have a lot of different wants and needs."
     },
     {
         "start_time": "00:21:58.752",
+        "start_sec": 1318.752,
         "end_time": "00:22:01.305",
+        "end_sec": 1321.305,
         "text": "How do we get there? How do we get to the Burning Crusade?"
     },
     {
         "start_time": "00:22:01.338",
+        "start_sec": 1321.338,
         "end_time": "00:22:05.959",
+        "end_sec": 1325.959,
         "text": "Well, the first group of people that we wanted to make sure that we were serving well"
     },
     {
         "start_time": "00:22:05.993",
+        "start_sec": 1325.993,
         "end_time": "00:22:08.645",
+        "end_sec": 1328.645,
         "text": "is those people who do want to go to the Burning Crusade."
     },
     {
         "start_time": "00:22:08.679",
+        "start_sec": 1328.679,
         "end_time": "00:22:12.049",
+        "end_sec": 1332.049,
         "text": "We feel that most of the community is interested in this, they're gonna want to do this,"
     },
     {
         "start_time": "00:22:12.082",
+        "start_sec": 1332.082,
         "end_time": "00:22:13.750",
+        "end_sec": 1333.75,
         "text": "we want to make it simple and easy for them."
     },
     {
         "start_time": "00:22:13.784",
+        "start_sec": 1333.784,
         "end_time": "00:22:15.385",
+        "end_sec": 1335.385,
         "text": "So, how are we gonna do that?"
     },
     {
         "start_time": "00:22:15.419",
+        "start_sec": 1335.419,
         "end_time": "00:22:18.021",
+        "end_sec": 1338.021,
         "text": "As we said earlier, you're going to be able to make a choice."
     },
     {
         "start_time": "00:22:18.055",
+        "start_sec": 1338.055,
         "end_time": "00:22:23.177",
+        "end_sec": 1343.177,
         "text": "So we'll talk about and explore these choices in some detail, and I'll give you some examples. (CHUCKLES)"
     },
     {
         "start_time": "00:22:23.210",
+        "start_sec": 1343.21,
         "end_time": "00:22:28.549",
+        "end_sec": 1348.549,
         "text": "So, to start with, the current servers you're on now, Classic live servers,"
     },
     {
         "start_time": "00:22:28.582",
+        "start_sec": 1348.582,
         "end_time": "00:22:31.385",
+        "end_sec": 1351.385,
         "text": "are gonna become what we're calling progression servers."
     },
     {
         "start_time": "00:22:31.418",
+        "start_sec": 1351.418,
         "end_time": "00:22:37.491",
+        "end_sec": 1357.491,
         "text": "And what that means is, the servers that are live now will always unlock any expansion we release."
     },
     {
         "start_time": "00:22:37.791",
+        "start_sec": 1357.791,
         "end_time": "00:22:42.179",
+        "end_sec": 1362.179,
         "text": "So, when we get to our patch day, you're gonna be presented with a choice."
     },
     {
         "start_time": "00:22:42.212",
+        "start_sec": 1362.212,
         "end_time": "00:22:47.668",
+        "end_sec": 1367.668,
         "text": "Do you want to continue on into the Burning Crusade, or do you want to move to Classic?"
     },
     {
         "start_time": "00:22:47.701",
+        "start_sec": 1367.701,
         "end_time": "00:22:51.271",
+        "end_sec": 1371.271,
         "text": "So, in that space, you're gonna do that for every single character."
     },
     {
         "start_time": "00:22:51.305",
+        "start_sec": 1371.305,
         "end_time": "00:22:54.324",
+        "end_sec": 1374.324,
         "text": "For my example, I'm on Wyrmrest Accord."
     },
     {
         "start_time": "00:22:54.358",
+        "start_sec": 1374.358,
         "end_time": "00:22:59.263",
+        "end_sec": 1379.263,
         "text": "So I've got a Level 60 I'm definitely taking that on through to Burning Crusade,"
     },
     {
         "start_time": "00:22:59.296",
+        "start_sec": 1379.296,
         "end_time": "00:23:02.416",
+        "end_sec": 1382.416,
         "text": "but I've got a couple of mid-levels that I know I want to move with my friends."
     },
     {
         "start_time": "00:23:02.449",
+        "start_sec": 1382.449,
         "end_time": "00:23:07.671",
+        "end_sec": 1387.671,
         "text": "Those are characters I have level with my friends in classing and I want to continue that journey with them."
     },
     {
         "start_time": "00:23:07.704",
+        "start_sec": 1387.704,
         "end_time": "00:23:11.925",
+        "end_sec": 1391.925,
         "text": "We want to make it as easy and seamless as possible to just get right into Burning Crusade,"
     },
     {
         "start_time": "00:23:11.959",
+        "start_sec": 1391.959,
         "end_time": "00:23:13.076",
+        "end_sec": 1393.076,
         "text": "but there are options."
     },
     {
         "start_time": "00:23:13.110",
+        "start_sec": 1393.11,
         "end_time": "00:23:15.128",
+        "end_sec": 1395.128,
         "text": "Well that's awesome, I'm excited to hear that."
     },
     {
         "start_time": "00:23:15.162",
+        "start_sec": 1395.162,
         "end_time": "00:23:22.219",
+        "end_sec": 1402.219,
         "text": "I know there's a lot of my friends, for example, who maybe didn't really play Classic when it first came out,"
     },
     {
         "start_time": "00:23:22.252",
+        "start_sec": 1402.252,
         "end_time": "00:23:23.604",
+        "end_sec": 1403.604,
         "text": "and so now they're behind."
     },
     {
         "start_time": "00:23:23.937",
+        "start_sec": 1403.937,
         "end_time": "00:23:26.089",
+        "end_sec": 1406.089,
         "text": "And they're interested in playing the Burning Crusade."
     },
     {
         "start_time": "00:23:26.123",
+        "start_sec": 1406.123,
         "end_time": "00:23:29.193",
+        "end_sec": 1409.193,
         "text": "This was, for a lot of people, their favorite expansion that we've done."
     },
     {
         "start_time": "00:23:30.143",
+        "start_sec": 1410.143,
         "end_time": "00:23:33.847",
+        "end_sec": 1413.847,
         "text": "We want to make sure that those people are served too, and one of the ways we can do that"
     },
     {
         "start_time": "00:23:33.881",
+        "start_sec": 1413.881,
         "end_time": "00:23:37.868",
+        "end_sec": 1417.868,
         "text": "is provide a boost to people who are interested in coming back,"
     },
     {
         "start_time": "00:23:37.901",
+        "start_sec": 1417.901,
         "end_time": "00:23:43.123",
+        "end_sec": 1423.123,
         "text": "but maybe aren't interested in doing the Classic WoW experience, but want to hop right in to Outlands as quickly as possible."
     },
     {
         "start_time": "00:23:43.156",
+        "start_sec": 1423.156,
         "end_time": "00:23:46.660",
+        "end_sec": 1426.66,
         "text": "Yeah, so, the team, we spent quite a bit of time discussing it"
     },
     {
         "start_time": "00:23:46.693",
+        "start_sec": 1426.693,
         "end_time": "00:23:52.916",
+        "end_sec": 1432.916,
         "text": "because we want to make sure we respect the time and the people that have been playing Classic for two years,"
     },
     {
         "start_time": "00:23:52.950",
+        "start_sec": 1432.95,
         "end_time": "00:23:56.270",
+        "end_sec": 1436.27,
         "text": "but also we want people to be able to enjoy Burning Crusade"
     },
     {
         "start_time": "00:23:56.303",
+        "start_sec": 1436.3029999999999,
         "end_time": "00:23:59.189",
+        "end_sec": 1439.189,
         "text": "if they loved it the first time and maybe missed Classic."
     },
     {
         "start_time": "00:23:59.223",
+        "start_sec": 1439.223,
         "end_time": "00:24:05.729",
+        "end_sec": 1445.729,
         "text": "So, we are gonna offer a Level 58 boost for purchase, but it does come with some restrictions."
     },
     {
         "start_time": "00:24:05.762",
+        "start_sec": 1445.762,
         "end_time": "00:24:07.064",
+        "end_sec": 1447.064,
         "text": "So, it's gonna be one per account."
     },
     {
         "start_time": "00:24:07.664",
+        "start_sec": 1447.664,
         "end_time": "00:24:10.684",
+        "end_sec": 1450.684,
         "text": "It's not gonna be usable on blood elf or draenei."
     },
     {
         "start_time": "00:24:11.068",
+        "start_sec": 1451.068,
         "end_time": "00:24:16.773",
+        "end_sec": 1456.773,
         "text": "It'll have some dungeon blues, it'll have Level 40 mount skill, no professions, it's the basics."
     },
     {
         "start_time": "00:24:16.807",
+        "start_sec": 1456.807,
         "end_time": "00:24:19.276",
+        "end_sec": 1459.276,
         "text": "Basically your Outlands starting kit."
     },
     {
         "start_time": "00:24:19.309",
+        "start_sec": 1459.309,
         "end_time": "00:24:22.696",
+        "end_sec": 1462.696,
         "text": "That's cool. That's a really great way to jump into the game, for sure."
     },
     {
         "start_time": "00:24:22.729",
+        "start_sec": 1462.729,
         "end_time": "00:24:24.731",
+        "end_sec": 1464.731,
         "text": "-Yeah, I like that. -I'll be looking forward to it."
     },
     {
         "start_time": "00:24:24.765",
+        "start_sec": 1464.765,
         "end_time": "00:24:27.768",
+        "end_sec": 1467.768,
         "text": "Look, I know a lot of people came back to play WoW Classic."
     },
     {
         "start_time": "00:24:27.801",
+        "start_sec": 1467.801,
         "end_time": "00:24:29.469",
+        "end_sec": 1469.469,
         "text": "That's all they want, all they ever wanted."
     },
     {
         "start_time": "00:24:29.503",
+        "start_sec": 1469.503,
         "end_time": "00:24:30.754",
+        "end_sec": 1470.754,
         "text": "They're like, \"You know what?"
     },
     {
         "start_time": "00:24:30.787",
+        "start_sec": 1470.787,
         "end_time": "00:24:35.692",
+        "end_sec": 1475.692,
         "text": "Burning Crusade, that’s awesome, people are gonna love that, but for me, I came back for WoW Classic.\""
     },
     {
         "start_time": "00:24:35.726",
+        "start_sec": 1475.726,
         "end_time": "00:24:37.794",
+        "end_sec": 1477.794,
         "text": "What do they get to do? What's their options?"
     },
     {
         "start_time": "00:24:37.828",
+        "start_sec": 1477.828,
         "end_time": "00:24:39.713",
+        "end_sec": 1479.713,
         "text": "Yeah, that was really important for us too."
     },
     {
         "start_time": "00:24:39.746",
+        "start_sec": 1479.746,
         "end_time": "00:24:45.335",
+        "end_sec": 1485.335,
         "text": "So, we had all sat down and discussed how we should frame this,"
     },
     {
         "start_time": "00:24:45.369",
+        "start_sec": 1485.369,
         "end_time": "00:24:50.390",
+        "end_sec": 1490.39,
         "text": "so, when we get to our patch day, which is prior to the Dark Portal opening,"
     },
     {
         "start_time": "00:24:50.807",
+        "start_sec": 1490.807,
         "end_time": "00:24:54.494",
+        "end_sec": 1494.494,
         "text": "when I said before, I'll go back to my example, for Wyrmrest,"
     },
     {
         "start_time": "00:24:54.528",
+        "start_sec": 1494.528,
         "end_time": "00:25:00.868",
+        "end_sec": 1500.868,
         "text": "we will be launching Classic-era realms at the same time as we do our patch,"
     },
     {
         "start_time": "00:25:01.151",
+        "start_sec": 1501.151,
         "end_time": "00:25:02.669",
+        "end_sec": 1502.669,
         "text": "and you will have that choice."
     },
     {
         "start_time": "00:25:02.703",
+        "start_sec": 1502.703,
         "end_time": "00:25:05.889",
+        "end_sec": 1505.889,
         "text": "So, when you make the choice to go to Burning Crusade Classic,"
     },
     {
         "start_time": "00:25:06.390",
+        "start_sec": 1506.39,
         "end_time": "00:25:10.594",
+        "end_sec": 1510.594,
         "text": "or you make the choice, like on my example, my Level 40 druid,"
     },
     {
         "start_time": "00:25:10.627",
+        "start_sec": 1510.627,
         "end_time": "00:25:15.415",
+        "end_sec": 1515.415,
         "text": "I want to move that character to Classic era, and what Classic era means,"
     },
     {
         "start_time": "00:25:15.449",
+        "start_sec": 1515.449,
         "end_time": "00:25:19.419",
+        "end_sec": 1519.419,
         "text": "is that those particular servers are going to stay in that era forever,"
     },
     {
         "start_time": "00:25:19.453",
+        "start_sec": 1519.453,
         "end_time": "00:25:22.739",
+        "end_sec": 1522.739,
         "text": "so that is going to remain Classic till the end of time."
     },
     {
         "start_time": "00:25:22.773",
+        "start_sec": 1522.773,
         "end_time": "00:25:24.608",
+        "end_sec": 1524.608,
         "text": "It's never going to unlock expansions."
     },
     {
         "start_time": "00:25:24.875",
+        "start_sec": 1524.875,
         "end_time": "00:25:27.294",
+        "end_sec": 1527.294,
         "text": "You'll be able to make that choice for every single character."
     },
     {
         "start_time": "00:25:27.327",
+        "start_sec": 1527.327,
         "end_time": "00:25:30.581",
+        "end_sec": 1530.581,
         "text": "Do you go on to Burning Crusade, or do you choose to go to Classic era?"
     },
     {
         "start_time": "00:25:30.614",
+        "start_sec": 1530.614,
         "end_time": "00:25:34.117",
+        "end_sec": 1534.117,
         "text": "Let's say you're behind the times a little bit."
     },
     {
         "start_time": "00:25:34.151",
+        "start_sec": 1534.151,
         "end_time": "00:25:35.702",
+        "end_sec": 1535.702,
         "text": "You'll still be able to have that choice."
     },
     {
         "start_time": "00:25:35.736",
+        "start_sec": 1535.736,
         "end_time": "00:25:37.921",
+        "end_sec": 1537.921,
         "text": "We haven't locked it to a time window."
     },
     {
         "start_time": "00:25:37.955",
+        "start_sec": 1537.955,
         "end_time": "00:25:39.840",
+        "end_sec": 1539.84,
         "text": "You're not gonna miss the boat to era."
     },
     {
         "start_time": "00:25:39.873",
+        "start_sec": 1539.873,
         "end_time": "00:25:44.444",
+        "end_sec": 1544.444,
         "text": "The choice sounds awesome, and choice in WoW is something meaningful, it's always been."
     },
     {
         "start_time": "00:25:44.478",
+        "start_sec": 1544.478,
         "end_time": "00:25:47.364",
+        "end_sec": 1547.364,
         "text": "I think it's something that's important when we look at the community"
     },
     {
         "start_time": "00:25:47.397",
+        "start_sec": 1547.397,
         "end_time": "00:25:50.734",
+        "end_sec": 1550.734,
         "text": "that you're gonna choose to go to the Burning Crusade or you're gonna choose to go to Classic."
     },
     {
         "start_time": "00:25:51.385",
+        "start_sec": 1551.385,
         "end_time": "00:25:53.637",
+        "end_sec": 1553.637,
         "text": "Some people may not be comfortable with that choice."
     },
     {
         "start_time": "00:25:53.670",
+        "start_sec": 1553.67,
         "end_time": "00:25:57.975",
+        "end_sec": 1557.975,
         "text": "And while we think that that choice is important, we also recognize that there are folks"
     },
     {
         "start_time": "00:25:58.008",
+        "start_sec": 1558.008,
         "end_time": "00:25:59.510",
+        "end_sec": 1559.51,
         "text": "that are gonna want to play both."
     },
     {
         "start_time": "00:25:59.543",
+        "start_sec": 1559.543,
         "end_time": "00:26:02.045",
+        "end_sec": 1562.045,
         "text": "-Right? Like-- Yeah. See. -LAUGHTER Right here."
     },
     {
         "start_time": "00:26:02.079",
+        "start_sec": 1562.079,
         "end_time": "00:26:04.731",
+        "end_sec": 1564.731,
         "text": "Maybe you have some stuff left to do in Classic that you wanted,"
     },
     {
         "start_time": "00:26:04.765",
+        "start_sec": 1564.765,
         "end_time": "00:26:07.551",
+        "end_sec": 1567.551,
         "text": "you want to keep that character in Classic, but you're also interested,"
     },
     {
         "start_time": "00:26:07.584",
+        "start_sec": 1567.584,
         "end_time": "00:26:09.703",
+        "end_sec": 1569.703,
         "text": "that same character wants to raid with your friends."
     },
     {
         "start_time": "00:26:09.736",
+        "start_sec": 1569.736,
         "end_time": "00:26:12.189",
+        "end_sec": 1572.189,
         "text": "-BRIAN: That's exactly-- -So what does that look like?"
     },
     {
         "start_time": "00:26:12.222",
+        "start_sec": 1572.222,
         "end_time": "00:26:13.223",
+        "end_sec": 1573.223,
         "text": "How do we make that happen?"
     },
     {
         "start_time": "00:26:13.257",
+        "start_sec": 1573.257,
         "end_time": "00:26:17.394",
+        "end_sec": 1577.394,
         "text": "So we're gonna offer a paid service to let you make a copy of your character,"
     },
     {
         "start_time": "00:26:17.427",
+        "start_sec": 1577.427,
         "end_time": "00:26:19.630",
+        "end_sec": 1579.63,
         "text": "and I know a copy's a big deal, so like you said,"
     },
     {
         "start_time": "00:26:19.663",
+        "start_sec": 1579.663,
         "end_time": "00:26:23.016",
+        "end_sec": 1583.016,
         "text": "this is something we don't want to make just an automatic choice for everybody,"
     },
     {
         "start_time": "00:26:23.050",
+        "start_sec": 1583.05,
         "end_time": "00:26:27.471",
+        "end_sec": 1587.471,
         "text": "but I know that for me, it really is gonna be that pull to go to both places,"
     },
     {
         "start_time": "00:26:27.504",
+        "start_sec": 1587.504,
         "end_time": "00:26:29.289",
+        "end_sec": 1589.289,
         "text": "so I want to be able to say, like, \"You know what?"
     },
     {
         "start_time": "00:26:29.323",
+        "start_sec": 1589.323,
         "end_time": "00:26:30.707",
+        "end_sec": 1590.707,
         "text": "I'm willing to pay for this."
     },
     {
         "start_time": "00:26:30.741",
+        "start_sec": 1590.741,
         "end_time": "00:26:33.677",
+        "end_sec": 1593.677,
         "text": "I want a copy of my character that lives in Classic era forever,"
     },
     {
         "start_time": "00:26:33.710",
+        "start_sec": 1593.71,
         "end_time": "00:26:38.882",
+        "end_sec": 1598.882,
         "text": "while I also go to Burning Crusade with that character.\" That way, I can stay with my friends"
     },
     {
         "start_time": "00:26:38.916",
+        "start_sec": 1598.916,
         "end_time": "00:26:42.002",
+        "end_sec": 1602.002,
         "text": "who are really excited to go to Karazhan, I'm really excited to go to Karazhan,"
     },
     {
         "start_time": "00:26:42.035",
+        "start_sec": 1602.035,
         "end_time": "00:26:45.205",
+        "end_sec": 1605.205,
         "text": "I want to see my hunter go to Karazhan, but if I'm missing a couple pieces"
     },
     {
         "start_time": "00:26:45.239",
+        "start_sec": 1605.239,
         "end_time": "00:26:49.893",
+        "end_sec": 1609.893,
         "text": "of my Tier Three set from Naxxramas, I still have an opportunity to go find a new guild there,"
     },
     {
         "start_time": "00:26:49.927",
+        "start_sec": 1609.927,
         "end_time": "00:26:52.913",
+        "end_sec": 1612.913,
         "text": "and go through Naxxramas again until I finish that set."
     },
     {
         "start_time": "00:26:52.946",
+        "start_sec": 1612.946,
         "end_time": "00:26:57.868",
+        "end_sec": 1617.868,
         "text": "We'll be spending a lot of time communicating these details, so even as much detail as we're giving now,"
     },
     {
         "start_time": "00:26:57.901",
+        "start_sec": 1617.901,
         "end_time": "00:27:00.621",
+        "end_sec": 1620.621,
         "text": "it's very high-level, there's going to be a lot more detail to come,"
     },
     {
         "start_time": "00:27:00.654",
+        "start_sec": 1620.654,
         "end_time": "00:27:01.939",
+        "end_sec": 1621.939,
         "text": "so keep an ear out."
     },
     {
         "start_time": "00:27:01.972",
+        "start_sec": 1621.972,
         "end_time": "00:27:04.358",
+        "end_sec": 1624.358,
         "text": "But, with that said... So, Pat?"
     },
     {
         "start_time": "00:27:04.741",
+        "start_sec": 1624.741,
         "end_time": "00:27:06.243",
+        "end_sec": 1626.243,
         "text": "-Hm? -When's all this happening?"
     },
     {
         "start_time": "00:27:06.276",
+        "start_sec": 1626.276,
         "end_time": "00:27:07.311",
+        "end_sec": 1627.311,
         "text": "Oh."
     },
     {
         "start_time": "00:27:07.344",
+        "start_sec": 1627.344,
         "end_time": "00:27:09.880",
+        "end_sec": 1629.88,
         "text": "LAUGHTER Soon."
     },
     {
         "start_time": "00:27:09.913",
+        "start_sec": 1629.913,
         "end_time": "00:27:14.718",
+        "end_sec": 1634.718,
         "text": "-Yay! -LAUGHTER So yeah, this is something that's important to get."
     },
     {
         "start_time": "00:27:14.751",
+        "start_sec": 1634.751,
         "end_time": "00:27:17.988",
+        "end_sec": 1637.988,
         "text": "People are playing through Naxxramas, we want to make sure they have time to do that,"
     },
     {
         "start_time": "00:27:18.021",
+        "start_sec": 1638.021,
         "end_time": "00:27:21.525",
+        "end_sec": 1641.525,
         "text": "but we are looking at, this will be happening in 2021."
     },
     {
         "start_time": "00:27:22.209",
+        "start_sec": 1642.209,
         "end_time": "00:27:24.661",
+        "end_sec": 1644.661,
         "text": "For sure, we're committed to that."
     },
     {
         "start_time": "00:27:24.695",
+        "start_sec": 1644.695,
         "end_time": "00:27:27.364",
+        "end_sec": 1647.364,
         "text": "And what we're looking at is starting the beta rather soon."
     },
     {
         "start_time": "00:27:27.865",
+        "start_sec": 1647.865,
         "end_time": "00:27:30.851",
+        "end_sec": 1650.851,
         "text": "So hopefully that beta will go up, and we get that running,"
     },
     {
         "start_time": "00:27:30.884",
+        "start_sec": 1650.884,
         "end_time": "00:27:33.086",
+        "end_sec": 1653.086,
         "text": "the community can come and participate, help us out."
     },
     {
         "start_time": "00:27:33.787",
+        "start_sec": 1653.787,
         "end_time": "00:27:36.673",
+        "end_sec": 1656.673,
         "text": "We'll start to hear some feedback on the things we've talked about today."
     },
     {
         "start_time": "00:27:37.007",
+        "start_sec": 1657.007,
         "end_time": "00:27:39.810",
+        "end_sec": 1659.81,
         "text": "If there's any adjustments to make, we wanna make sure we have a long enough"
     },
     {
         "start_time": "00:27:39.843",
+        "start_sec": 1659.843,
         "end_time": "00:27:40.961",
+        "end_sec": 1660.961,
         "text": "beta period for that."
     },
     {
         "start_time": "00:27:40.994",
+        "start_sec": 1660.994,
         "end_time": "00:27:43.964",
+        "end_sec": 1663.964,
         "text": "Then we'll get that out to the players, so you can all enter the Dark Portal."
     },
     {
         "start_time": "00:27:43.997",
+        "start_sec": 1663.997,
         "end_time": "00:27:45.649",
+        "end_sec": 1665.649,
         "text": "-Yay! -Yeah, it's exciting."
     },
     {
         "start_time": "00:27:45.682",
+        "start_sec": 1665.682,
         "end_time": "00:27:49.453",
+        "end_sec": 1669.453,
         "text": "LAUGHTER So, any final words?"
     },
     {
         "start_time": "00:27:49.486",
+        "start_sec": 1669.486,
         "end_time": "00:27:53.841",
+        "end_sec": 1673.841,
         "text": "Yeah, I just talked about the beta, and I will say just to the community,"
     },
     {
         "start_time": "00:27:53.874",
+        "start_sec": 1673.874,
         "end_time": "00:27:58.445",
+        "end_sec": 1678.445,
         "text": "you all have been so instrumental in making Classic the success that it has been,"
     },
     {
         "start_time": "00:27:58.478",
+        "start_sec": 1678.478,
         "end_time": "00:28:02.850",
+        "end_sec": 1682.85,
         "text": "and you'll be equally instrumental in making the Burning Crusade a tremendous success also,"
     },
     {
         "start_time": "00:28:02.883",
+        "start_sec": 1682.883,
         "end_time": "00:28:07.604",
+        "end_sec": 1687.604,
         "text": "so, please, get in that beta, play, give us your feedback, we want to hear all about it, so..."
     },
     {
         "start_time": "00:28:08.222",
+        "start_sec": 1688.222,
         "end_time": "00:28:09.957",
+        "end_sec": 1689.957,
         "text": "Enjoy, welcome, and let's have some fun."
     },
     {
         "start_time": "00:28:09.990",
+        "start_sec": 1689.99,
         "end_time": "00:28:11.008",
+        "end_sec": 1691.008,
         "text": "-Yay! -Yeah."
     },
     {
         "start_time": "00:28:11.041",
+        "start_sec": 1691.041,
         "end_time": "00:28:14.311",
+        "end_sec": 1694.311,
         "text": "And it's been the highlight of my professional career to work on WoW Classic"
     },
     {
         "start_time": "00:28:14.344",
+        "start_sec": 1694.344,
         "end_time": "00:28:16.313",
+        "end_sec": 1696.313,
         "text": "and have the support and love of this community."
     },
     {
         "start_time": "00:28:16.797",
+        "start_sec": 1696.797,
         "end_time": "00:28:20.334",
+        "end_sec": 1700.334,
         "text": "It is really special to me, and I'm really excited to be sharing this with all of you"
     },
     {
         "start_time": "00:28:20.367",
+        "start_sec": 1700.367,
         "end_time": "00:28:21.368",
+        "end_sec": 1701.368,
         "text": "in the Burning Crusade."
     },
     {
         "start_time": "00:28:22.002",
+        "start_sec": 1702.002,
         "end_time": "00:28:26.573",
+        "end_sec": 1706.573,
         "text": "Yeah, and for me, I've been playing Classic since it launched,"
     },
     {
         "start_time": "00:28:27.491",
+        "start_sec": 1707.491,
         "end_time": "00:28:31.879",
+        "end_sec": 1711.879,
         "text": "and I wasn't working at Blizzard then, and it's changed my life, obviously."
     },
     {
         "start_time": "00:28:31.912",
+        "start_sec": 1711.912,
         "end_time": "00:28:39.136",
+        "end_sec": 1719.136,
         "text": "(LAUGHS) So, from me and the entire WoW team, we want to thank you for bringing Azeroth to life for us,"
     },
     {
         "start_time": "00:28:39.169",
+        "start_sec": 1719.169,
         "end_time": "00:28:43.290",
+        "end_sec": 1723.29,
         "text": "so we will definitely be seeing you in game in whatever flavor you choose."
     },
     {
         "start_time": "00:28:43.657",
+        "start_sec": 1723.657,
         "end_time": "00:28:46.243",
+        "end_sec": 1726.243,
         "text": "(CHUCKLES) And until then, stay Classic."
     },
     {
         "start_time": "00:28:46.426",
+        "start_sec": 1726.426,
         "end_time": "00:28:48.278",
+        "end_sec": 1728.278,
         "text": "SOFT MUSIC PLAYS"
     }
 ]

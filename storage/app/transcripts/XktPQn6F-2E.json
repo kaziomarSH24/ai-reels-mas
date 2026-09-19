@@ -1,912 +1,1276 @@
 [
     {
         "start_time": "00:00:00.210",
+        "start_sec": 0.21,
         "end_time": "00:00:04.610",
+        "end_sec": 4.61,
         "text": "Vanessa: Hi, I'm Vanessa, from SpeakingEnglishwithVanessa.com."
     },
     {
         "start_time": "00:00:04.610",
+        "start_sec": 4.61,
         "end_time": "00:00:07.960",
+        "end_sec": 7.96,
         "text": "Do you know any business idioms or phrasal verbs?"
     },
     {
         "start_time": "00:00:07.960",
+        "start_sec": 7.96,
         "end_time": "00:00:14.640",
+        "end_sec": 14.64,
         "text": "Let's talk about them."
     },
     {
         "start_time": "00:00:14.640",
+        "start_sec": 14.64,
         "end_time": "00:00:18.769",
+        "end_sec": 18.769,
         "text": "Today you're going to learn three business phrasal verbs and three business idioms."
     },
     {
         "start_time": "00:00:18.769",
+        "start_sec": 18.769,
         "end_time": "00:00:24.609",
+        "end_sec": 24.609,
         "text": "But as you might know, a lot of the videos on my channel are about conversational English."
     },
     {
         "start_time": "00:00:24.609",
+        "start_sec": 24.609,
         "end_time": "00:00:30.579",
+        "end_sec": 30.579,
         "text": "So when I wanted to make a video about business English, I thought, \"Who are some experts"
     },
     {
         "start_time": "00:00:30.579",
+        "start_sec": 30.579,
         "end_time": "00:00:34.510",
+        "end_sec": 34.51,
         "text": "who can help me with professional English expressions?\" A-ha."
     },
     {
         "start_time": "00:00:34.510",
+        "start_sec": 34.51,
         "end_time": "00:00:37.179",
+        "end_sec": 37.179,
         "text": "I have a great solution for you."
     },
     {
         "start_time": "00:00:37.179",
+        "start_sec": 37.179,
         "end_time": "00:00:43.949",
+        "end_sec": 43.949,
         "text": "Today, I'm joined with Leila and Sabrah from Love English; the Love English YouTube channel."
     },
     {
         "start_time": "00:00:43.949",
+        "start_sec": 43.949,
         "end_time": "00:00:46.370",
+        "end_sec": 46.37,
         "text": "They are university English teachers."
     },
     {
         "start_time": "00:00:46.370",
+        "start_sec": 46.37,
         "end_time": "00:00:51.109",
+        "end_sec": 51.109,
         "text": "So, every day they help students with professional, polite English."
     },
     {
         "start_time": "00:00:51.109",
+        "start_sec": 51.109,
         "end_time": "00:00:56.251",
+        "end_sec": 56.251,
         "text": "Whether that is passing an important English exam, so that you can get a promotion, so"
     },
     {
         "start_time": "00:00:56.251",
+        "start_sec": 56.251,
         "end_time": "00:01:00.949",
+        "end_sec": 60.949,
         "text": "that you can get a better job, so that you get a Visa to go to another country, they"
     },
     {
         "start_time": "00:01:00.949",
+        "start_sec": 60.949,
         "end_time": "00:01:05.110",
+        "end_sec": 65.11,
         "text": "are experts at this kind of professional, polite English."
     },
     {
         "start_time": "00:01:05.110",
+        "start_sec": 65.11,
         "end_time": "00:01:08.450",
+        "end_sec": 68.45,
         "text": "Make sure that after you watch this video, you check out the link in the description"
     },
     {
         "start_time": "00:01:08.450",
+        "start_sec": 68.45,
         "end_time": "00:01:14.000",
+        "end_sec": 74.0,
         "text": "to the lesson that we did on their channel about the top English interview questions"
     },
     {
         "start_time": "00:01:14.000",
+        "start_sec": 74.0,
         "end_time": "00:01:15.000",
+        "end_sec": 75.0,
         "text": "and answers."
     },
     {
         "start_time": "00:01:15.000",
+        "start_sec": 75.0,
         "end_time": "00:01:19.220",
+        "end_sec": 79.22,
         "text": "This is a fun, entertaining and useful lesson that we did together."
     },
     {
         "start_time": "00:01:19.220",
+        "start_sec": 79.22,
         "end_time": "00:01:22.310",
+        "end_sec": 82.31,
         "text": "It's really great to work with other English teachers, and I hope that it will be to your"
     },
     {
         "start_time": "00:01:22.310",
+        "start_sec": 82.31,
         "end_time": "00:01:23.310",
+        "end_sec": 83.31,
         "text": "benefit."
     },
     {
         "start_time": "00:01:23.310",
+        "start_sec": 83.31,
         "end_time": "00:01:24.570",
+        "end_sec": 84.57,
         "text": "Sabrah: Hello, everybody."
     },
     {
         "start_time": "00:01:24.570",
+        "start_sec": 84.57,
         "end_time": "00:01:25.920",
+        "end_sec": 85.92,
         "text": "We're Love English."
     },
     {
         "start_time": "00:01:25.920",
+        "start_sec": 85.92,
         "end_time": "00:01:26.920",
+        "end_sec": 86.92,
         "text": "I'm Sabrah."
     },
     {
         "start_time": "00:01:26.920",
+        "start_sec": 86.92,
         "end_time": "00:01:27.920",
+        "end_sec": 87.92,
         "text": "Leila: And I'm Leila."
     },
     {
         "start_time": "00:01:27.920",
+        "start_sec": 87.92,
         "end_time": "00:01:31.880",
+        "end_sec": 91.88,
         "text": "Sabrah: Thank you so much, Vanessa, for having us on your channel and asking us to help you"
     },
     {
         "start_time": "00:01:31.880",
+        "start_sec": 91.88,
         "end_time": "00:01:34.939",
+        "end_sec": 94.939,
         "text": "out with explaining some of these business expressions and idioms."
     },
     {
         "start_time": "00:01:34.939",
+        "start_sec": 94.939,
         "end_time": "00:01:37.689",
+        "end_sec": 97.689,
         "text": "Leila: So, we are British, if you can't tell."
     },
     {
         "start_time": "00:01:37.689",
+        "start_sec": 97.689,
         "end_time": "00:01:42.820",
+        "end_sec": 102.82,
         "text": "Our accents are British, and we've got a flag, just to help you recognize where we're from."
     },
     {
         "start_time": "00:01:42.820",
+        "start_sec": 102.82,
         "end_time": "00:01:44.630",
+        "end_sec": 104.63,
         "text": "We are real teachers."
     },
     {
         "start_time": "00:01:44.630",
+        "start_sec": 104.63,
         "end_time": "00:01:47.479",
+        "end_sec": 107.479,
         "text": "We teach at a British University college."
     },
     {
         "start_time": "00:01:47.479",
+        "start_sec": 107.479,
         "end_time": "00:01:50.979",
+        "end_sec": 110.979,
         "text": "We help students go to university and improve their language."
     },
     {
         "start_time": "00:01:50.979",
+        "start_sec": 110.979,
         "end_time": "00:01:52.799",
+        "end_sec": 112.799,
         "text": "Sabrah: Thank you so much, Vanessa."
     },
     {
         "start_time": "00:01:52.799",
+        "start_sec": 112.799,
         "end_time": "00:01:53.960",
+        "end_sec": 113.96000000000001,
         "text": "Let's get on with the expressions."
     },
     {
         "start_time": "00:01:53.960",
+        "start_sec": 113.96000000000001,
         "end_time": "00:01:58.439",
+        "end_sec": 118.439,
         "text": "Vanessa: The first phrasal verb that we're going to talk about is: To go over something."
     },
     {
         "start_time": "00:01:58.439",
+        "start_sec": 118.439,
         "end_time": "00:02:01.530",
+        "end_sec": 121.53,
         "text": "The first idiom is: To cut corners."
     },
     {
         "start_time": "00:02:01.530",
+        "start_sec": 121.53,
         "end_time": "00:02:07.520",
+        "end_sec": 127.52,
         "text": "Leila and Sabrah, how would you use these in professional business situations?"
     },
     {
         "start_time": "00:02:07.520",
+        "start_sec": 127.52,
         "end_time": "00:02:09.550",
+        "end_sec": 129.55,
         "text": "To go over something."
     },
     {
         "start_time": "00:02:09.550",
+        "start_sec": 129.55,
         "end_time": "00:02:11.350",
+        "end_sec": 131.35,
         "text": "To go over something."
     },
     {
         "start_time": "00:02:11.350",
+        "start_sec": 131.35,
         "end_time": "00:02:16.170",
+        "end_sec": 136.17000000000002,
         "text": "Leila: Let's start with a phrasal verb: To go over something."
     },
     {
         "start_time": "00:02:16.170",
+        "start_sec": 136.17000000000002,
         "end_time": "00:02:18.540",
+        "end_sec": 138.54,
         "text": "A very common phrasal verb, isn't it, Sabrah?"
     },
     {
         "start_time": "00:02:18.540",
+        "start_sec": 138.54,
         "end_time": "00:02:19.570",
+        "end_sec": 139.57,
         "text": "Sabrah: Yes, it is."
     },
     {
         "start_time": "00:02:19.570",
+        "start_sec": 139.57,
         "end_time": "00:02:20.570",
+        "end_sec": 140.57,
         "text": "Definitely, yeah."
     },
     {
         "start_time": "00:02:20.570",
+        "start_sec": 140.57,
         "end_time": "00:02:23.040",
+        "end_sec": 143.04,
         "text": "Leila: When we go over something, we review."
     },
     {
         "start_time": "00:02:23.040",
+        "start_sec": 143.04,
         "end_time": "00:02:26.330",
+        "end_sec": 146.32999999999998,
         "text": "Often a document or a plan, or even a business proposal."
     },
     {
         "start_time": "00:02:26.330",
+        "start_sec": 146.32999999999998,
         "end_time": "00:02:31.610",
+        "end_sec": 151.61,
         "text": "So, it means to review and look at in detail to make sure there's no problems."
     },
     {
         "start_time": "00:02:31.610",
+        "start_sec": 151.61,
         "end_time": "00:02:35.690",
+        "end_sec": 155.69,
         "text": "Sabrah: So, if you want somebody to check something at work you might say, \"Can you"
     },
     {
         "start_time": "00:02:35.690",
+        "start_sec": 155.69,
         "end_time": "00:02:36.830",
+        "end_sec": 156.82999999999998,
         "text": "go over this for me?"
     },
     {
         "start_time": "00:02:36.830",
+        "start_sec": 156.82999999999998,
         "end_time": "00:02:37.870",
+        "end_sec": 157.87,
         "text": "I'm not sure about these numbers."
     },
     {
         "start_time": "00:02:37.870",
+        "start_sec": 157.87,
         "end_time": "00:02:40.150",
+        "end_sec": 160.15,
         "text": "Could you go over the figures?\" Leila: Perfect example."
     },
     {
         "start_time": "00:02:40.150",
+        "start_sec": 160.15,
         "end_time": "00:02:41.620",
+        "end_sec": 161.62,
         "text": "Yes, figures is something, and numbers."
     },
     {
         "start_time": "00:02:41.620",
+        "start_sec": 161.62,
         "end_time": "00:02:42.720",
+        "end_sec": 162.72,
         "text": "Sabrah: Yes, and numbers."
     },
     {
         "start_time": "00:02:42.720",
+        "start_sec": 162.72,
         "end_time": "00:02:44.650",
+        "end_sec": 164.65,
         "text": "Vanessa: To cut corners."
     },
     {
         "start_time": "00:02:44.650",
+        "start_sec": 164.65,
         "end_time": "00:02:45.750",
+        "end_sec": 165.75,
         "text": "To cut corners."
     },
     {
         "start_time": "00:02:45.750",
+        "start_sec": 165.75,
         "end_time": "00:02:50.790",
+        "end_sec": 170.79,
         "text": "Sabrah: An idiom that kind of means that opposite is, to cut corners."
     },
     {
         "start_time": "00:02:50.790",
+        "start_sec": 170.79,
         "end_time": "00:02:56.070",
+        "end_sec": 176.07,
         "text": "To cut corners means to reduce the amount of time or money spent on doing something."
     },
     {
         "start_time": "00:02:56.070",
+        "start_sec": 176.07,
         "end_time": "00:02:59.580",
+        "end_sec": 179.57999999999998,
         "text": "Often, it ends up that you don't do such a good job because you've cut corners."
     },
     {
         "start_time": "00:02:59.580",
+        "start_sec": 179.57999999999998,
         "end_time": "00:03:00.580",
+        "end_sec": 180.58,
         "text": "Vanessa: Yes, exactly."
     },
     {
         "start_time": "00:03:00.580",
+        "start_sec": 180.58,
         "end_time": "00:03:04.980",
+        "end_sec": 184.98,
         "text": "Sabrah: So, for example, if you cut corners when you're a student learning English, you"
     },
     {
         "start_time": "00:03:04.980",
+        "start_sec": 184.98,
         "end_time": "00:03:07.360",
+        "end_sec": 187.36,
         "text": "might get someone else to help you write your essays."
     },
     {
         "start_time": "00:03:07.360",
+        "start_sec": 187.36,
         "end_time": "00:03:11.760",
+        "end_sec": 191.76,
         "text": "Yeah, you go the quick way, but it might not necessarily mean that you do such a good job"
     },
     {
         "start_time": "00:03:11.760",
+        "start_sec": 191.76,
         "end_time": "00:03:13.660",
+        "end_sec": 193.66,
         "text": "or that you learn as much."
     },
     {
         "start_time": "00:03:13.660",
+        "start_sec": 193.66,
         "end_time": "00:03:15.520",
+        "end_sec": 195.52,
         "text": "How would we use it in business, Leila?"
     },
     {
         "start_time": "00:03:15.520",
+        "start_sec": 195.52,
         "end_time": "00:03:21.360",
+        "end_sec": 201.36,
         "text": "Leila: In business you may try and cut corners when it comes to a project that you are investing"
     },
     {
         "start_time": "00:03:21.360",
+        "start_sec": 201.36,
         "end_time": "00:03:22.360",
+        "end_sec": 202.36,
         "text": "in."
     },
     {
         "start_time": "00:03:22.360",
+        "start_sec": 202.36,
         "end_time": "00:03:27.120",
+        "end_sec": 207.12,
         "text": "So you might want to save some money and maybe not have as many members of staff that you"
     },
     {
         "start_time": "00:03:27.120",
+        "start_sec": 207.12,
         "end_time": "00:03:31.440",
+        "end_sec": 211.44,
         "text": "need, which means that the job really isn't as good as it should be."
     },
     {
         "start_time": "00:03:31.440",
+        "start_sec": 211.44,
         "end_time": "00:03:34.750",
+        "end_sec": 214.75,
         "text": "Sabrah: So generally it's a bit of a negative thing, guys, to cut corners."
     },
     {
         "start_time": "00:03:34.750",
+        "start_sec": 214.75,
         "end_time": "00:03:36.470",
+        "end_sec": 216.47,
         "text": "I hope you guys aren't doing that."
     },
     {
         "start_time": "00:03:36.470",
+        "start_sec": 216.47,
         "end_time": "00:03:40.090",
+        "end_sec": 220.09,
         "text": "Vanessa: Thanks so much for going over these important expressions."
     },
     {
         "start_time": "00:03:40.090",
+        "start_sec": 220.09,
         "end_time": "00:03:42.950",
+        "end_sec": 222.95,
         "text": "You certainly didn't cut any corners."
     },
     {
         "start_time": "00:03:42.950",
+        "start_sec": 222.95,
         "end_time": "00:03:48.340",
+        "end_sec": 228.34,
         "text": "The next expressions that we're going to talk about are: To come up, and, better late than"
     },
     {
         "start_time": "00:03:48.340",
+        "start_sec": 228.34,
         "end_time": "00:03:49.340",
+        "end_sec": 229.34,
         "text": "never."
     },
     {
         "start_time": "00:03:49.340",
+        "start_sec": 229.34,
         "end_time": "00:03:51.540",
+        "end_sec": 231.54,
         "text": "Leila and Sabrah, how would you use these?"
     },
     {
         "start_time": "00:03:51.540",
+        "start_sec": 231.54,
         "end_time": "00:03:52.790",
+        "end_sec": 232.79,
         "text": "To come up."
     },
     {
         "start_time": "00:03:52.790",
+        "start_sec": 232.79,
         "end_time": "00:03:53.790",
+        "end_sec": 233.79,
         "text": "To come up."
     },
     {
         "start_time": "00:03:53.790",
+        "start_sec": 233.79,
         "end_time": "00:03:54.790",
+        "end_sec": 234.79,
         "text": "Leila: Okay."
     },
     {
         "start_time": "00:03:54.790",
+        "start_sec": 234.79,
         "end_time": "00:04:00.020",
+        "end_sec": 240.02,
         "text": "Another phrase that you will probably hear in the office is to come up."
     },
     {
         "start_time": "00:04:00.020",
+        "start_sec": 240.02,
         "end_time": "00:04:01.400",
+        "end_sec": 241.4,
         "text": "Something comes up."
     },
     {
         "start_time": "00:04:01.400",
+        "start_sec": 241.4,
         "end_time": "00:04:05.760",
+        "end_sec": 245.76,
         "text": "And this just simply means that another situation arises."
     },
     {
         "start_time": "00:04:05.760",
+        "start_sec": 245.76,
         "end_time": "00:04:06.960",
+        "end_sec": 246.96,
         "text": "To come up means to rise."
     },
     {
         "start_time": "00:04:06.960",
+        "start_sec": 246.96,
         "end_time": "00:04:12.310",
+        "end_sec": 252.31,
         "text": "Another situation arises and you need to delay what you are doing."
     },
     {
         "start_time": "00:04:12.310",
+        "start_sec": 252.31,
         "end_time": "00:04:16.650",
+        "end_sec": 256.65,
         "text": "So you may have planned to have a meeting, but something might come up."
     },
     {
         "start_time": "00:04:16.650",
+        "start_sec": 256.65,
         "end_time": "00:04:20.959",
+        "end_sec": 260.959,
         "text": "You might get caught in a business phone call that you have to take and you can't go to"
     },
     {
         "start_time": "00:04:20.959",
+        "start_sec": 260.959,
         "end_time": "00:04:21.959",
+        "end_sec": 261.959,
         "text": "the meeting."
     },
     {
         "start_time": "00:04:21.959",
+        "start_sec": 261.959,
         "end_time": "00:04:22.959",
+        "end_sec": 262.959,
         "text": "Sabrah: Yeah."
     },
     {
         "start_time": "00:04:22.959",
+        "start_sec": 262.959,
         "end_time": "00:04:23.959",
+        "end_sec": 263.959,
         "text": "\"So sorry."
     },
     {
         "start_time": "00:04:23.959",
+        "start_sec": 263.959,
         "end_time": "00:04:24.959",
+        "end_sec": 264.959,
         "text": "This opportunity has come up."
     },
     {
         "start_time": "00:04:24.959",
+        "start_sec": 264.959,
         "end_time": "00:04:27.090",
+        "end_sec": 267.09,
         "text": "I can't miss it.\" Things like that."
     },
     {
         "start_time": "00:04:27.090",
+        "start_sec": 267.09,
         "end_time": "00:04:30.000",
+        "end_sec": 270.0,
         "text": "Sometimes people will leave a meeting early because they'll say, \"I'm really sorry, but"
     },
     {
         "start_time": "00:04:30.000",
+        "start_sec": 270.0,
         "end_time": "00:04:31.960",
+        "end_sec": 271.96,
         "text": "actually something more important has come up."
     },
     {
         "start_time": "00:04:31.960",
+        "start_sec": 271.96,
         "end_time": "00:04:32.960",
+        "end_sec": 272.96,
         "text": "I have to leave."
     },
     {
         "start_time": "00:04:32.960",
+        "start_sec": 272.96,
         "end_time": "00:04:34.960",
+        "end_sec": 274.96,
         "text": "I'm so sorry.\" Things like that."
     },
     {
         "start_time": "00:04:34.960",
+        "start_sec": 274.96,
         "end_time": "00:04:36.550",
+        "end_sec": 276.55,
         "text": "So yes, it is very, very common in the workplace."
     },
     {
         "start_time": "00:04:36.550",
+        "start_sec": 276.55,
         "end_time": "00:04:40.439",
+        "end_sec": 280.439,
         "text": "And it happens unexpectedly, really."
     },
     {
         "start_time": "00:04:40.439",
+        "start_sec": 280.439,
         "end_time": "00:04:43.350",
+        "end_sec": 283.35,
         "text": "Vanessa: Better late than never."
     },
     {
         "start_time": "00:04:43.350",
+        "start_sec": 283.35,
         "end_time": "00:04:44.629",
+        "end_sec": 284.629,
         "text": "Better late than never."
     },
     {
         "start_time": "00:04:44.629",
+        "start_sec": 284.629,
         "end_time": "00:04:45.629",
+        "end_sec": 285.629,
         "text": "Sabrah: Right."
     },
     {
         "start_time": "00:04:45.629",
+        "start_sec": 285.629,
         "end_time": "00:04:47.639",
+        "end_sec": 287.639,
         "text": "This one, guys, actually it's a great expression."
     },
     {
         "start_time": "00:04:47.639",
+        "start_sec": 287.639,
         "end_time": "00:04:48.639",
+        "end_sec": 288.639,
         "text": "Leila: It is."
     },
     {
         "start_time": "00:04:48.639",
+        "start_sec": 288.639,
         "end_time": "00:04:49.639",
+        "end_sec": 289.639,
         "text": "Sabrah: Because I actually say it."
     },
     {
         "start_time": "00:04:49.639",
+        "start_sec": 289.639,
         "end_time": "00:04:50.639",
+        "end_sec": 290.639,
         "text": "Leila: Yes, you do."
     },
     {
         "start_time": "00:04:50.639",
+        "start_sec": 290.639,
         "end_time": "00:04:51.740",
+        "end_sec": 291.74,
         "text": "Sabrah: I tend to be a bit of a late person."
     },
     {
         "start_time": "00:04:51.740",
+        "start_sec": 291.74,
         "end_time": "00:04:53.659",
+        "end_sec": 293.659,
         "text": "I'm not the best with time management."
     },
     {
         "start_time": "00:04:53.659",
+        "start_sec": 293.659,
         "end_time": "00:04:54.699",
+        "end_sec": 294.699,
         "text": "Leila knows."
     },
     {
         "start_time": "00:04:54.699",
+        "start_sec": 294.699,
         "end_time": "00:04:57.710",
+        "end_sec": 297.71,
         "text": "So I will often say, better late than never."
     },
     {
         "start_time": "00:04:57.710",
+        "start_sec": 297.71,
         "end_time": "00:04:59.770",
+        "end_sec": 299.77,
         "text": "Leila: No, I'll say it when you turn up late."
     },
     {
         "start_time": "00:04:59.770",
+        "start_sec": 299.77,
         "end_time": "00:05:00.830",
+        "end_sec": 300.83,
         "text": "Sabrah: Yeah, that's true, actually."
     },
     {
         "start_time": "00:05:00.830",
+        "start_sec": 300.83,
         "end_time": "00:05:02.030",
+        "end_sec": 302.03,
         "text": "Leila: \"Oh, sorry, Leila."
     },
     {
         "start_time": "00:05:02.030",
+        "start_sec": 302.03,
         "end_time": "00:05:04.030",
+        "end_sec": 304.03,
         "text": "I'm late.\" \"Oh, all right."
     },
     {
         "start_time": "00:05:04.030",
+        "start_sec": 304.03,
         "end_time": "00:05:08.710",
+        "end_sec": 308.71,
         "text": "Better late than never.\" Sabrah: So it means it's better to arrive than to never come, to never arrive."
     },
     {
         "start_time": "00:05:08.710",
+        "start_sec": 308.71,
         "end_time": "00:05:12.669",
+        "end_sec": 312.669,
         "text": "So yes, I think it's very easy to understand that one, better late than never."
     },
     {
         "start_time": "00:05:12.669",
+        "start_sec": 312.669,
         "end_time": "00:05:14.319",
+        "end_sec": 314.319,
         "text": "Leila: It's not just talking about arriving, though."
     },
     {
         "start_time": "00:05:14.319",
+        "start_sec": 314.319,
         "end_time": "00:05:15.370",
+        "end_sec": 315.37,
         "text": "That's a great example."
     },
     {
         "start_time": "00:05:15.370",
+        "start_sec": 315.37,
         "end_time": "00:05:19.330",
+        "end_sec": 319.33,
         "text": "But it is meaning things like waiting for a telephone call."
     },
     {
         "start_time": "00:05:19.330",
+        "start_sec": 319.33,
         "end_time": "00:05:22.949",
+        "end_sec": 322.949,
         "text": "It might mean you're waiting for somebody to come back with an answer about a project."
     },
     {
         "start_time": "00:05:22.949",
+        "start_sec": 322.949,
         "end_time": "00:05:24.770",
+        "end_sec": 324.77,
         "text": "Sabrah: Yes, coming in then."
     },
     {
         "start_time": "00:05:24.770",
+        "start_sec": 324.77,
         "end_time": "00:05:26.580",
+        "end_sec": 326.58,
         "text": "Leila: Yeah, you're expecting something."
     },
     {
         "start_time": "00:05:26.580",
+        "start_sec": 326.58,
         "end_time": "00:05:27.659",
+        "end_sec": 327.659,
         "text": "Sabrah: Yes, exactly."
     },
     {
         "start_time": "00:05:27.659",
+        "start_sec": 327.659,
         "end_time": "00:05:29.840",
+        "end_sec": 329.84,
         "text": "Vanessa: Thanks for that great explanation."
     },
     {
         "start_time": "00:05:29.840",
+        "start_sec": 329.84,
         "end_time": "00:05:34.639",
+        "end_sec": 334.639,
         "text": "The next time that something comes up and you're late, you can say, \"Well, better late"
     },
     {
         "start_time": "00:05:34.639",
+        "start_sec": 334.639,
         "end_time": "00:05:41.319",
+        "end_sec": 341.319,
         "text": "than never.\" The next two expressions that we're going to talk about are: to wrap up, and call it"
     },
     {
         "start_time": "00:05:41.319",
+        "start_sec": 341.319,
         "end_time": "00:05:42.479",
+        "end_sec": 342.479,
         "text": "a day."
     },
     {
         "start_time": "00:05:42.479",
+        "start_sec": 342.479,
         "end_time": "00:05:45.220",
+        "end_sec": 345.22,
         "text": "Leila and Sabrah, what do these mean?"
     },
     {
         "start_time": "00:05:45.220",
+        "start_sec": 345.22,
         "end_time": "00:05:47.020",
+        "end_sec": 347.02,
         "text": "To wrap up something."
     },
     {
         "start_time": "00:05:47.020",
+        "start_sec": 347.02,
         "end_time": "00:05:48.580",
+        "end_sec": 348.58,
         "text": "To wrap up something."
     },
     {
         "start_time": "00:05:48.580",
+        "start_sec": 348.58,
         "end_time": "00:05:53.050",
+        "end_sec": 353.05,
         "text": "Leila: Another phrase with that, actually, I would say we maybe use a little bit less"
     },
     {
         "start_time": "00:05:53.050",
+        "start_sec": 353.05,
         "end_time": "00:05:56.570",
+        "end_sec": 356.57,
         "text": "here in the U.K. but definitely I've heard the Americans use this phrase ..."
     },
     {
         "start_time": "00:05:56.570",
+        "start_sec": 356.57,
         "end_time": "00:05:57.919",
+        "end_sec": 357.919,
         "text": "Sabrah: It's very big in America, yeah."
     },
     {
         "start_time": "00:05:57.919",
+        "start_sec": 357.919,
         "end_time": "00:06:00.050",
+        "end_sec": 360.05,
         "text": "Leila: To wrap things up."
     },
     {
         "start_time": "00:06:00.050",
+        "start_sec": 360.05,
         "end_time": "00:06:04.229",
+        "end_sec": 364.229,
         "text": "And basically it means to bring things to a close, to finish."
     },
     {
         "start_time": "00:06:04.229",
+        "start_sec": 364.229,
         "end_time": "00:06:08.070",
+        "end_sec": 368.07,
         "text": "So if we're in a meeting, you might say, \"All right, let's ...\""
     },
     {
         "start_time": "00:06:08.070",
+        "start_sec": 368.07,
         "end_time": "00:06:09.070",
+        "end_sec": 369.07,
         "text": "Sabrah: \"Let's wrap things up, guys."
     },
     {
         "start_time": "00:06:09.070",
+        "start_sec": 369.07,
         "end_time": "00:06:10.070",
+        "end_sec": 370.07,
         "text": "That's it."
     },
     {
         "start_time": "00:06:10.070",
+        "start_sec": 370.07,
         "end_time": "00:06:16.139",
+        "end_sec": 376.139,
         "text": "We don't have any more time now, let's wrap it up.\" Leila: You might also be working on a project with somebody and you might say, \"Okay."
     },
     {
         "start_time": "00:06:16.139",
+        "start_sec": 376.139,
         "end_time": "00:06:22.211",
+        "end_sec": 382.211,
         "text": "Let's do this, this and this, and then wrap things up.\" Sabrah: It's also used very often in the film making industry."
     },
     {
         "start_time": "00:06:22.211",
+        "start_sec": 382.211,
         "end_time": "00:06:23.211",
+        "end_sec": 383.211,
         "text": "Leila: It is."
     },
     {
         "start_time": "00:06:23.211",
+        "start_sec": 383.211,
         "end_time": "00:06:25.249",
+        "end_sec": 385.249,
         "text": "Sabrah: They say, \"And that's a wrap,\" when it's finished."
     },
     {
         "start_time": "00:06:25.249",
+        "start_sec": 385.249,
         "end_time": "00:06:26.249",
+        "end_sec": 386.249,
         "text": "Yes."
     },
     {
         "start_time": "00:06:26.249",
+        "start_sec": 386.249,
         "end_time": "00:06:28.919",
+        "end_sec": 388.919,
         "text": "Not so much in business, but definitely used in Hollywood."
     },
     {
         "start_time": "00:06:28.919",
+        "start_sec": 388.919,
         "end_time": "00:06:31.379",
+        "end_sec": 391.379,
         "text": "Vanessa: To call it a day."
     },
     {
         "start_time": "00:06:31.379",
+        "start_sec": 391.379,
         "end_time": "00:06:32.740",
+        "end_sec": 392.74,
         "text": "To call it a day."
     },
     {
         "start_time": "00:06:32.740",
+        "start_sec": 392.74,
         "end_time": "00:06:33.740",
+        "end_sec": 393.74,
         "text": "Sabrah: Okay."
     },
     {
         "start_time": "00:06:33.740",
+        "start_sec": 393.74,
         "end_time": "00:06:39.970",
+        "end_sec": 399.97,
         "text": "So an idiom for this is, \"Let's call it a day.\" Let's call it a day means that's it now."
     },
     {
         "start_time": "00:06:39.970",
+        "start_sec": 399.97,
         "end_time": "00:06:40.970",
+        "end_sec": 400.97,
         "text": "Let's call it a day."
     },
     {
         "start_time": "00:06:40.970",
+        "start_sec": 400.97,
         "end_time": "00:06:41.970",
+        "end_sec": 401.97,
         "text": "The day has finished."
     },
     {
         "start_time": "00:06:41.970",
+        "start_sec": 401.97,
         "end_time": "00:06:44.400",
+        "end_sec": 404.4,
         "text": "So the working day is over."
     },
     {
         "start_time": "00:06:44.400",
+        "start_sec": 404.4,
         "end_time": "00:06:46.909",
+        "end_sec": 406.909,
         "text": "Let's call it the end of the day, for example."
     },
     {
         "start_time": "00:06:46.909",
+        "start_sec": 406.909,
         "end_time": "00:06:47.909",
+        "end_sec": 407.909,
         "text": "Very common."
     },
     {
         "start_time": "00:06:47.909",
+        "start_sec": 407.909,
         "end_time": "00:06:48.909",
+        "end_sec": 408.909,
         "text": "We say this to each other, actually."
     },
     {
         "start_time": "00:06:48.909",
+        "start_sec": 408.909,
         "end_time": "00:06:49.909",
+        "end_sec": 409.909,
         "text": "Vanessa: We say it, yeah, yeah."
     },
     {
         "start_time": "00:06:49.909",
+        "start_sec": 409.909,
         "end_time": "00:06:51.529",
+        "end_sec": 411.529,
         "text": "Sabrah: After we've been filming for Love English, we'll go, \"Phew ...\""
     },
     {
         "start_time": "00:06:51.529",
+        "start_sec": 411.529,
         "end_time": "00:06:55.319",
+        "end_sec": 415.319,
         "text": "Leila: \"Let's call it a day.\" Sabrah: \"We've done enough now so let's just call it a day.\""
     },
     {
         "start_time": "00:06:55.319",
+        "start_sec": 415.319,
         "end_time": "00:06:56.599",
+        "end_sec": 416.599,
         "text": "So it just means that's it."
     },
     {
         "start_time": "00:06:56.599",
+        "start_sec": 416.599,
         "end_time": "00:06:58.309",
+        "end_sec": 418.30899999999997,
         "text": "The day is finished, let's go home."
     },
     {
         "start_time": "00:06:58.309",
+        "start_sec": 418.30899999999997,
         "end_time": "00:06:59.309",
+        "end_sec": 419.30899999999997,
         "text": "Leila: All right, guys."
     },
     {
         "start_time": "00:06:59.309",
+        "start_sec": 419.30899999999997,
         "end_time": "00:07:04.509",
+        "end_sec": 424.509,
         "text": "We are going to call it a day now, and thank you and Vanessa for watching this lesson and"
     },
     {
         "start_time": "00:07:04.509",
+        "start_sec": 424.509,
         "end_time": "00:07:06.800",
+        "end_sec": 426.8,
         "text": "joining us on this great collaboration."
     },
     {
         "start_time": "00:07:06.800",
+        "start_sec": 426.8,
         "end_time": "00:07:11.439",
+        "end_sec": 431.439,
         "text": "Sabrah: Thank you so much for having us, again, Vanessa, and hello to all your audience."
     },
     {
         "start_time": "00:07:11.439",
+        "start_sec": 431.439,
         "end_time": "00:07:14.009",
+        "end_sec": 434.009,
         "text": "It's great to get to know you guys a little bit."
     },
     {
         "start_time": "00:07:14.009",
+        "start_sec": 434.009,
         "end_time": "00:07:16.800",
+        "end_sec": 436.8,
         "text": "Thank you so much for having us, and good luck in all your business meetings."
     },
     {
         "start_time": "00:07:16.800",
+        "start_sec": 436.8,
         "end_time": "00:07:17.800",
+        "end_sec": 437.8,
         "text": "Leila: Absolutely."
     },
     {
         "start_time": "00:07:17.800",
+        "start_sec": 437.8,
         "end_time": "00:07:20.969",
+        "end_sec": 440.969,
         "text": "Sabrah: Don't cut any corners, and make sure you go over things very carefully."
     },
     {
         "start_time": "00:07:20.969",
+        "start_sec": 440.969,
         "end_time": "00:07:22.100",
+        "end_sec": 442.1,
         "text": "Vanessa: All right."
     },
     {
         "start_time": "00:07:22.100",
+        "start_sec": 442.1,
         "end_time": "00:07:23.300",
+        "end_sec": 443.3,
         "text": "Let's wrap up this lesson."
     },
     {
         "start_time": "00:07:23.300",
+        "start_sec": 443.3,
         "end_time": "00:07:25.969",
+        "end_sec": 445.969,
         "text": "It's time to call it a day."
     },
     {
         "start_time": "00:07:25.969",
+        "start_sec": 445.969,
         "end_time": "00:07:30.849",
+        "end_sec": 450.849,
         "text": "Let me know in the comments below this lesson, were any of these phrasal verbs or idioms"
     },
     {
         "start_time": "00:07:30.849",
+        "start_sec": 450.849,
         "end_time": "00:07:32.120",
+        "end_sec": 452.12,
         "text": "new to you?"
     },
     {
         "start_time": "00:07:32.120",
+        "start_sec": 452.12,
         "end_time": "00:07:33.729",
+        "end_sec": 453.729,
         "text": "Do you ever cut corners?"
     },
     {
         "start_time": "00:07:33.729",
+        "start_sec": 453.729,
         "end_time": "00:07:35.849",
+        "end_sec": 455.849,
         "text": "When did something come up?"
     },
     {
         "start_time": "00:07:35.849",
+        "start_sec": 455.849,
         "end_time": "00:07:39.029",
+        "end_sec": 459.029,
         "text": "What time are you ready to call it a day at your job?"
     },
     {
         "start_time": "00:07:39.029",
+        "start_sec": 459.029,
         "end_time": "00:07:44.189",
+        "end_sec": 464.189,
         "text": "Thank you so much for joining me in this special video with Leila and Sabrah from Love English."
     },
     {
         "start_time": "00:07:44.189",
+        "start_sec": 464.189,
         "end_time": "00:07:48.339",
+        "end_sec": 468.339,
         "text": "Make sure you check out the other video we did together on their channel about the top"
     },
     {
         "start_time": "00:07:48.339",
+        "start_sec": 468.339,
         "end_time": "00:07:52.189",
+        "end_sec": 472.189,
         "text": "interview questions and how to answer them and how not to answer them."
     },
     {
         "start_time": "00:07:52.189",
+        "start_sec": 472.189,
         "end_time": "00:07:55.349",
+        "end_sec": 475.349,
         "text": "You can click on the link in the description or up here."
     },
     {
         "start_time": "00:07:55.349",
+        "start_sec": 475.349,
         "end_time": "00:07:58.580",
+        "end_sec": 478.58,
         "text": "Thanks so much for joining me and I'll see you again next Friday."
     },
     {
         "start_time": "00:07:58.580",
+        "start_sec": 478.58,
         "end_time": "00:07:59.720",
+        "end_sec": 479.72,
         "text": "Bye."
     },
     {
         "start_time": "00:07:59.720",
+        "start_sec": 479.72,
         "end_time": "00:08:02.839",
+        "end_sec": 482.839,
         "text": "The next step is to download my free e-book."
     },
     {
         "start_time": "00:08:02.839",
+        "start_sec": 482.839,
         "end_time": "00:08:06.120",
+        "end_sec": 486.12,
         "text": "Five steps to becoming a confident English speaker."
     },
     {
         "start_time": "00:08:06.120",
+        "start_sec": 486.12,
         "end_time": "00:08:10.629",
+        "end_sec": 490.629,
         "text": "You'll learn what you need to do to speak confidently and fluently."
     },
     {
         "start_time": "00:08:10.629",
+        "start_sec": 490.629,
         "end_time": "00:08:14.550",
+        "end_sec": 494.55,
         "text": "Don't forget to subscribe to my YouTube channel for more free lessons."
     },
     {
         "start_time": "00:08:14.550",
+        "start_sec": 494.55,
         "end_time": "00:08:15.550",
+        "end_sec": 495.55,
         "text": "Thanks so much."
     },
     {
         "start_time": "00:08:15.550",
+        "start_sec": 495.55,
         "end_time": "00:08:16.050",
+        "end_sec": 496.05,
         "text": "Bye."
     }
 ]

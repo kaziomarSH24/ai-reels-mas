@@ -29,7 +29,7 @@ def analyze_video(request: AnalyzeVideoRequest):
     try:
         sub_service = SubtitleService()
         dialogues = sub_service.fetch_and_parse(request.youtube_url)
-        vtt_content = "\n".join([f"{d['start_time']} --> {d['end_time']}\n{d['text']}" for d in dialogues])
+        vtt_content = "\n".join([f"{d.get('start_sec', d['start_time'])} --> {d.get('end_sec', d['end_time'])}\n{d['text']}" for d in dialogues])
         
         extracted_vocabulary = gemini_svc.extract_all_vocabulary(vtt_content)
         

@@ -149,7 +149,9 @@ class SubtitleService:
                     if current_text:
                         aggregated_dialogues.append({
                             "start_time": self.format_time(current_start),
+                            "start_sec": current_start,
                             "end_time": self.format_time(current_end),
+                            "end_sec": current_end,
                             "text": current_text
                         })
                         current_text = ""
@@ -173,7 +175,9 @@ class SubtitleService:
                     if chunk_duration >= 1.5 or end_punctuations.search(clean_text):
                         aggregated_dialogues.append({
                             "start_time": self.format_time(current_start),
+                            "start_sec": current_start,
                             "end_time": self.format_time(current_end),
+                            "end_sec": current_end,
                             "text": current_text
                         })
                         current_text = ""
@@ -183,7 +187,9 @@ class SubtitleService:
             if current_text:
                 aggregated_dialogues.append({
                     "start_time": self.format_time(current_start),
+                            "start_sec": current_start,
                     "end_time": self.format_time(current_end),
+                            "end_sec": current_end,
                     "text": current_text
                 })
 

@@ -20,10 +20,11 @@ class GeminiService:
         prompt_instruction = """
         You are an expert English-to-Bengali linguistic AI.
         Analyze the following VTT subtitle text carefully. 
-        Extract ALL highly useful, advanced English expressions, idioms, and smart daily conversational phrases (e.g., "I'm broke", "Connect the dots", "Inevitable"). Do not limit the count—extract as many as available.
+        Extract ALL highly useful, advanced English expressions, idioms, and smart daily conversational phrases (e.g., "I'm broke", "Connect the dots", "Inevitable"). Do not limit the count—extract as many as available. 
+        CRITICAL RULE: You MUST ONLY extract phrases that literally exist in the provided subtitles. Never rewrite a phrase into a similar idiom.
 
         For each extracted item, provide exactly this JSON structure:
-        1. "expression": The clean, base form of the word/idiom (e.g., "I'm broke").
+        1. "expression": The clean, base form of the word/idiom (e.g., "I'm broke"). CRITICAL: This expression MUST be present EXACTLY as spoken in the original sentence. DO NOT guess, hallucinate, or substitute synonyms (e.g. if the speaker says "back then", do NOT extract "back in the day"). If it's not verbatim in the text, DO NOT extract it.
         2. "whisper_target": The EXACT verbatim phrase spoken in the video including filler words (e.g., "I'm completely broke").
         3. "category": Classify strictly as "IDIOM", "ADVANCED_WORD", or "DAILY_PHRASE".
         4. "casual_meaning": Conversational, everyday Bengali meaning (not formal dictionary language).

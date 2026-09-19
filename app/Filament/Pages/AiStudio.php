@@ -144,38 +144,25 @@ class AiStudio extends Page implements HasForms, HasTable
                     ->label('Time')
                     ->badge()
                     ->color('gray'),
-                TextColumn::make('text')
+                TextColumn::make('original_sentence')
                     ->label('Original Text')
                     ->wrap()
                     ->searchable(),
-                TextColumn::make('emotion')
-                    ->label('Emotion AI')
-                    ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'JOY' => 'success',
-                        'ANGER' => 'danger',
-                        'SADNESS' => 'warning',
-                        'FEAR' => 'danger',
-                        'SURPRISE' => 'info',
-                        'LOVE' => 'pink',
-                        default => 'gray',
-                    })
-                    ->description(fn (VideoClip $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
-                    ->placeholder('Analyzing...'),
-                TextColumn::make('translated_text')
+                
+                TextColumn::make('original_translation')
                     ->label('Bangla Translation')
                     ->wrap()
                     ->placeholder('Analyzing...'),
-                TextColumn::make('target_word')
+                TextColumn::make('expression')
                     ->label('Target Word')
                     ->badge()
                     ->color('warning')
                     ->searchable(),
-                TextColumn::make('cefr_level')
+                TextColumn::make('category')
                     ->label('Type')
                     ->color(fn (string $state): string => match ($state) { 'IDIOM' => 'danger', 'HARD_WORD' => 'warning', default => 'gray' })
                     ->badge()
-                    ->description(fn (VideoClip $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
+                    
                     ->placeholder('Analyzing...'),
             ])
             ->paginated([5, 10, 25, 50, 'all'])
@@ -186,75 +173,9 @@ class AiStudio extends Page implements HasForms, HasTable
     {
         return [
             'all' => \Filament\Tables\Components\Tab::make('All Dialogues'),
-            'accepted' => \Filament\Tables\Components\Tab::make('Accepted (Idioms/Hard Words)')
-                ->modifyQueryUsing(fn ($query) => $query->whereIn('cefr_level', ['IDIOM', 'HARD_WORD'])),
-            'rejected' => \Filament\Tables\Components\Tab::make('Rejected (Normal)')
-                ->modifyQueryUsing(fn ($query) => $query->whereNotIn('cefr_level', ['IDIOM', 'HARD_WORD'])),
-        ];
-    }
-
-    public function analyzeVideo()
-    {
-        set_time_limit(0); 
-        
-        $url = $this->analyzerData['youtubeUrl'] ?? null;
-
-        if (empty($url)) {
-            \Filament\Notifications\Notification::make()->title('Please enter a YouTube URL')->danger()->send();
-            return;
-        }
-
-        // Check if the video is already in the database
-        $existingVideo = Video::where('youtube_url', $url)->first();
-        if ($existingVideo) {
-            if ($existingVideo->is_processed) {
-                Notification::make()
-                    ->title('Already Analyzed')
-                    ->body('This video has already been processed and is in the database.')
-                    ->info()
-                    ->send();
-                
-                $this->currentVideoId = $existingVideo->id;
-                $this->isProcessing = false;
-                $this->progressPercentage = 100;
-                $this->analyzerForm->fill();
-                return;
-            } else {
-                $existingVideo->delete();
-            }
-        }
-
-        Notification::make()->title('AI Extraction Started')->body('Fetching subtitles and running full AI Analysis (This will take a few minutes)...')->info()->send();
-
-        try {
-            // Increased timeout because Python is now processing everything
-            $response = Http::timeout(300)->post('http://ai_api:8001/api/analyze_video', [
-                'youtube_url' => $url
-            ]);
-
-            if ($response->successful()) {
-                $data = $response->json();
-                $accepted = $data['data']['accepted'] ?? [];
-                $rejected = $data['data']['rejected'] ?? [];
-                $stats = $data['data']['stats'] ?? [];
-
-                if (count($accepted) === 0 && count($rejected) === 0) {
-                    Notification::make()->title('No dialogues found')->warning()->send();
-                    return;
-                }
-
-                $video = Video::create([
-                    'title' => 'YouTube Video ' . uniqid(),
-                    'youtube_url' => $url,
-                    'is_processed' => true,
-                ]);
-
-                $insertData = [];
-                // Save Accepted (B2, C1, C2)
-                foreach ($accepted as $dialogue) {
-                    $insertData[] = [
-                        'video_id' => $video->id,
-                        'start_time' => $dialogue['start_time'],
+            'accepted' => \Filament\Tables\Components\Tab::make('Extracted Vocabulary')
+                ->modifyQueryUsing(fn ($query) => $query->whereNotNull('category')),
+            
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
                         'emotion' => $dialogue['analysis']['emotion'] ?? null,
@@ -298,7 +219,7 @@ class AiStudio extends Page implements HasForms, HasTable
                 // Show impressive stats to the Sirs
                 Notification::make()
                     ->title('AI Analysis Complete! 🎯')
-                    ->body("Scanned: {$stats['total_scanned']} lines. Rejected (Easy): {$stats['rejected_count']}. Saved (Advanced): {$stats['accepted_count']}.")
+                    ->body("Scanned: {$stats['total_scanned']} lines. Extracted: {$stats['extracted_count']} smart phrases.")
                     ->success()
                     ->duration(10000)
                     ->send();

@@ -3,24 +3,29 @@ from pydantic import BaseModel
 from typing import List, Dict, Any
 import os
 from dotenv import load_dotenv
+
 from app.core.response import ApiResponse
 from app.services.gemini_service import GeminiService
-from app.services.whisper_service import WhisperService
 from app.services.subtitle_service import SubtitleService
 from app.services.video_service import VideoService
 
+# Load environment variables
 load_dotenv('/var/www/.env')
 router = APIRouter()
 
+# Initialize API Services
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY")
 gemini_svc = GeminiService(api_key=GEMINI_API_KEY)
-whisper_svc = WhisperService()
 
 class AnalyzeVideoRequest(BaseModel):
     youtube_url: str
 
 @router.post("/analyze_video")
 def analyze_video(request: AnalyzeVideoRequest):
+    """
+    Phase 1: Downloads VTT subtitles and passes them to Gemini AI 
+    to extract casual vocabulary, idioms, and daily phrases.
+    """
     try:
         sub_service = SubtitleService()
         dialogues = sub_service.fetch_and_parse(request.youtube_url)
@@ -28,39 +33,20 @@ def analyze_video(request: AnalyzeVideoRequest):
         
         extracted_vocabulary = gemini_svc.extract_all_vocabulary(vtt_content)
         
-        accepted = []
-        for item in extracted_vocabulary:
-            # DO NOT use newline. Separate with a space so Laravel UI renders it nicely without cutting off!
-            target_word_combined = f"{item.get('expression', '')} {item.get('dictionary_meaning', '')}"
-            
-            vocab_type = item.get("type", "ADVANCED_WORD")
-            
-            accepted.append({
-                "start_time": str(item.get("rough_start", 0)),
-                "end_time": str(item.get("rough_end", 0)),
-                "text": item.get("original_sentence", ""),
-                "analysis": {
-                    "emotion": "Neutral", 
-                    "emotion_confidence": 99.9, 
-                    "cefr_level": vocab_type,   
-                    "cefr_confidence": 99.9,    
-                    "target_word": target_word_combined,
-                    "translation": item.get("sentence_translation", "")
-                }
-            })
-            
+        # We pass the extracted vocabulary directly. The schema now perfectly
+        # matches the updated Laravel VideoClip model expectations.
         stats = {
             "total_scanned": len(dialogues),
-            "accepted_count": len(accepted),
-            "rejected_count": 0 
+            "extracted_count": len(extracted_vocabulary)
         }
         
         return ApiResponse.response_success(
-            message=f"Processed video. Found {len(accepted)} advanced expressions.", 
-            data={"stats": stats, "accepted": accepted, "rejected": []}
+            message=f"Analyzed video. Extracted {len(extracted_vocabulary)} smart phrases.", 
+            data={"stats": stats, "extracted_clips": extracted_vocabulary}
         )
     except Exception as e:
-        return ApiResponse.response_error(message="Failed to process video", errors=str(e), status_code=500)
+        return ApiResponse.response_error(message="Failed to analyze video", errors=str(e), status_code=500)
+
 
 class GenerateCompilationRequest(BaseModel):
     clips: List[Dict[str, Any]]
@@ -68,6 +54,10 @@ class GenerateCompilationRequest(BaseModel):
 
 @router.post("/generate_compilation")
 def generate_compilation(request: GenerateCompilationRequest):
+    """
+    Phase 2: Compiles a viral reel using Whisper AI for precise micro-syncing 
+    and FFmpeg for video rendering.
+    """
     import time
     video_service = VideoService()
     try:

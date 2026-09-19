@@ -75,6 +75,13 @@ class GeneratedReelResource extends Resource
                 //
             ])
             ->recordActions([
+                Action::make('download')
+                    ->label('Download')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->color('success')
+                    ->action(function ($record) {
+                        return response()->download(public_path($record->file_path));
+                    }),
                 EditAction::make(),
                 DeleteAction::make(),
             ])

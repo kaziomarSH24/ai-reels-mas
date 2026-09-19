@@ -35,7 +35,13 @@ class VideoClipsTable
                 TextColumn::make('time_range')
                     ->label('Time (Start - End)')
                     ->state(function (VideoClip $record): string {
-                        return number_format((float)$record->start_time, 1) . 's - ' . number_format((float)$record->end_time, 1) . 's';
+                        $formatTime = function ($seconds) {
+                            $sec = (int) $seconds;
+                            return $sec >= 3600 ? gmdate("H:i:s", $sec) : gmdate("i:s", $sec);
+                        };
+                        $start = $formatTime($record->start_time);
+                        $end = $formatTime($record->end_time);
+                        return "{$start} - {$end}";
                     })
                     ->badge()
                     ->color('gray'),
@@ -144,7 +150,13 @@ class VideoClipsTable
                                         TextEntry::make('time_range')
                                             ->label('Timestamps')
                                             ->state(function ($record) {
-                                                return $record->start_time . 's  —  ' . $record->end_time . 's';
+                                                $formatTime = function ($seconds) {
+                                                    $sec = (int) $seconds;
+                                                    return $sec >= 3600 ? gmdate("H:i:s", $sec) : gmdate("i:s", $sec);
+                                                };
+                                                $start = $formatTime($record->start_time);
+                                                $end = $formatTime($record->end_time);
+                                                return "{$start}  —  {$end}   (" . number_format((float)$record->start_time, 1) . "s to " . number_format((float)$record->end_time, 1) . "s)";
                                             })
                                             ->fontFamily('mono')
                                             ->icon('heroicon-m-clock'),

@@ -4,31 +4,37 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use App\Models\Video;
+use App\Models\VideoClip;
+use App\Models\GeneratedReel;
 
 class AiStatsWidget extends StatsOverviewWidget
 {
+    protected static ?int $sort = 1;
+
     protected function getStats(): array
     {
-        $totalVideos = \App\Models\Video::count();
-        $totalDialogues = \App\Models\VideoClip::count();
-        $analyzed = \App\Models\VideoClip::whereNotNull('emotion')->count();
+        $totalVideos = Video::count();
+        $totalPhrases = VideoClip::count();
+        $totalReels = GeneratedReel::count();
 
         return [
-            Stat::make('Total Videos Processed', $totalVideos)
-                ->description('YouTube URLs extracted')
+            Stat::make('Total YouTube Videos Processed', $totalVideos)
+                ->description('URLs successfully extracted')
                 ->descriptionIcon('heroicon-m-video-camera')
                 ->color('primary'),
                 
-            Stat::make('Total Dialogues', $totalDialogues)
-                ->description('Lines of text saved')
-                ->descriptionIcon('heroicon-m-document-text')
-                ->color('info'),
-                
-            Stat::make('AI Analyzed Lines', $analyzed)
-                ->description('Processed by DistilBERT & BanglaT5')
-                ->descriptionIcon('heroicon-m-cpu-chip')
+            Stat::make('Premium Phrases Extracted', $totalPhrases)
+                ->description('Idioms, Phrases, and Vocabulary')
+                ->descriptionIcon('heroicon-m-sparkles')
                 ->color('success')
-                ->chart([7, 2, 10, 3, 15, 4, 17]),
+                ->chart([3, 5, 10, 15, 20, 30, $totalPhrases]),
+                
+            Stat::make('Viral Reels Generated', $totalReels)
+                ->description('Fully rendered compilation videos')
+                ->descriptionIcon('heroicon-m-film')
+                ->color('warning')
+                ->chart([1, 2, 3, 5, 8, 12, $totalReels]),
         ];
     }
 }

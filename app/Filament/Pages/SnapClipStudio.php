@@ -11,12 +11,24 @@ use App\Models\GeneratedReel;
 
 class SnapClipStudio extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-sparkles';
-    protected static ?string $navigationLabel = 'SnapClip Studio';
-    protected static ?string $title = 'AI Video Studio';
+    public static function getNavigationIcon(): string|\BackedEnum|null
+    {
+        return 'heroicon-o-sparkles';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'SnapClip Studio';
+    }
+
+    public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
+    {
+        return 'AI Video Studio';
+    }
+
     protected static ?int $navigationSort = 1;
 
-    protected static string $view = 'filament.pages.snap-clip-studio';
+    protected string $view = 'filament.pages.snap-clip-studio';
 
     // State Variables
     public $youtubeUrl = '';

@@ -45,21 +45,20 @@ class VideoService:
                 target_parts = target_lower.split()
                 
                 for i in range(len(words)):
-                    match_count = 0
-                    start_time = None
-                    end_time = None
+                    matches = []
+                    search_idx = 0
+                    for w in words[i:i+10]: # Look ahead up to 10 words to allow for filler words
+                        w_text = w["word"].lower().strip(".,!?'\"")
+                        if search_idx < len(target_parts):
+                            if target_parts[search_idx] in w_text or w_text in target_parts[search_idx]:
+                                matches.append(w)
+                                search_idx += 1
                     
-                    for j, part in enumerate(target_parts):
-                        if i + j < len(words):
-                            w_text = words[i+j]["word"].lower().strip(".,!?")
-                            if part in w_text or w_text in part:
-                                if match_count == 0:
-                                    start_time = words[i+j]["start"]
-                                end_time = words[i+j]["end"]
-                                match_count += 1
-                                
-                    if match_count == len(target_parts):
-                        print(f"[Whisper] Found exact match at {start_time}s - {end_time}s")
+                    # If we matched all words, or at least length-1 words (e.g. 3 out of 4)
+                    if len(matches) >= max(1, len(target_parts) - 1):
+                        start_time = matches[0]["start"]
+                        end_time = matches[-1]["end"]
+                        print(f"[Whisper] Found fuzzy match at {start_time}s - {end_time}s")
                         return start_time, end_time
                         
             print(f"[Whisper] Target word '{target_word}' not found in chunk.")
@@ -140,15 +139,19 @@ class VideoService:
             # Step 3: Whisper Exact Alignment
             exact_start, exact_end = self._find_exact_times_with_whisper(audio_path, whisper_target)
             
-            # Use generous padding around the original clip boundaries instead of aggressive Whisper cropping
-            # This ensures the full context/sentence is heard.
             requested_start = float(clip.get('start_time'))
             requested_end = float(clip.get('end_time'))
             
-            # We rely on the database's start_time and end_time (which represent the full sentence).
-            # We add just a tiny 0.5s buffer before and 0.8s buffer after so we don't bleed into other sentences.
-            crop_start = 4.5  # 5.0 - 0.5 = 4.5 seconds into the chunk
-            crop_dur = (requested_end - requested_start) + 1.3
+            if exact_start is not None and exact_end is not None:
+                # The user wants tight cropping around the exact spoken word!
+                # "age pore 0.5 sec beshe takte pare but beshi na"
+                crop_start = max(0, exact_start - 0.5) 
+                crop_dur = (exact_end - exact_start) + 1.2
+                print(f"[VideoService] Whisper tight crop: start={crop_start}, dur={crop_dur}")
+            else:
+                print("[VideoService] Whisper completely failed. Falling back to database sentence timestamps.")
+                crop_start = 4.5  
+                crop_dur = (requested_end - requested_start) + 1.3
                 
             # Step 4: Micro-crop the video with libx264 re-encoding to fix keyframe blanking
             subprocess.run([

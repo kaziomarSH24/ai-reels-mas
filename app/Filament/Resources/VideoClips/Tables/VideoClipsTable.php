@@ -15,80 +15,65 @@ class VideoClipsTable
     {
         return $table
             ->columns([
-                TextColumn::make('video_id')
-                    ->numeric()
+                TextColumn::make('video.title')
+                    ->label('Video Source')
+                    ->searchable()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('start_time')
-                    ->label('Time')
+                
+                TextColumn::make('time_range')
+                    ->label('Time (Start - End)')
+                    ->state(function (VideoClip $record): string {
+                        return number_format((float)$record->start_time, 1) . 's - ' . number_format((float)$record->end_time, 1) . 's';
+                    })
                     ->badge()
-                    ->color('gray')
-                    ->searchable(),
-                TextColumn::make('text')
-                    ->label('Original Dialogue')
-                    ->wrap()
-                    ->searchable(),
-                TextColumn::make('target_word')
-                    ->label('Target Word')
+                    ->color('gray'),
+
+                TextColumn::make('category')
+                    ->label('Category')
                     ->badge()
+                    ->color(fn (?string $state): string => match ($state) {
+                        'IDIOM' => 'danger',
+                        'DAILY_PHRASE' => 'success',
+                        'ADVANCED_WORD' => 'info',
+                        default => 'gray',
+                    })
+                    ->searchable(),
+
+                TextColumn::make('expression')
+                    ->label('Expression / Phrase')
+                    ->badge()
+                    ->color('primary')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('whisper_target')
+                    ->label('Whisper Target')
                     ->color('warning')
-                    ->searchable(),
-                TextColumn::make('emotion')
-                    ->label('Emotion')
-                    ->badge()
-                    ->color(fn (?string $state): string => match ($state) {
-                        'JOY' => 'success',
-                        'ANGER' => 'danger',
-                        'SADNESS' => 'warning',
-                        'FEAR' => 'danger',
-                        'SURPRISE' => 'info',
-                        'LOVE' => 'pink',
-                        default => 'gray',
-                    })
-                    ->description(fn (VideoClip $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
-                    ->searchable(),
-                TextColumn::make('translated_text')
-                    ->label('Translation')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('casual_meaning')
+                    ->label('Casual Meaning')
                     ->wrap()
                     ->searchable(),
-                TextColumn::make('cefr_level')
-                    ->label('CEFR Level')
-                    ->badge()
-                    ->color(fn (?string $state): string => match ($state) {
-                        'A1', 'A2' => 'gray',
-                        'B1' => 'info',
-                        'B2', 'C1', 'C2' => 'success',
-                        default => 'gray',
-                    })
-                    ->description(fn (VideoClip $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
+
+                TextColumn::make('easy_example')
+                    ->label('Easy Example')
+                    ->wrap()
                     ->searchable(),
+
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                \Filament\Tables\Filters\SelectFilter::make('emotion')
+                \Filament\Tables\Filters\SelectFilter::make('category')
                     ->options([
-                        'JOY' => 'Joy',
-                        'ANGER' => 'Anger',
-                        'SADNESS' => 'Sadness',
-                        'FEAR' => 'Fear',
-                        'SURPRISE' => 'Surprise',
-                        'LOVE' => 'Love',
-                    ]),
-                \Filament\Tables\Filters\SelectFilter::make('cefr_level')
-                    ->options([
-                        'A1' => 'A1 (Beginner)',
-                        'A2' => 'A2 (Elementary)',
-                        'B1' => 'B1 (Intermediate)',
-                        'B2' => 'B2 (Upper Intermediate)',
-                        'C1' => 'C1 (Advanced)',
-                        'C2' => 'C2 (Mastery)',
+                        'IDIOM' => 'Idiom',
+                        'DAILY_PHRASE' => 'Daily Phrase',
+                        'ADVANCED_WORD' => 'Advanced Word',
                     ]),
             ])
             ->recordActions([

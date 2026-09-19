@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\MovieDialogues\Schemas;
+namespace App\Filament\Resources\VideoClips\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
-class MovieDialogueForm
+class VideoClipForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('movie_id')
+                TextInput::make('video_id')
                     ->required()
                     ->numeric(),
                 Textarea::make('text')

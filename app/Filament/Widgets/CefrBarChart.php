@@ -11,7 +11,7 @@ class CefrBarChart extends ChartWidget
 
     protected function getData(): array
     {
-        $data = \App\Models\MovieDialogue::whereNotNull('cefr_level')
+        $data = \App\Models\VideoClip::whereNotNull('cefr_level')
             ->selectRaw('cefr_level, count(*) as count')
             ->groupBy('cefr_level')
             ->orderBy('cefr_level')

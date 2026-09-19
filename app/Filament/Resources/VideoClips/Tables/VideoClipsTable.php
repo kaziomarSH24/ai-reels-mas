@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Filament\Resources\MovieDialogues\Tables;
+namespace App\Filament\Resources\VideoClips\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use App\Models\MovieDialogue;
+use App\Models\VideoClip;
 
-class MovieDialoguesTable
+class VideoClipsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('movie_id')
+                TextColumn::make('video_id')
                     ->numeric()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -45,7 +45,7 @@ class MovieDialoguesTable
                         'LOVE' => 'pink',
                         default => 'gray',
                     })
-                    ->description(fn (MovieDialogue $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
+                    ->description(fn (VideoClip $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
                     ->searchable(),
                 TextColumn::make('translated_text')
                     ->label('Translation')
@@ -60,7 +60,7 @@ class MovieDialoguesTable
                         'B2', 'C1', 'C2' => 'success',
                         default => 'gray',
                     })
-                    ->description(fn (MovieDialogue $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
+                    ->description(fn (VideoClip $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

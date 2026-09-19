@@ -9,12 +9,12 @@ class AiStatsWidget extends StatsOverviewWidget
 {
     protected function getStats(): array
     {
-        $totalMovies = \App\Models\Movie::count();
-        $totalDialogues = \App\Models\MovieDialogue::count();
-        $analyzed = \App\Models\MovieDialogue::whereNotNull('emotion')->count();
+        $totalVideos = \App\Models\Video::count();
+        $totalDialogues = \App\Models\VideoClip::count();
+        $analyzed = \App\Models\VideoClip::whereNotNull('emotion')->count();
 
         return [
-            Stat::make('Total Videos Processed', $totalMovies)
+            Stat::make('Total Videos Processed', $totalVideos)
                 ->description('YouTube URLs extracted')
                 ->descriptionIcon('heroicon-m-video-camera')
                 ->color('primary'),

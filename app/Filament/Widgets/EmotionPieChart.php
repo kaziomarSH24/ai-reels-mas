@@ -11,7 +11,7 @@ class EmotionPieChart extends ChartWidget
 
     protected function getData(): array
     {
-        $data = \App\Models\MovieDialogue::whereNotNull('emotion')
+        $data = \App\Models\VideoClip::whereNotNull('emotion')
             ->selectRaw('emotion, count(*) as count')
             ->groupBy('emotion')
             ->pluck('count', 'emotion')

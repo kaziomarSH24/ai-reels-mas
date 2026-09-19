@@ -10,7 +10,7 @@ use Filament\Schemas\Components\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Section;
 use Illuminate\Support\Facades\Http;
-use App\Models\MovieDialogue;
+use App\Models\VideoClip;
 
 class ReelGenerator extends Page implements HasForms
 {
@@ -68,7 +68,7 @@ class ReelGenerator extends Page implements HasForms
                             ->label('Target Keyword')
                             ->placeholder('e.g., Destiny, Boss, Love')
                             ->datalist(function () {
-                                return \App\Models\MovieDialogue::whereNotNull('target_word')
+                                return \App\Models\VideoClip::whereNotNull('target_word')
                                     ->where('target_word', '!=', 'None')
                                     ->select('target_word')
                                     ->distinct()
@@ -89,7 +89,7 @@ class ReelGenerator extends Page implements HasForms
 
         // Search the DB for ALL matches (limit to 3 for a nice 15-second compilation reel)
         // Fetch more results to allow for deduplication
-        $rawDialogues = MovieDialogue::with('movie')
+        $rawDialogues = VideoClip::with('video')
             ->where('target_word', 'LIKE', '%' . $keyword . '%')
             ->orWhere('text', 'LIKE', '%' . $keyword . '%')
             ->inRandomOrder()
@@ -119,7 +119,7 @@ class ReelGenerator extends Page implements HasForms
                 $jsonInput = json_encode($textsToTranslate);
                 
                 $prompt = "You are an expert English editor and Bengali translator. "
-                        . "I will give you a JSON array of raw, auto-generated English movie dialogues (which lack punctuation). "
+                        . "I will give you a JSON array of raw, auto-generated English video dialogues (which lack punctuation). "
                         . "For each dialogue, first FIX the English text by adding proper punctuation (commas, periods, question marks). "
                         . "Then, translate it into casual, natural Bengali. "
                         . "Return ONLY a valid JSON array of OBJECTS, where each object has two keys: 'english' (the fixed text) and 'bengali' (the translation). "
@@ -185,13 +185,13 @@ class ReelGenerator extends Page implements HasForms
             $displayTarget = ($keyword ?? $d->target_word) . $keywordMeaning;
             $results[] = [
                 'id' => $d->id,
-                'movie_id' => $d->movie_id,
+                'video_id' => $d->video_id,
                 'start_time' => $d->start_time,
                 'end_time' => $d->end_time,
                 'text' => $d->text,
                 'translated_text' => $d->translated_text,
                 'target_word' => $displayTarget,
-                'youtube_url' => $d->movie->youtube_url,
+                'youtube_url' => $d->video->youtube_url,
             ];
         }
 

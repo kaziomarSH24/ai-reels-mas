@@ -13,8 +13,8 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
-use App\Models\Movie;
-use App\Models\MovieDialogue;
+use App\Models\Video;
+use App\Models\VideoClip;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 use BackedEnum;
@@ -49,7 +49,7 @@ class AiStudio extends Page implements HasForms, HasTable
     public ?array $generatorData = [];
 
     // Live Processing State
-    public ?int $currentMovieId = null;
+    public ?int $currentVideoId = null;
     public int $totalDialogues = 0;
     public int $processedDialogues = 0;
     public bool $isProcessing = false;
@@ -134,7 +134,7 @@ class AiStudio extends Page implements HasForms, HasTable
     {
         return $table
             ->query(
-                MovieDialogue::query()
+                VideoClip::query()
                      
                     ->latest('id')
             )
@@ -160,7 +160,7 @@ class AiStudio extends Page implements HasForms, HasTable
                         'LOVE' => 'pink',
                         default => 'gray',
                     })
-                    ->description(fn (MovieDialogue $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
+                    ->description(fn (VideoClip $record): string => $record->emotion_confidence ? $record->emotion_confidence . '%' : '')
                     ->placeholder('Analyzing...'),
                 TextColumn::make('translated_text')
                     ->label('Bangla Translation')
@@ -175,7 +175,7 @@ class AiStudio extends Page implements HasForms, HasTable
                     ->label('Type')
                     ->color(fn (string $state): string => match ($state) { 'IDIOM' => 'danger', 'HARD_WORD' => 'warning', default => 'gray' })
                     ->badge()
-                    ->description(fn (MovieDialogue $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
+                    ->description(fn (VideoClip $record): string => $record->cefr_confidence ? $record->cefr_confidence . '%' : '')
                     ->placeholder('Analyzing...'),
             ])
             ->paginated([5, 10, 25, 50, 'all'])
@@ -205,22 +205,22 @@ class AiStudio extends Page implements HasForms, HasTable
         }
 
         // Check if the video is already in the database
-        $existingMovie = Movie::where('youtube_url', $url)->first();
-        if ($existingMovie) {
-            if ($existingMovie->is_processed) {
+        $existingVideo = Video::where('youtube_url', $url)->first();
+        if ($existingVideo) {
+            if ($existingVideo->is_processed) {
                 Notification::make()
                     ->title('Already Analyzed')
                     ->body('This video has already been processed and is in the database.')
                     ->info()
                     ->send();
                 
-                $this->currentMovieId = $existingMovie->id;
+                $this->currentVideoId = $existingVideo->id;
                 $this->isProcessing = false;
                 $this->progressPercentage = 100;
                 $this->analyzerForm->fill();
                 return;
             } else {
-                $existingMovie->delete();
+                $existingVideo->delete();
             }
         }
 
@@ -243,7 +243,7 @@ class AiStudio extends Page implements HasForms, HasTable
                     return;
                 }
 
-                $movie = Movie::create([
+                $video = Video::create([
                     'title' => 'YouTube Video ' . uniqid(),
                     'youtube_url' => $url,
                     'is_processed' => true,
@@ -253,7 +253,7 @@ class AiStudio extends Page implements HasForms, HasTable
                 // Save Accepted (B2, C1, C2)
                 foreach ($accepted as $dialogue) {
                     $insertData[] = [
-                        'movie_id' => $movie->id,
+                        'video_id' => $video->id,
                         'start_time' => $dialogue['start_time'],
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
@@ -271,7 +271,7 @@ class AiStudio extends Page implements HasForms, HasTable
                 // Save Rejected (A1, A2, B1) so the Sir can see them
                 foreach ($rejected as $dialogue) {
                     $insertData[] = [
-                        'movie_id' => $movie->id,
+                        'video_id' => $video->id,
                         'start_time' => $dialogue['start_time'],
                         'end_time' => $dialogue['end_time'],
                         'text' => $dialogue['text'],
@@ -287,10 +287,10 @@ class AiStudio extends Page implements HasForms, HasTable
                 }
 
                 foreach (array_chunk($insertData, 500) as $chunk) {
-                    MovieDialogue::insert($chunk);
+                    VideoClip::insert($chunk);
                 }
 
-                $this->currentMovieId = $movie->id;
+                $this->currentVideoId = $video->id;
                 $this->isProcessing = false;
                 $this->progressPercentage = 100;
                 $this->analyzerForm->fill(); // Clear input

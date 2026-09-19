@@ -3,7 +3,7 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
-use App\Models\MovieDialogue;
+use App\Models\VideoClip;
 use Illuminate\Support\Facades\Http;
 use Filament\Actions\Action;
 
@@ -41,7 +41,7 @@ class ContentStrategy extends Page
 
         try {
             // Get unique target words from the database
-            $words = MovieDialogue::whereNotNull('target_word')
+            $words = VideoClip::whereNotNull('target_word')
                 ->where('target_word', '!=', '')
                 ->distinct()
                 ->pluck('target_word')

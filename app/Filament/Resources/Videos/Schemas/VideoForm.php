@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\Movies\Schemas;
+namespace App\Filament\Resources\Videos\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class MovieForm
+class VideoForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Movie extends Model
+class Video extends Model
 {
     protected $guarded = [];
 
-    public function dialogues()
+    public function clips()
     {
-        return $this->hasMany(MovieDialogue::class);
+        return $this->hasMany(VideoClip::class);
     }
 }

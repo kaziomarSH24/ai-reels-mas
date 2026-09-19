@@ -145,13 +145,10 @@ class VideoService:
             requested_start = float(clip.get('start_time'))
             requested_end = float(clip.get('end_time'))
             
-            # The downloaded chunk starts at (requested_start - 5.0).
-            # We want our final video to start at (requested_start - 1.5).
-            # So within the chunk, that is an offset of 3.5 seconds.
-            crop_start = 3.5
-            
-            # Total duration = original duration + 1.5s before + 2.5s after = original + 4.0s
-            crop_dur = (requested_end - requested_start) + 4.0
+            # We rely on the database's start_time and end_time (which represent the full sentence).
+            # We add just a tiny 0.5s buffer before and 0.8s buffer after so we don't bleed into other sentences.
+            crop_start = 4.5  # 5.0 - 0.5 = 4.5 seconds into the chunk
+            crop_dur = (requested_end - requested_start) + 1.3
                 
             # Step 4: Micro-crop the video with libx264 re-encoding to fix keyframe blanking
             subprocess.run([

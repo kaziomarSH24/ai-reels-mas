@@ -2,14 +2,22 @@
 
 namespace App\Filament\Resources\VideoClips\Tables;
 
-
 use Filament\Tables\Table;
 use App\Models\VideoClip;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\Split;
+use Filament\Infolists\Components\Group;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+
+
+
 
 class VideoClipsTable
 {
@@ -77,7 +85,7 @@ class VideoClipsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                \Filament\Tables\Filters\SelectFilter::make('category')
+                SelectFilter::make('category')
                     ->options([
                         'IDIOM' => 'Idiom',
                         'DAILY_PHRASE' => 'Daily Phrase',
@@ -85,7 +93,74 @@ class VideoClipsTable
                     ]),
             ])
             ->recordActions([
-                ViewAction::make(),
+                ViewAction::make()
+                    ->modalHeading('Clip Details')
+                    ->modalWidth('4xl')
+                    ->infolist([
+                        Section::make('Core AI Extraction')
+                            ->icon('heroicon-o-sparkles')
+                            ->schema([
+                                Split::make([
+                                    Group::make([
+                                        TextEntry::make('expression')
+                                            ->label('Target Expression')
+                                            ->size('text-2xl')
+                                            ->weight('bold')
+                                            ->color('primary'),
+                                        TextEntry::make('category')
+                                            ->badge()
+                                            ->color(fn (?string $state): string => match ($state) {
+                                                'IDIOM' => 'danger',
+                                                'DAILY_PHRASE' => 'success',
+                                                'ADVANCED_WORD' => 'info',
+                                                default => 'gray',
+                                            }),
+                                    ]),
+                                    Group::make([
+                                        TextEntry::make('casual_meaning')
+                                            ->label('Bengali Meaning')
+                                            ->size('text-lg')
+                                            ->color('success'),
+                                        TextEntry::make('whisper_target')
+                                            ->label('Whisper Alignment Target')
+                                            ->color('warning')
+                                            ->icon('heroicon-m-microphone'),
+                                    ]),
+                                ]),
+                            ]),
+                            
+                        Grid::make(2)
+                            ->schema([
+                                Section::make('Original Source')
+                                    ->columnSpan(1)
+                                    ->icon('heroicon-o-video-camera')
+                                    ->schema([
+                                        TextEntry::make('original_sentence')
+                                            ->label('Spoken Dialogue'),
+                                        TextEntry::make('original_translation')
+                                            ->label('Translation')
+                                            ->color('gray'),
+                                        TextEntry::make('time_range')
+                                            ->label('Timestamps')
+                                            ->state(function ($record) {
+                                                return $record->start_time . 's  —  ' . $record->end_time . 's';
+                                            })
+                                            ->fontFamily('mono')
+                                            ->icon('heroicon-m-clock'),
+                                    ]),
+
+                                Section::make('Generated Reel UI')
+                                    ->columnSpan(1)
+                                    ->icon('heroicon-o-film')
+                                    ->schema([
+                                        TextEntry::make('easy_example')
+                                            ->label('Easy Example'),
+                                        TextEntry::make('example_translation')
+                                            ->label('Bengali Translation')
+                                            ->color('gray'),
+                                    ]),
+                            ]),
+                    ]),
                 EditAction::make(),
             ])
             ->toolbarActions([

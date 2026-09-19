@@ -83,10 +83,15 @@ class SnapClipStudio extends Page
                     return;
                 }
 
+                // Extract Thumbnail
+                $videoIdStr = $this->getYoutubeId($this->youtubeUrl);
+                $thumbnailUrl = $videoIdStr ? "https://img.youtube.com/vi/{$videoIdStr}/hqdefault.jpg" : null;
+
                 // Persist the parsed video session
                 $video = Video::create([
                     'title' => 'Video Processed: ' . now()->format('Y-m-d H:i'),
                     'youtube_url' => $this->youtubeUrl,
+                    'thumbnail_url' => $thumbnailUrl,
                     'is_processed' => true,
                 ]);
 
@@ -217,6 +222,15 @@ class SnapClipStudio extends Page
         }
 
         $this->isGenerating = false;
+    }
+
+    /**
+     * Extracts the YouTube Video ID from a given URL.
+     */
+    private function getYoutubeId(string $url): ?string
+    {
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $url, $match);
+        return $match[1] ?? null;
     }
 
     /**

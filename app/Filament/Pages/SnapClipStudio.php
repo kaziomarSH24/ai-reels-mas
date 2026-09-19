@@ -19,6 +19,12 @@ class SnapClipStudio extends Page
     protected string $view = 'filament.pages.snap-clip-studio';
     protected static ?int $navigationSort = 1;
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'AI & Automation';
+    }
+
+
     // Component State
     public string $youtubeUrl = '';
     public bool $isAnalyzing = false;

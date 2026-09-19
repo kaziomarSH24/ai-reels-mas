@@ -8,51 +8,67 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Video;
 use App\Models\VideoClip;
 use App\Models\GeneratedReel;
+use Illuminate\Support\Facades\Log;
 
+/**
+ * SnapClipStudio acts as the primary user interface for the AI Video pipeline.
+ * It manages the lifecycle of video extraction (Phase 1) and compilation (Phase 2).
+ */
 class SnapClipStudio extends Page
 {
+    protected string $view = 'filament.pages.snap-clip-studio';
+    protected static ?int $navigationSort = 1;
+
+    // Component State
+    public string $youtubeUrl = '';
+    public bool $isAnalyzing = false;
+    public bool $isGenerating = false;
+    
+    public ?int $currentVideoId = null;
+    public array $extractedClips = [];
+    public array $selectedClipIds = [];
+    
+    public ?string $generatedReelUrl = null;
+
+    /**
+     * Define the navigation icon for the Filament sidebar.
+     */
     public static function getNavigationIcon(): string|\BackedEnum|null
     {
         return 'heroicon-o-sparkles';
     }
 
+    /**
+     * Define the label displayed in the Filament sidebar navigation.
+     */
     public static function getNavigationLabel(): string
     {
         return 'SnapClip Studio';
     }
 
+    /**
+     * Define the page title.
+     */
     public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable
     {
-        return 'AI Video Studio';
+        return 'SnapClip Studio';
     }
 
-    protected static ?int $navigationSort = 1;
-
-    protected string $view = 'filament.pages.snap-clip-studio';
-
-    // State Variables
-    public $youtubeUrl = '';
-    public $isAnalyzing = false;
-    public $isGenerating = false;
-    
-    public $currentVideoId = null;
-    public $extractedClips = [];
-    public $selectedClipIds = [];
-    
-    public $generatedReelUrl = null;
-
-    public function analyzeVideo()
+    /**
+     * Initiates the Phase 1 extraction process.
+     * Sends the YouTube URL to the Python AI engine for dialogue extraction.
+     */
+    public function analyzeVideo(): void
     {
         if (empty($this->youtubeUrl)) {
-            Notification::make()->title('Please enter a YouTube URL.')->danger()->send();
+            Notification::make()->title('Please enter a valid YouTube URL.')->danger()->send();
             return;
         }
 
         $this->isAnalyzing = true;
-        Notification::make()->title('AI Extraction Started')->body('Fetching subtitles and analyzing via Gemini (This will take a minute)...')->info()->send();
+        Notification::make()->title('Analysis Started')->body('Processing video content...')->info()->send();
 
         try {
-            // Phase 1 API Call
             $response = Http::timeout(300)->post('http://ai_api:8001/api/analyze_video', [
                 'youtube_url' => $this->youtubeUrl
             ]);
@@ -62,14 +78,14 @@ class SnapClipStudio extends Page
                 $clipsData = $data['data']['extracted_clips'] ?? [];
 
                 if (count($clipsData) === 0) {
-                    Notification::make()->title('No smart phrases found.')->warning()->send();
+                    Notification::make()->title('No relevant segments found.')->warning()->send();
                     $this->isAnalyzing = false;
                     return;
                 }
 
-                // Database Storage
+                // Persist the parsed video session
                 $video = Video::create([
-                    'title' => 'YouTube Extraction ' . uniqid(),
+                    'title' => 'Video Processed: ' . now()->format('Y-m-d H:i'),
                     'youtube_url' => $this->youtubeUrl,
                     'is_processed' => true,
                 ]);
@@ -77,6 +93,7 @@ class SnapClipStudio extends Page
                 $this->currentVideoId = $video->id;
                 $insertData = [];
                 
+                // Format the AI payload for database insertion
                 foreach ($clipsData as $item) {
                     $insertData[] = [
                         'video_id' => $video->id,
@@ -97,28 +114,31 @@ class SnapClipStudio extends Page
 
                 VideoClip::insert($insertData);
                 
-                // Load clips to state
+                // Refresh component state with newly inserted records
                 $this->extractedClips = VideoClip::where('video_id', $video->id)->get()->toArray();
                 $this->selectedClipIds = [];
                 $this->generatedReelUrl = null;
 
                 Notification::make()
-                    ->title('AI Analysis Complete! 🎯')
-                    ->body("Extracted " . count($clipsData) . " premium phrases.")
+                    ->title('Analysis Complete')
+                    ->body('Successfully extracted ' . count($clipsData) . ' segments.')
                     ->success()
                     ->send();
             } else {
-                Notification::make()->title('Python API Error')->body('Check the Python logs.')->danger()->send();
+                Notification::make()->title('Processing Error')->body('Unable to analyze video.')->danger()->send();
             }
         } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error('AI Studio Error: ' . $e->getMessage());
-            Notification::make()->title('System Error')->body('Failed to connect to AI Engine.')->danger()->send();
+            Log::error('SnapClip Studio Error: ' . $e->getMessage());
+            Notification::make()->title('System Error')->body('Connection to processing engine failed.')->danger()->send();
         }
 
         $this->isAnalyzing = false;
     }
 
-    public function toggleClipSelection($clipId)
+    /**
+     * Toggles the selection state of a specific clip for final generation.
+     */
+    public function toggleClipSelection(int $clipId): void
     {
         if (in_array($clipId, $this->selectedClipIds)) {
             $this->selectedClipIds = array_diff($this->selectedClipIds, [$clipId]);
@@ -127,25 +147,31 @@ class SnapClipStudio extends Page
         }
     }
 
-    public function generateReel()
+    /**
+     * Initiates the Phase 2 video generation pipeline.
+     * Submits the curated clip metadata to the Python engine for FFmpeg rendering.
+     */
+    public function generateReel(): void
     {
         if (empty($this->selectedClipIds)) {
-            Notification::make()->title('Please select at least one clip.')->warning()->send();
+            Notification::make()->title('Selection Required')->body('Please select at least one segment.')->warning()->send();
             return;
         }
 
         $this->isGenerating = true;
-        Notification::make()->title('Reel Generation Started')->body('Fetching chunks and rendering via FFmpeg/Whisper...')->info()->send();
+        Notification::make()->title('Generation Started')->body('Rendering final video output...')->info()->send();
 
         try {
             $clipsToProcess = [];
             
-            // Build the payload for Python
+            // Map the selected database records into the API payload structure
             foreach ($this->selectedClipIds as $id) {
                 $clip = collect($this->extractedClips)->firstWhere('id', $id);
                 if ($clip) {
                     $startSec = $this->timeToSeconds($clip['start_time']);
                     $endSec = $this->timeToSeconds($clip['end_time']);
+                    
+                    // Enforce a minimum 3-second duration for better viewing experience
                     $duration = max(3, ceil($endSec - $startSec));
                     
                     $clipsToProcess[] = [
@@ -162,9 +188,8 @@ class SnapClipStudio extends Page
                 }
             }
 
-            $outputFilename = 'viral_reel_' . uniqid() . '.mp4';
+            $outputFilename = 'reel_export_' . uniqid() . '.mp4';
             
-            // Phase 2 API Call
             $response = Http::timeout(300)->post('http://ai_api:8001/api/generate_compilation', [
                 'clips' => $clipsToProcess,
                 'output_filename' => $outputFilename
@@ -174,30 +199,31 @@ class SnapClipStudio extends Page
                 $data = $response->json();
                 $this->generatedReelUrl = $data['data']['output_path'];
                 
-                // Save to DB
                 GeneratedReel::create([
                     'video_id' => $this->currentVideoId,
-                    'target_word' => 'Custom Compilation',
+                    'target_word' => 'Export: ' . count($clipsToProcess) . ' Clips',
                     'file_path' => $this->generatedReelUrl,
                     'is_posted_to_fb' => false,
                 ]);
                 
-                Notification::make()->title('Reel Generated Successfully! 🎉')->success()->send();
+                Notification::make()->title('Export Ready')->success()->send();
             } else {
                 $errorData = $response->json();
-                Notification::make()->title('Generation Error')->body($errorData['message'] ?? 'Unknown Error')->danger()->send();
+                Notification::make()->title('Rendering Failed')->body($errorData['message'] ?? 'Unknown Error')->danger()->send();
             }
         } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Generation Error: ' . $e->getMessage());
-            Notification::make()->title('System Error')->body('FFmpeg rendering failed.')->danger()->send();
+            Log::error('Generation Error: ' . $e->getMessage());
+            Notification::make()->title('System Error')->body('FFmpeg rendering service is unreachable.')->danger()->send();
         }
 
         $this->isGenerating = false;
     }
 
-    private function timeToSeconds($timeStr)
+    /**
+     * Converts a timestamp string (e.g., "00:01:23.450" or "83.45") into total seconds.
+     */
+    private function timeToSeconds(string $timeStr): float
     {
-        // Handle standard formats or floats passed straight from Python
         if (is_numeric($timeStr)) {
             return (float) $timeStr;
         }
@@ -206,6 +232,7 @@ class SnapClipStudio extends Page
         if (count($parts) === 3) {
             return ($parts[0] * 3600) + ($parts[1] * 60) + (float)$parts[2];
         }
-        return 0;
+        
+        return 0.0;
     }
 }

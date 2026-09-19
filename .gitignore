@@ -33,3 +33,8 @@ cookies.txt
 # Ignore AI Models
 python_engine/models/
 full_logs.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.class

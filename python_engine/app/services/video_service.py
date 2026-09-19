@@ -140,13 +140,18 @@ class VideoService:
             # Step 3: Whisper Exact Alignment
             exact_start, exact_end = self._find_exact_times_with_whisper(audio_path, whisper_target)
             
-            if exact_start is not None and exact_end is not None:
-                crop_start = max(0, exact_start - 0.5) 
-                crop_dur = (exact_end - exact_start) + 1.0 
-            else:
-                print("[VideoService] Whisper failed, falling back to safe crop.")
-                crop_start = 4.0 
-                crop_dur = 4.0
+            # Use generous padding around the original clip boundaries instead of aggressive Whisper cropping
+            # This ensures the full context/sentence is heard.
+            requested_start = float(clip.get('start_time'))
+            requested_end = float(clip.get('end_time'))
+            
+            # The downloaded chunk starts at (requested_start - 5.0).
+            # We want our final video to start at (requested_start - 1.5).
+            # So within the chunk, that is an offset of 3.5 seconds.
+            crop_start = 3.5
+            
+            # Total duration = original duration + 1.5s before + 2.5s after = original + 4.0s
+            crop_dur = (requested_end - requested_start) + 4.0
                 
             # Step 4: Micro-crop the video with libx264 re-encoding to fix keyframe blanking
             subprocess.run([
@@ -211,7 +216,7 @@ class VideoService:
             
             # UI Rendering: Draw Easy Example and Translation (Middle)
             if easy_example:
-                y = 1000
+                y = 1450
                 example_lines = wrap_text(easy_example, font_example, 900)
                 if example_translation:
                     example_lines.extend(wrap_text(example_translation, font_example, 900))
@@ -219,7 +224,7 @@ class VideoService:
 
             # UI Rendering: Draw Casual Meaning (Bottom)
             if casual_meaning:
-                y = 1400
+                y = 450
                 meaning_lines = wrap_text(f"অর্থ: {casual_meaning}", font_meaning, 900)
                 draw_rounded_text(meaning_lines, font_meaning, y, text_color=(255,255,255,255), bg_color=(0,150,0,200))
 

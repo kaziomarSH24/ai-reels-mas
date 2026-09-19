@@ -1,4 +1,26 @@
 <x-filament-panels::page>
+    <style>
+        .clip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .clip-card { cursor: pointer; border-radius: 0.75rem; border: 2px solid #e5e7eb; background-color: #ffffff; padding: 1.25rem; transition: all 0.2s; }
+        .clip-card.selected { border-color: #10b981; background-color: rgba(16, 185, 129, 0.05); }
+        .clip-title { font-size: 1.125rem; font-weight: 700; text-transform: uppercase; color: #111827; margin: 0; }
+        .clip-meaning { font-size: 0.875rem; margin-bottom: 1rem; color: #374151; }
+        .clip-example-box { background-color: #f3f4f6; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+        .clip-example-text { font-style: italic; font-size: 0.875rem; color: #111827; margin: 0; font-weight: 500; }
+        .clip-example-trans { font-size: 0.75rem; color: #4b5563; margin-top: 0.25rem; }
+        .clip-meta { border-top: 1px solid #e5e7eb; padding-top: 0.75rem; display: flex; justify-content: space-between; font-size: 0.75rem; color: #6b7280; }
+        
+        /* Dark Mode */
+        .dark .clip-card { border-color: #374151; background-color: #1f2937; }
+        .dark .clip-card.selected { border-color: #10b981; background-color: rgba(16, 185, 129, 0.1); }
+        .dark .clip-title { color: #f9fafb; }
+        .dark .clip-meaning { color: #d1d5db; }
+        .dark .clip-example-box { background-color: #374151; }
+        .dark .clip-example-text { color: #f3f4f6; }
+        .dark .clip-example-trans { color: #9ca3af; }
+        .dark .clip-meta { border-top-color: #4b5563; color: #9ca3af; }
+    </style>
+
     <!-- Video Input Section -->
     <x-filament::section
         icon="heroicon-o-video-camera"
@@ -43,7 +65,7 @@
             Select the segments you wish to compile into the final reel.
         </x-slot>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+        <div class="clip-grid">
             @foreach($extractedClips as $clip)
                 @php
                     $isSelected = in_array($clip['id'], $selectedClipIds);
@@ -51,24 +73,17 @@
                 
                 <div 
                     wire:click="toggleClipSelection({{ $clip['id'] }})"
-                    style="
-                        cursor: pointer;
-                        border-radius: 0.75rem; 
-                        border: 2px solid {{ $isSelected ? 'var(--primary-600)' : 'var(--gray-200)' }};
-                        background-color: {{ $isSelected ? 'rgba(var(--primary-500), 0.05)' : 'var(--white)' }};
-                        padding: 1.25rem;
-                        transition: all 0.2s ease-in-out;
-                    "
+                    class="clip-card {{ $isSelected ? 'selected' : '' }}"
                 >
                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.125rem; font-weight: 700; text-transform: uppercase;">
+                        <h3 class="clip-title">
                             {{ $clip['expression'] }}
                         </h3>
                         <div>
                             @if($isSelected)
-                                <x-heroicon-s-check-circle style="width: 1.5rem; height: 1.5rem; color: var(--primary-600);"/>
+                                <x-heroicon-s-check-circle style="width: 1.5rem; height: 1.5rem; color: #10b981;"/>
                             @else
-                                <div style="width: 1.5rem; height: 1.5rem; border-radius: 9999px; border: 2px solid var(--gray-300);"></div>
+                                <div style="width: 1.5rem; height: 1.5rem; border-radius: 9999px; border: 2px solid #9ca3af;"></div>
                             @endif
                         </div>
                     </div>
@@ -77,16 +92,16 @@
                         {{ $clip['category'] ?? 'PHRASE' }}
                     </x-filament::badge>
 
-                    <p style="font-size: 0.875rem; margin-bottom: 1rem; color: var(--gray-700);">
+                    <p class="clip-meaning">
                         <strong>Meaning:</strong> {{ $clip['casual_meaning'] }}
                     </p>
 
-                    <div style="background-color: var(--gray-50); padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                        <p style="font-style: italic; font-size: 0.875rem;">"{{ $clip['easy_example'] }}"</p>
-                        <p style="font-size: 0.75rem; color: var(--gray-500); margin-top: 0.25rem;">{{ $clip['example_translation'] }}</p>
+                    <div class="clip-example-box">
+                        <p class="clip-example-text">"{{ $clip['easy_example'] }}"</p>
+                        <p class="clip-example-trans">{{ $clip['example_translation'] }}</p>
                     </div>
 
-                    <div style="border-top: 1px solid var(--gray-200); padding-top: 0.75rem; display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--gray-500);">
+                    <div class="clip-meta">
                         <span style="font-family: monospace;">{{ number_format((float)$clip['start_time'], 1) }}s - {{ number_format((float)$clip['end_time'], 1) }}s</span>
                         <span>🎯 "{{ $clip['whisper_target'] }}"</span>
                     </div>

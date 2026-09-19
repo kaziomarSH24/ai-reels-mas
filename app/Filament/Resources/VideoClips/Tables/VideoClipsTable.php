@@ -8,6 +8,12 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Actions\BulkAction;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Http;
+use Filament\Notifications\Notification;
+use App\Models\GeneratedReel;
+use Illuminate\Support\Facades\Log;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
@@ -178,6 +184,80 @@ class VideoClipsTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
+                    BulkAction::make('generate_reel')
+                        ->label('Generate Reel')
+                        ->icon('heroicon-o-film')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->modalHeading('Generate AI Reel')
+                        ->modalDescription('Are you sure you want to combine the selected clips into a final video reel? This will trigger the AI rendering engine.')
+                        ->modalSubmitActionLabel('Yes, Generate Reel')
+                        ->action(function (Collection $records) {
+                            $clipsToProcess = [];
+                            
+                            foreach ($records as $clip) {
+                                $timeToSeconds = function($timeStr) {
+                                    if (is_numeric($timeStr)) return (float) $timeStr;
+                                    $parts = explode(':', $timeStr);
+                                    if (count($parts) === 3) return ($parts[0] * 3600) + ($parts[1] * 60) + (float)$parts[2];
+                                    return 0.0;
+                                };
+
+                                $startSec = $timeToSeconds($clip->start_time);
+                                $endSec = $timeToSeconds($clip->end_time);
+                                $duration = max(3, ceil($endSec - $startSec));
+                                
+                                $clipsToProcess[] = [
+                                    'source_url' => $clip->video->youtube_url ?? '',
+                                    'start_time' => $clip->start_time,
+                                    'end_time' => $clip->end_time,
+                                    'duration' => $duration,
+                                    'expression' => $clip->expression,
+                                    'whisper_target' => $clip->whisper_target,
+                                    'casual_meaning' => $clip->casual_meaning,
+                                    'easy_example' => $clip->easy_example,
+                                    'example_translation' => $clip->example_translation,
+                                ];
+                            }
+                            
+                            if (empty($clipsToProcess)) {
+                                Notification::make()->title('No valid clips selected')->warning()->send();
+                                return;
+                            }
+
+                            try {
+                                $outputFilename = 'reel_export_' . uniqid() . '.mp4';
+                                
+                                $response = Http::timeout(300)->post('http://ai_api:8001/api/generate_compilation', [
+                                    'clips' => $clipsToProcess,
+                                    'output_filename' => $outputFilename
+                                ]);
+
+                                if ($response->successful()) {
+                                    $data = $response->json();
+                                    $generatedReelUrl = $data['data']['output_path'];
+                                    
+                                    // Use first clip's video_id as reference
+                                    $videoId = $records->first()->video_id ?? null;
+                                    
+                                    GeneratedReel::create([
+                                        'video_id' => $videoId,
+                                        'target_word' => 'Export: ' . count($clipsToProcess) . ' Clips',
+                                        'file_path' => $generatedReelUrl,
+                                        'is_posted_to_fb' => false,
+                                    ]);
+                                    
+                                    Notification::make()->title('Export Ready')->body('Reel generated successfully! Check Generated Reels menu.')->success()->send();
+                                } else {
+                                    $errorData = $response->json();
+                                    Notification::make()->title('Rendering Failed')->body($errorData['message'] ?? 'Unknown Error')->danger()->send();
+                                }
+                            } catch (\Exception $e) {
+                                Log::error('Generation Error (BulkAction): ' . $e->getMessage());
+                                Notification::make()->title('System Error')->body('FFmpeg rendering service is unreachable.')->danger()->send();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
                     DeleteBulkAction::make(),
                 ]),
             ])

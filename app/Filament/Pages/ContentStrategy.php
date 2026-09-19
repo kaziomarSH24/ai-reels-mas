@@ -38,7 +38,7 @@ class ContentStrategy extends Page
     public function generateStrategy()
     {
         $this->isLoading = true;
-        
+
         try {
             // Get unique target words from the database
             $words = MovieDialogue::whereNotNull('target_word')
@@ -46,7 +46,7 @@ class ContentStrategy extends Page
                 ->distinct()
                 ->pluck('target_word')
                 ->toArray();
-                
+
             if (empty($words)) {
                 $this->aiRecommendation = "No target words found in the database. Please add some videos first.";
                 $this->isLoading = false;
@@ -66,14 +66,14 @@ class ContentStrategy extends Page
             }
 
             $prompt = "You are an expert Social Media Strategist and English Teacher for a Bengali audience on TikTok/YouTube Shorts. " .
-                      "Here is the STRICT list of English vocabulary words available in my database right now: [ $wordsList ]. " .
-                      "Please analyze ONLY these provided words and recommend up to 5 of the best words for me to make video reels on TODAY. " .
-                      "CRITICAL RULE: You MUST ONLY select words that are exactly present in the list above. DO NOT invent, suggest, or add any outside words. If there are fewer than 5 words in the list, just review whatever is available. " .
-                      "Pick words that are trendy, emotionally impactful, or highly useful in daily conversation. " .
-                      "For each chosen word, provide: 1) The Word, 2) The Bengali Meaning, 3) Why it makes a great viral video reel. " .
-                      "Format your response in beautiful Markdown, using bold text, bullet points, and emojis. Respond in Bengali.";
+                "Here is the STRICT list of English vocabulary words available in my database right now: [ $wordsList ]. " .
+                "Please analyze ONLY these provided words and recommend up to 5 of the best words for me to make video reels on TODAY. " .
+                "CRITICAL RULE: You MUST ONLY select words that are exactly present in the list above. DO NOT invent, suggest, or add any outside words. If there are fewer than 5 words in the list, just review whatever is available. " .
+                "Pick words that are trendy, emotionally impactful, or highly useful in daily conversation. " .
+                "For each chosen word, provide: 1) The Word, 2) The Bengali Meaning, 3) Why it makes a great viral video reel. " .
+                "Format your response in beautiful Markdown, using bold text, bullet points, and emojis. Respond in Bengali.";
 
-            $response = Http::timeout(30)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={$apiKey}", [
+            $response = Http::timeout(30)->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={$apiKey}", [
                 'contents' => [
                     ['parts' => [['text' => $prompt]]]
                 ],

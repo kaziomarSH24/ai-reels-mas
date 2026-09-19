@@ -16,3 +16,5 @@ pydantic
 yt-dlp
 webvtt-py
 youtube-transcript-api
+openai-whisper
+google-generativeai

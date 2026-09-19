@@ -1,7 +1,8 @@
 import os
 import subprocess
-from PIL import Image, ImageDraw, ImageFont
 import string
+import json
+from PIL import Image, ImageDraw, ImageFont
 
 class VideoService:
     def __init__(self):
@@ -11,22 +12,33 @@ class VideoService:
         os.makedirs(self.output_dir, exist_ok=True)
         
         self._whisper_model = None
-
+        
     def _get_whisper(self):
         if self._whisper_model is None:
             from transformers import pipeline
             print("[VideoService] Loading Whisper AI Model (Transformers Tiny)...")
-            # Using HuggingFace transformers pipeline which supports word-level timestamps
             self._whisper_model = pipeline(
                 "automatic-speech-recognition", 
-                model="openai/whisper-tiny", 
+                model="openai/whisper-tiny",
+                chunk_length_s=30,
                 return_timestamps="word"
             )
         return self._whisper_model
 
     def _time_to_seconds(self, time_str):
-        h, m, s = time_str.split(':')
-        return int(h) * 3600 + int(m) * 60 + float(s)
+        time_str = str(time_str).strip()
+        if ':' in time_str:
+            parts = time_str.split(':')
+            if len(parts) == 3:
+                h, m, s = parts
+                return int(h) * 3600 + int(m) * 60 + float(s)
+            elif len(parts) == 2:
+                m, s = parts
+                return int(m) * 60 + float(s)
+        try:
+            return float(time_str)
+        except:
+            return 0.0
 
     def extract_and_crop_clip(self, source_url: str, start_time: str, duration: float, english_text: str, bengali_text: str, output_filename: str) -> str:
         pass
@@ -57,7 +69,6 @@ Return nothing else."""
         print(f"[WhisperAI] Scanning audio to find exact timestamps for: '{target_phrase}'")
         try:
             model = self._get_whisper()
-            # return_timestamps="word" will return chunks with 'text' and 'timestamp'=(start, end)
             result = model(audio_path)
             
             target_clean = target_phrase.translate(str.maketrans('', '', string.punctuation)).lower().split()
@@ -72,7 +83,6 @@ Return nothing else."""
                     if word_text:
                         words.append((word_text, chunk['timestamp'][0], chunk['timestamp'][1]))
                         
-            # Find sequence
             for i in range(len(words) - len(target_clean) + 1):
                 match = True
                 for j, t_word in enumerate(target_clean):
@@ -97,11 +107,10 @@ Return nothing else."""
         
         for i, clip in enumerate(clips):
             print(f"Processing Clip {i+1}...")
-            
             start_sec = self._time_to_seconds(clip['start_time'])
             
-            dl_start = max(0, start_sec - 2)
-            dl_end = dl_start + 10 
+            dl_start = max(0, start_sec - 5)
+            dl_dur = 15 
             
             raw_path = os.path.join(self.tmp_dir, f"raw_padded_{i}.mp4")
             audio_path = os.path.join(self.tmp_dir, f"audio_{i}.wav")
@@ -109,48 +118,58 @@ Return nothing else."""
             overlay_img_path = os.path.join(self.tmp_dir, f"overlay_{i}.png")
             proc_path = os.path.join(self.tmp_dir, f"proc_{i}.mp4")
             
-            # Download Padded Video
             dl_cmd = [
-                "yt-dlp",
-                "--cookies", "/var/www/cookies.txt",
-                "-f", "bestvideo[ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/mp4",
-                "--download-sections", f"*{dl_start}-{dl_end}",
+                "yt-dlp", "-f", "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+                "--download-sections", f"*{dl_start}-{dl_start+dl_dur}",
                 "--force-keyframes-at-cuts",
+                "--cookies", "/var/www/cookies.txt", 
                 "-o", raw_path,
                 clip['source_url']
             ]
             subprocess.run(dl_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
             if not os.path.exists(raw_path):
-                print("Failed to download clip")
+                print(f"Failed to download clip {i+1} using yt-dlp section download.")
                 continue
                 
-            # Extract Audio for Whisper
             subprocess.run(["ffmpeg", "-y", "-i", raw_path, "-vn", "-c:a", "pcm_s16le", audio_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             
-            # 2. Run Whisper AI to get EXACT timestamps
-            target = str(clip.get('target_word', '')).strip()
+            target_full = str(clip.get('target_word', '')).strip()
+            target = target_full.split(' (')[0].strip() if ' (অর্থ:' in target_full else target_full
+            
             exact_start, exact_end = self._find_exact_times_with_whisper(audio_path, target)
             
-            # 3. Crop perfectly around the spoken word
             if exact_start is not None and exact_end is not None:
                 crop_start = max(0, exact_start - 0.5) 
                 crop_dur = (exact_end - exact_start) + 1.0 
             else:
-                crop_start = 2.0 
+                print("[VideoService] Whisper failed to find word, falling back to rough timestamp.")
+                crop_start = 4.0 
                 crop_dur = 4.0
                 
+            # FIX: We MUST re-encode here instead of using '-c copy'. 
+            # yt-dlp downloads sections that often lack keyframes in the middle. 
+            # Using '-c copy' to cut exactly at 4.0s results in a broken/blank mp4!
             subprocess.run([
                 "ffmpeg", "-y", "-ss", str(crop_start), "-t", str(crop_dur),
-                "-i", raw_path, "-c", "copy", exact_vid_path
+                "-i", raw_path, 
+                "-c:v", "libx264", "-preset", "ultrafast", 
+                "-c:a", "aac",
+                exact_vid_path
             ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 
-            # --- GEMINI EXTRACTION ---
             eng_text = str(clip.get('english_text', '')).strip()
             ben_text = str(clip.get('bengali_text', '')).strip()
             
             dict_meaning = str(clip.get('dictionary_meaning', '')).strip()
+            
+            if not dict_meaning and ' (অর্থ:' in target_full:
+                dict_meaning = target_full.split(' (')[1].strip()
+                if dict_meaning.endswith(')'): dict_meaning = dict_meaning[:-1]
+                
             if dict_meaning:
+                if not dict_meaning.startswith('অর্থ:'):
+                    dict_meaning = f"অর্থ: {dict_meaning}"
                 short_eng = ""
                 short_ben = ""
                 word_meaning = dict_meaning
@@ -159,9 +178,9 @@ Return nothing else."""
                     short_eng, short_ben, word_meaning = gemini_cache[target]
                 else:
                     short_eng, short_ben, word_meaning = self._get_gemini_shortened_text(target, eng_text, ben_text)
+                    word_meaning = f"অর্থ: {word_meaning}"
                     gemini_cache[target] = (short_eng, short_ben, word_meaning)
             
-            # --- PIL TEXT GENERATION ---
             font_path = "/tmp/HindSiliguri-Bold.ttf"
             img = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0))
             draw = ImageDraw.Draw(img)
@@ -225,21 +244,17 @@ Return nothing else."""
                     current_y += h + padding * 2 + 10
                 return current_y
 
-            # 1. Target Idiom (Huge Yellow Highlight)
             y = 300
             target_display = target.upper()
             y = draw_rounded_text([target_display], font_word, y, text_color=(0,0,0,255), bg_color=(255,215,0,255))
             
-            # 2. Bengali Meaning (Huge Green Highlight)
             if word_meaning:
                 y = 1300
                 lines_ben = wrap_text(word_meaning, font_ben, 900)
                 draw_rounded_text(lines_ben, font_ben, y, text_color=(255,255,255,255), bg_color=(0,150,0,200))
 
-
             img.save(overlay_img_path)
             
-            # FFMPEG Video processing
             filter_complex = (
                 "[0:v]split=2[bg_raw][fg_raw];"
                 "[bg_raw]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:5[bg];"
@@ -268,7 +283,6 @@ Return nothing else."""
             if os.path.exists(proc_path):
                 processed_files.append(proc_path)
                 
-            # Cleanup temp files
             for f in [raw_path, audio_path, exact_vid_path, overlay_img_path]:
                 try: os.remove(f)
                 except: pass
@@ -301,3 +315,4 @@ Return nothing else."""
         except: pass
             
         return f"/generated_reels/{output_filename}"
+

@@ -1,32 +1,33 @@
 import os
-import requests
 from dotenv import load_dotenv
 load_dotenv('/var/www/.env')
+import google.generativeai as genai
+genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+model = genai.GenerativeModel('gemini-3.5-flash-lite')
 
-api_key = os.environ.get("GEMINI_API_KEY")
-target = "piece of cake"
-eng = "You can share a piece of cake..."
-ben = ""
+vtt = """
+40.00 --> 42.50
+They help us connect the dots and realize that what we eat
+42.50 --> 45.00
+has a direct impact on our health.
+"""
 
-url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={api_key}"
-        
-prompt = f"""You are an English-to-Bengali vocabulary dictionary.
-I have the phrase: "{target}"
-Context dialogue: "{eng}"
-Bengali dialogue: "{ben}"
+prompt = """
+You are an expert English-to-Bengali linguistic AI.
+Analyze the following VTT subtitle text carefully. 
+Extract ALL highly useful, advanced English expressions, idioms, and smart words (e.g., "seconded", "I'm losing my nerve", "Chop chop") found in the text. Do not limit the count—extract as many as available.
 
-Return ONLY the direct dictionary meaning of "{target}" in Bengali.
-Keep it extremely short (max 2-3 words). 
-Example: "খুব সহজ", "বিপাকে পড়া", "যোগাযোগ".
-Return nothing else."""
+For each extracted item, provide:
+1. "expression": The exact spoken English idiom or word (e.g., "seconded", "avid").
+2. "type": Classify it as either "IDIOM", "PHRASAL_VERB", or "ADVANCED_WORD".
+3. "dictionary_meaning": The direct dictionary meaning in Bengali wrapped in parentheses (e.g., "(অর্থ: সমর্থন করা)").
+4. "original_sentence": The full complete spoken sentence where it was used.
+5. "sentence_translation": The accurate contextual Bengali translation of the full sentence.
+6. "rough_start": The start timestamp (in seconds).
+7. "rough_end": The end timestamp (in seconds).
 
-data = {
-    "contents": [{"parts":[{"text": prompt}]}]
-}
-try:
-    response = requests.post(url, json=data)
-    result = response.json()
-    text = result['candidates'][0]['content']['parts'][0]['text'].strip()
-    print("Gemini Output:", text)
-except Exception as e:
-    print("Error:", str(e))
+RETURN ONLY A VALID JSON ARRAY. NO MARKDOWN, NO EXTRA TEXT.
+Subtitle Data:
+""" + vtt
+
+print(model.generate_content(prompt).text)

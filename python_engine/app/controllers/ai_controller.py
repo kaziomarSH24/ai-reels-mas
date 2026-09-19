@@ -29,7 +29,7 @@ def analyze_video(request: AnalyzeVideoRequest):
     try:
         sub_service = SubtitleService()
         dialogues = sub_service.fetch_and_parse(request.youtube_url)
-                def time_to_sec(t):
+        def time_to_sec(t):
             if isinstance(t, (int, float)): return t
             if ':' not in str(t): return float(t)
             parts = str(t).split(':')

@@ -1,9 +1,57 @@
+import tempfile
+import uuid
 import os
 import subprocess
 from PIL import Image, ImageDraw, ImageFont
 import whisper
 import yt_dlp
 import numpy as np
+
+
+def format_ass_time(seconds):
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = seconds % 60
+    return f"{h}:{m:02d}:{s:05.2f}"
+
+def generate_ass_subtitles(whisper_result, target_phrase, ass_path):
+    target_parts = target_phrase.lower().split()
+    
+    ass_content = """[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 607
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,65,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3,2,2,10,10,30,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    for segment in whisper_result.get("segments", []):
+        start_t = format_ass_time(segment["start"])
+        end_t = format_ass_time(segment["end"])
+        
+        colored_text = ""
+        for w in segment.get("words", []):
+            w_clean = w["word"].lower().strip(".,!?'\"")
+            is_target = False
+            for part in target_parts:
+                if part and (part in w_clean or w_clean in part):
+                    is_target = True
+                    break
+            word_actual = w["word"].strip()
+            if is_target:
+                colored_text += r"{\c&H00FFFF&}" + word_actual + r"{\c&HFFFFFF&} "
+            else:
+                colored_text += f"{word_actual} "
+        
+        colored_text = colored_text.strip()
+        ass_content += f"Dialogue: 0,{start_t},{end_t},Default,,0,0,0,,{colored_text}\n"
+
+    with open(ass_path, "w", encoding="utf-8") as f:
+        f.write(ass_content)
 
 class VideoService:
     """
@@ -161,6 +209,14 @@ class VideoService:
                 "-c:a", "aac",
                 exact_vid_path
             ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            
+            # Step 4.5: Generate ASS Subtitles
+            print("[VideoService] Generating Subtitles...")
+            sub_result = self.whisper_model.transcribe(exact_vid_path, word_timestamps=True)
+            ass_path = os.path.join(tempfile.gettempdir(), f"sub_{uuid.uuid4().hex}.ass")
+            generate_ass_subtitles(sub_result, whisper_target, ass_path)
+            # Escape path for FFmpeg filter
+            escaped_ass_path = ass_path.replace("\\", "/").replace(":", "\\:")
             
             # Step 5: PIL Overlay Generation for Expression, Meaning, and Example
             img = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0))

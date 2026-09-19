@@ -9,12 +9,13 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\Grid;
-use Filament\Infolists\Components\Split;
-use Filament\Infolists\Components\Group;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Group;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
+
+
 
 
 
@@ -100,7 +101,7 @@ class VideoClipsTable
                         Section::make('Core AI Extraction')
                             ->icon('heroicon-o-sparkles')
                             ->schema([
-                                Split::make([
+                                Grid::make(2)->schema([
                                     Group::make([
                                         TextEntry::make('expression')
                                             ->label('Target Expression')

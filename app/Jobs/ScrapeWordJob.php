@@ -29,7 +29,7 @@ class ScrapeWordJob implements ShouldQueue
         Log::info("Starting scrape job for word: " . $this->targetWord);
 
         try {
-            $response = Http::timeout(600)->post('http://python_api:8001/api/scrape_clips', [
+            $response = Http::timeout(600)->post('http://ai_api:8001/api/scrape_clips', [
                 'target_word' => $this->targetWord,
                 'max_clips' => 5
             ]);
@@ -38,10 +38,11 @@ class ScrapeWordJob implements ShouldQueue
                 $paths = $response->json('data.paths') ?? [];
                 
                 foreach ($paths as $path) {
+                    $relativePath = str_replace('/var/www/public/', '', $path);
                     ScrapedClip::create([
                         'target_word' => $this->targetWord,
-                        'file_path' => $path,
-                        'source' => 'getyarn.io'
+                        'file_path' => $relativePath,
+                        'source' => 'playphrase.me'
                     ]);
                 }
                 Log::info("Successfully scraped and saved " . count($paths) . " clips for: " . $this->targetWord);

@@ -18,7 +18,9 @@ class ScrapedClipsTable
                 TextColumn::make('target_word')
                     ->searchable(),
                 TextColumn::make('file_path')
-                    ->searchable(),
+                    ->label('Preview')
+                    ->html()
+                    ->formatStateUsing(fn ($state) => '<video src="'.asset($state).'" controls style="height: 80px; border-radius: 8px; background: #000;"></video>'),
                 TextColumn::make('source')
                     ->searchable(),
                 IconColumn::make('is_used')

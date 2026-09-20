@@ -55,8 +55,10 @@ class ScraperService:
             # Let's extract the current video and click 'next' a few times to grab more
             downloaded_paths = []
             seen = set()
+            attempts = 0
             
-            for i in range(max_clips):
+            while len(downloaded_paths) < max_clips and attempts < 15:
+                attempts += 1
                 try:
                     video = driver.find_element(By.CSS_SELECTOR, 'video')
                     src = video.get_attribute('src')
@@ -74,15 +76,18 @@ class ScraperService:
                                     f.write(chunk)
                             downloaded_paths.append(out_path)
                             
-                    # Press Right Arrow key to go to the next video
-                    from selenium.webdriver.common.keys import Keys
-                    driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ARROW_RIGHT)
-                    time.sleep(1.5) # Wait for next video to load in the DOM
-                    
+                        # Trigger Down Arrow (Next Phrase) via JS to ensure it registers
+                        driver.execute_script("window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown', 'code': 'ArrowDown', 'keyCode': 40, 'which': 40, 'bubbles': true}));")
+                        time.sleep(2) # Wait for the new video to load
+                    else:
+                        # If same video, just wait a bit more or try clicking down again
+                        time.sleep(1)
+                        driver.execute_script("window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown', 'code': 'ArrowDown', 'keyCode': 40, 'which': 40, 'bubbles': true}));")
+                        
                 except Exception as ex:
-                    print(f"Error grabbing clip {i}: {ex}")
-                    break
-            
+                    print(f"Error grabbing clip: {ex}")
+                    time.sleep(1)
+                    
             return downloaded_paths
             
         except Exception as e:

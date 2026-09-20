@@ -76,13 +76,13 @@ class ScraperService:
                                     f.write(chunk)
                             downloaded_paths.append(out_path)
                             
-                        # Trigger Down Arrow (Next Phrase) via JS to ensure it registers
-                        driver.execute_script("window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown', 'code': 'ArrowDown', 'keyCode': 40, 'which': 40, 'bubbles': true}));")
+                        # Force PlayPhrase to go to the next video by simulating video end
+                        driver.execute_script("document.querySelector('video').dispatchEvent(new Event('ended'));")
                         time.sleep(2) # Wait for the new video to load
                     else:
-                        # If same video, just wait a bit more or try clicking down again
+                        # If same video, simulate end again
                         time.sleep(1)
-                        driver.execute_script("window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown', 'code': 'ArrowDown', 'keyCode': 40, 'which': 40, 'bubbles': true}));")
+                        driver.execute_script("document.querySelector('video').dispatchEvent(new Event('ended'));")
                         
                 except Exception as ex:
                     print(f"Error grabbing clip: {ex}")

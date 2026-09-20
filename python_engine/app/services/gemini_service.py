@@ -67,6 +67,15 @@ class GeminiService:
             )
             
             clean_json = response.text.strip()
+            # Strip markdown blocks if the model ignores the instruction
+            if clean_json.startswith("```json"):
+                clean_json = clean_json[7:]
+            if clean_json.startswith("```"):
+                clean_json = clean_json[3:]
+            if clean_json.endswith("```"):
+                clean_json = clean_json[:-3]
+            clean_json = clean_json.strip()
+            
             vocabulary_list = json.loads(clean_json)
             
             print(f"[GeminiService] Successfully extracted {len(vocabulary_list)} expressions!")

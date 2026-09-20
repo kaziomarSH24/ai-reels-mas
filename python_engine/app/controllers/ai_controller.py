@@ -35,11 +35,20 @@ def analyze_video(request: AnalyzeVideoRequest):
             parts = str(t).split(':')
             return int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2])
 
-        vtt_content = ""
-        for idx, d in enumerate(dialogues):
-            vtt_content += f"[ID: {idx}] {d['text']}\n"
-            
-        extracted_vocabulary = gemini_svc.extract_all_vocabulary(vtt_content)
+        import time
+        CHUNK_SIZE = 300
+        extracted_vocabulary = []
+        
+        for i in range(0, len(dialogues), CHUNK_SIZE):
+            chunk_dialogues = dialogues[i:i+CHUNK_SIZE]
+            vtt_content = ""
+            for j, d in enumerate(chunk_dialogues):
+                actual_idx = i + j
+                vtt_content += f"[ID: {actual_idx}] {d['text']}\n"
+                
+            chunk_vocab = gemini_svc.extract_all_vocabulary(vtt_content)
+            extracted_vocabulary.extend(chunk_vocab)
+            time.sleep(2)  # Prevent Gemini 429 rate limit inside the chunk loop
         
         # ID Mapping & Failsafe Logic
         processed_vocab = []

@@ -94,10 +94,25 @@ class ProcessVideoJob implements ShouldQueue
 
             foreach ($clipsData as $item) {
                 $expression = strtolower(trim($item['expression'] ?? ''));
-                if (empty($expression) || in_array($expression, $seenExpressions)) {
-                    continue; // Skip duplicate or empty expressions
+                $startTime = (float) ($item['rough_start'] ?? 0);
+                
+                if (empty($expression)) continue;
+                
+                $isDuplicateTime = false;
+                if (isset($seenExpressions[$expression])) {
+                    foreach ($seenExpressions[$expression] as $seenTime) {
+                        if (abs($seenTime - $startTime) <= 30) {
+                            $isDuplicateTime = true;
+                            break;
+                        }
+                    }
                 }
-                $seenExpressions[] = $expression;
+                
+                if ($isDuplicateTime) {
+                    continue; // Skip because it's the exact same word at almost the same timestamp
+                }
+                
+                $seenExpressions[$expression][] = $startTime;
 
                 $insertData[] = [
                     'video_id'             => $video->id,

@@ -116,11 +116,29 @@ class VideoJobResource extends Resource
                     }),
                 
                 Action::make('view_log')
-                    ->label('View Log')
+                    ->label('View Details')
                     ->icon('heroicon-o-eye')
                     ->color('info')
-                    ->modalHeading('Job Execution Log')
-                    ->modalDescription(fn (VideoJob $record) => $record->error_log ?: 'No logs available. Job might still be processing or completed without errors.')
+                    ->modalHeading('Job Details')
+                    ->modalDescription(function (VideoJob $record) {
+                        if ($record->status === 'failed' || $record->status === 'pending' || $record->status === 'processing') {
+                            return $record->error_log ?: 'Job is currently ' . $record->status . '. No errors logged yet.';
+                        }
+                        
+                        // If completed, fetch the video and its clips
+                        $video = \App\Models\Video::where('youtube_url', $record->youtube_url)->latest()->first();
+                        if (!$video) {
+                            return 'Video processed, but no record found in database. ' . ($record->error_log ?: '');
+                        }
+                        
+                        $count = $video->clips()->count();
+                        if ($count === 0) {
+                            return 'Job completed, but no relevant clips were found to extract. ' . ($record->error_log ?: '');
+                        }
+                        
+                        $expressions = $video->clips()->pluck('expression')->implode(', ');
+                        return "Successfully extracted {$count} expressions!\n\nWords/Phrases: {$expressions}";
+                    })
                     ->modalSubmitAction(false)
                     ->modalCancelActionLabel('Close'),
 

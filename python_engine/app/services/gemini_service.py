@@ -32,8 +32,8 @@ class GeminiService:
         6. "original_translation": Casual Bengali translation of the full original sentence.
         7. "easy_example": Create a short, simple 3-5 word example sentence using the expression.
         8. "example_translation": Bengali translation of the easy example.
-        9. "rough_start": The start timestamp (in seconds, float) of the sentence. IMPORTANT: If the sentence is merged from multiple chunks, take the start timestamp from the FIRST chunk.
-        10. "rough_end": The end timestamp (in seconds, float) of the sentence. IMPORTANT: If the sentence is merged from multiple chunks, take the end timestamp from the LAST chunk.
+        9. "start_id": Look at the [ID: X] tags. Return the integer ID where this sentence STARTS.
+        10. "end_id": Return the integer ID where this sentence ENDS.
 
         If a single sentence contains multiple hard words or idioms, output them as SEPARATE objects in the array.
 
@@ -49,8 +49,8 @@ class GeminiService:
             "original_translation": "তোমার সাথে কফি খেতে ভালোই লাগতো, কিন্তু সত্যি বলতে, আমার পকেট এখন একদম ফাঁকা।",
             "easy_example": "I can't buy that shirt, I'm broke.",
             "example_translation": "আমি ওই শার্টটা কিনতে পারবো না, আমার কাছে টাকা নেই।",
-            "rough_start": 40.50,
-            "rough_end": 45.00
+            "start_id": 14,
+            "end_id": 16
           }
         ]
 

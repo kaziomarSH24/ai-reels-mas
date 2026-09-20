@@ -35,9 +35,65 @@ def analyze_video(request: AnalyzeVideoRequest):
             parts = str(t).split(':')
             return int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2])
 
-        vtt_content = "\n".join([f"{time_to_sec(d.get('start_sec', d['start_time']))} --> {time_to_sec(d.get('end_sec', d['end_time']))}\n{d['text']}" for d in dialogues])
-        
+        vtt_content = ""
+        for idx, d in enumerate(dialogues):
+            vtt_content += f"[ID: {idx}] {d['text']}\n"
+            
         extracted_vocabulary = gemini_svc.extract_all_vocabulary(vtt_content)
+        
+        # ID Mapping & Failsafe Logic
+        processed_vocab = []
+        for item in extracted_vocabulary:
+            start_id = item.get("start_id")
+            end_id = item.get("end_id")
+            orig_sentence = item.get("original_sentence", "").lower()
+            
+            real_start = None
+            real_end = None
+            
+            # Helper to check if text roughly matches the chunk text
+            def text_matches(start_idx, end_idx, target_text):
+                if start_idx < 0 or end_idx >= len(dialogues) or start_idx > end_idx:
+                    return False
+                combined = " ".join([dialogues[i]['text'] for i in range(start_idx, end_idx + 1)]).lower()
+                # Check if at least some words match to verify ID correctness
+                target_words = set(target_text.split())
+                chunk_words = set(combined.split())
+                overlap = target_words.intersection(chunk_words)
+                return len(overlap) > max(1, len(target_words) // 3)
+
+            # Check if IDs are valid and text actually matches
+            if start_id is not None and end_id is not None and text_matches(start_id, end_id, orig_sentence):
+                real_start = time_to_sec(dialogues[start_id].get('start_sec', dialogues[start_id]['start_time']))
+                real_end = time_to_sec(dialogues[end_id].get('end_sec', dialogues[end_id]['end_time']))
+            else:
+                # Failsafe: Exact/Fuzzy Text Matching over the entire array
+                best_start_id = -1
+                best_end_id = -1
+                max_overlap = 0
+                target_words = set(orig_sentence.split())
+                
+                for i in range(len(dialogues)):
+                    for j in range(i, min(i+5, len(dialogues))): # Check up to 5 chunks ahead
+                        combined = " ".join([dialogues[k]['text'] for k in range(i, j+1)]).lower()
+                        chunk_words = set(combined.split())
+                        overlap = len(target_words.intersection(chunk_words))
+                        
+                        if overlap > max_overlap:
+                            max_overlap = overlap
+                            best_start_id = i
+                            best_end_id = j
+                            
+                if best_start_id != -1 and max_overlap > max(1, len(target_words) // 3):
+                    real_start = time_to_sec(dialogues[best_start_id].get('start_sec', dialogues[best_start_id]['start_time']))
+                    real_end = time_to_sec(dialogues[best_end_id].get('end_sec', dialogues[best_end_id]['end_time']))
+
+            if real_start is not None and real_end is not None:
+                item['rough_start'] = real_start
+                item['rough_end'] = real_end
+                processed_vocab.append(item)
+                
+        extracted_vocabulary = processed_vocab
         
         # We pass the extracted vocabulary directly. The schema now perfectly
         # matches the updated Laravel VideoClip model expectations.

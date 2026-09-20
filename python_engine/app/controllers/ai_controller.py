@@ -178,3 +178,30 @@ def translate_word(request: TranslateWordRequest):
         )
     except Exception as e:
         return ApiResponse.response_error(message="Translation failed", errors=str(e), status_code=500)
+
+
+class ScrapeClipsRequest(BaseModel):
+    target_word: str
+    max_clips: int = 5
+
+@router.post("/scrape_clips")
+def scrape_clips(request: ScrapeClipsRequest):
+    """
+    Uses Selenium Headless bot to bypass Cloudflare on getyarn.io
+    and download short MP4 clips for a given expression.
+    """
+    from app.services.scraper_service import ScraperService
+    
+    try:
+        scraper = ScraperService()
+        downloaded_paths = scraper.scrape_clips_for_word(request.target_word, request.max_clips)
+        
+        if not downloaded_paths:
+            return ApiResponse.response_error(message="No clips found or scraping failed", errors="No paths returned", status_code=404)
+            
+        return ApiResponse.response_success(
+            message=f"Scraped {len(downloaded_paths)} clips successfully",
+            data={"paths": downloaded_paths}
+        )
+    except Exception as e:
+        return ApiResponse.response_error(message="Scraper failed", errors=str(e), status_code=500)

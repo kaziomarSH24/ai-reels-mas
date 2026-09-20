@@ -74,7 +74,9 @@ class BulkWordIngest extends Page implements HasForms
         
         $count = count($words);
         
-        // TODO: Dispatch Job here
+        foreach ($words as $word) {
+            \App\Jobs\ScrapeWordJob::dispatch($word);
+        }
         
         Notification::make()
             ->title('Bot Started!')

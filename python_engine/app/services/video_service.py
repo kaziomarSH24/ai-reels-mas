@@ -134,8 +134,8 @@ class VideoService:
 
         # Download the Hind Siliguri font if not present for Bengali support
         font_path = "/tmp/HindSiliguri-Bold.ttf"
-        if not os.path.exists(font_path):
-            subprocess.run(["curl", "-s", "-L", "-o", font_path, "https://github.com/sk-sajib/fonts/raw/master/HindSiliguri/HindSiliguri-Bold.ttf"])
+        if not os.path.exists(font_path) or os.path.getsize(font_path) < 100000:
+            subprocess.run(["curl", "-s", "-L", "-o", font_path, "https://github.com/google/fonts/raw/main/ofl/hindsiliguri/HindSiliguri-Bold.ttf"])
 
         for idx, clip in enumerate(clips):
             print(f"[VideoService] Processing clip {idx+1}/{len(clips)}...")

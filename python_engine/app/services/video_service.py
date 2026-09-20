@@ -91,6 +91,7 @@ class VideoService:
             for segment in result.get("segments", []):
                 words = segment.get("words", [])
                 target_parts = target_lower.split()
+                print(f"[Whisper Verbose] Segment text: {[w['word'] for w in words]}")
                 
                 for i in range(len(words)):
                     matches = []

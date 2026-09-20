@@ -74,7 +74,7 @@ services:
         condition: service_healthy
 
   redis:
-    image: redis:7-alpine
+    image: redis:alpine
     container_name: ai_reels_redis
     restart: unless-stopped
     volumes:

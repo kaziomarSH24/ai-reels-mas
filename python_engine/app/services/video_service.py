@@ -132,10 +132,12 @@ class VideoService:
         print(f"[VideoService] Starting Reel Compilation. Total clips: {len(clips)}")
         processed_files = []
 
-        # Download the Hind Siliguri font if not present for Bengali support
-        font_path = "/tmp/HindSiliguri-Bold.ttf"
-        if not os.path.exists(font_path) or os.path.getsize(font_path) < 100000:
-            subprocess.run(["curl", "-s", "-L", "-o", font_path, "https://github.com/google/fonts/raw/main/ofl/hindsiliguri/HindSiliguri-Bold.ttf"])
+        # Use the bundled Hind Siliguri font for Bengali support
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        font_path = os.path.join(base_dir, "assets", "fonts", "HindSiliguri-Bold.ttf")
+
+        if not os.path.exists(font_path):
+            print(f"[VideoService] Warning: Font not found at {font_path}")
 
         for idx, clip in enumerate(clips):
             print(f"[VideoService] Processing clip {idx+1}/{len(clips)}...")

@@ -160,12 +160,12 @@ def translate_word(request: TranslateWordRequest):
     try:
         import json
         prompt = f"""
-        Provide a highly practical, daily-use Bengali translation and easy example for the English expression: "{request.word}".
+        Provide a highly practical, native-like, conversational Bengali translation and example for the English expression: "{request.word}".
         Return ONLY valid JSON in the exact format:
         {{
-            "casual_meaning": "Bengali meaning",
-            "easy_example": "A very simple English daily-use example sentence using the phrase.",
-            "example_translation": "Bengali translation of the easy example."
+            "casual_meaning": "Smart, conversational Bengali meaning (If it has multiple meanings, provide 2-3 meanings separated by a slash '/', e.g., 'অর্থ ১ / অর্থ ২')",
+            "easy_example": "A catchy, native, cinematic English sentence that people actually use in daily conversations.",
+            "example_translation": "Bengali translation of the example sentence."
         }}
         """
         response = gemini_svc.model.generate_content(prompt)

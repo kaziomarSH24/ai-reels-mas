@@ -112,7 +112,7 @@ class ProcessVideoJob implements ShouldQueue
 
             // 7. Mark the job as completed
             $this->videoJob->update(['status' => 'completed']);
-            Log::info("[ProcessVideoJob] Completed. Extracted {$video->videoClips()->count()} clips for: {$this->videoJob->youtube_url}");
+            Log::info("[ProcessVideoJob] Completed. Extracted {$video->clips()->count()} clips for: {$this->videoJob->youtube_url}");
 
             // 8. Anti-YouTube-Ban: Random sleep between 45-90 seconds before the next job
             // This mimics human browsing behavior and prevents IP flagging.

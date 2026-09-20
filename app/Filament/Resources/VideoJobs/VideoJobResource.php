@@ -114,6 +114,15 @@ class VideoJobResource extends Resource
                         ProcessVideoJob::dispatch($record);
                         Notification::make()->title('Job re-queued successfully!')->success()->send();
                     }),
+                
+                Action::make('view_log')
+                    ->label('View Log')
+                    ->icon('heroicon-o-eye')
+                    ->color('info')
+                    ->modalHeading('Job Execution Log')
+                    ->modalDescription(fn (VideoJob $record) => $record->error_log ?: 'No logs available. Job might still be processing or completed without errors.')
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel('Close'),
 
                 DeleteAction::make(),
             ])

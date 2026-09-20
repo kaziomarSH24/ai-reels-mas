@@ -20,7 +20,7 @@ class GeminiService:
         prompt_instruction = """
         You are an expert English-to-Bengali linguistic AI.
         Analyze the following VTT subtitle text carefully. 
-        Extract ALL highly useful, advanced English expressions, idioms, and smart daily conversational phrases (e.g., "I'm broke", "Connect the dots", "Inevitable"). Do not limit the count—extract as many as available. 
+        Extract ALL highly useful, advanced English expressions, idioms, and smart daily conversational phrases (e.g., "I'm broke", "Connect the dots", "Inevitable"). Do not limit the count-extract as many as available. 
         CRITICAL RULE: Never rewrite a phrase into a completely different idiom. The extracted expression must be constructed ONLY from words actually spoken in the sentence (ignoring filler words).
 
         For each extracted item, provide exactly this JSON structure:
@@ -28,16 +28,15 @@ class GeminiService:
         2. "whisper_target": The EXACT verbatim phrase spoken in the video including filler words (e.g., "I'm completely broke").
         3. "category": Classify strictly as "IDIOM", "ADVANCED_WORD", or "DAILY_PHRASE".
         4. "casual_meaning": Conversational, everyday Bengali meaning (not formal dictionary language).
-        5. "original_sentence": The FULL, grammatically complete English sentence. Merge chunks if split across multiple timestamps.
+        5. "original_sentence": The FULL, grammatically complete English sentence EXACTLY as spoken.
         6. "original_translation": Casual Bengali translation of the full original sentence.
-        7. "easy_example": Create a short, simple 3-5 word example sentence using the expression.
+        7. "easy_example": Create a highly practical, conversational, and relatable example sentence (4-7 words) using the expression. The context should feel natural to daily life (e.g., hanging out with friends, office talk, or casual chatting). Avoid robotic or textbook sentences. Make it sound like how native speakers actually talk.
         8. "example_translation": Bengali translation of the easy example.
         9. "start_id": Look at the [ID: X] tags. Return the integer ID where this sentence STARTS.
         10. "end_id": Return the integer ID where this sentence ENDS.
 
-        If a single sentence contains multiple hard words or idioms, output them as SEPARATE objects in the array.
+        RETURN ONLY A VALID JSON ARRAY. DO NOT WRAP THE RESPONSE IN MARKDOWN CODE BLOCKS (like ```json). JUST RAW JSON.
 
-        RETURN ONLY A VALID JSON ARRAY. NO MARKDOWN, NO EXTRA TEXT.
         Example Output Format:
         [
           {

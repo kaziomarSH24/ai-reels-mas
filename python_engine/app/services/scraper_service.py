@@ -12,8 +12,13 @@ class ScraperService:
         pass
 
     def get_browser(self):
+        from pyvirtualdisplay import Display
+        # Start a virtual display (Xvfb)
+        self.display = Display(visible=0, size=(1920, 1080))
+        self.display.start()
+        
         options = uc.ChromeOptions()
-        options.add_argument('--headless')
+        # Removed --headless to trick Cloudflare
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         
@@ -27,54 +32,67 @@ class ScraperService:
 
     def scrape_clips_for_word(self, target_word: str, max_clips: int = 5):
         """
-        Train the bot to go to Yarn/PlayPhrase, search the word, 
-        bypass Cloudflare, and extract direct MP4 links.
+        Train the bot to go to PlayPhrase.me, search the word, 
+        and extract direct MP4 links, completely bypassing Cloudflare Turnstile.
         """
-        print(f"[Scraper Bot] Starting search for: {target_word}")
+        print(f"[Scraper Bot] Starting search for: {target_word} on PlayPhrase")
         driver = None
         
         try:
             driver = self.get_browser()
-            url = f"https://getyarn.io/yarn-find?text={target_word.replace(' ', '+')}"
+            url = f"https://www.playphrase.me/#/search?q={target_word.replace(' ', '+')}"
             driver.get(url)
             
-            # Wait for Cloudflare challenge to pass and the grid to load
+            # Wait for the first video to load
             WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, 'a[href^="/yarn-clip/"]'))
+                EC.presence_of_element_located((By.CSS_SELECTOR, 'video'))
             )
             
-            # Extract URLs via JavaScript
-            clip_hrefs = driver.execute_script(
-                "return Array.from(document.querySelectorAll('a[href^=\"/yarn-clip/\"]')).map(a => a.href);"
-            )
+            time.sleep(2) # Give it a moment to initialize the playlist
             
-            # Deduplicate keeping order
-            seen = set()
-            unique_hrefs = [x for x in clip_hrefs if not (x in seen or seen.add(x))]
-            
+            # Extract video URLs from the Javascript state or DOM
+            # Playphrase keeps a list of videos in window.__PRELOADED_STATE__ or we can just grab from video tags
+            # Let's extract the current video and click 'next' a few times to grab more
             downloaded_paths = []
+            seen = set()
             
-            for href in unique_hrefs[:max_clips]:
-                # Extract UUID: https://getyarn.io/yarn-clip/1234-abcd -> 1234-abcd
-                clip_id = href.split('/')[-1]
-                mp4_url = f"https://y.yarn.co/{clip_id}.mp4"
-                
-                # Download the MP4 directly
-                out_path = f"/var/www/public/scraped_{clip_id}.mp4"
-                
-                # Using requests to download
-                resp = requests.get(mp4_url, headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
-                if resp.status_code == 200:
-                    with open(out_path, 'wb') as f:
-                        for chunk in resp.iter_content(chunk_size=1024*1024):
-                            f.write(chunk)
-                    downloaded_paths.append(out_path)
+            for i in range(max_clips):
+                try:
+                    video = driver.find_element(By.CSS_SELECTOR, 'video')
+                    src = video.get_attribute('src')
+                    
+                    if src and src not in seen:
+                        seen.add(src)
+                        
+                        clip_id = src.split('/')[-1].replace('.mp4', '')
+                        out_path = f"/var/www/public/scraped_pp_{clip_id}.mp4"
+                        
+                        resp = requests.get(src, headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
+                        if resp.status_code == 200:
+                            with open(out_path, 'wb') as f:
+                                for chunk in resp.iter_content(chunk_size=1024*1024):
+                                    f.write(chunk)
+                            downloaded_paths.append(out_path)
+                            
+                    # Press Right Arrow key to go to the next video
+                    from selenium.webdriver.common.keys import Keys
+                    driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ARROW_RIGHT)
+                    time.sleep(1.5) # Wait for next video to load in the DOM
+                    
+                except Exception as ex:
+                    print(f"Error grabbing clip {i}: {ex}")
+                    break
             
             return downloaded_paths
             
         except Exception as e:
+            if driver:
+                driver.save_screenshot('/var/www/public/debug_cloudflare.png')
+                print(f"[Scraper Bot] Screenshot saved to /var/www/public/debug_cloudflare.png")
             print(f"[Scraper Bot] Error: {str(e)}")
             return []
         finally:
             if driver:
                 driver.quit()
+            if hasattr(self, 'display') and self.display:
+                self.display.stop()

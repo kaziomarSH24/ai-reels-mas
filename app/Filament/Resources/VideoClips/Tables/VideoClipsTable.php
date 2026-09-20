@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Http;
 use Filament\Notifications\Notification;
 use App\Models\GeneratedReel;
+use App\Jobs\GenerateReelJob;
 use Illuminate\Support\Facades\Log;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
@@ -226,32 +227,24 @@ class VideoClipsTable
                             }
 
                             try {
-                                $outputFilename = 'reel_export_' . uniqid() . '.mp4';
+                                // Use first clip's video_id as reference
+                                $videoId = $records->first()->video_id ?? null;
                                 
-                                $response = Http::timeout(300)->post('http://ai_api:8001/api/generate_compilation', [
-                                    'clips' => $clipsToProcess,
-                                    'output_filename' => $outputFilename
+                                $generatedReel = GeneratedReel::create([
+                                    'video_id' => $videoId,
+                                    'target_word' => 'Export: ' . count($clipsToProcess) . ' Clips',
+                                    'status' => 'pending',
+                                    'file_path' => null,
+                                    'is_posted_to_fb' => false,
                                 ]);
-
-                                if ($response->successful()) {
-                                    $data = $response->json();
-                                    $generatedReelUrl = $data['data']['output_path'];
-                                    
-                                    // Use first clip's video_id as reference
-                                    $videoId = $records->first()->video_id ?? null;
-                                    
-                                    GeneratedReel::create([
-                                        'video_id' => $videoId,
-                                        'target_word' => 'Export: ' . count($clipsToProcess) . ' Clips',
-                                        'file_path' => $generatedReelUrl,
-                                        'is_posted_to_fb' => false,
-                                    ]);
-                                    
-                                    Notification::make()->title('Export Ready')->body('Reel generated successfully! Check Generated Reels menu.')->success()->send();
-                                } else {
-                                    $errorData = $response->json();
-                                    Notification::make()->title('Rendering Failed')->body($errorData['message'] ?? 'Unknown Error')->danger()->send();
-                                }
+                                
+                                GenerateReelJob::dispatch($generatedReel, $clipsToProcess);
+                                
+                                Notification::make()
+                                    ->title('Rendering Started!')
+                                    ->body('Your reel generation has been queued. You can track its progress in the Generated Reels page.')
+                                    ->success()
+                                    ->send();
                             } catch (\Exception $e) {
                                 Log::error('Generation Error (BulkAction): ' . $e->getMessage());
                                 Notification::make()->title('System Error')->body('FFmpeg rendering service is unreachable.')->danger()->send();

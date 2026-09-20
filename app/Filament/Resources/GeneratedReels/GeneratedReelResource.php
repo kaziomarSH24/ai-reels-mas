@@ -50,12 +50,26 @@ class GeneratedReelResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Target Word'),
-                TextColumn::make('file_path')
-                    ->formatStateUsing(fn ($state) => '▶ Play Short/Reel')
+                TextColumn::make('status')
                     ->badge()
-                    ->color('info')
+                    ->color(fn (string $state): string => match ($state) {
+                        'pending' => 'gray',
+                        'processing' => 'warning',
+                        'completed' => 'success',
+                        'failed' => 'danger',
+                        default => 'gray',
+                    }),
+                TextColumn::make('file_path')
+                    ->formatStateUsing(function ($state, $record) {
+                        if ($record->status === 'failed') return 'Failed (Check Error)';
+                        if ($record->status !== 'completed') return 'Rendering...';
+                        return '▶ Play Short/Reel';
+                    })
+                    ->badge()
+                    ->color(fn ($record) => $record->status === 'completed' ? 'info' : ($record->status === 'failed' ? 'danger' : 'gray'))
                     ->action(
                         Action::make('play_video')
+                            ->visible(fn ($record) => $record->status === 'completed')
                             ->modalHeading(fn ($record) => 'Preview: ' . $record->target_word)
                             ->modalSubmitAction(false)
                             ->modalCancelActionLabel('Close Player')
@@ -75,10 +89,20 @@ class GeneratedReelResource extends Resource
                 //
             ])
             ->recordActions([
+                Action::make('view_log')
+                    ->label('View Log')
+                    ->icon('heroicon-o-eye')
+                    ->color('warning')
+                    ->visible(fn ($record) => $record->status === 'failed')
+                    ->modalHeading('Error Log')
+                    ->modalDescription(fn ($record) => $record->error_log ?: 'No error details found.')
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel('Close'),
                 Action::make('download')
                     ->label('Download')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('success')
+                    ->visible(fn ($record) => $record->status === 'completed')
                     ->action(function ($record) {
                         return response()->download(public_path($record->file_path));
                     }),
@@ -90,7 +114,8 @@ class GeneratedReelResource extends Resource
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('created_at', 'desc');
+            ->defaultSort('created_at', 'desc')
+            ->poll('10s');
     }
 
 

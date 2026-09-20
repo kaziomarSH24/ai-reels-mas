@@ -1,0 +1,436 @@
+[
+    {
+        "start_time": "00:00:02.830",
+        "start_sec": 2.83,
+        "end_time": "00:00:07.190",
+        "end_sec": 7.19,
+        "text": "you just finished your app and it looks you just finished your app and it looks great so let's call it a day because great so let's call it a day because great so let's call it a day because you're ready to rest right wrong I'm"
+    },
+    {
+        "start_time": "00:00:07.190",
+        "start_sec": 7.19,
+        "end_time": "00:00:08.750",
+        "end_sec": 8.75,
+        "text": "you're ready to rest right wrong I'm you're ready to rest right wrong I'm David East and I'm here to convince you"
+    },
+    {
+        "start_time": "00:00:08.750",
+        "start_sec": 8.75,
+        "end_time": "00:00:10.549",
+        "end_sec": 10.549,
+        "text": "David East and I'm here to convince you David East and I'm here to convince you that you aren't done yet because you"
+    },
+    {
+        "start_time": "00:00:10.549",
+        "start_sec": 10.549,
+        "end_time": "00:00:12.870",
+        "end_sec": 12.87,
+        "text": "that you aren't done yet because you that you aren't done yet because you need to build a widget but first what"
+    },
+    {
+        "start_time": "00:00:12.870",
+        "start_sec": 12.87,
+        "end_time": "00:00:14.869",
+        "end_sec": 14.869,
+        "text": "need to build a widget but first what need to build a widget but first what exactly is a widget well a widget just"
+    },
+    {
+        "start_time": "00:00:14.869",
+        "start_sec": 14.869,
+        "end_time": "00:00:16.470",
+        "end_sec": 16.47,
+        "text": "exactly is a widget well a widget just exactly is a widget well a widget just consists of a single view that is passed"
+    },
+    {
+        "start_time": "00:00:16.470",
+        "start_sec": 16.47,
+        "end_time": "00:00:18.230",
+        "end_sec": 18.23,
+        "text": "consists of a single view that is passed consists of a single view that is passed to other apps such as the home screen"
+    },
+    {
+        "start_time": "00:00:18.230",
+        "start_sec": 18.23,
+        "end_time": "00:00:20.070",
+        "end_sec": 20.07,
+        "text": "to other apps such as the home screen to other apps such as the home screen app and this view gets displayed as a"
+    },
+    {
+        "start_time": "00:00:20.070",
+        "start_sec": 20.07,
+        "end_time": "00:00:21.990",
+        "end_sec": 21.99,
+        "text": "app and this view gets displayed as a app and this view gets displayed as a portion of their layout and that single"
+    },
+    {
+        "start_time": "00:00:21.990",
+        "start_sec": 21.99,
+        "end_time": "00:00:24.310",
+        "end_sec": 24.31,
+        "text": "portion of their layout and that single portion of their layout and that single view has now become a window to your app"
+    },
+    {
+        "start_time": "00:00:24.310",
+        "start_sec": 24.31,
+        "end_time": "00:00:26.029",
+        "end_sec": 26.029,
+        "text": "view has now become a window to your app view has now become a window to your app from the home screen or even the lock"
+    },
+    {
+        "start_time": "00:00:26.029",
+        "start_sec": 26.029,
+        "end_time": "00:00:28.230",
+        "end_sec": 28.23,
+        "text": "from the home screen or even the lock from the home screen or even the lock screen and this is where the magic comes"
+    },
+    {
+        "start_time": "00:00:28.230",
+        "start_sec": 28.23,
+        "end_time": "00:00:30.429",
+        "end_sec": 30.429,
+        "text": "screen and this is where the magic comes screen and this is where the magic comes in because you can use that widget to"
+    },
+    {
+        "start_time": "00:00:30.429",
+        "start_sec": 30.429,
+        "end_time": "00:00:32.229",
+        "end_sec": 32.229,
+        "text": "in because you can use that widget to in because you can use that widget to display information that your users will"
+    },
+    {
+        "start_time": "00:00:32.229",
+        "start_sec": 32.229,
+        "end_time": "00:00:34.229",
+        "end_sec": 34.229,
+        "text": "display information that your users will display information that your users will care about and to trigger actions that"
+    },
+    {
+        "start_time": "00:00:34.229",
+        "start_sec": 34.229,
+        "end_time": "00:00:36.950",
+        "end_sec": 36.95,
+        "text": "care about and to trigger actions that care about and to trigger actions that will bring them back into your app this"
+    },
+    {
+        "start_time": "00:00:36.950",
+        "start_sec": 36.95,
+        "end_time": "00:00:38.470",
+        "end_sec": 38.47,
+        "text": "will bring them back into your app this will bring them back into your app this means that you have an opportunity to"
+    },
+    {
+        "start_time": "00:00:38.470",
+        "start_sec": 38.47,
+        "end_time": "00:00:40.270",
+        "end_sec": 40.27,
+        "text": "means that you have an opportunity to means that you have an opportunity to become the core part of your user's"
+    },
+    {
+        "start_time": "00:00:40.270",
+        "start_sec": 40.27,
+        "end_time": "00:00:43.350",
+        "end_sec": 43.35,
+        "text": "become the core part of your user's become the core part of your user's mobile experience and how cool is that"
+    },
+    {
+        "start_time": "00:00:43.350",
+        "start_sec": 43.35,
+        "end_time": "00:00:45.470",
+        "end_sec": 45.47,
+        "text": "mobile experience and how cool is that mobile experience and how cool is that consider a simple non-interactive widget"
+    },
+    {
+        "start_time": "00:00:45.470",
+        "start_sec": 45.47,
+        "end_time": "00:00:47.189",
+        "end_sec": 47.189,
+        "text": "consider a simple non-interactive widget consider a simple non-interactive widget like for a weather app it can display"
+    },
+    {
+        "start_time": "00:00:47.189",
+        "start_sec": 47.189,
+        "end_time": "00:00:48.790",
+        "end_sec": 48.79,
+        "text": "like for a weather app it can display like for a weather app it can display the current temperature overlaid on a"
+    },
+    {
+        "start_time": "00:00:48.790",
+        "start_sec": 48.79,
+        "end_time": "00:00:50.830",
+        "end_sec": 50.83,
+        "text": "the current temperature overlaid on a the current temperature overlaid on a sunny Sky to show the weather outside in"
+    },
+    {
+        "start_time": "00:00:50.830",
+        "start_sec": 50.83,
+        "end_time": "00:00:53.470",
+        "end_sec": 53.47,
+        "text": "sunny Sky to show the weather outside in sunny Sky to show the weather outside in a single glance on the home screen now"
+    },
+    {
+        "start_time": "00:00:53.470",
+        "start_sec": 53.47,
+        "end_time": "00:00:55.229",
+        "end_sec": 55.229,
+        "text": "a single glance on the home screen now a single glance on the home screen now you just gained a grateful user because"
+    },
+    {
+        "start_time": "00:00:55.229",
+        "start_sec": 55.229,
+        "end_time": "00:00:58.950",
+        "end_sec": 58.95,
+        "text": "you just gained a grateful user because you just gained a grateful user because they don't actually have to open up the they don't actually have to open up the they don't actually have to open up the app just to check the weather but"
+    },
+    {
+        "start_time": "00:00:58.950",
+        "start_sec": 58.95,
+        "end_time": "00:01:00.910",
+        "end_sec": 60.91,
+        "text": "app just to check the weather but app just to check the weather but widgets are about doing things not just"
+    },
+    {
+        "start_time": "00:01:00.910",
+        "start_sec": 60.91,
+        "end_time": "00:01:02.950",
+        "end_sec": 62.95,
+        "text": "widgets are about doing things not just widgets are about doing things not just showing off so give that informative"
+    },
+    {
+        "start_time": "00:01:02.950",
+        "start_sec": 62.95,
+        "end_time": "00:01:05.310",
+        "end_sec": 65.31,
+        "text": "showing off so give that informative showing off so give that informative view a job to do a click on The View"
+    },
+    {
+        "start_time": "00:01:05.310",
+        "start_sec": 65.31,
+        "end_time": "00:01:07.469",
+        "end_sec": 67.469,
+        "text": "view a job to do a click on The View view a job to do a click on The View should trigger a deep link into your app"
+    },
+    {
+        "start_time": "00:01:07.469",
+        "start_sec": 67.469,
+        "end_time": "00:01:09.149",
+        "end_sec": 69.149,
+        "text": "should trigger a deep link into your app should trigger a deep link into your app but don't just open up your main"
+    },
+    {
+        "start_time": "00:01:09.149",
+        "start_sec": 69.149,
+        "end_time": "00:01:11.670",
+        "end_sec": 71.67,
+        "text": "but don't just open up your main but don't just open up your main activity instead consider is there a"
+    },
+    {
+        "start_time": "00:01:11.670",
+        "start_sec": 71.67,
+        "end_time": "00:01:13.710",
+        "end_sec": 73.71000000000001,
+        "text": "activity instead consider is there a activity instead consider is there a better point of entry such as the view"
+    },
+    {
+        "start_time": "00:01:13.710",
+        "start_sec": 73.71000000000001,
+        "end_time": "00:01:16.230",
+        "end_sec": 76.23,
+        "text": "better point of entry such as the view better point of entry such as the view for this week's forecast another use for"
+    },
+    {
+        "start_time": "00:01:16.230",
+        "start_sec": 76.23,
+        "end_time": "00:01:18.230",
+        "end_sec": 78.23,
+        "text": "for this week's forecast another use for for this week's forecast another use for a widget could be a control toggle"
+    },
+    {
+        "start_time": "00:01:18.230",
+        "start_sec": 78.23,
+        "end_time": "00:01:19.830",
+        "end_sec": 79.83,
+        "text": "a widget could be a control toggle a widget could be a control toggle perhaps you want to show how strong the"
+    },
+    {
+        "start_time": "00:01:19.830",
+        "start_sec": 79.83,
+        "end_time": "00:01:21.950",
+        "end_sec": 81.95,
+        "text": "perhaps you want to show how strong the perhaps you want to show how strong the Wi-Fi signal is right now that's your"
+    },
+    {
+        "start_time": "00:01:21.950",
+        "start_sec": 81.95,
+        "end_time": "00:01:23.950",
+        "end_sec": 83.95,
+        "text": "Wi-Fi signal is right now that's your Wi-Fi signal is right now that's your view and a click on that view could"
+    },
+    {
+        "start_time": "00:01:23.950",
+        "start_sec": 83.95,
+        "end_time": "00:01:26.190",
+        "end_sec": 86.19,
+        "text": "view and a click on that view could view and a click on that view could toggle the Wi-Fi on and off without ever"
+    },
+    {
+        "start_time": "00:01:26.190",
+        "start_sec": 86.19,
+        "end_time": "00:01:28.310",
+        "end_sec": 88.31,
+        "text": "toggle the Wi-Fi on and off without ever toggle the Wi-Fi on and off without ever directing the user into the settings app"
+    },
+    {
+        "start_time": "00:01:28.310",
+        "start_sec": 88.31,
+        "end_time": "00:01:30.749",
+        "end_sec": 90.749,
+        "text": "directing the user into the settings app directing the user into the settings app which is super useful but these are"
+    },
+    {
+        "start_time": "00:01:30.749",
+        "start_sec": 90.749,
+        "end_time": "00:01:32.630",
+        "end_sec": 92.63,
+        "text": "which is super useful but these are which is super useful but these are still only scraping the surface of what"
+    },
+    {
+        "start_time": "00:01:32.630",
+        "start_sec": 92.63,
+        "end_time": "00:01:35.670",
+        "end_sec": 95.67,
+        "text": "still only scraping the surface of what still only scraping the surface of what widgets can do for you and for users"
+    },
+    {
+        "start_time": "00:01:35.670",
+        "start_sec": 95.67,
+        "end_time": "00:01:37.510",
+        "end_sec": 97.50999999999999,
+        "text": "widgets can do for you and for users widgets can do for you and for users think about a calendar widget The View"
+    },
+    {
+        "start_time": "00:01:37.510",
+        "start_sec": 97.50999999999999,
+        "end_time": "00:01:39.270",
+        "end_sec": 99.27000000000001,
+        "text": "think about a calendar widget The View think about a calendar widget The View can adjust to fill whatever size the"
+    },
+    {
+        "start_time": "00:01:39.270",
+        "start_sec": 99.27000000000001,
+        "end_time": "00:01:41.389",
+        "end_sec": 101.38900000000001,
+        "text": "can adjust to fill whatever size the can adjust to fill whatever size the user gives it listing out all the events"
+    },
+    {
+        "start_time": "00:01:41.389",
+        "start_sec": 101.38900000000001,
+        "end_time": "00:01:43.870",
+        "end_sec": 103.87,
+        "text": "user gives it listing out all the events user gives it listing out all the events for today clicking on an event can open"
+    },
+    {
+        "start_time": "00:01:43.870",
+        "start_sec": 103.87,
+        "end_time": "00:01:45.870",
+        "end_sec": 105.87,
+        "text": "for today clicking on an event can open for today clicking on an event can open up its detail View and scrolling through"
+    },
+    {
+        "start_time": "00:01:45.870",
+        "start_sec": 105.87,
+        "end_time": "00:01:47.590",
+        "end_sec": 107.59,
+        "text": "up its detail View and scrolling through up its detail View and scrolling through the list can show you everything that"
+    },
+    {
+        "start_time": "00:01:47.590",
+        "start_sec": 107.59,
+        "end_time": "00:01:50.069",
+        "end_sec": 110.069,
+        "text": "the list can show you everything that the list can show you everything that doesn't fit in the view and just because"
+    },
+    {
+        "start_time": "00:01:50.069",
+        "start_sec": 110.069,
+        "end_time": "00:01:51.670",
+        "end_sec": 111.67,
+        "text": "doesn't fit in the view and just because doesn't fit in the view and just because you're showing a list doesn't mean you"
+    },
+    {
+        "start_time": "00:01:51.670",
+        "start_sec": 111.67,
+        "end_time": "00:01:53.389",
+        "end_sec": 113.38900000000001,
+        "text": "you're showing a list doesn't mean you you're showing a list doesn't mean you can't provide space for a quick ad"
+    },
+    {
+        "start_time": "00:01:53.389",
+        "start_sec": 113.38900000000001,
+        "end_time": "00:01:55.789",
+        "end_sec": 115.789,
+        "text": "can't provide space for a quick ad can't provide space for a quick ad action to easily create a new event in a"
+    },
+    {
+        "start_time": "00:01:55.789",
+        "start_sec": 115.789,
+        "end_time": "00:01:58.389",
+        "end_sec": 118.38900000000001,
+        "text": "action to easily create a new event in a action to easily create a new event in a single click widgets are great because"
+    },
+    {
+        "start_time": "00:01:58.389",
+        "start_sec": 118.38900000000001,
+        "end_time": "00:02:00.510",
+        "end_sec": 120.51,
+        "text": "single click widgets are great because single click widgets are great because they Empower you to make your useful to"
+    },
+    {
+        "start_time": "00:02:00.510",
+        "start_sec": 120.51,
+        "end_time": "00:02:02.149",
+        "end_sec": 122.149,
+        "text": "they Empower you to make your useful to they Empower you to make your useful to users even when they haven't"
+    },
+    {
+        "start_time": "00:02:02.149",
+        "start_sec": 122.149,
+        "end_time": "00:02:03.990",
+        "end_sec": 123.99,
+        "text": "users even when they haven't users even when they haven't specifically opened it and then you can"
+    },
+    {
+        "start_time": "00:02:03.990",
+        "start_sec": 123.99,
+        "end_time": "00:02:06.429",
+        "end_sec": 126.429,
+        "text": "specifically opened it and then you can specifically opened it and then you can easily get users back into your app"
+    },
+    {
+        "start_time": "00:02:06.429",
+        "start_sec": 126.429,
+        "end_time": "00:02:09.790",
+        "end_sec": 129.79,
+        "text": "easily get users back into your app easily get users back into your app because you're enticing them with because you're enticing them with because you're enticing them with completing an action so check out the"
+    },
+    {
+        "start_time": "00:02:09.790",
+        "start_sec": 129.79,
+        "end_time": "00:02:13.190",
+        "end_sec": 133.19,
+        "text": "completing an action so check out the completing an action so check out the documentation on widgets to learn how documentation on widgets to learn how documentation on widgets to learn how you can get started and what widgets can"
+    },
+    {
+        "start_time": "00:02:13.190",
+        "start_sec": 133.19,
+        "end_time": "00:02:16.030",
+        "end_sec": 136.03,
+        "text": "you can get started and what widgets can you can get started and what widgets can do for you but most importantly just"
+    },
+    {
+        "start_time": "00:02:16.030",
+        "start_sec": 136.03,
+        "end_time": "00:02:20.650",
+        "end_sec": 140.65,
+        "text": "do for you but most importantly just do for you but most importantly just continue to build better apps"
+    }
+]

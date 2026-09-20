@@ -9,7 +9,9 @@ class GeneratedReel extends Model
     protected $fillable = [
         'video_id',
         'target_word',
+        'status',
         'file_path',
+        'error_log',
         'is_posted_to_fb',
     ];
 

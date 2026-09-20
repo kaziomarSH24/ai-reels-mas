@@ -17,8 +17,12 @@ class ScraperService:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         
-        # This is where the magic happens to bypass Cloudflare
-        driver = uc.Chrome(options=options, version_main=115) 
+        # explicitly provide the paths for docker debian chromium
+        driver = uc.Chrome(
+            options=options,
+            driver_executable_path='/usr/bin/chromedriver',
+            browser_executable_path='/usr/bin/chromium'
+        ) 
         return driver
 
     def scrape_clips_for_word(self, target_word: str, max_clips: int = 5):
@@ -27,30 +31,50 @@ class ScraperService:
         bypass Cloudflare, and extract direct MP4 links.
         """
         print(f"[Scraper Bot] Starting search for: {target_word}")
-        driver = self.get_browser()
+        driver = None
         
         try:
-            # Step 1: Go to the website (e.g., Yarn)
+            driver = self.get_browser()
             url = f"https://getyarn.io/yarn-find?text={target_word.replace(' ', '+')}"
             driver.get(url)
             
-            # Step 2: Wait for Cloudflare to pass (The "Just a moment" screen)
-            # We train the bot to wait until the real video elements appear on screen
-            time.sleep(5) 
+            # Wait for Cloudflare challenge to pass and the grid to load
+            WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, 'a[href^="/yarn-clip/"]'))
+            )
             
-            # TODO: Add logic to extract the exact MP4 links from the DOM
-            # clips = driver.find_elements(By.CSS_SELECTOR, '.clip-wrap video source')
+            # Extract URLs via JavaScript
+            clip_hrefs = driver.execute_script(
+                "return Array.from(document.querySelectorAll('a[href^=\"/yarn-clip/\"]')).map(a => a.href);"
+            )
+            
+            # Deduplicate keeping order
+            seen = set()
+            unique_hrefs = [x for x in clip_hrefs if not (x in seen or seen.add(x))]
             
             downloaded_paths = []
             
-            # Step 3: Download them
-            # for link in clip_links[:max_clips]:
-            #     download_to_tmp()
+            for href in unique_hrefs[:max_clips]:
+                # Extract UUID: https://getyarn.io/yarn-clip/1234-abcd -> 1234-abcd
+                clip_id = href.split('/')[-1]
+                mp4_url = f"https://y.yarn.co/{clip_id}.mp4"
                 
+                # Download the MP4 directly
+                out_path = f"/var/www/public/scraped_{clip_id}.mp4"
+                
+                # Using requests to download
+                resp = requests.get(mp4_url, headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
+                if resp.status_code == 200:
+                    with open(out_path, 'wb') as f:
+                        for chunk in resp.iter_content(chunk_size=1024*1024):
+                            f.write(chunk)
+                    downloaded_paths.append(out_path)
+            
             return downloaded_paths
             
         except Exception as e:
             print(f"[Scraper Bot] Error: {str(e)}")
             return []
         finally:
-            driver.quit()
+            if driver:
+                driver.quit()

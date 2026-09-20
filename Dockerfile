@@ -14,13 +14,17 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-venv \
     libicu-dev \
-    libzip-dev
+    libzip-dev \
+    netcat-traditional
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl zip
+
+# Install Redis extension
+RUN pecl install redis && docker-php-ext-enable redis
 
 # Install Python packages for Video Processing, Subtitles & AI Translation
 # We use CPU-only PyTorch to avoid massive 3GB NVIDIA CUDA downloads in Docker
@@ -33,6 +37,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www
 
-# Expose port 9000 and start php-fpm server
+# Copy the entrypoint script
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Expose port 9000
 EXPOSE 9000
+
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["php-fpm"]

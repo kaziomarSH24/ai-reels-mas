@@ -230,9 +230,12 @@ class VideoClipsTable
                                 // Use first clip's video_id as reference
                                 $videoId = $records->first()->video_id ?? null;
                                 
+                                $expressionsTitle = $records->pluck('expression')->unique()->take(3)->implode(', ');
+                                if ($records->count() > 3) $expressionsTitle .= '...';
+
                                 $generatedReel = GeneratedReel::create([
                                     'video_id' => $videoId,
-                                    'target_word' => 'Export: ' . count($clipsToProcess) . ' Clips',
+                                    'target_word' => $expressionsTitle,
                                     'status' => 'pending',
                                     'file_path' => null,
                                     'is_posted_to_fb' => false,

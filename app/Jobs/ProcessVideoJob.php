@@ -90,7 +90,15 @@ class ProcessVideoJob implements ShouldQueue
             ]);
 
             $insertData = [];
+            $seenExpressions = [];
+
             foreach ($clipsData as $item) {
+                $expression = strtolower(trim($item['expression'] ?? ''));
+                if (empty($expression) || in_array($expression, $seenExpressions)) {
+                    continue; // Skip duplicate or empty expressions
+                }
+                $seenExpressions[] = $expression;
+
                 $insertData[] = [
                     'video_id'             => $video->id,
                     'expression'           => $item['expression'] ?? '',

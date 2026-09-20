@@ -147,3 +147,34 @@ def generate_compilation(request: GenerateCompilationRequest):
         )
     except Exception as e:
         return ApiResponse.response_error(message="Failed to generate reel", errors=str(e), status_code=500)
+
+class TranslateWordRequest(BaseModel):
+    word: str
+
+@router.post("/translate_word")
+def translate_word(request: TranslateWordRequest):
+    """
+    Fetches a fresh, highly contextual, and daily-usable translation and example 
+    for a specific word/phrase using Gemini AI.
+    """
+    try:
+        import json
+        prompt = f"""
+        Provide a highly practical, daily-use Bengali translation and easy example for the English expression: "{request.word}".
+        Return ONLY valid JSON in the exact format:
+        {{
+            "casual_meaning": "Bengali meaning",
+            "easy_example": "A very simple English daily-use example sentence using the phrase.",
+            "example_translation": "Bengali translation of the easy example."
+        }}
+        """
+        response = gemini_svc.model.generate_content(prompt)
+        text = response.text.replace("```json", "").replace("```", "").strip()
+        data = json.loads(text)
+        
+        return ApiResponse.response_success(
+            message="Translated successfully", 
+            data=data
+        )
+    except Exception as e:
+        return ApiResponse.response_error(message="Translation failed", errors=str(e), status_code=500)

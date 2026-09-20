@@ -250,7 +250,7 @@ class VideoClipsTable
                                     ->send();
                             } catch (\Exception $e) {
                                 Log::error('Generation Error (BulkAction): ' . $e->getMessage());
-                                Notification::make()->title('System Error')->body('FFmpeg rendering service is unreachable.')->danger()->send();
+                                Notification::make()->title('System Error')->body('Failed to queue job. Check logs for details.')->danger()->send();
                             }
                         })
                         ->deselectRecordsAfterCompletion(),

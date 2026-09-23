@@ -170,7 +170,9 @@ class VideoService:
                 'force_keyframes_at_cuts': True,
                 'cookiefile': '/var/www/cookies.txt',
                 'quiet': True,
-                'no_warnings': True
+                'no_warnings': True,
+                'socket_timeout': 30,
+                'retries': 2,
             }
             try:
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl:

@@ -1,0 +1,13 @@
+/vendor/
+/node_modules/
+/public/build/
+/storage/app/movies/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+.env
+.git
+.github
+.idea
+.vscode
+docker-compose.override.yml

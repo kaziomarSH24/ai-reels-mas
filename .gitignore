@@ -38,3 +38,11 @@ full_logs.txt
 __pycache__/
 *.py[cod]
 *.class
+
+# Terraform Secrets & State
+/terraform/.terraform*
+/terraform/*.tfstate
+/terraform/*.tfstate.*
+/terraform/terraform.tfvars
+/terraform/crash.log
+

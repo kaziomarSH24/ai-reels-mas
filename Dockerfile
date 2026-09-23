@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     netcat-traditional \
     chromium \
-    chromium-driver \\
+    chromium-driver \
     xvfb
 
 # Clear cache
@@ -39,6 +39,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www
+
+# Copy source code
+COPY . /var/www
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Set permissions for Laravel
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Copy the entrypoint script
 COPY entrypoint.sh /usr/local/bin/

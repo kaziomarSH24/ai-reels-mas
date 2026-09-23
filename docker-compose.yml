@@ -2,19 +2,16 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ai-reels-app
-    container_name: ai_reels_app
+    image: kaziomar/snapclip-reels:latest
+    container_name: snapclip_app
     restart: unless-stopped
     working_dir: /var/www
     env_file: .env
     volumes:
-      - .:/var/www
-      - ./movies_dataset:/var/www/storage/app/movies 
+      - storage_volume:/var/www/storage
+      - public_assets:/var/www/public
     networks:
-      - ai-network
+      - snapclip_network
     depends_on:
       db:
         condition: service_healthy
@@ -22,17 +19,16 @@ services:
         condition: service_healthy
 
   horizon:
-    image: ai-reels-app
-    container_name: ai_reels_horizon
+    image: kaziomar/snapclip-reels:latest
+    container_name: snapclip_horizon
     restart: unless-stopped
     working_dir: /var/www
     env_file: .env
     command: ["queue", "horizon"]
     volumes:
-      - .:/var/www
-      - ./movies_dataset:/var/www/storage/app/movies 
+      - storage_volume:/var/www/storage
     networks:
-      - ai-network
+      - snapclip_network
     depends_on:
       db:
         condition: service_healthy
@@ -43,21 +39,22 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: ai_reels_nginx
+    container_name: snapclip_nginx
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - .:/var/www
+      - public_assets:/var/www/public:ro
+      - storage_volume:/var/www/storage:ro
     networks:
-      - ai-network
+      - snapclip_network
     depends_on:
       - app
 
   ai_api:
-    image: ai-reels-app
-    container_name: ai_reels_python_api
+    image: kaziomar/snapclip-reels:latest
+    container_name: snapclip_api
     restart: unless-stopped
     working_dir: /var/www
     env_file: .env
@@ -65,22 +62,21 @@ services:
     ports:
       - "8001:8001"
     volumes:
-      - .:/var/www
-      - ./movies_dataset:/var/www/storage/app/movies
+      - storage_volume:/var/www/storage
     networks:
-      - ai-network
+      - snapclip_network
     depends_on:
       db:
         condition: service_healthy
 
   redis:
     image: redis:7-alpine
-    container_name: ai_reels_redis
+    container_name: snapclip_redis
     restart: unless-stopped
     volumes:
       - redis_data:/data
     networks:
-      - ai-network
+      - snapclip_network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -89,17 +85,15 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: ai_reels_db
+    container_name: snapclip_db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ai_reels_db
+      MYSQL_DATABASE: snapclip_db
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - dbdata:/var/lib/mysql
     networks:
-      - ai-network
-    ports:
-      - "3307:3306"
+      - snapclip_network
     healthcheck: 
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
@@ -107,9 +101,11 @@ services:
       retries: 5
 
 networks:
-  ai-network:
+  snapclip_network:
     driver: bridge
 
 volumes:
   dbdata:
   redis_data:
+  storage_volume:
+  public_assets:

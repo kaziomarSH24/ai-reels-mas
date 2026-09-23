@@ -30,7 +30,7 @@ class VideoJobResource extends Resource
     {
         return $schema->components([
             Textarea::make('youtube_url')
-                ->label('YouTube URL')
+                ->label('Video URL (YouTube, Drive, R2)')
                 ->required()
                 ->columnSpanFull(),
         ]);
@@ -45,9 +45,20 @@ class VideoJobResource extends Resource
                     ->sortable()
                     ->width('60px'),
 
+                TextColumn::make('source_type')
+                    ->label('Source')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'youtube' => 'danger',
+                        'gdrive'  => 'info',
+                        'direct'  => 'success',
+                        default   => 'gray',
+                    })
+                    ->formatStateUsing(fn (string $state): string => strtoupper($state)),
+
                 TextColumn::make('youtube_url')
-                    ->label('YouTube URL')
-                    ->limit(60)
+                    ->label('Video URL')
+                    ->limit(40)
                     ->tooltip(fn ($record) => $record->youtube_url)
                     ->searchable(),
 
@@ -60,6 +71,15 @@ class VideoJobResource extends Resource
                         'completed'  => 'success',
                         'failed'     => 'danger',
                         default      => 'gray',
+                    }),
+                    
+                TextColumn::make('duration')
+                    ->label('Time Taken')
+                    ->getStateUsing(function ($record) {
+                        if ($record->status !== 'completed' && $record->status !== 'failed') return '—';
+                        $seconds = $record->created_at->diffInSeconds($record->updated_at);
+                        if ($seconds < 60) return "{$seconds}s";
+                        return floor($seconds / 60) . 'm ' . ($seconds % 60) . 's';
                     })
                     ->icon(fn (string $state): string => match ($state) {
                         'pending'    => 'heroicon-o-clock',

@@ -19,16 +19,17 @@ gemini_svc = GeminiService(api_key=GEMINI_API_KEY)
 
 class AnalyzeVideoRequest(BaseModel):
     youtube_url: str
+    source_type: str = 'youtube'
 
 @router.post("/analyze_video")
 def analyze_video(request: AnalyzeVideoRequest):
     """
-    Phase 1: Downloads VTT subtitles and passes them to Gemini AI 
+    Phase 1 & 2: Extracts subtitles from the source and passes them to Gemini AI 
     to extract casual vocabulary, idioms, and daily phrases.
     """
     try:
         sub_service = SubtitleService()
-        dialogues = sub_service.fetch_and_parse(request.youtube_url)
+        dialogues = sub_service.fetch_and_parse(request.youtube_url, request.source_type)
         def time_to_sec(t):
             if isinstance(t, (int, float)): return t
             if ':' not in str(t): return float(t)

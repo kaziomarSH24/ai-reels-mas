@@ -31,8 +31,20 @@ class ListVideoJobs extends ListRecords
                         ->rows(2),
                 ])
                 ->action(function (array $data): void {
+                    $url = trim($data['youtube_url']);
+                    
+                    // Detect source type
+                    if (str_contains($url, 'youtube.com') || str_contains($url, 'youtu.be')) {
+                        $sourceType = 'youtube';
+                    } elseif (str_contains($url, 'drive.google.com') || str_contains($url, 'drive.usercontent.google.com')) {
+                        $sourceType = 'gdrive';
+                    } else {
+                        $sourceType = 'direct';
+                    }
+
                     $job = VideoJob::create([
-                        'youtube_url' => trim($data['youtube_url']),
+                        'youtube_url' => $url,
+                        'source_type' => $sourceType,
                         'status'      => 'pending',
                     ]);
                     ProcessVideoJob::dispatch($job);
@@ -46,8 +58,8 @@ class ListVideoJobs extends ListRecords
                 ->color('info')
                 ->form([
                     Textarea::make('youtube_urls')
-                        ->label('YouTube URLs (one per line)')
-                        ->placeholder("https://youtu.be/abc123\nhttps://youtu.be/xyz456\nhttps://youtu.be/def789")
+                        ->label('Video URLs (one per line)')
+                        ->placeholder("https://youtu.be/abc123\nhttps://drive.google.com/file/d/...")
                         ->required()
                         ->rows(10),
                 ])
@@ -57,8 +69,18 @@ class ListVideoJobs extends ListRecords
 
                     foreach ($urls as $url) {
                         if (filter_var($url, FILTER_VALIDATE_URL)) {
+                            // Detect source type
+                            if (str_contains($url, 'youtube.com') || str_contains($url, 'youtu.be')) {
+                                $sourceType = 'youtube';
+                            } elseif (str_contains($url, 'drive.google.com') || str_contains($url, 'drive.usercontent.google.com')) {
+                                $sourceType = 'gdrive';
+                            } else {
+                                $sourceType = 'direct';
+                            }
+
                             $job = VideoJob::create([
-                                'youtube_url' => $url,
+                                'youtube_url' => $url, // reusing this column for any URL
+                                'source_type' => $sourceType,
                                 'status'      => 'pending',
                             ]);
                             ProcessVideoJob::dispatch($job);

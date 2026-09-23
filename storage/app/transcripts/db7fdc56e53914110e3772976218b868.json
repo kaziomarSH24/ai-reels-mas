@@ -1,0 +1,653 @@
+[
+    {
+        "start_time": "00:00:00.021",
+        "start_sec": 0.021,
+        "end_time": "00:00:15.021",
+        "end_sec": 15.021,
+        "text": "{\\an8} VISIT & SUPPORT KMMOVIES.COM"
+    },
+    {
+        "start_time": "00:15:24.445",
+        "start_sec": 924.445,
+        "end_time": "00:15:26.947",
+        "end_sec": 926.947,
+        "text": "Shall we take Elias' daughter?"
+    },
+    {
+        "start_time": "00:15:27.615",
+        "start_sec": 927.615,
+        "end_time": "00:15:30.201",
+        "end_sec": 930.201,
+        "text": "The cells are packed solid, aren't they?"
+    },
+    {
+        "start_time": "00:15:33.245",
+        "start_sec": 933.245,
+        "end_time": "00:15:35.539",
+        "end_sec": 935.539,
+        "text": "What do you think of my new ship?"
+    },
+    {
+        "start_time": "00:19:29.523",
+        "start_sec": 1169.523,
+        "end_time": "00:19:31.191",
+        "end_sec": 1171.191,
+        "text": "Who are you?"
+    },
+    {
+        "start_time": "00:21:52.958",
+        "start_sec": 1312.958,
+        "end_time": "00:21:55.335",
+        "end_sec": 1315.335,
+        "text": "What did you hit now, Lloyd?"
+    },
+    {
+        "start_time": "00:23:00.818",
+        "start_sec": 1380.818,
+        "end_time": "00:23:01.568",
+        "end_sec": 1381.568,
+        "text": "The watch."
+    },
+    {
+        "start_time": "00:27:47.145",
+        "start_sec": 1667.145,
+        "end_time": "00:27:48.271",
+        "end_sec": 1668.271,
+        "text": "She's flying towards the sun!"
+    },
+    {
+        "start_time": "00:28:52.085",
+        "start_sec": 1732.085,
+        "end_time": "00:28:53.128",
+        "end_sec": 1733.128,
+        "text": "We've lost our engines!"
+    },
+    {
+        "start_time": "00:28:54.921",
+        "start_sec": 1734.921,
+        "end_time": "00:28:56.423",
+        "end_sec": 1736.423,
+        "text": "Found them."
+    },
+    {
+        "start_time": "00:31:01.047",
+        "start_sec": 1861.047,
+        "end_time": "00:31:01.798",
+        "end_sec": 1861.798,
+        "text": "Let her have him."
+    },
+    {
+        "start_time": "00:31:01.881",
+        "start_sec": 1861.881,
+        "end_time": "00:31:04.050",
+        "end_sec": 1864.05,
+        "text": "Krem has the strength of one thousand men."
+    },
+    {
+        "start_time": "00:31:04.134",
+        "start_sec": 1864.134,
+        "end_time": "00:31:05.176",
+        "end_sec": 1865.176,
+        "text": "He'll tear this little girl apart."
+    },
+    {
+        "start_time": "00:34:00.894",
+        "start_sec": 2040.894,
+        "end_time": "00:34:02.395",
+        "end_sec": 2042.395,
+        "text": "Sorry, we are a bit backed up."
+    },
+    {
+        "start_time": "00:38:16.024",
+        "start_sec": 2296.024,
+        "end_time": "00:38:16.858",
+        "end_sec": 2296.858,
+        "text": "Have you seen him?"
+    },
+    {
+        "start_time": "00:42:30.361",
+        "start_sec": 2550.361,
+        "end_time": "00:42:32.613",
+        "end_sec": 2552.613,
+        "text": "Is it now? I thought we had more time."
+    },
+    {
+        "start_time": "00:42:32.697",
+        "start_sec": 2552.697,
+        "end_time": "00:42:35.533",
+        "end_sec": 2555.533,
+        "text": "So did I, but Krypton's core is too unstable."
+    },
+    {
+        "start_time": "00:42:36.575",
+        "start_sec": 2556.575,
+        "end_time": "00:42:37.702",
+        "end_sec": 2557.702,
+        "text": "It will explode in minutes."
+    },
+    {
+        "start_time": "00:42:38.286",
+        "start_sec": 2558.286,
+        "end_time": "00:42:41.998",
+        "end_sec": 2561.998,
+        "text": "I have triggered the force field. We need to go."
+    },
+    {
+        "start_time": "00:42:42.915",
+        "start_sec": 2562.915,
+        "end_time": "00:42:43.582",
+        "end_sec": 2563.582,
+        "text": "Alura!"
+    },
+    {
+        "start_time": "00:42:43.666",
+        "start_sec": 2563.666,
+        "end_time": "00:42:44.375",
+        "end_sec": 2564.375,
+        "text": "Now!"
+    },
+    {
+        "start_time": "00:42:54.468",
+        "start_sec": 2574.468,
+        "end_time": "00:42:55.511",
+        "end_sec": 2575.511,
+        "text": "Is that him?"
+    },
+    {
+        "start_time": "00:42:57.888",
+        "start_sec": 2577.888,
+        "end_time": "00:42:58.764",
+        "end_sec": 2578.764,
+        "text": "That is Kal-El."
+    },
+    {
+        "start_time": "00:42:59.056",
+        "start_sec": 2579.056,
+        "end_time": "00:43:01.684",
+        "end_sec": 2581.684,
+        "text": "The sweet little boy your brother has declared a conqueror of worlds."
+    },
+    {
+        "start_time": "00:43:06.605",
+        "start_sec": 2586.605,
+        "end_time": "00:43:08.024",
+        "end_sec": 2588.024,
+        "text": "It's time."
+    },
+    {
+        "start_time": "00:43:59.825",
+        "start_sec": 2639.825,
+        "end_time": "00:44:02.912",
+        "end_sec": 2642.912,
+        "text": "Are we fools, Zor-El?"
+    },
+    {
+        "start_time": "00:44:02.995",
+        "start_sec": 2642.995,
+        "end_time": "00:44:06.374",
+        "end_sec": 2646.374,
+        "text": "Should we have listened to your brother?"
+    },
+    {
+        "start_time": "00:44:06.457",
+        "start_sec": 2646.457,
+        "end_time": "00:44:09.251",
+        "end_sec": 2649.251,
+        "text": "We can't send our daughter..."
+    },
+    {
+        "start_time": "00:44:09.335",
+        "start_sec": 2649.335,
+        "end_time": "00:44:11.462",
+        "end_sec": 2651.462,
+        "text": "to another planet to be some sort of god."
+    },
+    {
+        "start_time": "00:44:12.004",
+        "start_sec": 2652.004,
+        "end_time": "00:44:14.006",
+        "end_sec": 2654.006,
+        "text": "We preserved all this for a reason."
+    },
+    {
+        "start_time": "00:44:15.758",
+        "start_sec": 2655.758,
+        "end_time": "00:44:20.096",
+        "end_sec": 2660.096,
+        "text": "We have to believe there's a future here."
+    },
+    {
+        "start_time": "00:44:26.352",
+        "start_sec": 2666.352,
+        "end_time": "00:44:29.397",
+        "end_sec": 2669.397,
+        "text": "Kara, where are you?"
+    },
+    {
+        "start_time": "00:45:02.930",
+        "start_sec": 2702.93,
+        "end_time": "00:45:04.056",
+        "end_sec": 2704.056,
+        "text": "Tell me."
+    },
+    {
+        "start_time": "00:45:05.975",
+        "start_sec": 2705.975,
+        "end_time": "00:45:08.769",
+        "end_sec": 2708.769,
+        "text": "When Argo City broke off, it unearthed..."
+    },
+    {
+        "start_time": "00:45:08.853",
+        "start_sec": 2708.853,
+        "end_time": "00:45:13.232",
+        "end_sec": 2713.232,
+        "text": "a crystalline mineral buried deep in the planet."
+    },
+    {
+        "start_time": "00:45:14.400",
+        "start_sec": 2714.4,
+        "end_time": "00:45:15.151",
+        "end_sec": 2715.151,
+        "text": "Kryptonite."
+    },
+    {
+        "start_time": "00:45:16.569",
+        "start_sec": 2716.569,
+        "end_time": "00:45:19.280",
+        "end_sec": 2719.28,
+        "text": "The soil has been poisoned."
+    },
+    {
+        "start_time": "00:45:19.697",
+        "start_sec": 2719.697,
+        "end_time": "00:45:22.283",
+        "end_sec": 2722.283,
+        "text": "People are ill all over Argo..."
+    },
+    {
+        "start_time": "00:45:22.575",
+        "start_sec": 2722.575,
+        "end_time": "00:45:25.202",
+        "end_sec": 2725.202,
+        "text": "and it's spreading."
+    },
+    {
+        "start_time": "00:45:26.871",
+        "start_sec": 2726.871,
+        "end_time": "00:45:29.874",
+        "end_sec": 2729.874,
+        "text": "And can it be helped?"
+    },
+    {
+        "start_time": "00:45:46.515",
+        "start_sec": 2746.515,
+        "end_time": "00:45:47.183",
+        "end_sec": 2747.183,
+        "text": "Kara."
+    },
+    {
+        "start_time": "00:45:49.018",
+        "start_sec": 2749.018,
+        "end_time": "00:45:50.227",
+        "end_sec": 2750.227,
+        "text": "What is all this?"
+    },
+    {
+        "start_time": "00:45:52.146",
+        "start_sec": 2752.146,
+        "end_time": "00:45:54.648",
+        "end_sec": 2754.648,
+        "text": "Trying to preserve Argo with my force field was a failure."
+    },
+    {
+        "start_time": "00:45:57.234",
+        "start_sec": 2757.234,
+        "end_time": "00:46:01.405",
+        "end_sec": 2761.405,
+        "text": "The radiation has taken hold of me, too."
+    },
+    {
+        "start_time": "00:46:03.282",
+        "start_sec": 2763.282,
+        "end_time": "00:46:04.992",
+        "end_sec": 2764.992,
+        "text": "I cannot let it get you."
+    },
+    {
+        "start_time": "00:46:08.871",
+        "start_sec": 2768.871,
+        "end_time": "00:46:11.874",
+        "end_sec": 2771.874,
+        "text": "I found my brother's sketches for the escape pod."
+    },
+    {
+        "start_time": "00:46:12.791",
+        "start_sec": 2772.791,
+        "end_time": "00:46:14.376",
+        "end_sec": 2774.376,
+        "text": "I made it big enough for you."
+    },
+    {
+        "start_time": "00:46:16.003",
+        "start_sec": 2776.003,
+        "end_time": "00:46:18.506",
+        "end_sec": 2778.506,
+        "text": "You will follow your cousin, Kal-El."
+    },
+    {
+        "start_time": "00:46:19.924",
+        "start_sec": 2779.924,
+        "end_time": "00:46:22.968",
+        "end_sec": 2782.968,
+        "text": "You will make a new home on Earth."
+    },
+    {
+        "start_time": "00:46:25.763",
+        "start_sec": 2785.763,
+        "end_time": "00:46:26.430",
+        "end_sec": 2786.43,
+        "text": "No!"
+    },
+    {
+        "start_time": "00:46:28.140",
+        "start_sec": 2788.14,
+        "end_time": "00:46:29.308",
+        "end_sec": 2789.308,
+        "text": "This is my home."
+    },
+    {
+        "start_time": "00:46:30.059",
+        "start_sec": 2790.059,
+        "end_time": "00:46:33.854",
+        "end_sec": 2793.854,
+        "text": "This is my only home."
+    },
+    {
+        "start_time": "00:46:36.357",
+        "start_sec": 2796.357,
+        "end_time": "00:46:38.901",
+        "end_sec": 2798.901,
+        "text": "Let the radiation take me too."
+    },
+    {
+        "start_time": "00:46:39.735",
+        "start_sec": 2799.735,
+        "end_time": "00:46:43.697",
+        "end_sec": 2803.697,
+        "text": "I'll lie in the ground next to you and next to mom."
+    },
+    {
+        "start_time": "00:46:47.284",
+        "start_sec": 2807.284,
+        "end_time": "00:46:49.161",
+        "end_sec": 2809.161,
+        "text": "I am one tiny life."
+    },
+    {
+        "start_time": "00:46:50.287",
+        "start_sec": 2810.287,
+        "end_time": "00:46:54.166",
+        "end_sec": 2814.166,
+        "text": "What difference does it make whether I live or die?"
+    },
+    {
+        "start_time": "00:46:54.250",
+        "start_sec": 2814.25,
+        "end_time": "00:46:57.419",
+        "end_sec": 2817.419,
+        "text": "You are not one tiny life."
+    },
+    {
+        "start_time": "00:46:58.379",
+        "start_sec": 2818.379,
+        "end_time": "00:47:01.340",
+        "end_sec": 2821.34,
+        "text": "You are your mother's life."
+    },
+    {
+        "start_time": "00:47:02.508",
+        "start_sec": 2822.508,
+        "end_time": "00:47:04.301",
+        "end_sec": 2824.301,
+        "text": "You are my life."
+    },
+    {
+        "start_time": "00:47:05.427",
+        "start_sec": 2825.427,
+        "end_time": "00:47:09.181",
+        "end_sec": 2829.181,
+        "text": "You are our souls unfolding into the future."
+    },
+    {
+        "start_time": "00:47:10.391",
+        "start_sec": 2830.391,
+        "end_time": "00:47:11.600",
+        "end_sec": 2831.6,
+        "text": "My child..."
+    },
+    {
+        "start_time": "00:47:12.268",
+        "start_sec": 2832.268,
+        "end_time": "00:47:15.187",
+        "end_sec": 2835.187,
+        "text": "this is why you must live."
+    },
+    {
+        "start_time": "00:47:27.741",
+        "start_sec": 2847.741,
+        "end_time": "00:47:29.493",
+        "end_sec": 2849.493,
+        "text": "When I am gone,"
+    },
+    {
+        "start_time": "00:47:30.828",
+        "start_sec": 2850.828,
+        "end_time": "00:47:34.623",
+        "end_sec": 2854.623,
+        "text": "I need you to promise me something."
+    },
+    {
+        "start_time": "00:47:35.374",
+        "start_sec": 2855.374,
+        "end_time": "00:47:36.542",
+        "end_sec": 2856.542,
+        "text": "Of course, mother."
+    },
+    {
+        "start_time": "00:47:38.377",
+        "start_sec": 2858.377,
+        "end_time": "00:47:40.546",
+        "end_sec": 2860.546,
+        "text": "Just be good."
+    },
+    {
+        "start_time": "00:47:40.629",
+        "start_sec": 2860.629,
+        "end_time": "00:47:44.967",
+        "end_sec": 2864.967,
+        "text": "That doesn't mean you cannot be tough."
+    },
+    {
+        "start_time": "00:47:45.050",
+        "start_sec": 2865.05,
+        "end_time": "00:47:48.304",
+        "end_sec": 2868.304,
+        "text": "And that doesn't mean you have to be nice."
+    },
+    {
+        "start_time": "00:47:50.639",
+        "start_sec": 2870.639,
+        "end_time": "00:47:52.600",
+        "end_sec": 2872.6,
+        "text": "But you must be good."
+    },
+    {
+        "start_time": "00:48:01.609",
+        "start_sec": 2881.609,
+        "end_time": "00:48:04.403",
+        "end_sec": 2884.403,
+        "text": "We do not choose our paths."
+    },
+    {
+        "start_time": "00:48:06.238",
+        "start_sec": 2886.238,
+        "end_time": "00:48:08.866",
+        "end_sec": 2888.866,
+        "text": "Your path will be one of great effort..."
+    },
+    {
+        "start_time": "00:48:11.160",
+        "start_sec": 2891.16,
+        "end_time": "00:48:13.454",
+        "end_sec": 2893.454,
+        "text": "of great purpose."
+    },
+    {
+        "start_time": "00:48:15.289",
+        "start_sec": 2895.289,
+        "end_time": "00:48:20.502",
+        "end_sec": 2900.502,
+        "text": "Where you are going, you will have enormous power."
+    },
+    {
+        "start_time": "00:48:22.046",
+        "start_sec": 2902.046,
+        "end_time": "00:48:23.464",
+        "end_sec": 2903.464,
+        "text": "Use it to protect those..."
+    },
+    {
+        "start_time": "00:48:23.547",
+        "start_sec": 2903.547,
+        "end_time": "00:48:25.674",
+        "end_sec": 2905.674,
+        "text": "who cannot protect themselves."
+    },
+    {
+        "start_time": "00:48:27.384",
+        "start_sec": 2907.384,
+        "end_time": "00:48:29.136",
+        "end_sec": 2909.136,
+        "text": "Trust yourself..."
+    },
+    {
+        "start_time": "00:48:29.595",
+        "start_sec": 2909.595,
+        "end_time": "00:48:31.013",
+        "end_sec": 2911.013,
+        "text": "to know what is right, Kara."
+    },
+    {
+        "start_time": "00:49:12.846",
+        "start_sec": 2952.846,
+        "end_time": "00:49:14.139",
+        "end_sec": 2954.139,
+        "text": "We are with you."
+    },
+    {
+        "start_time": "00:52:25.706",
+        "start_sec": 3145.706,
+        "end_time": "00:52:28.917",
+        "end_sec": 3148.917,
+        "text": "Bomar, stop! It's for our daughter, we have no choice."
+    },
+    {
+        "start_time": "00:56:11.723",
+        "start_sec": 3371.723,
+        "end_time": "00:56:12.808",
+        "end_sec": 3372.808,
+        "text": "Bring me their daughter."
+    },
+    {
+        "start_time": "00:56:12.891",
+        "start_sec": 3372.891,
+        "end_time": "00:56:13.934",
+        "end_sec": 3373.934,
+        "text": "Now."
+    },
+    {
+        "start_time": "00:56:48.510",
+        "start_sec": 3408.51,
+        "end_time": "00:56:50.011",
+        "end_sec": 3410.011,
+        "text": "The brides!"
+    },
+    {
+        "start_time": "00:56:50.178",
+        "start_sec": 3410.178,
+        "end_time": "00:56:51.263",
+        "end_sec": 3411.263,
+        "text": "Get them! Get them!"
+    },
+    {
+        "start_time": "00:58:09.341",
+        "start_sec": 3489.341,
+        "end_time": "00:58:10.759",
+        "end_sec": 3490.759,
+        "text": "A deal is a deal."
+    },
+    {
+        "start_time": "00:58:11.760",
+        "start_sec": 3491.76,
+        "end_time": "00:58:13.011",
+        "end_sec": 3493.011,
+        "text": "She has to die."
+    },
+    {
+        "start_time": "01:06:59.871",
+        "start_sec": 4019.871,
+        "end_time": "01:07:01.164",
+        "end_sec": 4021.164,
+        "text": "I don't understand you."
+    },
+    {
+        "start_time": "01:07:01.831",
+        "start_sec": 4021.831,
+        "end_time": "01:07:03.124",
+        "end_sec": 4023.124,
+        "text": "Where am I?"
+    },
+    {
+        "start_time": "01:07:03.458",
+        "start_sec": 4023.458,
+        "end_time": "01:07:05.460",
+        "end_sec": 4025.46,
+        "text": "Is this Earth?"
+    },
+    {
+        "start_time": "01:07:06.461",
+        "start_sec": 4026.461,
+        "end_time": "01:07:07.795",
+        "end_sec": 4027.795,
+        "text": "Are you Kal-El?"
+    },
+    {
+        "start_time": "01:07:21.309",
+        "start_sec": 4041.309,
+        "end_time": "01:07:22.852",
+        "end_sec": 4042.852,
+        "text": "Krypto, be good, buddy."
+    },
+    {
+        "start_time": "01:07:23.686",
+        "start_sec": 4043.686,
+        "end_time": "01:07:24.395",
+        "end_sec": 4044.395,
+        "text": "Be good."
+    },
+    {
+        "start_time": "01:08:24.497",
+        "start_sec": 4104.497,
+        "end_time": "01:08:26.833",
+        "end_sec": 4106.833,
+        "text": "Why is he in his underwear?"
+    },
+    {
+        "start_time": "01:08:48.896",
+        "start_sec": 4128.896,
+        "end_time": "01:08:50.648",
+        "end_sec": 4130.648,
+        "text": "How can this be home?"
+    }
+]

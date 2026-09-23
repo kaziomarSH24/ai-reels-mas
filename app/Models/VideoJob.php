@@ -11,6 +11,7 @@ class VideoJob extends Model
 
     protected $fillable = [
         'youtube_url',
+        'source_type',
         'status',
         'retry_count',
         'error_log',

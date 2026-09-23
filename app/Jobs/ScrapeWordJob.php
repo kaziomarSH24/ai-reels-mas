@@ -18,10 +18,12 @@ class ScrapeWordJob implements ShouldQueue
     public $timeout = 600; // 10 minutes timeout per word
 
     protected string $targetWord;
+    protected int $maxClips;
 
-    public function __construct(string $targetWord)
+    public function __construct(string $targetWord, int $maxClips = 10)
     {
         $this->targetWord = $targetWord;
+        $this->maxClips = $maxClips;
     }
 
     public function handle(): void
@@ -31,7 +33,7 @@ class ScrapeWordJob implements ShouldQueue
         try {
             $response = Http::timeout(600)->post('http://ai_api:8001/api/scrape_clips', [
                 'target_word' => $this->targetWord,
-                'max_clips' => 5
+                'max_clips' => $this->maxClips
             ]);
 
             if ($response->successful()) {

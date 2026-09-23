@@ -21,6 +21,10 @@ class ScraperService:
         # Removed --headless to trick Cloudflare
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--disable-software-rasterizer')
+        options.add_argument('--disable-extensions')
+        options.add_argument('--mute-audio')
         
         # explicitly provide the paths for docker debian chromium
         driver = uc.Chrome(
@@ -69,7 +73,7 @@ class ScraperService:
                         clip_id = src.split('/')[-1].replace('.mp4', '')
                         out_path = f"/var/www/public/scraped_pp_{clip_id}.mp4"
                         
-                        resp = requests.get(src, headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
+                        resp = requests.get(src, headers={'User-Agent': 'Mozilla/5.0'}, stream=True, timeout=15)
                         if resp.status_code == 200:
                             with open(out_path, 'wb') as f:
                                 for chunk in resp.iter_content(chunk_size=1024*1024):
@@ -91,9 +95,6 @@ class ScraperService:
             return downloaded_paths
             
         except Exception as e:
-            if driver:
-                driver.save_screenshot('/var/www/public/debug_cloudflare.png')
-                print(f"[Scraper Bot] Screenshot saved to /var/www/public/debug_cloudflare.png")
             print(f"[Scraper Bot] Error: {str(e)}")
             return []
         finally:

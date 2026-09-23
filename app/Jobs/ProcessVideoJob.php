@@ -22,10 +22,10 @@ class ProcessVideoJob implements ShouldQueue
     public int $tries = 3;
 
     /**
-     * Max execution time in seconds (10 minutes).
-     * A long video with a lot of clips can take time.
+     * Max execution time in seconds (1 hour).
+     * A long video with a lot of clips over a slow connection can take time.
      */
-    public int $timeout = 600;
+    public int $timeout = 3600;
 
     /**
      * Create a new job instance.
@@ -45,9 +45,10 @@ class ProcessVideoJob implements ShouldQueue
         $this->videoJob->update(['status' => 'processing']);
 
         try {
-            // 2. Call Python API to analyze the video
-            $response = Http::timeout(300)->post('http://ai_api:8001/api/analyze_video', [
-                'youtube_url' => $this->videoJob->youtube_url,
+            // 2. Call Python API to analyze the video (now supports any source)
+            $response = Http::timeout(3500)->post('http://ai_api:8001/api/analyze_video', [
+                'youtube_url' => $this->videoJob->youtube_url, // Used as generic URL
+                'source_type' => $this->videoJob->source_type,
             ]);
 
             // 3. Handle Gemini quota exceeded (HTTP 429) - Release back to queue after 60s
@@ -77,14 +78,19 @@ class ProcessVideoJob implements ShouldQueue
                 return;
             }
 
-            // 5. Extract thumbnail
-            $youtubeId    = $this->extractYoutubeId($this->videoJob->youtube_url);
-            $thumbnailUrl = $youtubeId ? "https://img.youtube.com/vi/{$youtubeId}/hqdefault.jpg" : null;
+            // 5. Extract thumbnail (Only applies if it's YouTube)
+            $thumbnailUrl = null;
+            if ($this->videoJob->source_type === 'youtube') {
+                $youtubeId = $this->extractYoutubeId($this->videoJob->youtube_url);
+                $thumbnailUrl = $youtubeId ? "https://img.youtube.com/vi/{$youtubeId}/hqdefault.jpg" : null;
+            }
 
             // 6. Persist the video and its extracted clips
             $video = Video::create([
-                'title'         => 'Bulk Import: ' . now()->format('Y-m-d H:i'),
-                'youtube_url'   => $this->videoJob->youtube_url,
+                'title'         => 'Imported from Queue: ' . now()->format('Y-m-d H:i'),
+                'youtube_url'   => $this->videoJob->source_type === 'youtube' ? $this->videoJob->youtube_url : null,
+                'source_url'    => $this->videoJob->source_type !== 'youtube' ? $this->videoJob->youtube_url : null,
+                'source_type'   => $this->videoJob->source_type,
                 'thumbnail_url' => $thumbnailUrl,
                 'is_processed'  => true,
             ]);

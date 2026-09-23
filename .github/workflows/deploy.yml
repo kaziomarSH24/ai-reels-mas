@@ -61,10 +61,11 @@ jobs:
             # Force pull the latest image from Docker Hub
             docker compose -f docker-compose.yml pull
             
-            # ⚠️ Clean old database volume to apply new passwords (One-time reset)
-            docker compose -f docker-compose.yml down -v
-            
             # Restart the services with the new image and passwords
             docker compose -f docker-compose.yml up -d
+            
+            # Run database seeders to create initial admin user
+            docker exec snapclip_app php artisan db:seed --force || true
+            
             # Optional: Clean up old unused images to save VM space
             docker image prune -f

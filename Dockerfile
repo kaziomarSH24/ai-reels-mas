@@ -43,6 +43,10 @@ WORKDIR /var/www
 # Copy source code
 COPY . /var/www
 
+# Create required Laravel cache directories (since they are dockerignored)
+RUN mkdir -p /var/www/storage/framework/{sessions,views,cache} \
+    && mkdir -p /var/www/bootstrap/cache
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 

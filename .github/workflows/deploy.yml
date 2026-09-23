@@ -54,7 +54,10 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            set -e
             cd /home/${{ secrets.SSH_USERNAME }}/snapclip-reels
+            # Login to docker hub on the server in case the repo is private
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
             # Force pull the latest image from Docker Hub
             docker compose -f docker-compose.yml pull
             # Restart the services with the new image

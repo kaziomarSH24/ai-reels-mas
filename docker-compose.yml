@@ -44,7 +44,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx-prod:/etc/nginx/conf.d
       - public_assets:/var/www/public:ro
       - storage_volume:/var/www/storage:ro
     networks:
@@ -88,8 +88,10 @@ services:
     container_name: snapclip_db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: snapclip_db
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_DATABASE:-snapclip_db}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - dbdata:/var/lib/mysql
     networks:

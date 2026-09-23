@@ -24,3 +24,4 @@ services:
       - "8000:80"
     volumes:
       - .:/var/www
+      - ./nginx-local:/etc/nginx/conf.d

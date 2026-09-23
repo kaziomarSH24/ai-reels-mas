@@ -43,7 +43,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "docker-compose.yml,nginx/,.env"
+          source: "docker-compose.yml,nginx-prod/,.env"
           target: "/home/${{ secrets.SSH_USERNAME }}/snapclip-reels"
           overwrite: true
 
@@ -60,7 +60,11 @@ jobs:
             echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
             # Force pull the latest image from Docker Hub
             docker compose -f docker-compose.yml pull
-            # Restart the services with the new image
+            
+            # ⚠️ Clean old database volume to apply new passwords (One-time reset)
+            docker compose -f docker-compose.yml down -v
+            
+            # Restart the services with the new image and passwords
             docker compose -f docker-compose.yml up -d
             # Optional: Clean up old unused images to save VM space
             docker image prune -f

@@ -97,7 +97,7 @@ services:
     networks:
       - snapclip_network
     healthcheck: 
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      test: ["CMD", "sh", "-c", "mysqladmin ping -h localhost -u $${MYSQL_USER:-root} -p$${MYSQL_PASSWORD:-root}"]
       interval: 10s
       timeout: 5s
       retries: 5

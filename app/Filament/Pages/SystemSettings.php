@@ -51,10 +51,7 @@ class SystemSettings extends Page implements HasForms
                 FileUpload::make('cookie_file')
                     ->label('Upload cookies.txt for yt-dlp')
                     ->disk('local')
-                    ->directory('')
-                    ->getUploadedFileNameForStorageUsing(
-                        fn (TemporaryUploadedFile $file): string => 'cookies.txt',
-                    )
+                    ->directory('temp_cookies')
                     ->acceptedFileTypes(['text/plain'])
                     ->helperText('Upload your browser cookies to bypass YouTube bot protection.')
                     ->required(),
@@ -66,8 +63,22 @@ class SystemSettings extends Page implements HasForms
     {
         $data = $this->form->getState();
         
+        if (!empty($data['cookie_file'])) {
+            // Get the uploaded file path
+            $uploadedPath = is_array($data['cookie_file']) ? array_values($data['cookie_file'])[0] : $data['cookie_file'];
+            
+            // Move and overwrite as exactly cookies.txt in the root of local disk (storage/app)
+            if (Storage::disk('local')->exists($uploadedPath)) {
+                $content = Storage::disk('local')->get($uploadedPath);
+                Storage::disk('local')->put('cookies.txt', $content);
+                
+                // Cleanup temp
+                Storage::disk('local')->delete($uploadedPath);
+            }
+        }
+        
         Notification::make()
-            ->title('Saved successfully')
+            ->title('Cookies saved successfully')
             ->success()
             ->send();
     }

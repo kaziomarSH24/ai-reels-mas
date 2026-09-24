@@ -28,7 +28,6 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
-cookies.txt
 
 # Ignore AI Models
 python_engine/models/

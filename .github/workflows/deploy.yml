@@ -69,6 +69,15 @@ jobs:
             # Restart the services with the new image and passwords
             docker compose -f docker-compose.yml up -d
             
+            echo "Waiting 10 seconds for containers to initialize..."
+            sleep 10
+            
+            echo "--- DB CONTAINER LOGS ---"
+            docker logs snapclip_db --tail 50
+            
+            echo "--- APP CONTAINER LOGS ---"
+            docker logs snapclip_app --tail 50
+            
             # Run database seeders to create initial admin user
             docker exec snapclip_app php artisan db:seed --force || true
             

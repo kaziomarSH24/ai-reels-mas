@@ -60,7 +60,7 @@ class SubtitleService:
             sub_file_path = f"/tmp/{cache_id}.srt"
             
             if source_type == 'youtube':
-                cookie_path = '/var/www/storage/app/cookies.txt'
+                cookie_path = '/var/www/storage/app/private/cookies.txt'
                 sub_file = f"/tmp/{cache_id}"
                 
                 cmd = [
@@ -126,7 +126,7 @@ class SubtitleService:
                 
                 # We use --cookies here as well just in case the Drive link requires auth
                 stream_cmd = ["yt-dlp", "-g", video_url]
-                cookie_path = '/var/www/storage/app/cookies.txt'
+                cookie_path = '/var/www/storage/app/private/cookies.txt'
                 if os.path.exists(cookie_path):
                     stream_cmd.extend(["--cookies", cookie_path])
                     

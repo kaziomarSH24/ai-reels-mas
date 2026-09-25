@@ -9,7 +9,7 @@
         </div>
     </form>
     
-    @if(file_exists(storage_path('app/cookies.txt')))
+    @if(file_exists(storage_path('app/private/cookies.txt')))
         <div class="mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
             ✅ cookies.txt is currently active on the server.
         </div>

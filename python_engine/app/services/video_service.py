@@ -168,7 +168,7 @@ class VideoService:
                 'outtmpl': raw_path,
                 'download_ranges': yt_dlp.utils.download_range_func(None, [(start_sec, end_sec)]),
                 'force_keyframes_at_cuts': True,
-                'cookiefile': '/var/www/storage/app/cookies.txt',
+                'cookiefile': '/var/www/storage/app/private/cookies.txt',
                 'legacyserverconnect': True,
                 'quiet': True,
                 'no_warnings': True,

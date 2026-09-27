@@ -1,58 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎬 AI Reels Generator (Microservices Architecture)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Filament](https://img.shields.io/badge/Filament-v5.x-FDAE4B?style=for-the-badge)](https://filamentphp.com)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+[![Redis Horizon](https://img.shields.io/badge/Redis-Queue%20%26%20Horizon-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://laravel.com/docs/horizon)
+[![OpenAI Whisper](https://img.shields.io/badge/Whisper-faster--whisper-blueviolet?style=for-the-badge)](https://github.com/SYSTRAN/faster-whisper)
 
-## About Laravel
+> **An automated, zero-storage microservices platform that extracts vocabulary timestamps from long-form videos using AI Speech-to-Text and generates 9:16 vertical shorts/reels on demand.**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Key Highlights & System Architecture
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 💡 The "Zero-Storage Smart Partial Ingestion" Problem & Solution
+* **The Problem:** Downloading and retaining hundreds of full-length movies on the server causes exponential disk storage costs and bandwidth bottlenecks.
+* **The Solution:** 
+  1. Temporary ingestion pipeline downloads the audio stream.
+  2. `faster-whisper` extracts complete dialogues with precise timestamps (word-level precision) and indexes them into MySQL.
+  3. The raw video/audio file is **immediately purged** (Zero Server Storage).
+  4. When a user requests a reel for a specific word, phrase, or emotion, the system leverages `yt-dlp --download-sections` to fetch **only the required 3–5 second clip** on demand and stitches them using `moviepy`.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```mermaid
+flowchart TD
+    A[YouTube / Video Ingestion] --> B[Audio Extractor]
+    B --> C[faster-whisper AI Service]
+    C --> D[(Laravel MySQL DB: Timestamps & Dialogue Index)]
+    C --> E[Auto-Purge Raw File: 0 GB Retained]
+    
+    U[User Query / Keyword] --> F[Laravel Orchestrator]
+    F --> D
+    F --> G[Redis Horizon Queue]
+    G --> H[Python Video Processing Engine]
+    H --> I[yt-dlp Partial Stream Fetch: 3-5s clips]
+    I --> J[moviepy Stitcher & Aspect Ratio 9:16]
+    J --> K[Auto Subtitle Burner]
+    K --> L[Rendered Reel Output]
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## 🚀 Tech Stack
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Domain | Technologies |
+| :--- | :--- |
+| **Backend Orchestrator** | Laravel 13.x, PHP 8.3+, Filament v5, RESTful APIs, Eloquent ORM |
+| **Queue & Concurrency** | Redis, Laravel Horizon (Asynchronous Distributed Jobs) |
+| **AI & NLP Engine** | Python 3.11, `faster-whisper`, CEFR Word-Level Classifier (Jupyter) |
+| **Video Processing** | `moviepy`, `ffmpeg`, `yt-dlp` |
+| **DevOps & Infrastructure** | Docker, Docker Compose, Nginx, Multi-container Networking |
+| **Frontend UI** | Modern React + Tailwind CSS Dashboard |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📦 Multi-Container Docker Architecture
 
-## Security Vulnerabilities
+The entire microservice ecosystem runs fully containerized via `docker-compose`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* `ai_reels_app`: Laravel application backend runtime.
+* `ai_reels_horizon`: Dedicated container for background queue workers & job dispatching.
+* `ai_reels_python_api`: Dedicated Python AI microservice running Whisper & video processing logic.
+* `ai_reels_nginx`: High-performance reverse proxy.
+* `ai_reels_mysql`: Relational data store for timestamp indexes and vocabulary metadata.
+* `ai_reels_redis`: High-throughput caching and queue broker for distributed tasks.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🛠️ Quickstart (Local Development)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/kaziomarSH24/ai-reels-mas.git
+cd ai-reels-mas
+```
+
+### 2. Environment Configuration
+```bash
+cp .env.example .env
+```
+
+### 3. Spin up with Docker Compose
+```bash
+docker compose up -d --build
+```
+
+### 4. Run Migrations & Dependencies
+```bash
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate
+```
+
+Visit the application at: `http://localhost:8000`  
+Monitor background queues via Laravel Horizon: `http://localhost:8000/horizon`
+
+---
+
+## 🔬 NLP & Vocabulary Intelligence
+* Includes an experimental **CEFR (Common European Framework of Reference) Word-Level Classifier** trained on subtitle datasets to categorize dialogues by difficulty (A1–C2).
+* Notebooks and metrics graph available in `cefr-word-level-classifier.ipynb` and `notebook-nlp/`.
+
+---
+
+## 👨‍💻 Author
+
+**Kazi Omar Faruk**  
+*Full Stack / Backend Engineer*  
+* [LinkedIn](https://www.linkedin.com/in/kaziomarsh24/)  
+* [Portfolio](https://kaziomar.vercel.app/)  
+* [GitHub](https://github.com/kaziomarSH24)

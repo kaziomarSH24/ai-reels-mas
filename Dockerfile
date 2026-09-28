@@ -19,7 +19,10 @@ RUN apt-get update && apt-get install -y \
     chromium \
     chromium-driver \
     xvfb \
-    nodejs \n    && curl -fsSL https://deno.land/install.sh | sh \n    && ln -s /root/.deno/bin/deno /usr/bin/deno
+    unzip \
+    curl \
+    && curl -fsSL https://deno.land/install.sh | sh \
+    && ln -s /root/.deno/bin/deno /usr/bin/deno
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*

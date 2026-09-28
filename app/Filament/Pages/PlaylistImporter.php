@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Log;
 
 class PlaylistImporter extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
-    protected static ?string $navigationGroup = 'Tools';
-    protected static ?string $navigationLabel = 'Playlist Importer';
-    protected static ?string $title = 'YouTube Playlist Bulk Importer';
+    public static function getNavigationIcon(): ?string { return 'heroicon-o-queue-list'; }
+    public static function getNavigationGroup(): ?string { return 'Tools'; }
+    public static function getNavigationLabel(): string { return 'Playlist Importer'; }
+    public function getTitle(): string|\Illuminate\Contracts\Support\Htmlable { return 'YouTube Playlist Bulk Importer'; }
 
     protected string $view = 'filament.pages.playlist-importer';
 

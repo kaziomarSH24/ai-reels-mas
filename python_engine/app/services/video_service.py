@@ -176,6 +176,7 @@ class VideoService:
                 'no_warnings': True,
                 'socket_timeout': 30,
                 'retries': 2,
+                'extractor_args': {'youtube': ['player_client=android']},
             }
             try:
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl:

@@ -10,9 +10,17 @@ use App\Jobs\ProcessVideoJob;
 use Illuminate\Support\Facades\Log;
 use BackedEnum;
 use UnitEnum;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Form;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Section;
 
-class PlaylistImporter extends Page
+class PlaylistImporter extends Page implements HasForms
 {
+    use InteractsWithForms;
+
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
     protected static string | UnitEnum | null $navigationGroup = 'Tools';
     protected static ?string $navigationLabel = 'Playlist Importer';
@@ -20,21 +28,40 @@ class PlaylistImporter extends Page
 
     protected string $view = 'filament.pages.playlist-importer';
 
-    public $playlist_url = '';
+    public ?array $data = [];
     public $extracted_links = '';
     public $is_loading = false;
 
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Section::make('Extract Links')
+                    ->description('Enter a YouTube playlist URL to extract all video links.')
+                    ->schema([
+                        TextInput::make('playlist_url')
+                            ->label('Playlist URL')
+                            ->placeholder('https://www.youtube.com/playlist?list=...')
+                            ->required()
+                            ->url(),
+                    ]),
+            ])
+            ->statePath('data');
+    }
+
     public function fetchLinks()
     {
-        $this->validate([
-            'playlist_url' => 'required|url'
-        ]);
-
+        $data = $this->form->getState();
         $this->is_loading = true;
         $this->extracted_links = '';
 
         try {
-            $url = escapeshellarg($this->playlist_url);
+            $url = escapeshellarg($data['playlist_url']);
             $process = Process::fromShellCommandline("yt-dlp --flat-playlist --print 'https://www.youtube.com/watch?v=%(id)s' {$url}");
             $process->setTimeout(120);
             $process->run();
@@ -96,6 +123,6 @@ class PlaylistImporter extends Page
             ->send();
             
         $this->extracted_links = '';
-        $this->playlist_url = '';
+        $this->form->fill();
     }
 }

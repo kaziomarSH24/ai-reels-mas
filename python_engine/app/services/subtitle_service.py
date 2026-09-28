@@ -67,6 +67,7 @@ class SubtitleService:
                     "yt-dlp",
                     "--js-runtimes", "deno",
                     "--remote-components", "ejs:github",
+                    "--extractor-args", "youtube:player-client=android",
                     "--write-auto-subs",
                     "--write-subs",
                     "--sub-lang", "en",

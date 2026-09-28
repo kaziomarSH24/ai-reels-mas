@@ -8,13 +8,15 @@ use Symfony\Component\Process\Process;
 use App\Models\VideoJob;
 use App\Jobs\ProcessVideoJob;
 use Illuminate\Support\Facades\Log;
+use BackedEnum;
+use UnitEnum;
 
 class PlaylistImporter extends Page
 {
-    protected static $navigationIcon = 'heroicon-o-queue-list';
-    protected static $navigationGroup = 'Tools';
-    protected static $navigationLabel = 'Playlist Importer';
-    protected static $title = 'YouTube Playlist Bulk Importer';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-queue-list';
+    protected static string | UnitEnum | null $navigationGroup = 'Tools';
+    protected static ?string $navigationLabel = 'Playlist Importer';
+    protected static ?string $title = 'YouTube Playlist Bulk Importer';
 
     protected string $view = 'filament.pages.playlist-importer';
 

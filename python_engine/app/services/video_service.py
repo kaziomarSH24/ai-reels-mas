@@ -169,6 +169,8 @@ class VideoService:
                 'download_ranges': yt_dlp.utils.download_range_func(None, [(start_sec, end_sec)]),
                 'force_keyframes_at_cuts': True,
                 'cookiefile': '/var/www/storage/app/private/cookies.txt',
+                'js_runtimes': ['deno'],
+                'remote_components': 'ejs:github',
                 'legacyserverconnect': True,
                 'quiet': True,
                 'no_warnings': True,

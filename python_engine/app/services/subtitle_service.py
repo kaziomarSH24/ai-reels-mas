@@ -65,6 +65,8 @@ class SubtitleService:
                 
                 cmd = [
                     "yt-dlp",
+                    "--js-runtimes", "deno",
+                    "--remote-components", "ejs:github",
                     "--write-auto-subs",
                     "--write-subs",
                     "--sub-lang", "en",
@@ -125,7 +127,7 @@ class SubtitleService:
                 print(f"[SubtitleService] Resolving direct stream URL for {video_url}...")
                 
                 # We use --cookies here as well just in case the Drive link requires auth
-                stream_cmd = ["yt-dlp", "-g", video_url]
+                stream_cmd = ["yt-dlp", "--js-runtimes", "deno", "--remote-components", "ejs:github", "-g", video_url]
                 cookie_path = '/var/www/storage/app/private/cookies.txt'
                 if os.path.exists(cookie_path):
                     stream_cmd.extend(["--cookies", cookie_path])

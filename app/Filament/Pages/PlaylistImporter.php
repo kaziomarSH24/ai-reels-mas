@@ -12,10 +12,10 @@ use BackedEnum;
 use UnitEnum;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Section;
 
 class PlaylistImporter extends Page implements HasForms
 {
@@ -37,13 +37,13 @@ class PlaylistImporter extends Page implements HasForms
         $this->form->fill();
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $form): Schema
     {
         return $form
-            ->schema([
+            ->components([
                 Section::make('Extract Links')
                     ->description('Enter a YouTube playlist URL to extract all video links.')
-                    ->schema([
+                    ->components([
                         TextInput::make('playlist_url')
                             ->label('Playlist URL')
                             ->placeholder('https://www.youtube.com/playlist?list=...')

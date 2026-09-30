@@ -8,6 +8,7 @@ use Symfony\Component\Process\Process;
 use App\Models\VideoJob;
 use App\Jobs\ProcessVideoJob;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 use BackedEnum;
 use UnitEnum;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -54,33 +55,68 @@ class PlaylistImporter extends Page implements HasForms
             ->statePath('data');
     }
 
-    public function fetchLinks()
+        public function fetchLinks()
     {
         $data = $this->form->getState();
         $this->is_loading = true;
         $this->extracted_links = '';
+        $apiKey = env('YOUTUBE_API_KEY');
+
+        if (empty($apiKey)) {
+            Notification::make()->title('API Key Missing')->body('Please set YOUTUBE_API_KEY in your .env file')->danger()->send();
+            $this->is_loading = false;
+            return;
+        }
 
         try {
-            $url = escapeshellarg($data['playlist_url']);
-            $process = Process::fromShellCommandline("yt-dlp --flat-playlist --print 'https://www.youtube.com/watch?v=%(id)s' {$url}");
-            $process->setTimeout(120);
-            $process->run();
+            $url = $data['playlist_url'];
+            parse_str(parse_url($url, PHP_URL_QUERY), $queryParams);
+            $playlistId = $queryParams['list'] ?? null;
 
-            if (!$process->isSuccessful()) {
-                Notification::make()
-                    ->title('Failed to fetch playlist')
-                    ->body($process->getErrorOutput())
-                    ->danger()
-                    ->send();
+            if (!$playlistId) {
+                Notification::make()->title('Invalid URL')->body('Could not find a valid playlist ID in the URL.')->danger()->send();
                 $this->is_loading = false;
                 return;
             }
 
-            $this->extracted_links = trim($process->getOutput());
+            $pageToken = '';
+            $extractedUrls = [];
             
-            $count = count(array_filter(explode("\n", $this->extracted_links)));
+            do {
+                $response = Http::get("https://www.googleapis.com/youtube/v3/playlistItems", [
+                    'part' => 'snippet',
+                    'maxResults' => 50,
+                    'playlistId' => $playlistId,
+                    'key' => $apiKey,
+                    'pageToken' => $pageToken,
+                ]);
+
+                if ($response->failed()) {
+                    Notification::make()
+                        ->title('YouTube API Error')
+                        ->body($response->json('error.message', 'Failed to fetch playlist data.'))
+                        ->danger()
+                        ->send();
+                    $this->is_loading = false;
+                    return;
+                }
+
+                $items = $response->json('items', []);
+                foreach ($items as $item) {
+                    $videoId = data_get($item, 'snippet.resourceId.videoId');
+                    if ($videoId) {
+                        $extractedUrls[] = "https://www.youtube.com/watch?v={$videoId}";
+                    }
+                }
+
+                $pageToken = $response->json('nextPageToken');
+            } while ($pageToken);
+
+            $this->extracted_links = implode("\n", $extractedUrls);
+            $count = count($extractedUrls);
+            
             Notification::make()
-                ->title("Successfully extracted {$count} links!")
+                ->title("Successfully extracted {$count} links using Official API!")
                 ->success()
                 ->send();
 
